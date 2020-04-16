@@ -32,43 +32,73 @@ extension Array {
 }
 
 struct ContentView: View {
-    let timesTables = TimesTable(number: 12).all
+    let timesTables = TimesTables(number: 14).allTables
     
     @State private var showingSheet = false
     @State private var numberOfQuestions = "0"
     @State private var questions = [String]()
     @State private var selectedTables = [[Int]]()
     
+    
+    
     var body: some View {
-        
+        GeometryReader { geo in
             VStack {
                 Spacer()
                 VStack {
-                    Text("Multiply Game")
+                    Image("title")
                     HStack {
                         Text("number of question: ")
-                        TextField("number of question", text: $numberOfQuestions)
+                            .font(.system(size: 16, weight: .bold, design: .rounded))
+                        TextField("number of question", text: self.$numberOfQuestions)
+                            .font(.system(size: 16, weight: .bold, design: .rounded))
                     }
                 }
-                
-                ForEach(self.timesTables.chunked(into: 3), id: \.number) {row in
-                    HStack {
-                        ForEach(row, id: \.self) {_ in
-                            ColoredButtonView(table: 3)
+                ScrollView() {
+                    VStack(spacing: 8) {
+                        ForEach(self.timesTables.chunked(into: 3), id: \.self) { row in
+                            HStack(spacing: 8) {
+                                ForEach(row, id: \.self) { table in
+                                    ColoredButtonView(table: table.id)
+                                    .frame(width: geo.size.width / 3.2)
+                                }
+                            }.frame(height: geo.size.width / 3.2)
                         }
                     }
                 }
                 
-                
                 Spacer()
-                Button("Play") {
-                    self.showingSheet.toggle()
-                    self.play()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        // add action
+                    }, label: {
+                        Image("learn")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 70)
+                    })
+                    Spacer()
+                    Button(action: {
+                        self.showingSheet.toggle()
+                        self.play()
+                    }, label: {
+                        Image("play")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 70)
+                    })
+                     Spacer()
                 }
-                .sheet(isPresented: $showingSheet) {
+                
+                .sheet(isPresented: self.$showingSheet) {
                     GameView()
                 }
-        }.padding()
+            }
+        }.frame(maxWidth: 400)
+        .padding(.horizontal, 40)
         
     }
     

@@ -8,55 +8,116 @@
 
 import Foundation
 
-struct Table {
+struct Table: Identifiable, Hashable {
+    let id: Int
     let multiplier: Int
+    
     subscript(index: Int) -> Int {
         multiplier * index
     }
+    
     init(of multiplier: Int) {
+    self.id = multiplier
     self.multiplier = multiplier
     }
     
-    func multiplierString() -> String {
+    func toString(index: Int) -> String {
         "\(multiplier) x \(index)"
+    }
+    
+    func result(index: Int) -> Int {
+        multiplier * index
     }
 }
 
-
-//let threeTimesTable = TimesTable(multiplier: 3)
-//print("six times three is \(threeTimesTable[6])")
-//// Prints "six times three is 18"
-////-----------------------------------
-//
-//for i in 1...10 {
-//    for j in 1...10 {
-//        let product = i * j
-//        print ("\(i) * \(j) is \(product)")
-//    }
-//}
-
-class TimesTables: Identifiable {
+class TimesTables {
     let number: Int
+    let range: [Int]
     
-    var all: [[String]] {
-        let range = 1...number
-        var tables: [[String]] = []
-        for i in range {
-            tables.append(range.map { "\(i) x \($0)" })
+    var allTables: [Table] {
+        var tables: [Table] = []
+        for number in range {
+            tables.append(Table(of: number))
         }
         return tables
     }
     
-    static func result(of calcul: String) -> String {
-        let number = calcul.components(separatedBy: " x ")
-        var result  = 0
-        if let firstNumber = Int(number[0]), let secondNumber = Int(number[1]){
-            result = firstNumber * secondNumber
+    var stringTables: [String] {
+        var strings: [String] = []
+        for table in allTables {
+            for number in range {
+                strings.append(table.toString(index: number))
+            }
         }
-        return String(result)
+        return strings
+    }
+    
+    var allresults: [Int] {
+        var results: [Int] =  []
+              for table in allTables {
+              for number in range {
+                  results.append(table.result(index: number))
+              }
+          }
+          return results
     }
     
     init(number: Int) {
         self.number = number
+        self.range = Array(1...number)
     }
 }
+
+//struct Table: Identifiable {
+//    let id: Int
+//    let multiplier: Int
+//
+//    subscript(index: Int) -> Int {
+//        multiplier * index
+//    }
+//
+//    init(of multiplier: Int) {
+//    self.id = multiplier
+//    self.multiplier = multiplier
+//    }
+//
+//    func toString(index: Int) -> String {
+//        "\(multiplier) x \(index)"
+//    }
+//}
+//
+//
+//class TimesTables: Identifiable {
+//    let number: Int
+//    let range: [Int]
+//
+//    var all: [[String]] {
+//        var tables: [[String]] = []
+//        for i in range {
+//            tables.append(range.map { "\(i) x \($0)" })
+//        }
+//        return tables
+//    }
+//
+//    var allTables: [Table] {
+//        var tables: [Table] = []
+//        for number in range {
+//            tables.append(Table(of: number))
+//        }
+//        return tables
+//    }
+//
+//    static func result(of calcul: String) -> String {
+//        let number = calcul.components(separatedBy: " x ")
+//        var result  = 0
+//        if let firstNumber = Int(number[0]), let secondNumber = Int(number[1]){
+//            result = firstNumber * secondNumber
+//        }
+//        return String(result)
+//    }
+//
+//    init(number: Int) {
+//        self.number = number
+//        self.range = Array(1...number)
+//    }
+//}
