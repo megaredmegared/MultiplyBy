@@ -1,12 +1,13 @@
 //
-//  ColoredButtonView.swift
+//  ColorScheme.swift
 //  MultiplyBy
 //
-//  Created by megared on 15/04/2020.
+//  Created by megared on 17/04/2020.
 //  Copyright © 2020 OpenClassrooms. All rights reserved.
 //
 
 import SwiftUI
+
 struct ColorScheme {
     var all = [[Color(#colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1)), Color(#colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1))],
                [Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), Color(#colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1))],
@@ -20,65 +21,4 @@ struct ColorScheme {
                [Color(#colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1))],
                [Color(#colorLiteral(red: 0.8446564078, green: 0.5145705342, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1))],
                [Color(#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.5810584426, green: 0.1285524964, blue: 0.5745313764, alpha: 1))]]
-    }
-
-struct ColoredButtonView: View {
-
-    let colorScheme = ColorScheme().all
-    var table: Int
-    var text: String
-    var color: Color {
-        if table / colorScheme.count == 0 {
-            return colorScheme[table][0]
-        }
-        return colorScheme[table % colorScheme.count][0]
-        
-    }
-    var shadowColor: Color {
-        if table / colorScheme.count == 0 {
-            return colorScheme[table][1]
-        }
-        return colorScheme[table % colorScheme.count][1]
-        
-    }
-    
-//    var size: CGFloat = 120
-    var selectedTable: Int
-    
-    init(table: Int) {
-        self.table = table
-        self.text = String(table)
-        self.selectedTable = table
-    }
-    
-    func action() {
-        print("test button pressed is \(selectedTable)")
-    }
-    
-    var body: some View {
-        GeometryReader { geo in
-           Button(action: self.action) {
-                Text(self.text)
-                    .foregroundColor(Color.white)
-                    .font(.system(size: geo.size.width * 0.3, weight: .black, design: .rounded))
-                    .shadow(color: self.shadowColor, radius: geo.size.width * 0.02)
-                    .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
-                    .background(self.color)
-                    .overlay(
-                        Circle()
-                            .strokeBorder(self.color,lineWidth: geo.size.width * 0.1)
-                            .colorMultiply(self.color.opacity(0.5))
-                        
-                )
-                    .clipShape(Circle())
-            }
-        }
-    }
-    
-}
-
-struct ColoredButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ColoredButtonView(table: 1)
-    }
 }

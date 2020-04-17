@@ -10,15 +10,28 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
+    private var cornerRadius: CGFloat = 8
     var body: some View {
-        VStack {
-            Text("Correct")
-            Text("3 x 12")
-            Text("=")
-            Text("36")
-            Button("back") {
-                 self.presentationMode.wrappedValue.dismiss()
-             }
+        ZStack {
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .frame(maxWidth: .infinity, maxHeight: .infinity + 100)
+                .foregroundColor(Color.red)
+                .overlay(
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(Color.blue, lineWidth: 8)
+                        
+            ).edgesIgnoringSafeArea(.all)
+            
+            
+            VStack {
+                Text("Correct")
+                Text("3 x 12")
+                Text("=")
+                Text("36")
+                Button("back") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }.shadow(color: .red, radius: 5, x: 0, y: -5)
+            }.shadow(color: .red, radius: 5, x: 0, y: -5)
         }
     }
 }
@@ -32,14 +45,21 @@ extension Array {
 }
 
 struct ContentView: View {
-    let timesTables = TimesTables(number: 14).allTables
+    let timesTables = TimesTables(number: 12).allTables
     
     @State private var showingSheet = false
     @State private var numberOfQuestions = "0"
     @State private var questions = [String]()
     @State private var selectedTables = [[Int]]()
+    @State private var tables: String = ""
     
     
+    private var disableScrolling: Bool {
+        if timesTables.count > 12 {
+            return false
+        }
+        return true
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -53,14 +73,21 @@ struct ContentView: View {
                         TextField("number of question", text: self.$numberOfQuestions)
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                     }
+                    Text("selected tables: \(self.tables)")
+                    Text("Button All TimesTables + Settings + Scores")
                 }
-                ScrollView() {
+                ScrollView(self.disableScrolling ? [] : .vertical) {
                     VStack(spacing: 8) {
                         ForEach(self.timesTables.chunked(into: 3), id: \.self) { row in
                             HStack(spacing: 8) {
                                 ForEach(row, id: \.self) { table in
-                                    ColoredButtonView(table: table.id)
-                                    .frame(width: geo.size.width / 3.2)
+                                    Button(action: {
+                                        print("test button pressed is \(table.id)")
+                                    }, label: {
+                                        Text("\(table.id)")
+                                    })
+                                        .buttonStyle(ColoredButtonStyle(table: table.id))
+                                        .frame(width: geo.size.width / 3.2)
                                 }
                             }.frame(height: geo.size.width / 3.2)
                         }
@@ -102,9 +129,9 @@ struct ContentView: View {
         
     }
     
-//    func addTable(of table: String) {
-//        selectedTables += tables[String]
-//    }
+    func addTable(of table: String) {
+        tables.append(table)
+    }
     
     func play() {
         
