@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ColoredButtonStyle: ButtonStyle {
 
+    var isSelected = false
+    
     let colorScheme = ColorScheme().all
     var table: Int
     var text: String
@@ -48,14 +50,18 @@ struct ColoredButtonStyle: ButtonStyle {
                         .colorMultiply(self.color.opacity(0.5))
                         .overlay(
                             Circle()
-                                .strokeBorder(Color.white,lineWidth: geo.size.width * 0.05)))
+                                .strokeBorder(self.isSelected ? Color.black : Color.white,lineWidth: geo.size.width * 0.05)))
                 .clipShape(Circle())
                 .shadow(color: Color.black.opacity(0.15), radius: geo.size.width * 0.02, y: geo.size.width * -0.03)
                 .padding(geo.size.width * 0.05)
+                .scaleEffect(configuration.isPressed ? 0.5 : 1.0)
         }
     }
 
 }
+
+
+
 
 struct ColoredButtonStyle_Previews: PreviewProvider {
     static var previews: some View {

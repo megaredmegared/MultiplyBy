@@ -45,7 +45,7 @@ extension Array {
 }
 
 struct ContentView: View {
-    let timesTables = TimesTables(number: 12).allTables
+    let timesTables = TimesTables(number: 24).allTables
     
     @State private var showingSheet = false
     @State private var numberOfQuestions = "0"
@@ -53,6 +53,9 @@ struct ContentView: View {
     @State private var selectedTables = [[Int]]()
     @State private var tables: String = ""
     
+    @State private var choosenTables = [Table]()
+    
+    @State private var isSelected = false
     
     private var disableScrolling: Bool {
         if timesTables.count > 12 {
@@ -81,13 +84,13 @@ struct ContentView: View {
                         ForEach(self.timesTables.chunked(into: 3), id: \.self) { row in
                             HStack(spacing: 8) {
                                 ForEach(row, id: \.self) { table in
-                                    Button(action: {
-                                        print("test button pressed is \(table.id)")
-                                    }, label: {
+                                    ColoredButton(table: table.id, action: {
+                                        self.addOrDeleteTable(of: table)
+                                        print("tables are: \(self.choosenTables)")
+                                    }) {
                                         Text("\(table.id)")
-                                    })
-                                        .buttonStyle(ColoredButtonStyle(table: table.id))
-                                        .frame(width: geo.size.width / 3.2)
+                                    }
+                                    .frame(width: geo.size.width / 3.2)
                                 }
                             }.frame(height: geo.size.width / 3.2)
                         }
@@ -129,8 +132,12 @@ struct ContentView: View {
         
     }
     
-    func addTable(of table: String) {
-        tables.append(table)
+    func addOrDeleteTable(of table: Table) {
+        if choosenTables.contains(table) {
+            choosenTables.removeAll { table == $0 }
+        } else {
+            choosenTables.append(table)
+        }
     }
     
     func play() {
