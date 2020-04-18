@@ -45,7 +45,7 @@ extension Array {
 }
 
 struct ContentView: View {
-    let timesTables = TimesTables(number: 24).allTables
+    let timesTables = TimesTables(number: 12).allTables
     
     @State private var showingSheet = false
     @State private var numberOfQuestions = "0"
@@ -84,12 +84,13 @@ struct ContentView: View {
                         ForEach(self.timesTables.chunked(into: 3), id: \.self) { row in
                             HStack(spacing: 8) {
                                 ForEach(row, id: \.self) { table in
-                                    ColoredButton(table: table.id, action: {
+                                    Button(action: {
                                         self.addOrDeleteTable(of: table)
                                         print("tables are: \(self.choosenTables)")
                                     }) {
-                                        Text("\(table.id)")
+                                         Text("\(table.id)")
                                     }
+                                    .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.choosenTables.contains(table)))
                                     .frame(width: geo.size.width / 3.2)
                                 }
                             }.frame(height: geo.size.width / 3.2)

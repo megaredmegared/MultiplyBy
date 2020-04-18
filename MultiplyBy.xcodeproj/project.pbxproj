@@ -18,8 +18,7 @@
 		4D22E55724473110009A54ED /* MultiplyByUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E55624473110009A54ED /* MultiplyByUITests.swift */; };
 		4D22E5652447321A009A54ED /* TimesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5642447321A009A54ED /* TimesTable.swift */; };
 		4D22E56824473521009A54ED /* TimesTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E56724473521009A54ED /* TimesTableTests.swift */; };
-		4D22E56A244740CD009A54ED /* ColoredButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E569244740CD009A54ED /* ColoredButtonStyle.swift */; };
-		4D5505B8244B38E30065E428 /* ColoredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5505B7244B38E30065E428 /* ColoredButton.swift */; };
+		4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E569244740CD009A54ED /* ButtonStyleColored.swift */; };
 		4D85BB102449B07B002204D6 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85BB0F2449B07B002204D6 /* ColorScheme.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +57,7 @@
 		4D22E55824473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D22E5642447321A009A54ED /* TimesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTable.swift; sourceTree = "<group>"; };
 		4D22E56724473521009A54ED /* TimesTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTableTests.swift; sourceTree = "<group>"; };
-		4D22E569244740CD009A54ED /* ColoredButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredButtonStyle.swift; sourceTree = "<group>"; };
-		4D5505B7244B38E30065E428 /* ColoredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredButton.swift; sourceTree = "<group>"; };
+		4D22E569244740CD009A54ED /* ButtonStyleColored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleColored.swift; sourceTree = "<group>"; };
 		4D85BB0F2449B07B002204D6 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,8 +112,7 @@
 				4D22E5312447310F009A54ED /* AppDelegate.swift */,
 				4D22E5332447310F009A54ED /* SceneDelegate.swift */,
 				4D22E5382447310F009A54ED /* ContentView.swift */,
-				4D22E569244740CD009A54ED /* ColoredButtonStyle.swift */,
-				4D5505B7244B38E30065E428 /* ColoredButton.swift */,
+				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
 				4D85BB112449B0AD002204D6 /* View */,
 				4D22E5662447323B009A54ED /* Model */,
 				4D22E53A24473110009A54ED /* Assets.xcassets */,
@@ -303,12 +300,11 @@
 			files = (
 				4D22E5372447310F009A54ED /* MultiplyBy.xcdatamodeld in Sources */,
 				4D22E5652447321A009A54ED /* TimesTable.swift in Sources */,
-				4D5505B8244B38E30065E428 /* ColoredButton.swift in Sources */,
 				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,
 				4D85BB102449B07B002204D6 /* ColorScheme.swift in Sources */,
 				4D22E5392447310F009A54ED /* ContentView.swift in Sources */,
 				4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */,
-				4D22E56A244740CD009A54ED /* ColoredButtonStyle.swift in Sources */,
+				4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

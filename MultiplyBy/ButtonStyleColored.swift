@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct ColoredButtonStyle: ButtonStyle {
+struct ButtonStyleColored: ButtonStyle {
 
-    var isSelected = false
+    var isSelected: Bool
     
     let colorScheme = ColorScheme().all
     var table: Int
@@ -30,7 +30,8 @@ struct ColoredButtonStyle: ButtonStyle {
     }
     var selectedTable: Int
     
-    init(table: Int) {
+    init(table: Int, isSelected: Bool) {
+        self.isSelected = isSelected
         self.table = table
         self.text = String(table)
         self.selectedTable = table
@@ -63,12 +64,12 @@ struct ColoredButtonStyle: ButtonStyle {
 
 
 
-struct ColoredButtonStyle_Previews: PreviewProvider {
+struct ButtonStyleColored_Previews: PreviewProvider {
     static var previews: some View {
         Button(action: {
             // void
         }) {
             Text("")
-        }.buttonStyle(ColoredButtonStyle(table: 1))
+        }.buttonStyle(ButtonStyleColored(table: 1, isSelected: false))
     }
 }
