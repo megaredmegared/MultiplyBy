@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+extension Font {
+    func monospacedDigitFont() -> Font {
+        self.monospacedDigit()
+    }
+}
+
 struct LearnView: View {
     private let colorScheme = ColorScheme()
     
@@ -41,6 +47,32 @@ struct LearnView: View {
                     .padding(.horizontal, 20)
                     .offset(y: 120)
                 
+                ScrollView {
+                    VStack(alignment: .trailing) {
+                        Text("")
+                            .frame(height: 65)
+                        ForEach(self.table.all.indices) { indice in
+                            HStack() {
+                                Text("\(self.table.id)")
+                                    .frame(width: geo.size.width / 8, alignment: .trailing)
+                                Text("x")
+                                    .frame(width: geo.size.width / 12, alignment: .trailing)
+                                Text("\(indice + 1)")
+                                    .frame(width: geo.size.width / 8, alignment: .trailing)
+                                Text("=")
+                                    .frame(width: geo.size.width / 10, alignment: .trailing)
+                                Text("\(self.table.all[indice])")
+                                    .frame(width: geo.size.width / 5, alignment: .trailing)
+                            }
+                                //                            .font(.system(size: geo.size.width * 0.09, weight: .black, design: .rounded))
+                                //                            .font(.system(size: geo.size.width * 0.09, weight: .black, design: .monospaced))
+                                
+                                .font(Font.monospacedDigitFont(.system(size: geo.size.width * 0.08, weight: .black, design: .rounded))())
+                        }
+                    }
+                }.offset(y: 134)
+                
+                
                 Text("\(self.table.id)")
                     .foregroundColor(Color.white)
                     .font(.system(size: geo.size.width * 0.15, weight: .black, design: .rounded))
@@ -53,32 +85,7 @@ struct LearnView: View {
                             .colorMultiply(self.color.opacity(0.5)))
                     .clipShape(Circle())
                     .offset(y: -280)
-                ScrollView {
-                    VStack(alignment: .trailing) {
-                        ForEach(self.table.all.indices) { indice in
-                            HStack() {
-                                Text("\(self.table.id)")
-                                .frame(width: geo.size.width / 8, alignment: .trailing)
-                                Text("x")
-                                .frame(width: geo.size.width / 8, alignment: .trailing)
-                                Text("\(indice + 1)")
-                                .frame(width: geo.size.width / 8, alignment: .trailing)
-                                Text("=")
-                                .frame(width: geo.size.width / 10, alignment: .trailing)
-                                Text("\(self.table.all[indice])")
-                                .frame(width: geo.size.width / 5, alignment: .trailing)
-                            }
-//                            .font(.system(size: geo.size.width * 0.09, weight: .black, design: .rounded).monospacedDigit())
-                                .font(.system(size: geo.size.width * 0.09, weight: .black, design: .monospaced))
-                                
-                                
-                               
-                            
-                            .offset(y: 190)
-                            
-                        }
-                    }
-                }
+                
             }
         }
     }
