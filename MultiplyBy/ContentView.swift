@@ -79,6 +79,7 @@ struct ContentView: View {
                     Text("selected tables: \(self.tables)")
                     Text("Button All TimesTables + Settings + Scores")
                 }
+                
                 ScrollView(self.disableScrolling ? [] : .vertical) {
                     VStack(spacing: 8) {
                         ForEach(self.timesTables.chunked(into: 3), id: \.self) { row in

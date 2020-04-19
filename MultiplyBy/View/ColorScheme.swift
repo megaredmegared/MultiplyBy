@@ -8,7 +8,9 @@
 
 import SwiftUI
 
+/// Color scheme for the app MultiplyBy
 struct ColorScheme {
+    /// All the possibles colors stored in an array
     var all = [[Color(#colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1)), Color(#colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1))],
                [Color(#colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)), Color(#colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 1))],
                [Color(#colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)), Color(#colorLiteral(red: 0.5787474513, green: 0.3215198815, blue: 0, alpha: 1))],
@@ -21,4 +23,18 @@ struct ColorScheme {
                [Color(#colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1))],
                [Color(#colorLiteral(red: 0.8446564078, green: 0.5145705342, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1))],
                [Color(#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.5810584426, green: 0.1285524964, blue: 0.5745313764, alpha: 1))]]
+    
+    /// Return the primary or shadow color for a given number
+    func returnColor(number: Int, shadowColor: Bool = false) -> Color {
+        if shadowColor {
+            if number / all.count == 0 {
+                return all[number][1]
+            }
+            return all[number % all.count][1]
+        }
+        if number / all.count == 0 {
+            return all[number][0]
+        }
+        return all[number % all.count][0]
+    }
 }

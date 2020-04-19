@@ -10,26 +10,21 @@ import SwiftUI
 
 struct ButtonStyleColored: ButtonStyle {
 
-    var isSelected: Bool
+    private var isSelected: Bool
     
-    let colorScheme = ColorScheme().all
-    var table: Int
-    var text: String
-    var color: Color {
-        if table / colorScheme.count == 0 {
-            return colorScheme[table][0]
-        }
-        return colorScheme[table % colorScheme.count][0]
+    private let colorScheme = ColorScheme()
+    private var table: Int
+    private var text: String
+    private var color: Color {
+        colorScheme.returnColor(number: table)
     }
 
-    var shadowColor: Color {
-        if table / colorScheme.count == 0 {
-            return colorScheme[table][1]
-        }
-        return colorScheme[table % colorScheme.count][1]
+    private var shadowColor: Color {
+        colorScheme.returnColor(number: table, shadowColor: true)
     }
-    var selectedTable: Int
     
+    private var selectedTable: Int
+
     init(table: Int, isSelected: Bool) {
         self.isSelected = isSelected
         self.table = table
@@ -58,11 +53,7 @@ struct ButtonStyleColored: ButtonStyle {
                 .scaleEffect(configuration.isPressed ? 0.5 : 1.0)
         }
     }
-
 }
-
-
-
 
 struct ButtonStyleColored_Previews: PreviewProvider {
     static var previews: some View {

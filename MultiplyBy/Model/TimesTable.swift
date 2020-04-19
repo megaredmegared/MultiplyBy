@@ -11,22 +11,31 @@ import Foundation
 struct Table: Identifiable, Hashable {
     let id: Int
     let multiplier: Int
+    let index: Int
     
-    subscript(index: Int) -> Int {
-        multiplier * index
+    var all: [Int] {
+        var table: [Int] = []
+        for number in 1...index {
+            table.append(multiplier * number)
+        }
+        return table
     }
     
-    init(of multiplier: Int) {
-    self.id = multiplier
-    self.multiplier = multiplier
+    init(of multiplier: Int, index: Int = 12) {
+        self.id = multiplier
+        self.multiplier = multiplier
+        self.index = index
     }
-    
-    func toString(index: Int) -> String {
-        "\(multiplier) x \(index)"
-    }
-    
-    func result(index: Int) -> Int {
-        multiplier * index
+}
+
+extension String {
+    func result() -> String {
+        let number = self.components(separatedBy: " x ")
+        var result  = 0
+        if let firstNumber = Int(number[0]), let secondNumber = Int(number[1]){
+            result = firstNumber * secondNumber
+        }
+        return String(result)
     }
 }
 
@@ -40,26 +49,6 @@ class TimesTables {
             tables.append(Table(of: number))
         }
         return tables
-    }
-    
-    var stringTables: [String] {
-        var strings: [String] = []
-        for table in allTables {
-            for number in range {
-                strings.append(table.toString(index: number))
-            }
-        }
-        return strings
-    }
-    
-    var allresults: [Int] {
-        var results: [Int] =  []
-              for table in allTables {
-              for number in range {
-                  results.append(table.result(index: number))
-              }
-          }
-          return results
     }
     
     init(number: Int) {
