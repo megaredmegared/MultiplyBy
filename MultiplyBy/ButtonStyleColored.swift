@@ -46,11 +46,16 @@ struct ButtonStyleColored: ButtonStyle {
                         .colorMultiply(self.color.opacity(0.5))
                         .overlay(
                             Circle()
-                                .strokeBorder(self.isSelected ? Color.black : Color.white,lineWidth: geo.size.width * 0.05)))
+                                .stroke(Color.white,lineWidth: geo.size.width * 0.1)))
+                .overlay(
+                    Circle()
+                        .foregroundColor(Color.white.opacity(self.isSelected ? 0 : 0.7)).animation(.none)
+                    )
                 .clipShape(Circle())
-                .shadow(color: Color.black.opacity(0.15), radius: geo.size.width * 0.02, y: geo.size.width * -0.03)
+                .shadow(color: Color.black.opacity(self.isSelected ? 0.3 : 0.0), radius: configuration.isPressed ? 0 : geo.size.width * 0.03)
                 .padding(geo.size.width * 0.05)
-                .scaleEffect(configuration.isPressed ? 0.5 : 1.0)
+                .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+                .animation(.interpolatingSpring(stiffness: 100, damping: 6))
         }
     }
 }
@@ -61,6 +66,6 @@ struct ButtonStyleColored_Previews: PreviewProvider {
             // void
         }) {
             Text("")
-        }.buttonStyle(ButtonStyleColored(table: 1, isSelected: false))
+        }.buttonStyle(ButtonStyleColored(table: 1, isSelected: true))
     }
 }

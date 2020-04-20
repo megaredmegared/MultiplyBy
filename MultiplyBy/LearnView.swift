@@ -51,17 +51,17 @@ struct LearnView: View {
                     VStack(alignment: .trailing) {
                         Text("")
                             .frame(height: 65)
-                        ForEach(self.table.all.indices) { indice in
+                        ForEach(self.table.all, id: \.self) { operation in
                             HStack() {
-                                Text("\(self.table.id)")
+                                Text("\(operation.firstOperand)")
                                     .frame(width: geo.size.width / 8, alignment: .trailing)
                                 Text("x")
                                     .frame(width: geo.size.width / 12, alignment: .trailing)
-                                Text("\(indice + 1)")
+                                Text("\(operation.secondOperand)")
                                     .frame(width: geo.size.width / 8, alignment: .trailing)
                                 Text("=")
                                     .frame(width: geo.size.width / 10, alignment: .trailing)
-                                Text("\(self.table.all[indice])")
+                                Text("\(operation.result)")
                                     .frame(width: geo.size.width / 5, alignment: .trailing)
                             }
                                 //                            .font(.system(size: geo.size.width * 0.09, weight: .black, design: .rounded))
@@ -93,6 +93,6 @@ struct LearnView: View {
 
 struct LearnView_Previews: PreviewProvider {
     static var previews: some View {
-        LearnView(table: Table(of: 24, index: 24))
+        LearnView(table: Table(of: 12, multiplier: 24))
     }
 }

@@ -44,6 +44,14 @@ extension Array {
     }
 }
 
+struct PrimaryLabel: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 30, weight: .bold, design: .rounded))
+            .foregroundColor(.black)
+    }
+}
+
 struct ContentView: View {
     let timesTables = TimesTables(number: 12).allTables
     
@@ -87,7 +95,7 @@ struct ContentView: View {
                                 ForEach(row, id: \.self) { table in
                                     Button(action: {
                                         self.addOrDeleteTable(of: table)
-                                        print("tables are: \(self.choosenTables)")
+                                        print("tables are: \(self.choosenTables.sorted(by: < ))")
                                     }) {
                                          Text("\(table.id)")
                                     }
@@ -105,22 +113,26 @@ struct ContentView: View {
                     Button(action: {
                         // add action
                     }, label: {
-                        Image("learn")
-                            .renderingMode(.original)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 70)
+                        Text("Learn")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                            .foregroundColor(.black)
                     })
+                    Spacer()
+                    Button(action: {
+                        //add action
+                    }, label: {
+                        Text("Scores")
+                            .modifier(PrimaryLabel())
+                    })
+                    
                     Spacer()
                     Button(action: {
                         self.showingSheet.toggle()
                         self.play()
                     }, label: {
-                        Image("play")
-                        .renderingMode(.original)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 70)
+                        Text("Play")
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundColor(.black)
                     })
                      Spacer()
                 }
