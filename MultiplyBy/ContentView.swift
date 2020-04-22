@@ -8,34 +8,6 @@
 
 import SwiftUI
 
-struct GameView: View {
-    @Environment(\.presentationMode) var presentationMode
-    private var cornerRadius: CGFloat = 8
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .frame(maxWidth: .infinity, maxHeight: .infinity + 100)
-                .foregroundColor(Color.red)
-                .overlay(
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(Color.blue, lineWidth: 8)
-                        
-            ).edgesIgnoringSafeArea(.all)
-            
-            
-            VStack {
-                Text("Correct")
-                Text("3 x 12")
-                Text("=")
-                Text("36")
-                Button("back") {
-                    self.presentationMode.wrappedValue.dismiss()
-                }.shadow(color: .red, radius: 5, x: 0, y: -5)
-            }.shadow(color: .red, radius: 5, x: 0, y: -5)
-        }
-    }
-}
-
 extension Array {
     func chunked(into size: Int) -> [[Element]] {
         return stride(from: 0, to: count, by: size).map {
@@ -44,106 +16,123 @@ extension Array {
     }
 }
 
-struct PrimaryLabel: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.system(size: 30, weight: .bold, design: .rounded))
-            .foregroundColor(.black)
-    }
-}
-
 struct ContentView: View {
-    let timesTables = TimesTables(number: 12).allTables
+    private let timesTables = TimesTable().all
     
-    @State private var showingSheet = false
-    @State private var numberOfQuestions = "0"
-    @State private var questions = [String]()
-    @State private var selectedTables = [[Int]]()
-    @State private var tables: String = ""
+    @State private var numberOfQuestions = ""
+    @State private var choosenTables = TimesTable().all
     
-    @State private var choosenTables = [Table]()
-    
-    @State private var isSelected = false
-    
-    private var disableScrolling: Bool {
-        if timesTables.count > 12 {
-            return false
-        }
-        return true
-    }
+    @State private var showingLearnSheet = false
+    @State private var showingScoreSheet = false
+    @State private var showingPlaySheet = false
+    @State private var isPresented = false
     
     var body: some View {
-        GeometryReader { geo in
-            VStack {
-                Spacer()
+        
+        
+        ZStack {
+            GeometryReader { geo in
                 VStack {
+                    
                     Image("title")
-                    HStack {
-                        Text("number of question: ")
-                            .font(.system(size: 16, weight: .bold, design: .rounded))
-                        TextField("number of question", text: self.$numberOfQuestions)
-                            .font(.system(size: 16, weight: .bold, design: .rounded))
-                    }
-                    Text("selected tables: \(self.tables)")
-                    Text("Button All TimesTables + Settings + Scores")
-                }
-                
-                ScrollView(self.disableScrolling ? [] : .vertical) {
-                    VStack(spacing: 8) {
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                    
+                    Spacer(minLength: 4)
+                    // Buttons array
+                    //                TablesSelectionView(timesTables: self.timesTables, choosenTables: self.$choosenTables)
+                    VStack {
                         ForEach(self.timesTables.chunked(into: 3), id: \.self) { row in
-                            HStack(spacing: 8) {
+                            HStack {
                                 ForEach(row, id: \.self) { table in
                                     Button(action: {
                                         self.addOrDeleteTable(of: table)
                                         print("tables are: \(self.choosenTables.sorted(by: < ))")
                                     }) {
-                                         Text("\(table.id)")
+                                        Text("\(table.id)")
                                     }
                                     .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.choosenTables.contains(table)))
-                                    .frame(width: geo.size.width / 3.2)
+                                    .frame(maxWidth: geo.size.width / 4)
                                 }
-                            }.frame(height: geo.size.width / 3.2)
+                            }.frame(maxHeight: geo.size.width / 4)
+                        }
+                        
+                    }
+                    
+                    Spacer(minLength: 4)
+                    // Bottom buttons
+                    
+                    HStack(spacing: 20) {
+                        
+                        Button(action: {
+                            self.showingLearnSheet.toggle()
+                        }) {
+                            Text("Learn")
+                        }.buttonStyle(ButtonStyleMain())
+                        .sheet(isPresented: self.$showingLearnSheet) {
+                            PageView(self.makeLearnViews())
+                        }
+                        
+                        Button(action: {
+                            self.showingScoreSheet.toggle()
+                        }) {
+                            Text("Scores")
+                        }.buttonStyle(ButtonStyleMain())
+                            .sheet(isPresented: self.$showingScoreSheet) {
+                                GameView()
+                        }
+                        
+                        Button(action: {
+                            self.showingPlaySheet.toggle()
+                        }) {
+                            Text("Play")
+                        }.buttonStyle(ButtonStyleMain())
+                        .sheet(isPresented: self.$showingPlaySheet) {
+                            GameView()
                         }
                     }
+                    
+                    Spacer(minLength: 0)
+                    
+                    
                 }
-                
-                Spacer()
+            }.frame(maxWidth: 600)
+            
+            VStack(alignment: .leading) {
                 HStack {
                     Spacer()
-                    Button(action: {
-                        // add action
-                    }, label: {
-                        Text("Learn")
-                        .font(.system(size: 30, weight: .bold, design: .rounded))
-                            .foregroundColor(.black)
-                    })
-                    Spacer()
-                    Button(action: {
-                        //add action
-                    }, label: {
-                        Text("Scores")
-                            .modifier(PrimaryLabel())
-                    })
-                    
-                    Spacer()
-                    Button(action: {
-                        self.showingSheet.toggle()
-                        self.play()
-                    }, label: {
-                        Text("Play")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                        .foregroundColor(.black)
-                    })
-                     Spacer()
-                }
-                
-                .sheet(isPresented: self.$showingSheet) {
-                    GameView()
-                }
+                    Image(systemName: "gear")
+                }.padding(.horizontal)
+
+                Spacer()
             }
-        }.frame(maxWidth: 400)
-        .padding(.horizontal, 40)
+ 
+        }.statusBar(hidden: true)
+//        .modalLink(isPresented: $isPresented, linkType: ModalTransition.fullScreenModal) {
+//            GameView()
+//            VStack {
+//                if self.showingScoreSheet {
+//                    GameView()
+//                } else if self.showingPlaySheet {
+//                    GameView()
+//                } else if self.showingLearnSheet {
+//
+//                }
+//            }
+//
+//        }
         
+        
+        
+    }
+    
+    func makeLearnViews() -> [LearnView] {
+        var learnViews: [LearnView] = []
+        for table in self.choosenTables.sorted() {
+            learnViews.append(LearnView(table: table))
+        }
+        return learnViews
     }
     
     func addOrDeleteTable(of table: Table) {
@@ -154,10 +143,25 @@ struct ContentView: View {
         }
     }
     
-    func play() {
-        
-    }
 }
+
+
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(["iPhone 11", "iPhone SE (2nd generation)", "iPhone XS Max",  "iPad Pro (12.9-inch) (3rd generation)"], id: \.self) { deviceName in
+//            ContentView()
+//                .previewDevice(PreviewDevice(rawValue: deviceName))
+//                .previewDisplayName(deviceName)
+//        }
+//    }
+//}
+
+
+
+
+
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

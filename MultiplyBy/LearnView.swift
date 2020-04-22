@@ -14,7 +14,11 @@ extension Font {
     }
 }
 
-struct LearnView: View {
+struct LearnView: View, Identifiable {
+    var id: Int {
+        table.id
+    }
+    
     private let colorScheme = ColorScheme()
     
     private var table: Table
@@ -36,46 +40,15 @@ struct LearnView: View {
         
         GeometryReader { geo in
             ZStack {
-                RoundedRectangle(cornerRadius: 50, style: .continuous)
+                Rectangle()
                     .foregroundColor(self.color)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 50, style: .continuous)
-                            .strokeBorder(self.color,lineWidth: geo.size.width * 0.03)
-                            .colorMultiply(self.color.opacity(0.5)))
-                    
-                    
-                    .padding(.horizontal, 20)
-                    .offset(y: 120)
+                    .edgesIgnoringSafeArea(.all)
                 
-                ScrollView {
-                    VStack(alignment: .trailing) {
-                        Text("")
-                            .frame(height: 65)
-                        ForEach(self.table.all, id: \.self) { operation in
-                            HStack() {
-                                Text("\(operation.firstOperand)")
-                                    .frame(width: geo.size.width / 8, alignment: .trailing)
-                                Text("x")
-                                    .frame(width: geo.size.width / 12, alignment: .trailing)
-                                Text("\(operation.secondOperand)")
-                                    .frame(width: geo.size.width / 8, alignment: .trailing)
-                                Text("=")
-                                    .frame(width: geo.size.width / 10, alignment: .trailing)
-                                Text("\(operation.result)")
-                                    .frame(width: geo.size.width / 5, alignment: .trailing)
-                            }
-                                //                            .font(.system(size: geo.size.width * 0.09, weight: .black, design: .rounded))
-                                //                            .font(.system(size: geo.size.width * 0.09, weight: .black, design: .monospaced))
-                                
-                                .font(Font.monospacedDigitFont(.system(size: geo.size.width * 0.08, weight: .black, design: .rounded))())
-                        }
-                    }
-                }.offset(y: 134)
-                
-                
-                Text("\(self.table.id)")
+                VStack {
+                    // table title number in a round
+                    Text("\(self.table.id)")
                     .foregroundColor(Color.white)
-                    .font(.system(size: geo.size.width * 0.15, weight: .black, design: .rounded))
+                    .font(.system(size: geo.size.width * 0.10, weight: .black, design: .rounded))
                     .shadow(color: self.shadowColor, radius: geo.size.width * 0.02)
                     .frame(maxWidth: geo.size.width / 3, maxHeight: geo.size.width  / 3)
                     .background(self.color)
@@ -84,8 +57,29 @@ struct LearnView: View {
                             .strokeBorder(self.color,lineWidth: geo.size.width * 0.03)
                             .colorMultiply(self.color.opacity(0.5)))
                     .clipShape(Circle())
-                    .offset(y: -280)
-                
+                        .padding()
+                    
+                    Spacer()
+                    
+                    // table
+                    ForEach(self.table.all, id: \.self) { operation in
+                        HStack() {
+                            Text("\(operation.firstOperand)")
+                                .frame(width: geo.size.width / 8, alignment: .leading)
+                            Text("x")
+                                .frame(width: geo.size.width / 12, alignment: .center)
+                            Text("\(operation.secondOperand)")
+                                .frame(width: geo.size.width / 8, alignment: .trailing)
+                            Text("=")
+                                .frame(width: geo.size.width / 10, alignment: .trailing)
+                            Text("\(operation.result)")
+                                .frame(width: geo.size.width / 5, alignment: .trailing)
+                        }
+                        .font(Font.monospacedDigitFont(.system(size: geo.size.width * 0.08, weight: .black, design: .rounded))())
+                    }
+                    Spacer()
+                }
+
             }
         }
     }
@@ -93,6 +87,6 @@ struct LearnView: View {
 
 struct LearnView_Previews: PreviewProvider {
     static var previews: some View {
-        LearnView(table: Table(of: 12, multiplier: 24))
+        LearnView(table: Table(of: 2, numberOfTables: 12))
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// basic mutliplication
 struct Multiplication: Hashable {
     let firstOperand: Int
     let secondOperand: Int
@@ -16,98 +17,42 @@ struct Multiplication: Hashable {
     }
 }
 
+/// Array of mutliplication given a number
 struct Table: Identifiable, Hashable, Comparable {
-    static func < (lhs: Table, rhs: Table) -> Bool {
-        lhs.id < rhs.id
-    }
     
     let id: Int
     let table: Int
-    let multiplier: Int
+    let numberOfTables: Int
     
     var all: [Multiplication] {
         var allMultiplications: [Multiplication] = []
-        for number in 1...multiplier {
+        for number in 1...numberOfTables {
             allMultiplications.append(Multiplication(firstOperand: table, secondOperand: number))
         }
         return allMultiplications
     }
     
-    init(of table: Int, multiplier: Int = 12) {
+    init(of table: Int, numberOfTables: Int) {
         self.id = table
         self.table = table
-        self.multiplier = multiplier
+        self.numberOfTables = numberOfTables
+    }
+    
+    /// Make Table Comparable
+    static func < (lhs: Table, rhs: Table) -> Bool {
+        lhs.id < rhs.id
     }
 }
 
-class TimesTables {
-    let number: Int
-    let range: [Int]
+/// Timestables from 1 to 12
+class TimesTable {
+    let numberOfTables = 12
     
-    var allTables: [Table] {
+    var all: [Table] {
         var tables: [Table] = []
-        for number in range {
-            tables.append(Table(of: number))
+        for number in 1...numberOfTables {
+            tables.append(Table(of: number, numberOfTables: numberOfTables))
         }
         return tables
     }
-    
-    init(number: Int) {
-        self.number = number
-        self.range = Array(1...number)
-    }
 }
-
-//struct Table: Identifiable {
-//    let id: Int
-//    let multiplier: Int
-//
-//    subscript(index: Int) -> Int {
-//        multiplier * index
-//    }
-//
-//    init(of multiplier: Int) {
-//    self.id = multiplier
-//    self.multiplier = multiplier
-//    }
-//
-//    func toString(index: Int) -> String {
-//        "\(multiplier) x \(index)"
-//    }
-//}
-//
-//
-//class TimesTables: Identifiable {
-//    let number: Int
-//    let range: [Int]
-//
-//    var all: [[String]] {
-//        var tables: [[String]] = []
-//        for i in range {
-//            tables.append(range.map { "\(i) x \($0)" })
-//        }
-//        return tables
-//    }
-//
-//    var allTables: [Table] {
-//        var tables: [Table] = []
-//        for number in range {
-//            tables.append(Table(of: number))
-//        }
-//        return tables
-//    }
-//
-//    static func result(of calcul: String) -> String {
-//        let number = calcul.components(separatedBy: " x ")
-//        var result  = 0
-//        if let firstNumber = Int(number[0]), let secondNumber = Int(number[1]){
-//            result = firstNumber * secondNumber
-//        }
-//        return String(result)
-//    }
-//
-//    init(number: Int) {
-//        self.number = number
-//        self.range = Array(1...number)
-//    }
-//}
