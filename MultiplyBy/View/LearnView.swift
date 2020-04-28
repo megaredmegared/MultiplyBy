@@ -27,11 +27,6 @@ struct LearnView: View, Identifiable {
         colorScheme.returnColor(number: table.id)
     }
     
-    private var shadowColor: Color {
-        colorScheme.returnColor(number: table.id, shadowColor: true)
-    }
-    
-    
     init(table: Table) {
         self.table = table
     }
@@ -49,7 +44,7 @@ struct LearnView: View, Identifiable {
                     Text("\(self.table.id)")
                     .foregroundColor(Color.white)
                     .font(.system(size: geo.size.width * 0.10, weight: .black, design: .rounded))
-                    .shadow(color: self.shadowColor, radius: geo.size.width * 0.02)
+                        .shadow(color: Color.black, radius: geo.size.width * 0.02)
                     .frame(maxWidth: geo.size.width / 3, maxHeight: geo.size.width  / 3)
                     .background(self.color)
                     .overlay(

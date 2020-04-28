@@ -14,7 +14,7 @@ struct ButtonStyleNavigation: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(.system(size: 30, weight: .bold, design: .rounded))
-            .foregroundColor(.black)
+            .foregroundColor(.primary)
     }
 }
 

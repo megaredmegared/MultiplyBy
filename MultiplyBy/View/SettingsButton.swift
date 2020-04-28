@@ -19,7 +19,7 @@ struct SettingsButton: View {
                     self.isPresented.toggle()
                 }) {
                     Image(systemName: "gear")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.primary)
                 }
             }
             .padding(.horizontal)

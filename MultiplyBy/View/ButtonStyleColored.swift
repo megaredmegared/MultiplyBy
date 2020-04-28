@@ -21,9 +21,9 @@ struct ButtonStyleColored: ButtonStyle {
         colorScheme.returnColor(number: table)
     }
 
-    private var shadowColor: Color {
-        colorScheme.returnColor(number: table, shadowColor: true)
-    }
+//    private var shadowColor: Color {
+//        colorScheme.returnColor(number: table, shadowColor: true)
+//    }
     
     private var selectedTable: Int
 
@@ -37,9 +37,8 @@ struct ButtonStyleColored: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         GeometryReader { geo in
             configuration.label
-                .foregroundColor(Color.white)
+                .foregroundColor(Color(.systemGray6))
                 .font(.system(size: geo.size.width * 0.4, weight: .black, design: .rounded))
-                .shadow(color: self.shadowColor, radius: geo.size.width * 0.02)
                 .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
                 .background(self.color)
                 .overlay(
@@ -48,13 +47,13 @@ struct ButtonStyleColored: ButtonStyle {
                         .colorMultiply(self.color.opacity(0.5))
                         .overlay(
                             Circle()
-                                .stroke(Color.white,lineWidth: geo.size.width * 0.1)))
+                                .stroke(Color(.systemGray6),lineWidth: geo.size.width * 0.1)))
                 .overlay(
                     Circle()
-                        .foregroundColor(Color.white.opacity(self.isSelected ? 0 : 0.7)).animation(.none)
+                        .foregroundColor(Color(.systemGray6).opacity(self.isSelected ? 0 : 0.7)).animation(.none)
                     )
                 .clipShape(Circle())
-                .shadow(color: Color.black.opacity(self.isSelected ? 0.3 : 0.0), radius: configuration.isPressed ? 0 : geo.size.width * 0.03)
+                .shadow(color: Color.primary.opacity(self.isSelected ? 0.3 : 0.0), radius: configuration.isPressed ? 0 : geo.size.width * 0.03)
                 .padding(geo.size.width * 0.05)
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6))
