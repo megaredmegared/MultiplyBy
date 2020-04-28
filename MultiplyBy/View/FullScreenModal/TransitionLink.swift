@@ -28,6 +28,28 @@ protocol TransitionLinkType {
     var transition: AnyTransition { get }
 }
 
+
+
+struct ModaViewModifier<Destination>: ViewModifier where Destination: View {
+
+    @Binding var isPresented: Bool
+    var linkType: TransitionLinkType
+    var destination: () -> Destination
+
+    func body(content: Self.Content) -> some View {
+        TransitionLink(isPresented: self.$isPresented,
+                       linkType: linkType,
+                       destination: {
+                        self.destination()
+        }, content: {
+            content
+        })
+    }
+
+}
+
+
+
 struct TransitionLink<Content, Destination>: View where Content: View, Destination: View {
 
     @Binding var isPresented: Bool
@@ -50,7 +72,7 @@ struct TransitionLink<Content, Destination>: View where Content: View, Destinati
             } else {
                 self.content()
             }
-        }
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 

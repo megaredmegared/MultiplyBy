@@ -16,7 +16,7 @@
 		4D22E54124473110009A54ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53F24473110009A54ED /* LaunchScreen.storyboard */; };
 		4D22E54C24473110009A54ED /* MultiplyByTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E54B24473110009A54ED /* MultiplyByTests.swift */; };
 		4D22E55724473110009A54ED /* MultiplyByUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E55624473110009A54ED /* MultiplyByUITests.swift */; };
-		4D22E5652447321A009A54ED /* TimesTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5642447321A009A54ED /* TimesTable.swift */; };
+		4D22E5652447321A009A54ED /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5642447321A009A54ED /* Table.swift */; };
 		4D22E56824473521009A54ED /* TimesTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E56724473521009A54ED /* TimesTableTests.swift */; };
 		4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E569244740CD009A54ED /* ButtonStyleColored.swift */; };
 		4D390E74244C4A9A00368D44 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D390E73244C4A9A00368D44 /* LearnView.swift */; };
@@ -24,9 +24,17 @@
 		4D4A6F6B244DCB1500830A71 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6F6A244DCB1500830A71 /* PageView.swift */; };
 		4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6F6C244DCFBC00830A71 /* PageControl.swift */; };
 		4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB7244F146D00830A71 /* GameView.swift */; };
-		4D4A6FBA244F174B00830A71 /* ButtonStyleMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB9244F174B00830A71 /* ButtonStyleMain.swift */; };
+		4D4A6FBA244F174B00830A71 /* ButtonStyleNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */; };
+		4D7EF29E2458366100DFF589 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29D2458366100DFF589 /* PresentView.swift */; };
+		4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */; };
+		4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A124585CC600DFF589 /* AppTitle.swift */; };
+		4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A424585F1D00DFF589 /* TimesTables.swift */; };
+		4D7EF2A7245872C200DFF589 /* NavigationButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */; };
+		4D7EF2A92458749B00DFF589 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A82458749B00DFF589 /* SettingsButton.swift */; };
+		4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2AA2458794E00DFF589 /* Extensions.swift */; };
+		4D7EF2AD24587CC000DFF589 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2AC24587CC000DFF589 /* ScoresView.swift */; };
+		4D7EF2AF2458821F00DFF589 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2AE2458821F00DFF589 /* SettingsView.swift */; };
 		4D85BB102449B07B002204D6 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85BB0F2449B07B002204D6 /* ColorScheme.swift */; };
-		4DBB18662450059F003CB971 /* TablesSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBB18652450059F003CB971 /* TablesSelectionView.swift */; };
 		4DBB186924504256003CB971 /* TransitionLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBB186824504256003CB971 /* TransitionLink.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +71,7 @@
 		4D22E55224473110009A54ED /* MultiplyByUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplyByUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D22E55624473110009A54ED /* MultiplyByUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyByUITests.swift; sourceTree = "<group>"; };
 		4D22E55824473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D22E5642447321A009A54ED /* TimesTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTable.swift; sourceTree = "<group>"; };
+		4D22E5642447321A009A54ED /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		4D22E56724473521009A54ED /* TimesTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTableTests.swift; sourceTree = "<group>"; };
 		4D22E569244740CD009A54ED /* ButtonStyleColored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleColored.swift; sourceTree = "<group>"; };
 		4D390E73244C4A9A00368D44 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
@@ -71,9 +79,17 @@
 		4D4A6F6A244DCB1500830A71 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		4D4A6F6C244DCFBC00830A71 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4D4A6FB7244F146D00830A71 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		4D4A6FB9244F174B00830A71 /* ButtonStyleMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleMain.swift; sourceTree = "<group>"; };
+		4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleNavigation.swift; sourceTree = "<group>"; };
+		4D7EF29D2458366100DFF589 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
+		4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoiceView.swift; sourceTree = "<group>"; };
+		4D7EF2A124585CC600DFF589 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
+		4D7EF2A424585F1D00DFF589 /* TimesTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTables.swift; sourceTree = "<group>"; };
+		4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtons.swift; sourceTree = "<group>"; };
+		4D7EF2A82458749B00DFF589 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		4D7EF2AA2458794E00DFF589 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4D7EF2AC24587CC000DFF589 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
+		4D7EF2AE2458821F00DFF589 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D85BB0F2449B07B002204D6 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
-		4DBB18652450059F003CB971 /* TablesSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesSelectionView.swift; sourceTree = "<group>"; };
 		4DBB186824504256003CB971 /* TransitionLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +118,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D08C6C22450F1350069295F /* UIPagesView */ = {
+			isa = PBXGroup;
+			children = (
+				4D4A6F6A244DCB1500830A71 /* PageView.swift */,
+				4D4A6F6C244DCFBC00830A71 /* PageControl.swift */,
+				4D4A6F68244DC7D100830A71 /* PagesViewController.swift */,
+			);
+			path = UIPagesView;
+			sourceTree = "<group>";
+		};
+		4D08C6C32450F21A0069295F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4D22E5252447310F009A54ED = {
 			isa = PBXGroup;
 			children = (
@@ -127,18 +160,10 @@
 			children = (
 				4D22E5312447310F009A54ED /* AppDelegate.swift */,
 				4D22E5332447310F009A54ED /* SceneDelegate.swift */,
-				4D22E5382447310F009A54ED /* ContentView.swift */,
-				4DBB18652450059F003CB971 /* TablesSelectionView.swift */,
-				4D4A6FB7244F146D00830A71 /* GameView.swift */,
-				4D390E73244C4A9A00368D44 /* LearnView.swift */,
-				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
-				4D4A6FB9244F174B00830A71 /* ButtonStyleMain.swift */,
-				4D4A6F68244DC7D100830A71 /* PagesViewController.swift */,
-				4DBB186724504240003CB971 /* modal */,
-				4D4A6F6A244DCB1500830A71 /* PageView.swift */,
-				4D4A6F6C244DCFBC00830A71 /* PageControl.swift */,
-				4D85BB112449B0AD002204D6 /* View */,
 				4D22E5662447323B009A54ED /* Model */,
+				4D7EF2A324585F0500DFF589 /* View Model */,
+				4D85BB112449B0AD002204D6 /* View */,
+				4D08C6C32450F21A0069295F /* ViewModel */,
 				4D22E53A24473110009A54ED /* Assets.xcassets */,
 				4D22E53F24473110009A54ED /* LaunchScreen.storyboard */,
 				4D22E54224473110009A54ED /* Info.plist */,
@@ -178,25 +203,48 @@
 		4D22E5662447323B009A54ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4D22E5642447321A009A54ED /* TimesTable.swift */,
+				4D22E5642447321A009A54ED /* Table.swift */,
+				4D7EF2AA2458794E00DFF589 /* Extensions.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4D7EF2A324585F0500DFF589 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D7EF2A424585F1D00DFF589 /* TimesTables.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		4D85BB112449B0AD002204D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D22E5382447310F009A54ED /* ContentView.swift */,
+				4D7EF2AE2458821F00DFF589 /* SettingsView.swift */,
+				4D390E73244C4A9A00368D44 /* LearnView.swift */,
+				4D7EF2AC24587CC000DFF589 /* ScoresView.swift */,
+				4D4A6FB7244F146D00830A71 /* GameView.swift */,
+				4D7EF2A82458749B00DFF589 /* SettingsButton.swift */,
+				4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */,
+				4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */,
+				4D7EF2A124585CC600DFF589 /* AppTitle.swift */,
+				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
+				4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */,
 				4D85BB0F2449B07B002204D6 /* ColorScheme.swift */,
+				4D08C6C22450F1350069295F /* UIPagesView */,
+				4DBB186724504240003CB971 /* FullScreenModal */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		4DBB186724504240003CB971 /* modal */ = {
+		4DBB186724504240003CB971 /* FullScreenModal */ = {
 			isa = PBXGroup;
 			children = (
 				4DBB186824504256003CB971 /* TransitionLink.swift */,
+				4D7EF29D2458366100DFF589 /* PresentView.swift */,
 			);
-			path = modal;
+			path = FullScreenModal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,17 +379,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D22E5372447310F009A54ED /* MultiplyBy.xcdatamodeld in Sources */,
-				4D22E5652447321A009A54ED /* TimesTable.swift in Sources */,
-				4D4A6FBA244F174B00830A71 /* ButtonStyleMain.swift in Sources */,
+				4D7EF2AF2458821F00DFF589 /* SettingsView.swift in Sources */,
+				4D7EF2A7245872C200DFF589 /* NavigationButtons.swift in Sources */,
+				4D22E5652447321A009A54ED /* Table.swift in Sources */,
+				4D7EF2AD24587CC000DFF589 /* ScoresView.swift in Sources */,
+				4D4A6FBA244F174B00830A71 /* ButtonStyleNavigation.swift in Sources */,
+				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,
+				4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */,
 				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,
 				4D85BB102449B07B002204D6 /* ColorScheme.swift in Sources */,
 				4D4A6F6B244DCB1500830A71 /* PageView.swift in Sources */,
 				4D22E5392447310F009A54ED /* ContentView.swift in Sources */,
+				4D7EF29E2458366100DFF589 /* PresentView.swift in Sources */,
+				4D7EF2A92458749B00DFF589 /* SettingsButton.swift in Sources */,
+				4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */,
+				4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */,
 				4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */,
 				4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */,
 				4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */,
-				4DBB18662450059F003CB971 /* TablesSelectionView.swift in Sources */,
 				4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */,
 				4D390E74244C4A9A00368D44 /* LearnView.swift in Sources */,
 				4DBB186924504256003CB971 /* TransitionLink.swift in Sources */,

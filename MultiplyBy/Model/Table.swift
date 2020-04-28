@@ -17,7 +17,7 @@ struct Multiplication: Hashable {
     }
 }
 
-/// Array of mutliplication given a number
+/// Array of mutliplications given a number
 struct Table: Identifiable, Hashable, Comparable {
     
     let id: Int
@@ -32,7 +32,7 @@ struct Table: Identifiable, Hashable, Comparable {
         return allMultiplications
     }
     
-    init(of table: Int, numberOfTables: Int) {
+    init(of table: Int, numberOfTables: Int = 12) {
         self.id = table
         self.table = table
         self.numberOfTables = numberOfTables
@@ -44,15 +44,19 @@ struct Table: Identifiable, Hashable, Comparable {
     }
 }
 
-/// Timestables from 1 to 12
-class TimesTable {
-    let numberOfTables = 12
+struct Tables {
+    private let numberOfTables: Int
+       
+       var all: [Table] {
+           var tables: [Table] = []
+           for number in 1...numberOfTables {
+               tables.append(Table(of: number, numberOfTables: numberOfTables))
+           }
+           return tables
+       }
     
-    var all: [Table] {
-        var tables: [Table] = []
-        for number in 1...numberOfTables {
-            tables.append(Table(of: number, numberOfTables: numberOfTables))
-        }
-        return tables
+    init(numberOfTables: Int) {
+        self.numberOfTables = numberOfTables
     }
 }
+

@@ -10,7 +10,7 @@ import SwiftUI
 
 
 /// Button style for mains buttons
-struct ButtonStyleMain: ButtonStyle {
+struct ButtonStyleNavigation: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .font(.system(size: 30, weight: .bold, design: .rounded))
@@ -24,7 +24,7 @@ struct ButtonStyleMain_Previews: PreviewProvider {
                    // void
                }) {
                    Text("test")
-               }.buttonStyle(ButtonStyleMain())
+               }.buttonStyle(ButtonStyleNavigation())
         
     }
 }
