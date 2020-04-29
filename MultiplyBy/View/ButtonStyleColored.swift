@@ -20,10 +20,6 @@ struct ButtonStyleColored: ButtonStyle {
     private var color: Color {
         colorScheme.returnColor(number: table)
     }
-
-//    private var shadowColor: Color {
-//        colorScheme.returnColor(number: table, shadowColor: true)
-//    }
     
     private var selectedTable: Int
 
@@ -37,26 +33,27 @@ struct ButtonStyleColored: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         GeometryReader { geo in
             configuration.label
-                .foregroundColor(Color(.systemGray6))
-                .font(.system(size: geo.size.width * 0.4, weight: .black, design: .rounded))
+                .foregroundColor(Color.lightWhite)
+                .font(.system(size: geo.size.width * 0.35, weight: .black, design: .rounded))
                 .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
                 .background(self.color)
                 .overlay(
-                    Circle()
-                        .strokeBorder(self.color,lineWidth: geo.size.width * 0.12)
-                        .colorMultiply(self.color.opacity(0.5))
-                        .overlay(
-                            Circle()
-                                .stroke(Color(.systemGray6),lineWidth: geo.size.width * 0.1)))
+                Circle()
+                    .strokeBorder(Color.lightWhite,lineWidth: geo.size.width * 0.05))
+                .clipShape(Circle())
+                .softShadow(isSelected: self.isSelected)
                 .overlay(
                     Circle()
-                        .foregroundColor(Color(.systemGray6).opacity(self.isSelected ? 0 : 0.7)).animation(.none)
-                    )
-                .clipShape(Circle())
-                .shadow(color: Color.primary.opacity(self.isSelected ? 0.3 : 0.0), radius: configuration.isPressed ? 0 : geo.size.width * 0.03)
+                        .stroke(Color.lightWhite,lineWidth: geo.size.width * 0.02))
+                .overlay(
+                    Circle()
+                        .foregroundColor(Color.lightWhite.opacity(self.isSelected ? 0 : 0.8)).animation(.none)
+            )
+                
                 .padding(geo.size.width * 0.05)
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6))
+            
         }
     }
 }

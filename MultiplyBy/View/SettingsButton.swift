@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+
+
 struct SettingsButton: View {
     @State var isPresented = false
     
@@ -19,7 +21,7 @@ struct SettingsButton: View {
                     self.isPresented.toggle()
                 }) {
                     Image(systemName: "gear")
-                        .foregroundColor(Color.primary)
+                        .foregroundColor(Color.lightBlack)
                 }
             }
             .padding(.horizontal)

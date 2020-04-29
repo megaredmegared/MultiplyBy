@@ -16,7 +16,7 @@ struct ContentView: View {
         
         GeometryReader { geo in
             ZStack {
-                Color(.systemGray6).edgesIgnoringSafeArea(.all)
+                Color.lightWhite.edgesIgnoringSafeArea(.all)
                 VStack {
                     AppTitle()
                     

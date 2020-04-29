@@ -36,6 +36,8 @@
 		4D7EF2AF2458821F00DFF589 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2AE2458821F00DFF589 /* SettingsView.swift */; };
 		4D85BB102449B07B002204D6 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D85BB0F2449B07B002204D6 /* ColorScheme.swift */; };
 		4DBB186924504256003CB971 /* TransitionLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBB186824504256003CB971 /* TransitionLink.swift */; };
+		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
+		4DEC1CF424590D930093D39C /* IsSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF324590D930093D39C /* IsSelected.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		4D7EF2AE2458821F00DFF589 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D85BB0F2449B07B002204D6 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		4DBB186824504256003CB971 /* TransitionLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLink.swift; sourceTree = "<group>"; };
+		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
+		4DEC1CF324590D930093D39C /* IsSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsSelected.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,12 +229,14 @@
 				4D390E73244C4A9A00368D44 /* LearnView.swift */,
 				4D7EF2AC24587CC000DFF589 /* ScoresView.swift */,
 				4D4A6FB7244F146D00830A71 /* GameView.swift */,
-				4D7EF2A82458749B00DFF589 /* SettingsButton.swift */,
-				4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */,
-				4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */,
+				4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */,
 				4D7EF2A124585CC600DFF589 /* AppTitle.swift */,
+				4DEC1CF324590D930093D39C /* IsSelected.swift */,
+				4D7EF2A82458749B00DFF589 /* SettingsButton.swift */,
+				4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */,
 				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
 				4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */,
+				4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */,
 				4D85BB0F2449B07B002204D6 /* ColorScheme.swift */,
 				4D08C6C22450F1350069295F /* UIPagesView */,
 				4DBB186724504240003CB971 /* FullScreenModal */,
@@ -383,8 +389,10 @@
 				4D7EF2A7245872C200DFF589 /* NavigationButtons.swift in Sources */,
 				4D22E5652447321A009A54ED /* Table.swift in Sources */,
 				4D7EF2AD24587CC000DFF589 /* ScoresView.swift in Sources */,
+				4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */,
 				4D4A6FBA244F174B00830A71 /* ButtonStyleNavigation.swift in Sources */,
 				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
+				4DEC1CF424590D930093D39C /* IsSelected.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,
 				4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */,
 				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,

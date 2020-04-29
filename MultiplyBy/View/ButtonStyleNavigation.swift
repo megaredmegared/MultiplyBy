@@ -13,8 +13,19 @@ import SwiftUI
 struct ButtonStyleNavigation: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .font(.system(size: 30, weight: .bold, design: .rounded))
-            .foregroundColor(.primary)
+            .font(.system(size: 20, weight: .bold, design: .rounded))
+            .foregroundColor(.lightBlack)
+            .padding(.horizontal, 15)
+            .padding(.vertical, 10)
+            .background(Color.lightWhite)
+            .clipShape(RoundedRectangle(cornerRadius: 9))
+            .padding(.horizontal, 1)
+            .padding(.vertical, 1)
+            .background(LinearGradient(
+                gradient: Gradient(colors: [.lightWhite, .fullWhite]),
+                startPoint: .topLeading, endPoint: .bottomTrailing))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .softShadow()
     }
 }
 
@@ -25,6 +36,5 @@ struct ButtonStyleMain_Previews: PreviewProvider {
                }) {
                    Text("test")
                }.buttonStyle(ButtonStyleNavigation())
-        
     }
 }
