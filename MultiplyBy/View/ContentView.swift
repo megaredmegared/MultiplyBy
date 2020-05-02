@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let timesTables = TimesTables()
+    let timesTables = TimesTables(numberOfTables: 12)
     
     var body: some View {
         

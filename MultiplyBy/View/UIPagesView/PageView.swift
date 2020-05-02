@@ -37,9 +37,9 @@ struct PageView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        PageView([LearnView(table: Table(of: 1, numberOfTables: 12)),
-                  LearnView(table: Table(of: 2, numberOfTables: 12)),
-                  LearnView(table: Table(of: 3, numberOfTables: 12)),
-                  LearnView(table: Table(of: 4, numberOfTables: 12))])
+        PageView([LearnView(table: TableViewModel(of: 1, numberOfTables: 12)),
+                  LearnView(table: TableViewModel(of: 2, numberOfTables: 12)),
+                  LearnView(table: TableViewModel(of: 3, numberOfTables: 12)),
+                  LearnView(table: TableViewModel(of: 4, numberOfTables: 12))])
     }
 }

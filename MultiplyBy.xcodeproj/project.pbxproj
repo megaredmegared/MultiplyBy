@@ -132,13 +132,6 @@
 			path = UIPagesView;
 			sourceTree = "<group>";
 		};
-		4D08C6C32450F21A0069295F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		4D22E5252447310F009A54ED = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +160,6 @@
 				4D22E5662447323B009A54ED /* Model */,
 				4D7EF2A324585F0500DFF589 /* View Model */,
 				4D85BB112449B0AD002204D6 /* View */,
-				4D08C6C32450F21A0069295F /* ViewModel */,
 				4D22E53A24473110009A54ED /* Assets.xcassets */,
 				4D22E53F24473110009A54ED /* LaunchScreen.storyboard */,
 				4D22E54224473110009A54ED /* Info.plist */,

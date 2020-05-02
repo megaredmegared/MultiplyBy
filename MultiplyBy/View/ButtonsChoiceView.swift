@@ -32,14 +32,6 @@ struct ButtonsChoice: View {
             }
         }
     }
-    
-//    func addOrDeleteTable(of table: Table) {
-//        if choosenTables.contains(table) {
-//            choosenTables.removeAll { table == $0 }
-//        } else {
-//            choosenTables.append(table)
-//        }
-//    }
 }
 
 //struct ButtonsChoiceView_Previews: PreviewProvider {

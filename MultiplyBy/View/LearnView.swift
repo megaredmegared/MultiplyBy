@@ -15,19 +15,20 @@ extension Font {
 }
 
 struct LearnView: View, Identifiable {
+    
     var id: Int {
         table.id
     }
     
     private let colorScheme = ColorScheme()
     
-    private var table: Table
+    private var table: TableViewModel
     
     private var color: Color {
         colorScheme.returnColor(number: table.id)
     }
     
-    init(table: Table) {
+    init(table: TableViewModel) {
         self.table = table
     }
     
@@ -57,7 +58,7 @@ struct LearnView: View, Identifiable {
                     Spacer()
                     
                     // table
-                    ForEach(self.table.all, id: \.self) { operation in
+                    ForEach(self.table.multiplications, id: \.self) { operation in
                         HStack() {
                             Text("\(operation.firstOperand)")
                                 .frame(width: geo.size.width / 8, alignment: .leading)
@@ -82,6 +83,6 @@ struct LearnView: View, Identifiable {
 
 struct LearnView_Previews: PreviewProvider {
     static var previews: some View {
-        LearnView(table: Table(of: 2, numberOfTables: 12))
+        LearnView(table: TableViewModel(of: 2, numberOfTables: 12))
     }
 }
