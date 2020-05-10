@@ -8,18 +8,19 @@
 
 import Foundation
 
-struct MultiplicationViewModel: Hashable {
+struct MultiplicationViewModel: Hashable, Codable {
     let firstOperand: String
     let secondOperand: String
     var result: String
 }
 
-struct TableViewModel: Identifiable, Comparable, Hashable {
+struct TableViewModel: Identifiable, Comparable, Hashable, Codable {
     let id: Int
     var multiplications: [MultiplicationViewModel]
     
     init(of id: Int, numberOfTables: Int) {
         self.id = id
+        
         let mutliplications = Table(of: id, numberOfTables: numberOfTables).multiplications
         
         self.multiplications = mutliplications.map { $0.convertMultiplicationToViewModel() }
@@ -33,7 +34,6 @@ struct TableViewModel: Identifiable, Comparable, Hashable {
     }
 }
 
-/// Timestables from 1 to 12
 class TimesTables: ObservableObject {
     
     var all: [TableViewModel] = []
@@ -45,7 +45,18 @@ class TimesTables: ObservableObject {
             all.append(TableViewModel(of: number, numberOfTables: numberOfTables))
         }
         
-        self.choosenTables = all
+        // FIXME: make better solution with injection
+        var test = all
+        if let selectedTables = UserDefaults.standard.object(forKey: "selectedTables") as? Data {
+            let decoder = JSONDecoder()
+            if let tables = try? decoder.decode([TableViewModel].self, from: selectedTables) {
+                test = tables
+            }
+        }
+        self.choosenTables = test
+        
+        
+        
     }
     
     func addOrDeleteTable(of table: TableViewModel) {
@@ -53,6 +64,15 @@ class TimesTables: ObservableObject {
             choosenTables.removeAll { table == $0 }
         } else {
             choosenTables.append(table)
+        }
+    }
+    
+    func saveChoosenTables() {
+        print("hello")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(choosenTables) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "selectedTables")
         }
     }
 }

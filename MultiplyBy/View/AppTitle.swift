@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct AppTitle: View {
+    private let title = "Multiply By".map { String($0) }
+    
     var body: some View {
         Image("title")
             .resizable()

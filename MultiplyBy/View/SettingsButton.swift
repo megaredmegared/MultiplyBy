@@ -12,6 +12,7 @@ import SwiftUI
 
 struct SettingsButton: View {
     @State var isPresented = false
+    @EnvironmentObject var timesTables: TimesTables
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,7 +27,7 @@ struct SettingsButton: View {
             }
             .padding(.horizontal)
             .sheet(isPresented: $isPresented) {
-                SettingsView()
+                SettingsView(timesTables: self.timesTables)
             }
             Spacer()
         }

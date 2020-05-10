@@ -13,7 +13,7 @@ import SwiftUI
 struct ButtonStyleNavigation: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .font(.system(size: 20, weight: .bold, design: .rounded))
+            .roundedText(size: 20, weight: .bold)
             .foregroundColor(.lightBlack)
             .padding(.horizontal, 15)
             .padding(.vertical, 10)
