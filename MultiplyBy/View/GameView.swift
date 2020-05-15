@@ -27,31 +27,7 @@ struct GameView: View {
                     .padding()
                 
                 
-                HStack(spacing: 10) {
-                    VStack(spacing: 10) {
-                        HStack(spacing: 10) {
-                            GameButton(result: $result, number: "7")
-                            GameButton(result: $result, number: "8")
-                            GameButton(result: $result, number: "9")
-                        }
-                        HStack(spacing: 10) {
-                            GameButton(result: $result, number: "4")
-                            GameButton(result: $result, number: "5")
-                            GameButton(result: $result, number: "6")
-                        }
-                        HStack(spacing: 10) {
-                            GameButton(result: $result, number: "1")
-                            GameButton(result: $result, number: "2")
-                            GameButton(result: $result, number: "3")
-                        }
-                        GameButton(result: $result, number: "0")
-                    }
-                    VStack(spacing: 10) {
-                        GameButton(result: $result, number: "<")
-                        GameButton(result: $result, number: "OK").frame(height: 150)
-                    }
-                }
-                .frame(width: 200, height: 200)
+                NumPad()
             }
         }
     }
@@ -76,15 +52,11 @@ struct GameButton: View {
             self.result.append(self.number)
         }) {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [ .white, Color(.systemGray3).opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-               
-                
+
             Text(number)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .foregroundColor(.lightBlack)
                 .background(Color.lightWhite)
-//                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 .overlay(RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(lineWidth: 4)
                     .foregroundColor(.lightWhite)
@@ -93,15 +65,16 @@ struct GameButton: View {
                         : Color.primary.opacity(0.4),
                             radius: size, x: 1, y: 1)
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                    
                     .shadow(color: colorScheme == .dark
                         ? Color.black.opacity(0.8)
                         : .white, radius: 1.2, x: -1, y: -1)
+                    
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 )
-                .clipShape(RoundedRectangle(cornerRadius: 5))
-//                .overlay(RoundedRectangle(cornerRadius: cornerRadius)
-//                    .stroke(lineWidth: 1)
-//            )
+                
+                RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(LinearGradient(gradient: Gradient(colors: [ .white, Color(.systemGray3).opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1)
                 .padding(0.5)
                 
                 
@@ -116,3 +89,4 @@ struct GameView_Previews: PreviewProvider {
         GameView()
     }
 }
+

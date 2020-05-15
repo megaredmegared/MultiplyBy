@@ -33,31 +33,20 @@ struct LearnView: View, Identifiable {
     }
     
     var body: some View {
-        
-        GeometryReader { geo in
-            ZStack {
-                Rectangle()
-                    .foregroundColor(self.color)
-                    .edgesIgnoringSafeArea(.all)
-                
+        ZStack {
+            self.color.edgesIgnoringSafeArea(.all)
+            GeometryReader { geo in
                 VStack {
-                    // table title number in a round
+                    Spacer()
+                    
                     Text("\(self.table.id)")
-                    .foregroundColor(Color.white)
-                    .font(.system(size: geo.size.width * 0.10, weight: .black, design: .rounded))
-                        .shadow(color: Color.black, radius: geo.size.width * 0.02)
-                    .frame(maxWidth: geo.size.width / 3, maxHeight: geo.size.width  / 3)
-                    .background(self.color)
-                    .overlay(
-                        Circle()
-                            .strokeBorder(self.color,lineWidth: geo.size.width * 0.03)
-                            .colorMultiply(self.color.opacity(0.5)))
-                    .clipShape(Circle())
-                        .padding()
+                        .foregroundColor(.lightWhite)
+                        .roundedText(size: geo.size.width * 0.20, weight: .black)
+                        .frame(width: geo.size.width * 0.3, height: geo.size.width * 0.3)
+                        .overlay(Circle().stroke(Color.lightWhite, lineWidth: geo.size.width * 0.02))
                     
                     Spacer()
                     
-                    // table
                     ForEach(self.table.multiplications, id: \.self) { operation in
                         HStack() {
                             Text("\(operation.firstOperand)")
@@ -72,17 +61,18 @@ struct LearnView: View, Identifiable {
                                 .frame(width: geo.size.width / 5, alignment: .trailing)
                         }
                         .font(Font.monospacedDigitFont(.system(size: geo.size.width * 0.08, weight: .black, design: .rounded))())
+                        .foregroundColor(.lightWhite)
                     }
                     Spacer()
                 }
-
-            }
+                
+            }.frame(maxWidth: 600)
         }
     }
 }
 
 struct LearnView_Previews: PreviewProvider {
     static var previews: some View {
-        LearnView(table: TableViewModel(of: 2, numberOfTables: 12))
+        LearnView(table: TableViewModel(of: 3, numberOfTables: 12))
     }
 }

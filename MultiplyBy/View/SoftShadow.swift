@@ -11,19 +11,19 @@ import SwiftUI
 struct SoftShadow: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
     private let size: CGFloat = 2
-    var isSelected: Bool
+    var isEnabled: Bool
 
     func body(content: Content) -> some View {
 
         VStack {
-            if isSelected {
+            if isEnabled {
                 content
                 .shadow(color: colorScheme == .dark
-                    ? Color(.systemGray3).opacity(0.7)
+                    ? Color.black.opacity(0.8)
                     : Color.primary.opacity(0.2),
                         radius: size, x: size, y: size)
                 .shadow(color: colorScheme == .dark
-                    ? Color.black.opacity(0.8)
+                    ? Color(.systemGray3).opacity(0.7)
                     : .white,
                         radius: size, x: -size, y: -size)
             } else {
@@ -37,6 +37,6 @@ struct SoftShadow: ViewModifier {
 
 extension View {
     func softShadow(isSelected: Bool = true) -> some View {
-        self.modifier(SoftShadow(isSelected: isSelected))
+        self.modifier(SoftShadow(isEnabled: isSelected))
     }
 }

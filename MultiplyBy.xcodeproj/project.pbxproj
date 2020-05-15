@@ -24,7 +24,7 @@
 		4D4A6F6B244DCB1500830A71 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6F6A244DCB1500830A71 /* PageView.swift */; };
 		4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6F6C244DCFBC00830A71 /* PageControl.swift */; };
 		4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB7244F146D00830A71 /* GameView.swift */; };
-		4D4A6FBA244F174B00830A71 /* ButtonStyleNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */; };
+		4D4A6FBA244F174B00830A71 /* DefaultButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB9244F174B00830A71 /* DefaultButtonStyle.swift */; };
 		4D7EF29E2458366100DFF589 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29D2458366100DFF589 /* PresentView.swift */; };
 		4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */; };
 		4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A124585CC600DFF589 /* AppTitle.swift */; };
@@ -38,10 +38,10 @@
 		4D939DFB2466FE8E00039866 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D939DFA2466FE8E00039866 /* ViewExtensions.swift */; };
 		4D939E8324682FB700039866 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D939E8124682FB700039866 /* Localizable.strings */; };
 		4DA0D2E9245F573000019371 /* GameStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA0D2E8245F573000019371 /* GameStartView.swift */; };
+		4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12E49246B3E60004D044E /* NumPad.swift */; };
 		4DA2FA652468C4A300EE23A4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DA2FA642468C4A300EE23A4 /* Settings.bundle */; };
 		4DBB186924504256003CB971 /* TransitionLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBB186824504256003CB971 /* TransitionLink.swift */; };
 		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
-		4DEC1CF424590D930093D39C /* IsSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF324590D930093D39C /* IsSelected.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,7 @@
 		4D4A6F6A244DCB1500830A71 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		4D4A6F6C244DCFBC00830A71 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4D4A6FB7244F146D00830A71 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleNavigation.swift; sourceTree = "<group>"; };
+		4D4A6FB9244F174B00830A71 /* DefaultButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButtonStyle.swift; sourceTree = "<group>"; };
 		4D7EF29D2458366100DFF589 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoiceView.swift; sourceTree = "<group>"; };
 		4D7EF2A124585CC600DFF589 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
@@ -97,14 +97,13 @@
 		4D7EF2AE2458821F00DFF589 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4D85BB0F2449B07B002204D6 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		4D939DFA2466FE8E00039866 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
-		4D939E7C24682B4600039866 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4D939E8224682FB700039866 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D939E8424682FC400039866 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DA0D2E8245F573000019371 /* GameStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartView.swift; sourceTree = "<group>"; };
+		4DA12E49246B3E60004D044E /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		4DA2FA642468C4A300EE23A4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4DBB186824504256003CB971 /* TransitionLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLink.swift; sourceTree = "<group>"; };
 		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
-		4DEC1CF324590D930093D39C /* IsSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsSelected.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,14 +232,14 @@
 				4D390E73244C4A9A00368D44 /* LearnView.swift */,
 				4D7EF2AC24587CC000DFF589 /* ScoresView.swift */,
 				4D4A6FB7244F146D00830A71 /* GameView.swift */,
+				4DA12E49246B3E60004D044E /* NumPad.swift */,
 				4DA0D2E8245F573000019371 /* GameStartView.swift */,
 				4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */,
 				4D7EF2A124585CC600DFF589 /* AppTitle.swift */,
-				4DEC1CF324590D930093D39C /* IsSelected.swift */,
 				4D7EF2A82458749B00DFF589 /* SettingsButton.swift */,
 				4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */,
 				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
-				4D4A6FB9244F174B00830A71 /* ButtonStyleNavigation.swift */,
+				4D4A6FB9244F174B00830A71 /* DefaultButtonStyle.swift */,
 				4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */,
 				4D85BB0F2449B07B002204D6 /* ColorScheme.swift */,
 				4D939DFA2466FE8E00039866 /* ViewExtensions.swift */,
@@ -399,12 +398,12 @@
 				4D22E5652447321A009A54ED /* Table.swift in Sources */,
 				4D7EF2AD24587CC000DFF589 /* ScoresView.swift in Sources */,
 				4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */,
-				4D4A6FBA244F174B00830A71 /* ButtonStyleNavigation.swift in Sources */,
+				4D4A6FBA244F174B00830A71 /* DefaultButtonStyle.swift in Sources */,
 				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
-				4DEC1CF424590D930093D39C /* IsSelected.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,
 				4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */,
 				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,
+				4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */,
 				4D85BB102449B07B002204D6 /* ColorScheme.swift in Sources */,
 				4D939DFB2466FE8E00039866 /* ViewExtensions.swift in Sources */,
 				4D4A6F6B244DCB1500830A71 /* PageView.swift in Sources */,
@@ -460,7 +459,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4D22E54024473110009A54ED /* Base */,
-				4D939E7C24682B4600039866 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

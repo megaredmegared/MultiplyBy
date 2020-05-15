@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct ButtonStyleColored: ButtonStyle {
 
     private var isSelected: Bool
@@ -60,6 +58,7 @@ struct ButtonStyleColored: ButtonStyle {
 
 struct ButtonStyleColored_Previews: PreviewProvider {
     static var previews: some View {
+        
         Button(action: {
             // void
         }) {

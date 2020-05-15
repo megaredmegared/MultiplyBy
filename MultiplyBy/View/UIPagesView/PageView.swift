@@ -20,15 +20,15 @@ struct PageView<Page: View>: View {
     var body: some View {
 
             ZStack {
-                Rectangle()
-                .edgesIgnoringSafeArea(.all)
                 
-                PageViewController(controllers: viewControllers, currentPage: $currentPage)
+                PageViewController(controllers: viewControllers, currentPage: $currentPage).edgesIgnoringSafeArea(.all)
                 
-//                PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
-//                    .padding(.trailing)
-                
-            
+// Pages dots indicators
+//                VStack {
+//                    Spacer()
+//                    PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
+//                        .padding(.trailing)
+//                }
         }
     }
 }

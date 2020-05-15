@@ -13,13 +13,10 @@ struct SettingsView: View {
     var timesTables: TimesTables
     
     private var showLanguageButton: Bool {
-        if Locale.preferredLanguages.count > 1 {
-            return true
-        }
-        return false
+        Locale.preferredLanguages.count > 1 ? true : false
     }
     
-    var language: String {
+    private var language: String {
         let language = Bundle.main.preferredLocalizations.first ?? "None"
         if language == "en" {
             return "English"
@@ -30,45 +27,50 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            Color.green.edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Text("TitleOfTheSettingsView", comment: "Titles for the settings View")
-                    .roundedText(style: .body)
-                
-                if showLanguageButton {
-                    Button(action: {
-                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                    }) {
-                        Text("SelectLanguageButton: \(self.language)", comment: "Button for selecting another language")
-                            .roundedText(style: .body)
-                    }
-                }
-                
-                Button(action: {
-                    self.timesTables.saveChoosenTables()
-                }) {
-                    Text("save selected table", comment: "Save selected table button")
-                        .font(Font.system(size: 25))
-                        .roundedText(style: .body)
-                        .foregroundColor(.white)
+            Color.lightWhite.edgesIgnoringSafeArea(.all)
+            GeometryReader { geo in
+                VStack(spacing: 10) {
+                    Text("TitleOfTheSettingsView", comment: "Titles for the settings View")
+                        .roundedText(size: geo.size.width * 0.08, weight: .black)
+                    
+                    
+                    Spacer()
+                    
+                    if self.showLanguageButton {
+                        Button(action: {
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                        }) {
+                            Group {
+                                Text("SelectLanguageButton", comment: "Button for selecting another language")
+                                    + Text(" ")
+                                    + Text("\(self.language)")
+                                
+                            }
+                            .frame(maxWidth: .infinity)
+                        }.buttonStyle(DefaultButtonStyle())
                         
+                    }
+                    
+                    Button(action: {
+                        self.timesTables.saveChoosenTables()
+                    }) {
+                        Text("SaveSelectedTable", comment: "Save selected table button").frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(DefaultButtonStyle())
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("back").frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(DefaultButtonStyle(foregroundColor: .lightWhite, backgroundColor: .table1))
+                    
                 }
-                
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("back")
-                        .roundedText(size: 20, weight: .bold)
-                        .foregroundColor(.white)
-                }
+                .padding()
             }
         }
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(timesTables: TimesTables(numberOfTables: 12))
-    }
-}

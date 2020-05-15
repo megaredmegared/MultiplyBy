@@ -13,3 +13,15 @@
 /* No comment provided by engineer. */
 "StartButtonLabel" = "Start";
 
+/* Titles for the settings View */
+"TitleOfTheSettingsView" = "Settings";
+
+/* Save selected table button */
+"SaveSelectedTable" = "Save Selected Table";
+
+/* No comment provided by engineer. */
+"back" = "back";
+
+/* Button for selecting another language */
+"SelectLanguageButton" = "Selected language:";
+

@@ -53,10 +53,7 @@ class TimesTables: ObservableObject {
                 test = tables
             }
         }
-        self.choosenTables = test
-        
-        
-        
+        self.choosenTables = test   
     }
     
     func addOrDeleteTable(of table: TableViewModel) {

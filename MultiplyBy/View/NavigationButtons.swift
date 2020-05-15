@@ -40,7 +40,7 @@ struct NavigationButtons: View {
                 self.isPresentedLearnSheet.toggle()
             }) {
                 Text("LearnButtonLabel")
-            }.buttonStyle(ButtonStyleNavigation())
+            }.buttonStyle(DefaultButtonStyle())
                 .sheet(isPresented: self.$isPresentedLearnSheet) {
                     PageView(self.makeLearnViews())
             }
@@ -50,7 +50,7 @@ struct NavigationButtons: View {
             }) {
                 Text("ScoresButtonLabel")
             }
-            .buttonStyle(ButtonStyleNavigation())
+            .buttonStyle(DefaultButtonStyle())
             .sheet(isPresented: self.$isPresentedScoreSheet) {
                 ScoresView()
             }
@@ -62,7 +62,7 @@ struct NavigationButtons: View {
             }) {
                 Text("PlayButtonLabel")
             }
-            .buttonStyle(ButtonStyleNavigation())
+            .buttonStyle(DefaultButtonStyle())
             .sheet(isPresented: self.$isPresentedPlaySheet) {
                 GameStartView()
             }
