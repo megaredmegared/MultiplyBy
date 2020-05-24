@@ -8,14 +8,6 @@
 
 import SwiftUI
 
-//struct RoundedText: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(.system(.title, design: .rounded))
-//            .font(.system(<#T##style: Font.TextStyle##Font.TextStyle#>, design: <#T##Font.Design#>))
-//    }
-//}
-
 extension View {
     
     func roundedText(style: Font.TextStyle) -> some View {

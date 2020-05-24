@@ -21,7 +21,7 @@ class TimesTablesTests: XCTestCase {
     }
 
     func testGivenNoTableWhenAddTableTill3ToViewModelThen3Timestables() throws {
-        let timesTables = TimesTables(numberOfTables: 3)
+      let timesTables = TimesTables(numberOfTables: 3)
         
         XCTAssertEqual(timesTables.all.count, 3)
         // FIXME: Is egal and that's not normal

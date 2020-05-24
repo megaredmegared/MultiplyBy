@@ -12,7 +12,7 @@ struct ButtonStyleColored: ButtonStyle {
 
     private var isSelected: Bool
     
-    private let colorScheme = ColorScheme()
+    private let colorScheme = AppColorScheme()
     private var table: Int
     private var text: String
     private var color: Color {
@@ -39,13 +39,14 @@ struct ButtonStyleColored: ButtonStyle {
                 Circle()
                     .strokeBorder(Color.lightWhite,lineWidth: geo.size.width * 0.05))
                 .clipShape(Circle())
-                .softShadow(isSelected: self.isSelected)
+                .modifier(SoftShadow(isPressed: self.showShadow(isPressed: configuration.isPressed, isSelected: self.isSelected)))
                 .overlay(
                     Circle()
                         .stroke(Color.lightWhite,lineWidth: geo.size.width * 0.02))
                 .overlay(
                     Circle()
-                        .foregroundColor(Color.lightWhite.opacity(self.isSelected ? 0 : 0.8)).animation(.none)
+                        .foregroundColor(Color.lightWhite.opacity(self.showOpacity(isPressed: configuration.isPressed, isSelected: self.isSelected) ? 0 : 0.8))
+                        .animation(.linear)
             )
                 
                 .padding(geo.size.width * 0.05)
@@ -53,6 +54,25 @@ struct ButtonStyleColored: ButtonStyle {
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6))
             
         }
+    }
+    
+    func showOpacity(isPressed: Bool, isSelected: Bool) -> Bool {
+        if isPressed && isSelected {
+            return true
+        } else if isPressed && !isSelected {
+            return false
+        } else if !isSelected {
+            return false
+        }
+    
+        return true
+    }
+    
+    func showShadow(isPressed: Bool, isSelected: Bool) -> Bool {
+        if isPressed || !isSelected {
+            return true
+        }
+        return false
     }
 }
 

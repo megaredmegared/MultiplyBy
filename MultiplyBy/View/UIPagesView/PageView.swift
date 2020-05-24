@@ -18,17 +18,17 @@ struct PageView<Page: View>: View {
     }
 
     var body: some View {
-
-            ZStack {
-                
-                PageViewController(controllers: viewControllers, currentPage: $currentPage).edgesIgnoringSafeArea(.all)
-                
-// Pages dots indicators
-//                VStack {
-//                    Spacer()
-//                    PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
-//                        .padding(.trailing)
-//                }
+        
+        ZStack {
+            
+            PageViewController(controllers: viewControllers, currentPage: $currentPage).edgesIgnoringSafeArea(.all)
+            
+            //Pages dots indicators
+            VStack {
+                Spacer()
+                PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)
+                    .padding(.trailing)
+            }
         }
     }
 }
@@ -37,9 +37,9 @@ struct PageView_Previews: PreviewProvider {
     
     static var previews: some View {
         
-        PageView([LearnView(table: TableViewModel(of: 1, numberOfTables: 12)),
-                  LearnView(table: TableViewModel(of: 2, numberOfTables: 12)),
-                  LearnView(table: TableViewModel(of: 3, numberOfTables: 12)),
-                  LearnView(table: TableViewModel(of: 4, numberOfTables: 12))])
+        PageView([LearnView(table: TableViewModel(of: 1)),
+                  LearnView(table: TableViewModel(of: 2)),
+                  LearnView(table: TableViewModel(of: 3)),
+                  LearnView(table: TableViewModel(of: 4))])
     }
 }

@@ -8,29 +8,23 @@
 
 import SwiftUI
 
-
-
+/// Button to go to SettingsView
 struct SettingsButton: View {
-    @State var isPresented = false
-    @EnvironmentObject var timesTables: TimesTables
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             HStack {
                 Spacer()
-                Button(action: {
-                    self.isPresented.toggle()
-                }) {
+                NavigationLink(destination: SettingsView()) {
                     Image(systemName: "gear")
-                        .foregroundColor(Color.lightBlack)
+                    .foregroundColor(Color.lightBlack)
+                    .frame(width: 20, height: 20)
                 }
             }
-            .padding(.horizontal)
-            .sheet(isPresented: $isPresented) {
-                SettingsView(timesTables: self.timesTables)
-            }
+            .padding()
+            
             Spacer()
-        }
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 

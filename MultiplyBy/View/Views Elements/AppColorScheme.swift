@@ -28,7 +28,7 @@ extension Color {
 }
 
 /// Color scheme for the app MultiplyBy
-struct ColorScheme {
+struct AppColorScheme {
     /// All the possibles colors stored in an array
     var all = [
         Color.table12,

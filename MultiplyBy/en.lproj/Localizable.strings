@@ -16,12 +16,18 @@
 /* Titles for the settings View */
 "TitleOfTheSettingsView" = "Settings";
 
-/* Save selected table button */
-"SaveSelectedTable" = "Save Selected Table";
+/* No comment provided by engineer. */
+"Yes" = "Yes";
 
 /* No comment provided by engineer. */
 "back" = "back";
 
 /* Button for selecting another language */
-"SelectLanguageButton" = "Selected language:";
+"SelectLanguageButton" = "Language:";
 
+/* No comment provided by engineer. */
+"SaveSelectedTables" = "Save the choice of selected Times Tables.";
+
+"StartTrainingButton" = "Training";
+
+"StartGameButton" = "Play";

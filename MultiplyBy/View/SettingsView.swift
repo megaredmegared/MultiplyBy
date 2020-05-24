@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
-    var timesTables: TimesTables
+    @EnvironmentObject var timesTables: TimesTables
     
     private var showLanguageButton: Bool {
         Locale.preferredLanguages.count > 1 ? true : false
@@ -29,7 +29,7 @@ struct SettingsView: View {
         ZStack {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
-                VStack(spacing: 10) {
+                VStack(spacing: 30) {
                     Text("TitleOfTheSettingsView", comment: "Titles for the settings View")
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
                     
@@ -47,30 +47,33 @@ struct SettingsView: View {
                                 
                             }
                             .frame(maxWidth: .infinity)
-                        }.buttonStyle(DefaultButtonStyle())
+                        }.buttonStyle(DefaultMainButtonStyle())
                         
                     }
-                    
-                    Button(action: {
-                        self.timesTables.saveChoosenTables()
-                    }) {
-                        Text("SaveSelectedTable", comment: "Save selected table button").frame(maxWidth: .infinity)
+                    VStack(spacing: 10) {
+                        Text("SaveSelectedTables").roundedText(size: 15, weight: .bold)
+                            .foregroundColor(.gray)
+                        
+                        Button(action: {
+                            self.timesTables.saveChoosenTables()
+                        }) {
+                            Text("Yes").frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(DefaultMainButtonStyle())
+                        
+                        Spacer()
+                        
+                        BackButton()
                     }
-                    .buttonStyle(DefaultButtonStyle())
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("back").frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(DefaultButtonStyle(foregroundColor: .lightWhite, backgroundColor: .table1))
                     
                 }
-                .padding()
+            .padding()
+            .frame(maxWidth: 600)
             }
         }
+        .deleteNavBar()     
     }
 }
+
+
 

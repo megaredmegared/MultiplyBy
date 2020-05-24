@@ -18,7 +18,7 @@ struct TableViewModel: Identifiable, Comparable, Hashable, Codable {
     let id: Int
     var multiplications: [MultiplicationViewModel]
     
-    init(of id: Int, numberOfTables: Int) {
+    init(of id: Int, numberOfTables: Int = 12) {
         self.id = id
         
         let mutliplications = Table(of: id, numberOfTables: numberOfTables).multiplications
@@ -39,6 +39,8 @@ class TimesTables: ObservableObject {
     var all: [TableViewModel] = []
     
     @Published var choosenTables: [TableViewModel]
+    // for test
+    var count = 0
     
     init(numberOfTables: Int) {
         for number in 1...numberOfTables {
@@ -71,6 +73,19 @@ class TimesTables: ObservableObject {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "selectedTables")
         }
+    }
+    
+    // for test
+    func printed() {
+        count += 1
+        print("print is: \(count)")
+    }
+    
+    func pickAMultiplication(tables: [TableViewModel]) -> MultiplicationViewModel? {
+        let table = tables.randomElement()
+        let multiplication = table?.multiplications.randomElement()
+        print("\(String(describing: multiplication?.firstOperand)) x \(String(describing: multiplication?.secondOperand)) = \(String(describing: multiplication?.result))")
+        return multiplication
     }
 }
 

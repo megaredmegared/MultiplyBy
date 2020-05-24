@@ -20,7 +20,7 @@ struct LearnView: View, Identifiable {
         table.id
     }
     
-    private let colorScheme = ColorScheme()
+    private let colorScheme = AppColorScheme()
     
     private var table: TableViewModel
     
@@ -64,15 +64,16 @@ struct LearnView: View, Identifiable {
                         .foregroundColor(.lightWhite)
                     }
                     Spacer()
+                    BackButton()
                 }
-                
             }.frame(maxWidth: 600)
         }
+        .deleteNavBar()
     }
 }
 
 struct LearnView_Previews: PreviewProvider {
     static var previews: some View {
-        LearnView(table: TableViewModel(of: 3, numberOfTables: 12))
+        LearnView(table: TableViewModel(of: 3))
     }
 }

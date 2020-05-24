@@ -23,7 +23,9 @@ struct ScoresView: View {
                     Text("back").font(.largeTitle).fontWeight(.bold).foregroundColor(.white)
                 }
             }
+            .frame(maxWidth: 600)
         }
+        .deleteNavBar()
     }
 }
 

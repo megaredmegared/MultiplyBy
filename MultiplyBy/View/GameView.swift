@@ -10,77 +10,70 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var timesTables: TimesTables
     
-    @State private var result = ""
+    @State var score = 0
+    @State var result: String = "0"
     
-    var body: some View {
-        ZStack {
-            Color.lightWhite.edgesIgnoringSafeArea(.all)
-            
-            
-            VStack(spacing: 2) {
-                Text("00:47")
-                Text("3 x 3")
-                TextField("0", text: $result)
-                    .background(Color.white)
-                    .frame(width: 200)
-                    .padding()
-                
-                
-                NumPad()
-            }
-        }
+    let colorScheme = AppColorScheme()
+    
+    var spacing: CGFloat = 4
+    var textSize: CGFloat = 40
+    
+    var multiplication: MultiplicationViewModel = MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
+    
+    func fetchMultiplication() -> MultiplicationViewModel {
+        timesTables.pickAMultiplication(tables: timesTables.all)!
     }
     
-}
-
-//struct GameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameView(), showingPlaySheet: Binding<Bool>
-//    }
-//}
-
-struct GameButton: View {
-    @Environment(\.colorScheme) var colorScheme
-    private let size: CGFloat = 2
-    @Binding var result: String
-    let cornerRadius: CGFloat = 5
-    let number: String
-    
     var body: some View {
-        Button(action: {
-            self.result.append(self.number)
-        }) {
+        GeometryReader { geo in
             ZStack {
-
-            Text(number)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .foregroundColor(.lightBlack)
-                .background(Color.lightWhite)
-                .overlay(RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(lineWidth: 4)
-                    .foregroundColor(.lightWhite)
-                    .shadow(color: colorScheme == .dark
-                        ? Color(.systemGray3).opacity(0.7)
-                        : Color.primary.opacity(0.4),
-                            radius: size, x: 1, y: 1)
-                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-                    
-                    .shadow(color: colorScheme == .dark
-                        ? Color.black.opacity(0.8)
-                        : .white, radius: 1.2, x: -1, y: -1)
-                    
-                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-                )
                 
-                RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(LinearGradient(gradient: Gradient(colors: [ .white, Color(.systemGray3).opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1)
-                .padding(0.5)
+                Color.lightWhite.edgesIgnoringSafeArea(.all)
                 
+                VStack(spacing: 2) {
+                    
+                    Text("00:47")
+                        .roundedText(size: geo.size.width * 0.1, weight: .bold)
+                        .foregroundColor(.lightBlack)
+                    Text("score: \(self.score)")
+                    HStack {
+                        Text(self.multiplication.firstOperand)
+                        Text(" x ")
+                        Text(self.multiplication.secondOperand)
+                    }
+                    .roundedText(size: geo.size.width * 0.2, weight: .bold)
+                    .foregroundColor(.table10)
+                    
+                    Text("\(self.result)")
+                        .roundedText(size: geo.size.width * 0.2, weight: .bold)
+                        .multilineTextAlignment(.center)
+                        .background(Color.lightWhite)
+                        .foregroundColor(.lightBlack)
+                        .frame(maxWidth: .infinity)
+                    
+                    
+                    NumPad(result: self.$result, score: self.$score, multiplication: self.multiplication)
+                        .padding()
+                    
+                    Spacer()
+                }
+                .frame(maxWidth: 600)
+                
+                VStack {
+                    HStack {
+                        RoundedBackButton( width: geo.size.width * 0.08, height: geo.size.width * 0.08)
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                .padding()
+                .edgesIgnoringSafeArea(.all)
                 
             }
-
         }
+        .deleteNavBar()
     }
 }
 

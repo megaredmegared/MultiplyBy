@@ -8,6 +8,21 @@
 
 import SwiftUI
 
+struct DeleteNavBar: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
+    }
+}
+
+extension View {
+    func deleteNavBar() -> some View {
+        self.modifier(DeleteNavBar())
+    }
+}
+
+
 struct ContentView: View {
     
     let timesTables = TimesTables(numberOfTables: 12)
@@ -15,26 +30,33 @@ struct ContentView: View {
     var body: some View {
         
         GeometryReader { geo in
-            ZStack {
-                Color.lightWhite.edgesIgnoringSafeArea(.all)
-                VStack {
-                    AppTitle()
+            NavigationView {
+                ZStack {
+                    Color.lightWhite.edgesIgnoringSafeArea(.all)
+                    VStack {
+                        
+                        AppTitle()
+                        
+                        Spacer(minLength: 4)
+                        
+                        ButtonsChoice()
+                        
+                        Spacer(minLength: 4)
+                        
+                        NavigationButtons(timesTables: self.timesTables)
+                        
+                        Spacer(minLength: 0)
+                        
+                    }.frame(maxWidth: 600)
                     
-                    Spacer(minLength: 4)
-                    
-                    ButtonsChoice()
-                    
-                    Spacer(minLength: 4)
-                    
-                    NavigationButtons()
-                    
-                    Spacer(minLength: 0)
-                    
-                }.frame(maxWidth: 600)
+                    SettingsButton()
+                }
+            .deleteNavBar()
                 
-                SettingsButton()
             }
-        }.environmentObject(timesTables)
+            .navigationViewStyle(StackNavigationViewStyle())
+        }
+        .environmentObject(timesTables)
         .statusBar(hidden: true)
     }    
 }
