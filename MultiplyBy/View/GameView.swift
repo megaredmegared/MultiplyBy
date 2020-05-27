@@ -34,24 +34,30 @@ struct GameView: View {
                 
                 VStack(spacing: 2) {
                     
-                    Text("00:47")
-                        .roundedText(size: geo.size.width * 0.1, weight: .bold)
-                        .foregroundColor(.lightBlack)
-                    Text("score: \(self.score)")
-                    HStack {
-                        Text(self.multiplication.firstOperand)
-                        Text(" x ")
-                        Text(self.multiplication.secondOperand)
-                    }
-                    .roundedText(size: geo.size.width * 0.2, weight: .bold)
-                    .foregroundColor(.table10)
-                    
-                    Text("\(self.result)")
+                    Group {
+                        Text("00:47")
+                            .roundedText(size: geo.size.width * 0.1, weight: .bold)
+                            .foregroundColor(.lightBlack)
+                        Text("score: \(self.score)")
+                        HStack {
+                            Text(self.multiplication.firstOperand)
+                            Text(" x ")
+                            Text(self.multiplication.secondOperand)
+                        }
                         .roundedText(size: geo.size.width * 0.2, weight: .bold)
-                        .multilineTextAlignment(.center)
-                        .background(Color.lightWhite)
-                        .foregroundColor(.lightBlack)
-                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.table1)
+                        
+                        
+                        Text("\(self.result)")
+                            .truncationMode(.head)
+                            .roundedText(size: geo.size.width * 0.2, weight: .bold)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(1)
+                            .foregroundColor(.lightBlack)
+                            .frame(maxWidth: .infinity)
+                        
+                    }
+                    .modifier(SoftShadow())
                     
                     
                     NumPad(result: self.$result, score: self.$score, multiplication: self.multiplication)

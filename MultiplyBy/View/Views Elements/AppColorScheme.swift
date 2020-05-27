@@ -31,7 +31,6 @@ extension Color {
 struct AppColorScheme {
     /// All the possibles colors stored in an array
     var all = [
-        Color.table12,
         Color.table1,
         Color.table2,
         Color.table3,
@@ -42,16 +41,13 @@ struct AppColorScheme {
         Color.table8,
         Color.table9,
         Color.table10,
-        Color.table11
-        
+        Color.table11,
+        Color.table12
     ]
     
     /// Return the color for a given number
-
-    func returnColor(number: Int) -> Color {
-           if number / all.count == 0 {
-               return all[number]
-           }
-           return all[number % all.count]
+    
+    func returnColor(tableNumber: Int) -> Color {
+           return all[tableNumber - 1 % all.count]
        }
 }

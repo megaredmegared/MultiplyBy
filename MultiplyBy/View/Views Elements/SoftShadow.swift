@@ -11,7 +11,7 @@ import SwiftUI
 struct SoftShadow: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
     
-    private let size: CGFloat = 2
+    var size: CGFloat = 2
     
     var isPressed: Bool = false
 

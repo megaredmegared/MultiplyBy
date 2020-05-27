@@ -12,6 +12,7 @@ struct GameStartView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var timesTables: TimesTables
     
+    var size: CGFloat  = 5
     
     var body: some View {
         ZStack {
@@ -22,13 +23,16 @@ struct GameStartView: View {
                     Spacer()
                     NavigationLink(destination: GameTrainingView()) {
                         Text("StartTrainingButton")
+                        .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, cornerRadius: geo.size.width / 2, foregroundColor: Color.lightWhite, backgroundColor: Color.table7, maxWidth: geo.size.width / 2, maxHeight: geo.size.width / 2))
+                    .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
                     
                     NavigationLink(destination: GameView()) {
                         Text("StartGameButton")
+                            .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, cornerRadius: geo.size.width / 2, foregroundColor: Color.lightWhite, backgroundColor: Color.table5, maxWidth: geo.size.width / 2, maxHeight: geo.size.width / 2))
+                    .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
+                        
                     
                     Spacer()
                     

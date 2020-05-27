@@ -16,7 +16,7 @@ struct ButtonStyleColored: ButtonStyle {
     private var table: Int
     private var text: String
     private var color: Color {
-        colorScheme.returnColor(number: table)
+        colorScheme.returnColor(tableNumber: table)
     }
     
     private var selectedTable: Int

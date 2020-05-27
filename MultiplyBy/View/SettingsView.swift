@@ -12,6 +12,8 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var timesTables: TimesTables
     
+    @State private var showingAlert = false
+    
     private var showLanguageButton: Bool {
         Locale.preferredLanguages.count > 1 ? true : false
     }
@@ -55,11 +57,13 @@ struct SettingsView: View {
                             .foregroundColor(.gray)
                         
                         Button(action: {
-                            self.timesTables.saveChoosenTables()
+                            self.showingAlert = self.timesTables.saveChoosenTables()
                         }) {
                             Text("Yes").frame(maxWidth: .infinity)
                         }
                         .buttonStyle(DefaultMainButtonStyle())
+                        .alert(isPresented: self.$showingAlert) { Alert(title: Text("SelectedTablesSaved"), message: Text("SaveSelectedTablesMessage"), dismissButton: .default(Text("OK")))
+                        }
                         
                         Spacer()
                         

@@ -13,12 +13,19 @@ struct NavigationButtons: View {
     
     @State private var isPresentedLearnSheet = false
     
+    @State private var presentLearnView = false
+    
     var body: some View {
         VStack(spacing: 10) {
             HStack(spacing: 10) {
                 
-                NavigationLink(destination:  PageView(self.makeLearnViews())) {
+                Button(action: {
+                    self.presentLearnView.toggle()
+                }) {
                     Text("LearnButtonLabel")
+                }
+                .sheet(isPresented: $presentLearnView) {
+                    PageView(self.makeLearnViews())
                 }
                 
                 NavigationLink(destination:

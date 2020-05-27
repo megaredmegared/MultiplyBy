@@ -66,13 +66,16 @@ class TimesTables: ObservableObject {
         }
     }
     
-    func saveChoosenTables() {
+    //FIXME: better to throws errors??
+    func saveChoosenTables() -> Bool {
         print("hello")
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(choosenTables) {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "selectedTables")
+            return true
         }
+        return false
     }
     
     // for test

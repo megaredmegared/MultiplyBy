@@ -31,3 +31,7 @@
 "StartTrainingButton" = "Training";
 
 "StartGameButton" = "Play";
+
+"SelectedTablesSaved" = "Tables Saved";
+
+"SaveSelectedTablesMessage" = "Your selection has been saved.";

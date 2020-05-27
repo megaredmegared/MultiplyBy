@@ -8,12 +8,6 @@
 
 import SwiftUI
 
-extension Font {
-    func monospacedDigitFont() -> Font {
-        self.monospacedDigit()
-    }
-}
-
 struct LearnView: View, Identifiable {
     
     var id: Int {
@@ -25,7 +19,7 @@ struct LearnView: View, Identifiable {
     private var table: TableViewModel
     
     private var color: Color {
-        colorScheme.returnColor(number: table.id)
+        colorScheme.returnColor(tableNumber: table.id)
     }
     
     init(table: TableViewModel) {
@@ -35,6 +29,7 @@ struct LearnView: View, Identifiable {
     var body: some View {
         ZStack {
             self.color.edgesIgnoringSafeArea(.all)
+            
             GeometryReader { geo in
                 VStack {
                     Spacer()
@@ -63,12 +58,10 @@ struct LearnView: View, Identifiable {
                         .font(Font.monospacedDigitFont(.system(size: geo.size.width * 0.08, weight: .black, design: .rounded))())
                         .foregroundColor(.lightWhite)
                     }
-                    Spacer()
-                    BackButton()
+                    Spacer(minLength: 40)
                 }
             }.frame(maxWidth: 600)
         }
-        .deleteNavBar()
     }
 }
 

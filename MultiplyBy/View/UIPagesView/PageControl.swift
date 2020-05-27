@@ -24,6 +24,9 @@ struct PageControl: UIViewRepresentable {
             context.coordinator,
             action: #selector(Coordinator.updateCurrentPage(sender:)),
             for: .valueChanged)
+        control.pageIndicatorTintColor = UIColor.init(named: "LightWhite")?.withAlphaComponent(0.2)
+        control.currentPageIndicatorTintColor = UIColor.init(named: "LightWhite")
+        
 
         return control
     }

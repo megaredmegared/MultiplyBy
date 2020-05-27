@@ -8,6 +8,12 @@
 
 import SwiftUI
 
+extension Font {
+    func monospacedDigitFont() -> Font {
+        self.monospacedDigit()
+    }
+}
+
 extension View {
     
     func roundedText(style: Font.TextStyle) -> some View {

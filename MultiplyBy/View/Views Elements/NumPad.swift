@@ -20,15 +20,16 @@ struct NumPad: View {
     
     var body: some View {
         GeometryReader { geo in
-           HStack(spacing: geo.size.width * self.spacing) {
-                VStack(spacing: geo.size.width * self.spacing) {
-                    HStack(spacing: geo.size.width * self.spacing) {
+           HStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
                         Button(action: {
                             self.addNumber("1")
                         }) {
                             Text("1")
                         }
                         .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("2")
@@ -36,67 +37,76 @@ struct NumPad: View {
                             Text("2")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("3")
                         }) {
                             Text("3")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
-                        
+                        .padding(geo.size.width * 0.01)
                     }
-                    HStack(spacing: geo.size.width * self.spacing) {
+                    HStack(spacing: 0) {
                         Button(action: {
                             self.addNumber("4")
                         }) {
                             Text("4")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("5")
                         }) {
                             Text("5")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("6")
                         }) {
                             Text("6")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                     }
-                    HStack(spacing: geo.size.width * self.spacing) {
+                    HStack(spacing: 0) {
                         Button(action: {
                             self.addNumber("7")
                         }) {
                             Text("7")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("8")
                         }) {
                             Text("8")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("9")
                         }) {
                             Text("9")
                         }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .padding(geo.size.width * 0.01)
                     }
                     Button(action: {
                         self.addNumber("0")
                     }) {
                         Text("0")
                     }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                    .padding(geo.size.width * 0.01)
                     
                 }
                 .buttonStyle(DefaultMainButtonStyle())
                 
-                VStack(spacing: geo.size.width * self.spacing) {
+                VStack(spacing: 0) {
                     Button(action: {
                         self.result = "0"
                     }) {
                         Text("X")
                     }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, maxWidth: .infinity, maxHeight: .infinity))
+                    .padding(geo.size.width * 0.01)
                     
                     Button(action: {
                         if self.result == self.multiplication.result {
@@ -110,12 +120,13 @@ struct NumPad: View {
                     }) {
                         Text("OK")
                     }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table4, maxWidth: .infinity, maxHeight: .infinity))
-                        .frame(height: (geo.size.width - 20) * 0.75 )
+                        .frame(height: (geo.size.width * 0.75) - (geo.size.width * 0.01 * 2) )
+                    .padding(geo.size.width * 0.01)
                     
                 }.frame(width: geo.size.width * 0.25)
             }
-           .frame(width: geo.size.width - 20,
-                  height: geo.size.width - 20)
+           .frame(width: geo.size.width,
+            height: geo.size.width)
         }
     }
     
