@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timesTables: TimesTables
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     
     @State private var showingAlert = false
     

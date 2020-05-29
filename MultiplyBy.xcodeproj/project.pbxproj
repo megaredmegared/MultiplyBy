@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D0C2AB7245D8D3E00D0B6E5 /* TimesTablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C2AB6245D8D3E00D0B6E5 /* TimesTablesTests.swift */; };
+		4D0C2AB7245D8D3E00D0B6E5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */; };
 		4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5312447310F009A54ED /* AppDelegate.swift */; };
 		4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5332447310F009A54ED /* SceneDelegate.swift */; };
 		4D22E5372447310F009A54ED /* MultiplyBy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5352447310F009A54ED /* MultiplyBy.xcdatamodeld */; };
@@ -17,7 +17,7 @@
 		4D22E54124473110009A54ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53F24473110009A54ED /* LaunchScreen.storyboard */; };
 		4D22E55724473110009A54ED /* MultiplyByUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E55624473110009A54ED /* MultiplyByUITests.swift */; };
 		4D22E5652447321A009A54ED /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5642447321A009A54ED /* Table.swift */; };
-		4D22E56824473521009A54ED /* TableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E56724473521009A54ED /* TableTests.swift */; };
+		4D22E56824473521009A54ED /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E56724473521009A54ED /* ModelTests.swift */; };
 		4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E569244740CD009A54ED /* ButtonStyleColored.swift */; };
 		4D390E74244C4A9A00368D44 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D390E73244C4A9A00368D44 /* LearnView.swift */; };
 		4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6F68244DC7D100830A71 /* PagesViewController.swift */; };
@@ -25,7 +25,6 @@
 		4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6F6C244DCFBC00830A71 /* PageControl.swift */; };
 		4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB7244F146D00830A71 /* GameView.swift */; };
 		4D4A6FBA244F174B00830A71 /* DefaultMainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB9244F174B00830A71 /* DefaultMainButtonStyle.swift */; };
-		4D7EF29E2458366100DFF589 /* PresentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29D2458366100DFF589 /* PresentView.swift */; };
 		4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */; };
 		4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A124585CC600DFF589 /* AppTitle.swift */; };
 		4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A424585F1D00DFF589 /* TimesTables.swift */; };
@@ -41,7 +40,6 @@
 		4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12E49246B3E60004D044E /* NumPad.swift */; };
 		4DA12E5B246FE161004D044E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12E5A246FE161004D044E /* BackButton.swift */; };
 		4DA2FA652468C4A300EE23A4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DA2FA642468C4A300EE23A4 /* Settings.bundle */; };
-		4DBB186924504256003CB971 /* TransitionLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBB186824504256003CB971 /* TransitionLink.swift */; };
 		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
 		4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF587232479180E005E2B9F /* GameTrainingView.swift */; };
 		4DF5872724793012005E2B9F /* RoundedBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF5872624793012005E2B9F /* RoundedBackButton.swift */; };
@@ -66,7 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D0C2AB6245D8D3E00D0B6E5 /* TimesTablesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTablesTests.swift; sourceTree = "<group>"; };
+		4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		4D22E52E2447310F009A54ED /* MultiplyBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplyBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D22E5312447310F009A54ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D22E5332447310F009A54ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +80,7 @@
 		4D22E55624473110009A54ED /* MultiplyByUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyByUITests.swift; sourceTree = "<group>"; };
 		4D22E55824473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D22E5642447321A009A54ED /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		4D22E56724473521009A54ED /* TableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTests.swift; sourceTree = "<group>"; };
+		4D22E56724473521009A54ED /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		4D22E569244740CD009A54ED /* ButtonStyleColored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleColored.swift; sourceTree = "<group>"; };
 		4D390E73244C4A9A00368D44 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		4D4A6F68244DC7D100830A71 /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 		4D4A6F6C244DCFBC00830A71 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4D4A6FB7244F146D00830A71 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4D4A6FB9244F174B00830A71 /* DefaultMainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMainButtonStyle.swift; sourceTree = "<group>"; };
-		4D7EF29D2458366100DFF589 /* PresentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentView.swift; sourceTree = "<group>"; };
 		4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoiceView.swift; sourceTree = "<group>"; };
 		4D7EF2A124585CC600DFF589 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
 		4D7EF2A424585F1D00DFF589 /* TimesTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTables.swift; sourceTree = "<group>"; };
@@ -107,7 +104,6 @@
 		4DA12E49246B3E60004D044E /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		4DA12E5A246FE161004D044E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		4DA2FA642468C4A300EE23A4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		4DBB186824504256003CB971 /* TransitionLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionLink.swift; sourceTree = "<group>"; };
 		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
 		4DF587232479180E005E2B9F /* GameTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrainingView.swift; sourceTree = "<group>"; };
 		4DF5872624793012005E2B9F /* RoundedBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackButton.swift; sourceTree = "<group>"; };
@@ -199,8 +195,8 @@
 		4D22E54A24473110009A54ED /* MultiplyByTests */ = {
 			isa = PBXGroup;
 			children = (
-				4D22E56724473521009A54ED /* TableTests.swift */,
-				4D0C2AB6245D8D3E00D0B6E5 /* TimesTablesTests.swift */,
+				4D22E56724473521009A54ED /* ModelTests.swift */,
+				4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */,
 				4D22E54D24473110009A54ED /* Info.plist */,
 			);
 			path = MultiplyByTests;
@@ -244,18 +240,8 @@
 				4D4A6FB7244F146D00830A71 /* GameView.swift */,
 				4DF587252479200F005E2B9F /* Views Elements */,
 				4D08C6C22450F1350069295F /* UIPagesView */,
-				4DBB186724504240003CB971 /* FullScreenModal */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		4DBB186724504240003CB971 /* FullScreenModal */ = {
-			isa = PBXGroup;
-			children = (
-				4DBB186824504256003CB971 /* TransitionLink.swift */,
-				4D7EF29D2458366100DFF589 /* PresentView.swift */,
-			);
-			path = FullScreenModal;
 			sourceTree = "<group>";
 		};
 		4DF587252479200F005E2B9F /* Views Elements */ = {
@@ -431,7 +417,6 @@
 				4DF5872724793012005E2B9F /* RoundedBackButton.swift in Sources */,
 				4D22E5392447310F009A54ED /* ContentView.swift in Sources */,
 				4DF58729247AACFE005E2B9F /* RoundedBackButtonStyle.swift in Sources */,
-				4D7EF29E2458366100DFF589 /* PresentView.swift in Sources */,
 				4D7EF2A92458749B00DFF589 /* SettingsButton.swift in Sources */,
 				4DA12E5B246FE161004D044E /* BackButton.swift in Sources */,
 				4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */,
@@ -442,7 +427,6 @@
 				4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */,
 				4DA0D2E9245F573000019371 /* GameStartView.swift in Sources */,
 				4D390E74244C4A9A00368D44 /* LearnView.swift in Sources */,
-				4DBB186924504256003CB971 /* TransitionLink.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,8 +434,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D22E56824473521009A54ED /* TableTests.swift in Sources */,
-				4D0C2AB7245D8D3E00D0B6E5 /* TimesTablesTests.swift in Sources */,
+				4D22E56824473521009A54ED /* ModelTests.swift in Sources */,
+				4D0C2AB7245D8D3E00D0B6E5 /* ViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

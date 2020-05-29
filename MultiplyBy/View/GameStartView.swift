@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GameStartView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timesTables: TimesTables
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     
     var size: CGFloat  = 5
     
@@ -19,15 +19,17 @@ struct GameStartView: View {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
                 VStack(spacing: 30) {
-                    
-                    Spacer()
+                    AppTitle()
+                        .frame(maxWidth: .infinity)
+                    Group {
+                        Spacer()
                     NavigationLink(destination: GameTrainingView()) {
                         Text("StartTrainingButton")
                         .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
                     
-                    NavigationLink(destination: GameView()) {
+                        NavigationLink(destination: GameView(timesTables: self.timesTables)) {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
                     }
@@ -37,8 +39,9 @@ struct GameStartView: View {
                     Spacer()
                     
                     BackButton()
+                    }
+                    .padding()
                 }
-                .padding()
                 .frame(maxWidth: 600)
             }
         }

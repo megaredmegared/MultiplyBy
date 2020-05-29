@@ -21,11 +21,13 @@ extension View {
         self.modifier(DeleteNavBar())
     }
 }
-
+class RootView: ObservableObject {
+    @Published var isActive = false
+}
 
 struct ContentView: View {
     
-    let timesTables = TimesTables(numberOfTables: 12)
+    let timesTables = TimesTablesViewModel(numberOfTables: 12)
     
     var body: some View {
         

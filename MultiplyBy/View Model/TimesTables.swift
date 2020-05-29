@@ -8,12 +8,23 @@
 
 import Foundation
 
+extension Multiplication {
+    /// Transform Mutliplication Object into MultiplicationViewModel Oject
+    func convertMultiplicationToViewModel() -> MultiplicationViewModel {
+        MultiplicationViewModel(firstOperand: String(self.firstOperand),
+                                secondOperand: String(self.secondOperand),
+                                result: String(self.result))
+    }
+}
+
+/// Object that represent a multiplication ready to be presented to a view
 struct MultiplicationViewModel: Hashable, Codable {
     let firstOperand: String
     let secondOperand: String
     var result: String
 }
 
+/// Object that represent a multiplication table ready for use with a view
 struct TableViewModel: Identifiable, Comparable, Hashable, Codable {
     let id: Int
     var multiplications: [MultiplicationViewModel]
@@ -30,24 +41,27 @@ struct TableViewModel: Identifiable, Comparable, Hashable, Codable {
         lhs.id < rhs.id
     }
     static func == (lhs: TableViewModel, rhs: TableViewModel) -> Bool {
-        lhs.id == rhs.id
+        if lhs.id == rhs.id && lhs.multiplications == rhs.multiplications {
+            return true
+        }
+        return false
     }
 }
 
-class TimesTables: ObservableObject {
+/// Object that give data for the game
+class TimesTablesViewModel: ObservableObject {
     
     var all: [TableViewModel] = []
     
     @Published var choosenTables: [TableViewModel]
-    // for test
-    var count = 0
+
+    @Published var multiplicationQuestion: MultiplicationViewModel
+    
     
     init(numberOfTables: Int) {
         for number in 1...numberOfTables {
             all.append(TableViewModel(of: number, numberOfTables: numberOfTables))
         }
-        
-        // FIXME: make better solution with injection
         var test = all
         if let selectedTables = UserDefaults.standard.object(forKey: "selectedTables") as? Data {
             let decoder = JSONDecoder()
@@ -55,7 +69,9 @@ class TimesTables: ObservableObject {
                 test = tables
             }
         }
-        self.choosenTables = test   
+        
+        self.choosenTables = test
+        self.multiplicationQuestion = TimesTablesViewModel.pickAMultiplication(tables: all)!
     }
     
     func addOrDeleteTable(of table: TableViewModel) {
@@ -78,13 +94,11 @@ class TimesTables: ObservableObject {
         return false
     }
     
-    // for test
-    func printed() {
-        count += 1
-        print("print is: \(count)")
+    func pickNextMultiplication(tables: [TableViewModel]) {
+        self.multiplicationQuestion = TimesTablesViewModel.pickAMultiplication(tables: all)!
     }
     
-    func pickAMultiplication(tables: [TableViewModel]) -> MultiplicationViewModel? {
+    static func pickAMultiplication(tables: [TableViewModel]) -> MultiplicationViewModel? {
         let table = tables.randomElement()
         let multiplication = table?.multiplications.randomElement()
         print("\(String(describing: multiplication?.firstOperand)) x \(String(describing: multiplication?.secondOperand)) = \(String(describing: multiplication?.result))")
@@ -92,10 +106,6 @@ class TimesTables: ObservableObject {
     }
 }
 
-extension Multiplication {
-    func convertMultiplicationToViewModel() -> MultiplicationViewModel {
-        MultiplicationViewModel(firstOperand: String(self.firstOperand),
-                                secondOperand: String(self.secondOperand),
-                                result: String(self.result))
-    }
-}
+
+
+

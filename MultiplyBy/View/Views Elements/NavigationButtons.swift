@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NavigationButtons: View {
-    var timesTables: TimesTables
+    var timesTables: TimesTablesViewModel
     
     @State private var isPresentedLearnSheet = false
     
@@ -54,6 +54,6 @@ struct NavigationButtons: View {
 
 struct NavigationButtons_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationButtons(timesTables: TimesTables(numberOfTables: 12))
+        NavigationButtons(timesTables: TimesTablesViewModel(numberOfTables: 12))
     }
 }

@@ -9,7 +9,7 @@
 import XCTest
 @testable import MultiplyBy
 
-class TableTests: XCTestCase {
+class ModelTests: XCTestCase {
     
     override func setUpWithError() throws {
 

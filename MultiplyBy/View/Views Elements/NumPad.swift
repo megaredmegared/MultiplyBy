@@ -10,6 +10,7 @@ import SwiftUI
 
 /// NumPad to enter the results when in the game
 struct NumPad: View {
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     @Binding var result: String
     @Binding var score: Int
     
@@ -114,6 +115,7 @@ struct NumPad: View {
                         }
                         
                         self.result = "0"
+                        self.timesTables.pickNextMultiplication(tables: self.timesTables.all)
                         print(self.result)
                         print(self.multiplication.result)
                         
