@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-
+/// Pagesview to use with swiftUI
 struct PageView<Page: View>: View {
     var viewControllers: [UIHostingController<Page>]
     @State var currentPage = 0
