@@ -110,13 +110,22 @@ class ViewModelTests: XCTestCase {
     func testGivenNoTableWhenAddTableTill20ToViewModelThen20Timestables() throws {
       let timesTables = TimesTablesViewModel(numberOfTables: 20)
         
-        XCTAssertEqual(timesTables.all.count, 20)
+        XCTAssertEqual(timesTables.allTables.count, 20)
         
-        XCTAssertEqual(timesTables.all[2], TableViewModel(of: 3, numberOfTables: 20))
-        XCTAssertNotEqual(timesTables.all[2], TableViewModel(of: 3, numberOfTables: 12))
+        XCTAssertEqual(timesTables.allTables[2], TableViewModel(of: 3, numberOfTables: 20))
+        XCTAssertNotEqual(timesTables.allTables[2], TableViewModel(of: 3, numberOfTables: 12))
     }
     
-    func testAddNew() {
+    func testGivenMultiplicationQuestion0WhenNewQuestionThenNewQuestion() {
+        let timesTables = TimesTablesViewModel()
+        let multiplicationQuestionStart = timesTables.multiplicationQuestion
+        XCTAssertEqual(multiplicationQuestionStart, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
+        
+        timesTables.pickNextMultiplication(tables: timesTables.allTables)
+        
+        let multiplicationQuestionRandom = timesTables.multiplicationQuestion
+        
+        XCTAssertNotEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
         
     }
 

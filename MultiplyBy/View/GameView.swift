@@ -11,10 +11,9 @@ import Combine
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
-    var timesTables: TimesTablesViewModel
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     
     @State var score = 0
-    @State var result: String = "0"
     
     let colorScheme = AppColorScheme()
     
@@ -22,26 +21,18 @@ struct GameView: View {
     var textSize: CGFloat = 40
     
     // Countdown Timer
-    @State var timeRemaining = 20 // seconds
+    @State var timeRemaining = 60 // seconds
     @State var isActive = true
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    //    var timer: Publishers.Autoconnect<Timer.TimerPublisher> {
-    //
-    //        self.counter.count += 1
-    //        print("test: \(counter.count)")
-    //        return Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    //
-    //    }
-    
     @State var presentGameOverMessage = false
     
-    var multiplication: MultiplicationViewModel
+//    var multiplication: MultiplicationViewModel
     
-    init(timesTables: TimesTablesViewModel) {
-        self.timesTables = timesTables
-        self.multiplication = timesTables.multiplicationQuestion
-    }
+//    init(timesTables: TimesTablesViewModel) {
+//        self.timesTables = timesTables
+//        self.multiplication = timesTables.multiplicationQuestion
+//    }
     
     var body: some View {
         
@@ -86,15 +77,18 @@ struct GameView: View {
                         
                         //MARK: - Multiplication Question
                         HStack {
-                            Text(self.multiplication.firstOperand)
+                            Text(self.timesTables.multiplicationQuestion.firstOperand)
                             Text(" x ")
-                            Text(self.multiplication.secondOperand)
+                            Text(self.timesTables.multiplicationQuestion.secondOperand)
                         }
                         .roundedText(size: geo.size.width * 0.2, weight: .bold)
                         .foregroundColor(.table1)
+                        .onAppear {
+                            self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
+                        }
                         
                         //MARK: - Multiplication Answer
-                        Text("\(self.result)")
+                        Text("\(self.timesTables.multiplicationAnswer)")
                             .truncationMode(.head)
                             .roundedText(size: geo.size.width * 0.2, weight: .bold)
                             .multilineTextAlignment(.center)
@@ -106,7 +100,7 @@ struct GameView: View {
                     .modifier(SoftShadow())
                     
                     //MARK: - Numpad
-                    NumPad(result: self.$result, score: self.$score, multiplication: self.multiplication)
+                    NumPad(score: self.$score)
                         .padding()
                     
                     Spacer()
@@ -131,7 +125,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(timesTables: TimesTablesViewModel(numberOfTables: 12))
+        GameView()
     }
 }
 

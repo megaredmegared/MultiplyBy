@@ -24,6 +24,7 @@ class ModelTests: XCTestCase {
         let multiplicationOf3By2 = Multiplication(firstOperand: 3, secondOperand: 2)
         
         XCTAssertEqual(multiplicationOf3By2.result, 6)
+        XCTAssertNotEqual(multiplicationOf3By2.result, 4)
     }
     
     func testCreateTableOf2() throws {

@@ -15,7 +15,7 @@ struct ButtonsChoice: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                ForEach(self.timesTables.all.chunked(into: 3), id: \.self) { row in
+                ForEach(self.timesTables.allTables.chunked(into: 3), id: \.self) { row in
                     HStack {
                         ForEach(row, id: \.self) { table in
                             Button(action: {

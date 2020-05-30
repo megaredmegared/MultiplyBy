@@ -11,10 +11,7 @@ import SwiftUI
 /// NumPad to enter the results when in the game
 struct NumPad: View {
     @EnvironmentObject var timesTables: TimesTablesViewModel
-    @Binding var result: String
     @Binding var score: Int
-    
-    var multiplication: MultiplicationViewModel
     
     var spacing: CGFloat = 0.015
     var textSize: CGFloat = 0.1
@@ -103,21 +100,24 @@ struct NumPad: View {
                 
                 VStack(spacing: 0) {
                     Button(action: {
-                        self.result = "0"
+                        self.timesTables.multiplicationAnswer = "0"
                     }) {
                         Text("X")
                     }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, maxWidth: .infinity, maxHeight: .infinity))
                     .padding(geo.size.width * 0.01)
                     
                     Button(action: {
-                        if self.result == self.multiplication.result {
-                            self.score += 1
+                        guard self.timesTables.multiplicationAnswer == self.timesTables.multiplicationQuestion.result else {
+                            return
                         }
                         
-                        self.result = "0"
-                        self.timesTables.pickNextMultiplication(tables: self.timesTables.all)
-                        print(self.result)
-                        print(self.multiplication.result)
+                        self.score += 1
+                        self.timesTables.multiplicationAnswer = "0"
+                        self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
+                        
+                        print(self.timesTables.multiplicationQuestion)
+                        print(self.timesTables.multiplicationAnswer)
+                        
                         
                     }) {
                         Text("OK")
@@ -133,16 +133,16 @@ struct NumPad: View {
     }
     
     func addNumber(_ number: String) {
-        if self.result == "0" {
-            self.result = ""
+        if self.timesTables.multiplicationAnswer == "0" {
+            self.timesTables.multiplicationAnswer = ""
         }
-        self.result.append(number)
+        self.timesTables.multiplicationAnswer.append(number)
     }
 }
 
 
 struct NumPad_Previews: PreviewProvider {
     static var previews: some View {
-        NumPad(result: .constant(""), score: .constant(0), multiplication: MultiplicationViewModel(firstOperand: "4", secondOperand: "5", result: "20"))
+        NumPad(score: .constant(0))
     }
 }

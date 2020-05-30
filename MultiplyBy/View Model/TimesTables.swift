@@ -51,18 +51,20 @@ struct TableViewModel: Identifiable, Comparable, Hashable, Codable {
 /// Object that give data for the game
 class TimesTablesViewModel: ObservableObject {
     
-    var all: [TableViewModel] = []
+    var allTables: [TableViewModel] = []
     
     @Published var choosenTables: [TableViewModel]
 
-    @Published var multiplicationQuestion: MultiplicationViewModel
+    @Published var multiplicationQuestion: MultiplicationViewModel = MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
     
+    @Published var multiplicationAnswer: String = "0"
     
-    init(numberOfTables: Int) {
+    init(numberOfTables: Int = 12) {
         for number in 1...numberOfTables {
-            all.append(TableViewModel(of: number, numberOfTables: numberOfTables))
+            allTables.append(TableViewModel(of: number, numberOfTables: numberOfTables))
         }
-        var test = all
+        
+        var test = allTables
         if let selectedTables = UserDefaults.standard.object(forKey: "selectedTables") as? Data {
             let decoder = JSONDecoder()
             if let tables = try? decoder.decode([TableViewModel].self, from: selectedTables) {
@@ -71,7 +73,6 @@ class TimesTablesViewModel: ObservableObject {
         }
         
         self.choosenTables = test
-        self.multiplicationQuestion = TimesTablesViewModel.pickAMultiplication(tables: all)!
     }
     
     func addOrDeleteTable(of table: TableViewModel) {
@@ -95,14 +96,10 @@ class TimesTablesViewModel: ObservableObject {
     }
     
     func pickNextMultiplication(tables: [TableViewModel]) {
-        self.multiplicationQuestion = TimesTablesViewModel.pickAMultiplication(tables: all)!
-    }
-    
-    static func pickAMultiplication(tables: [TableViewModel]) -> MultiplicationViewModel? {
         let table = tables.randomElement()
         let multiplication = table?.multiplications.randomElement()
-        print("\(String(describing: multiplication?.firstOperand)) x \(String(describing: multiplication?.secondOperand)) = \(String(describing: multiplication?.result))")
-        return multiplication
+        
+        self.multiplicationQuestion = multiplication ?? MultiplicationViewModel(firstOperand: "Error", secondOperand: "Error", result: "Error")
     }
 }
 
