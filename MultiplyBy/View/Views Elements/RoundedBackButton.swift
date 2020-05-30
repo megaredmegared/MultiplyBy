@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// Small version Button to go backward in navigation between views
 struct RoundedBackButton: View {
     @Environment(\.presentationMode) var presentationMode
     

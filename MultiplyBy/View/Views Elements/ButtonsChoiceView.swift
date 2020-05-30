@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// Buttons for choosing tables
 struct ButtonsChoice: View {
     @EnvironmentObject var timesTables: TimesTablesViewModel
  
@@ -32,9 +33,3 @@ struct ButtonsChoice: View {
         }
     }
 }
-
-//struct ButtonsChoiceView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ButtonsChoiceView(timesTables: Tab, choosenTables: <#T##Binding<[Table]>#>)
-//    }
-//}

@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+
+/// Modifier for adding soft shadows to views
 struct SoftShadow: ViewModifier {
     @Environment(\.colorScheme) var colorScheme
     

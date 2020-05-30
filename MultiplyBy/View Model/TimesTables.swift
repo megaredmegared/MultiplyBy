@@ -59,6 +59,8 @@ class TimesTablesViewModel: ObservableObject {
     
     @Published var multiplicationAnswer: String = "0"
     
+    @Published var score = 0
+    
     init(numberOfTables: Int = 12) {
         for number in 1...numberOfTables {
             allTables.append(TableViewModel(of: number, numberOfTables: numberOfTables))

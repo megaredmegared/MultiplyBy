@@ -8,10 +8,9 @@
 
 import SwiftUI
 
-/// NumPad to enter the results when in the game
+/// NumPad to enter the results answers when in the game
 struct NumPad: View {
     @EnvironmentObject var timesTables: TimesTablesViewModel
-    @Binding var score: Int
     @Binding var isGoodAnswer: Bool
     
     var spacing: CGFloat = 0.015
@@ -114,7 +113,7 @@ struct NumPad: View {
                             return
                         }
                         
-                        self.score += 1
+                        self.timesTables.score += 1
                         self.timesTables.multiplicationAnswer = "0"
                         self.isGoodAnswer = true
                         self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
@@ -147,6 +146,6 @@ struct NumPad: View {
 
 struct NumPad_Previews: PreviewProvider {
     static var previews: some View {
-        NumPad(score: .constant(0), isGoodAnswer: .constant(true))
+        NumPad(isGoodAnswer: .constant(true))
     }
 }

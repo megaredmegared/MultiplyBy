@@ -8,21 +8,14 @@
 
 import SwiftUI
 
+/// Buttons for navigation
 struct NavigationButtons: View {
     @EnvironmentObject var timesTables: TimesTablesViewModel
-    
-    @State private var isPresentedLearnSheet = false
-    
     @State private var presentLearnView = false
-    
-    var buttonColor: Color {
-        return self.timesTables.choosenTables.isEmpty ? .red : .gray
-    }
     
     var body: some View {
         VStack(spacing: 10) {
-            HStack(spacing: 10) {
-                
+            HStack(spacing: 10) { 
                 Button(action: {
                     self.presentLearnView.toggle()
                 }) {

@@ -41,7 +41,5 @@ struct DefaultMainButtonStyle_Previews: PreviewProvider {
             Text("test")
         }
         .buttonStyle(DefaultButtonStyle())
-//        .frame(width: 200, height: 200)
-//        .background(Color.red)
     }
 }

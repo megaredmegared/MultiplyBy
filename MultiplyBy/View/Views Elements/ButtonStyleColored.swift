@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// Button style for colored buttons
 struct ButtonStyleColored: ButtonStyle {
 
     private var isSelected: Bool
@@ -48,7 +49,6 @@ struct ButtonStyleColored: ButtonStyle {
                         .foregroundColor(Color.lightWhite.opacity(self.showOpacity(isPressed: configuration.isPressed, isSelected: self.isSelected) ? 0 : 0.8))
                         .animation(.linear)
             )
-                
                 .padding(geo.size.width * 0.05)
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6))
@@ -64,7 +64,6 @@ struct ButtonStyleColored: ButtonStyle {
         } else if !isSelected {
             return false
         }
-    
         return true
     }
     
