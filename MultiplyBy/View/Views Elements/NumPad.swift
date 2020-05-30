@@ -12,6 +12,7 @@ import SwiftUI
 struct NumPad: View {
     @EnvironmentObject var timesTables: TimesTablesViewModel
     @Binding var score: Int
+    @Binding var isGoodAnswer: Bool
     
     var spacing: CGFloat = 0.015
     var textSize: CGFloat = 0.1
@@ -101,6 +102,7 @@ struct NumPad: View {
                 VStack(spacing: 0) {
                     Button(action: {
                         self.timesTables.multiplicationAnswer = "0"
+                        self.isGoodAnswer = true
                     }) {
                         Text("X")
                     }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, maxWidth: .infinity, maxHeight: .infinity))
@@ -108,11 +110,13 @@ struct NumPad: View {
                     
                     Button(action: {
                         guard self.timesTables.multiplicationAnswer == self.timesTables.multiplicationQuestion.result else {
+                            self.isGoodAnswer = false
                             return
                         }
                         
                         self.score += 1
                         self.timesTables.multiplicationAnswer = "0"
+                        self.isGoodAnswer = true
                         self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
                         
                         print(self.timesTables.multiplicationQuestion)
@@ -143,6 +147,6 @@ struct NumPad: View {
 
 struct NumPad_Previews: PreviewProvider {
     static var previews: some View {
-        NumPad(score: .constant(0))
+        NumPad(score: .constant(0), isGoodAnswer: .constant(true))
     }
 }

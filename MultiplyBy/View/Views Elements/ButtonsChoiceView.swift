@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ButtonsChoice: View {
     @EnvironmentObject var timesTables: TimesTablesViewModel
-//    @Binding var choosenTables: [Table]
  
     var body: some View {
         GeometryReader { geo in

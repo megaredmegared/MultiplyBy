@@ -45,7 +45,7 @@ struct ContentView: View {
                         
                         Spacer(minLength: 4)
                         
-                        NavigationButtons(timesTables: self.timesTables)
+                        NavigationButtons()
                         
                         Spacer(minLength: 0)
                         

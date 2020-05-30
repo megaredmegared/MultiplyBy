@@ -26,7 +26,7 @@ struct GameView: View {
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var presentGameOverMessage = false
-    
+    @State var isGoodAnswer = true
 //    var multiplication: MultiplicationViewModel
     
 //    init(timesTables: TimesTablesViewModel) {
@@ -94,13 +94,17 @@ struct GameView: View {
                             .multilineTextAlignment(.center)
                             .lineLimit(1)
                             .foregroundColor(.lightBlack)
+                            .modifier(SoftShadow())
                             .frame(maxWidth: .infinity)
+                            .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
+                            .cornerRadius(5)
                         
                     }
-                    .modifier(SoftShadow())
+                    .padding()
+                    
                     
                     //MARK: - Numpad
-                    NumPad(score: self.$score)
+                    NumPad(score: self.$score, isGoodAnswer: self.$isGoodAnswer)
                         .padding()
                     
                     Spacer()

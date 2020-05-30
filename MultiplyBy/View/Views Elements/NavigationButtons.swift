@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct NavigationButtons: View {
-    var timesTables: TimesTablesViewModel
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     
     @State private var isPresentedLearnSheet = false
     
     @State private var presentLearnView = false
+    
+    var buttonColor: Color {
+        return self.timesTables.choosenTables.isEmpty ? .red : .gray
+    }
     
     var body: some View {
         VStack(spacing: 10) {
@@ -25,8 +29,14 @@ struct NavigationButtons: View {
                     Text("LearnButtonLabel")
                 }
                 .sheet(isPresented: $presentLearnView) {
-                    PageView(self.makeLearnViews())
+                    if self.timesTables.choosenTables.count == 1 {
+                        LearnView(table: self.timesTables.choosenTables[0])
+                    } else {
+                        PageView(self.makeLearnViews())
+                    }
                 }
+                .opacity(self.timesTables.choosenTables.isEmpty ? 0.2 : 1)
+                .disabled(self.timesTables.choosenTables.isEmpty)
                 
                 NavigationLink(destination:
                 ScoresView()) {
@@ -54,6 +64,6 @@ struct NavigationButtons: View {
 
 struct NavigationButtons_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationButtons(timesTables: TimesTablesViewModel(numberOfTables: 12))
+        NavigationButtons()
     }
 }
