@@ -13,8 +13,6 @@ struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var timesTables: TimesTablesViewModel
     
-    @State var score = 0
-    
     let colorScheme = AppColorScheme()
     
     var spacing: CGFloat = 4
@@ -27,12 +25,7 @@ struct GameView: View {
     
     @State var presentGameOverMessage = false
     @State var isGoodAnswer = true
-//    var multiplication: MultiplicationViewModel
-    
-//    init(timesTables: TimesTablesViewModel) {
-//        self.timesTables = timesTables
-//        self.multiplication = timesTables.multiplicationQuestion
-//    }
+    let isGameView = true
     
     var body: some View {
         
@@ -67,13 +60,13 @@ struct GameView: View {
                         }
                             //MARK: - Game Over message
                             .alert(isPresented: self.$presentGameOverMessage) {
-                                Alert.init(title: Text("GameOver"), message: Text("GameOverMessage \(self.score)"), dismissButton: .default(Text("go back home"), action: {
+                                Alert.init(title: Text("GameOver"), message: Text("GameOverMessage \(self.timesTables.score)"), dismissButton: .default(Text("back"), action: {
                                     self.presentationMode.wrappedValue.dismiss()
                                 }))
                         }
                         
                         //MARK: - Score
-                        Text("score: \(self.score)")
+                        Text("score: \(self.timesTables.score)")
                         
                         //MARK: - Multiplication Question
                         HStack {
@@ -104,7 +97,7 @@ struct GameView: View {
                     
                     
                     //MARK: - Numpad
-                    NumPad(score: self.$score, isGoodAnswer: self.$isGoodAnswer)
+                    NumPad(isGoodAnswer: self.$isGoodAnswer, isGameView: self.isGameView)
                         .padding()
                     
                     Spacer()

@@ -15,6 +15,7 @@ struct NumPad: View {
     
     var spacing: CGFloat = 0.015
     var textSize: CGFloat = 0.1
+    var isGameView: Bool
     
     var body: some View {
         GeometryReader { geo in
@@ -113,10 +114,16 @@ struct NumPad: View {
                             return
                         }
                         
+                        if self.isGameView {
                         self.timesTables.score += 1
                         self.timesTables.multiplicationAnswer = "0"
                         self.isGoodAnswer = true
                         self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
+                        } else {
+                            self.timesTables.multiplicationAnswer = "0"
+                            self.isGoodAnswer = true
+                            self.timesTables.pickNextMultiplication(tables: self.timesTables.choosenTables)
+                        }
                         
                         print(self.timesTables.multiplicationQuestion)
                         print(self.timesTables.multiplicationAnswer)
@@ -146,6 +153,6 @@ struct NumPad: View {
 
 struct NumPad_Previews: PreviewProvider {
     static var previews: some View {
-        NumPad(isGoodAnswer: .constant(true))
+        NumPad(isGoodAnswer: .constant(true), isGameView: true)
     }
 }
