@@ -131,7 +131,7 @@ struct NumPad: View {
                         
                     }) {
                         Text("OK")
-                    }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table4, maxWidth: .infinity, maxHeight: .infinity))
+                    }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table4, maxWidth: .infinity, maxHeight: .infinity))
                         .frame(height: (geo.size.width * 0.75) - (geo.size.width * 0.01 * 2) )
                     .padding(geo.size.width * 0.01)
                     

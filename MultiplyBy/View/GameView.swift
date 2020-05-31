@@ -36,69 +36,72 @@ struct GameView: View {
                 
                 VStack(spacing: 2) {
                     
-                    Group {
-                        //MARK: - Timer
-                        Text("\(self.timeRemaining)")
-                            .roundedText(size: geo.size.width * 0.1, weight: .bold)
-                            .foregroundColor(.lightBlack)
-                            .onReceive(self.timer) { _ in
-                                guard self.isActive else { return }
-                                if self.timeRemaining > 0 {
-                                    self.timeRemaining -= 1
-                                }
-                                else if self.timeRemaining == 0 {
-                                    self.timer.upstream.connect().cancel()
-                                    self.isActive = false
-                                    self.presentGameOverMessage.toggle()
-                                }
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                            self.isActive = false
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                            self.isActive = true
-                        }
-                            //MARK: - Game Over message
-                            .alert(isPresented: self.$presentGameOverMessage) {
-                                Alert.init(title: Text("GameOver"), message: Text("GameOverMessage \(self.timesTables.score)"), dismissButton: .default(Text("back"), action: {
-                                    self.presentationMode.wrappedValue.dismiss()
-                                }))
-                        }
-                        
-                        //MARK: - Score
-                        Text("score: \(self.timesTables.score)")
-                        
-                        //MARK: - Multiplication Question
-                        HStack {
-                            Text(self.timesTables.multiplicationQuestion.firstOperand)
-                            Text(" x ")
-                            Text(self.timesTables.multiplicationQuestion.secondOperand)
-                        }
-                        .roundedText(size: geo.size.width * 0.2, weight: .bold)
-                        .foregroundColor(.table1)
-                        .onAppear {
-                            self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
-                        }
-                        
-                        //MARK: - Multiplication Answer
-                        Text("\(self.timesTables.multiplicationAnswer)")
-                            .truncationMode(.head)
-                            .roundedText(size: geo.size.width * 0.2, weight: .bold)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(1)
-                            .foregroundColor(.lightBlack)
-                            .modifier(SoftShadow())
-                            .frame(maxWidth: .infinity)
-                            .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
-                            .cornerRadius(5)
-                        
+                    
+                    //MARK: - Timer
+                    Text("\(self.timeRemaining)")
+                        .roundedText(size: geo.size.height * 0.05, weight: .bold)
+                        .foregroundColor(.lightBlack)
+                        .onReceive(self.timer) { _ in
+                            guard self.isActive else { return }
+                            if self.timeRemaining > 0 {
+                                self.timeRemaining -= 1
+                            }
+                            else if self.timeRemaining == 0 {
+                                self.timer.upstream.connect().cancel()
+                                self.isActive = false
+                                self.presentGameOverMessage.toggle()
+                            }
                     }
-                    .padding()
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+                        self.isActive = false
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                        self.isActive = true
+                    }
+                        //MARK: - Game Over message
+                        .alert(isPresented: self.$presentGameOverMessage) {
+                            Alert.init(title: Text("GameOver"), message: Text("GameOverMessage \(self.timesTables.score)"), dismissButton: .default(Text("back"), action: {
+                                self.presentationMode.wrappedValue.dismiss()
+                            }))
+                    }
+                    
+                    //MARK: - Score
+                    Text("score: \(self.timesTables.score)")
+                    Spacer()
+                    
+                    //MARK: - Multiplication Question
+                    HStack {
+                        Text(self.timesTables.multiplicationQuestion.firstOperand)
+                        Text(" x ")
+                        Text(self.timesTables.multiplicationQuestion.secondOperand)
+                    }
+                    .roundedText(size: geo.size.height * 0.1, weight: .bold)
+                    .foregroundColor(.table1)
+                    .onAppear {
+                        self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
+                    }
+                    Spacer()
+                    
+                    //MARK: - Multiplication Answer
+                    Text("\(self.timesTables.multiplicationAnswer)")
+                        .truncationMode(.head)
+                        .roundedText(size: geo.size.height * 0.1, weight: .bold)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(1)
+                        .foregroundColor(.lightBlack)
+                        .modifier(SoftShadow())
+                        .frame(maxWidth: .infinity)
+                        .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
+                        .cornerRadius(5)
+                        .padding(.horizontal)
+                    
+                    
+                    
                     
                     
                     //MARK: - Numpad
                     NumPad(isGoodAnswer: self.$isGoodAnswer, isGameView: self.isGameView)
-                        .padding()
+                        .padding(.horizontal)
                     
                     Spacer()
                 }
@@ -111,8 +114,8 @@ struct GameView: View {
                     }
                     Spacer()
                 }
-                .padding()
-                .edgesIgnoringSafeArea(.all)
+                    //                .padding()
+                    .edgesIgnoringSafeArea(.all)
                 
             }
         }

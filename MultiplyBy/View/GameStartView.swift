@@ -20,26 +20,28 @@ struct GameStartView: View {
                 VStack(spacing: 30) {
                     AppTitle()
                         .frame(maxWidth: .infinity)
-                    Group {
-                        Spacer()
+                    
+                    Spacer()
                     NavigationLink(destination: GameTrainingView()) {
                         Text("StartTrainingButton")
-                        .frame(maxWidth: .infinity)
+                            .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
+                    .padding(.horizontal)
                     
-                        NavigationLink(destination: GameView()) {
+                    NavigationLink(destination: GameView()) {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
-                        
+                    .padding(.horizontal)
+                    
                     
                     Spacer()
                     
                     BackButton()
-                    }
                     .padding()
+                    
                 }
                 .frame(maxWidth: 600)
             }
