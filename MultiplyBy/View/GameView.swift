@@ -11,7 +11,8 @@ import Combine
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+//    @EnvironmentObject var timesTables: TimesTablesViewModel
+    var timesTables: TimesTablesViewModel
     
     let colorScheme = AppColorScheme()
     
@@ -55,7 +56,7 @@ struct GameView: View {
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                         self.isActive = false
                     }
-                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                    .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                         self.isActive = true
                     }
                         //MARK: - Game Over message
@@ -94,11 +95,7 @@ struct GameView: View {
                         .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
                         .cornerRadius(5)
                         .padding(.horizontal)
-                    
-                    
-                    
-                    
-                    
+
                     //MARK: - Numpad
                     NumPad(isGoodAnswer: self.$isGoodAnswer, isGameView: self.isGameView)
                         .padding(.horizontal)
@@ -107,15 +104,30 @@ struct GameView: View {
                 }
                 .frame(maxWidth: 600)
                 
+                //MARK: - Back Button
                 VStack {
                     HStack {
-                        RoundedBackButton( width: geo.size.width * 0.08, height: geo.size.width * 0.08)
+                        Button(action: {
+                            self.timesTables.score = 0
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "arrowtriangle.left.circle.fill")
+                                .resizable()
+                                .frame(width:
+                                    UIDevice.current.userInterfaceIdiom == .pad ?
+                                        geo.size.width * 0.03
+                                        : geo.size.width * 0.08,
+                                       height:
+                                    UIDevice.current.userInterfaceIdiom == .pad ?
+                                        geo.size.width * 0.03
+                                        : geo.size.width * 0.08)
+                        }
+                        .buttonStyle(RoundedBackButtonStyle())
                         Spacer()
                     }
                     Spacer()
                 }
-                    //                .padding()
-                    .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
                 
             }
         }
@@ -125,7 +137,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(timesTables: TimesTablesViewModel())
     }
 }
 

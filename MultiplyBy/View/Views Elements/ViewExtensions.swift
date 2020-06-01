@@ -22,7 +22,7 @@ extension View {
     }
     
     /// default rounded style for the text of the app
-    func roundedText(size: CGFloat, weight: Font.Weight = .regular) -> some View {
+    func roundedText(size: CGFloat = 20, weight: Font.Weight = .regular) -> some View {
         self.font(.system(size: size, weight: weight, design: .rounded))
     }
 }

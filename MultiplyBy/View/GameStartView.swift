@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GameStartView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     
     var size: CGFloat  = 5
     
@@ -26,21 +27,20 @@ struct GameStartView: View {
                         Text("StartTrainingButton")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
+                    .buttonStyle(DefaultMainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
                     .padding(.horizontal)
                     
-                    NavigationLink(destination: GameView()) {
+                    NavigationLink(destination: GameView(timesTables: self.timesTables)) {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * 0.07, foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
+                    .buttonStyle(DefaultMainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
                     .padding(.horizontal)
-                    
                     
                     Spacer()
                     
                     BackButton()
-                    .padding()
+                        .padding()
                     
                 }
                 .frame(maxWidth: 600)

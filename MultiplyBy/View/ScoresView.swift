@@ -13,15 +13,16 @@ struct ScoresView: View {
     
     var body: some View {
         ZStack {
-            Color.orange.edgesIgnoringSafeArea(.all)
+            Color.lightWhite.edgesIgnoringSafeArea(.all)
             
             VStack {
                 Text("Scores View")
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("back").font(.largeTitle).fontWeight(.bold).foregroundColor(.white)
-                }
+                
+                
+                Spacer()
+                
+                BackButton()
+                .padding()
             }
             .frame(maxWidth: 600)
         }

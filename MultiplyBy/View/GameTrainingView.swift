@@ -22,7 +22,6 @@ struct GameTrainingView: View {
     
     let isGameView = false
     
-    
     var body: some View {
         
         GeometryReader { geo in
@@ -80,13 +79,27 @@ struct GameTrainingView: View {
                 
                 VStack {
                     HStack {
-                        RoundedBackButton( width: geo.size.width * 0.08, height: geo.size.width * 0.08)
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "arrowtriangle.left.circle.fill")
+                                .resizable()
+                                .frame(width:
+                                    UIDevice.current.userInterfaceIdiom == .pad ?
+                                        geo.size.width * 0.03
+                                        : geo.size.width * 0.08,
+                                       height:
+                                    UIDevice.current.userInterfaceIdiom == .pad ?
+                                        geo.size.width * 0.03
+                                        : geo.size.width * 0.08)
+                        }
+                        .buttonStyle(RoundedBackButtonStyle())
                         Spacer()
                     }
                     Spacer()
                 }
-                    //                    .padding()
-                    .edgesIgnoringSafeArea(.all)
+                    
+                .edgesIgnoringSafeArea(.all)
                 
             }
         }
