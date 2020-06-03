@@ -37,3 +37,15 @@
 "SaveSelectedTablesMessage" = "Your selection has been saved.";
 
 "AnswerIs:" = "Answer is:";
+
+"MessageScore" = "Your final score:";
+
+"oneMinute" = "good answers in 1 minute";
+
+"nameIsEmpty" = "⚠︎ Name is empty";
+
+"EnterYourName" = "Enter your name";
+
+"SaveButtonLabel" = "Save";
+
+"leaderboard" = "Leaderboard";

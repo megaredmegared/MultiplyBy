@@ -41,6 +41,8 @@
 		4DA12E5B246FE161004D044E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12E5A246FE161004D044E /* BackButton.swift */; };
 		4DA2FA652468C4A300EE23A4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DA2FA642468C4A300EE23A4 /* Settings.bundle */; };
 		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
+		4DF436E02486A060009CBDCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF436DF2486A060009CBDCF /* CloudKit.framework */; };
+		4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */; };
 		4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF587232479180E005E2B9F /* GameTrainingView.swift */; };
 		4DF58729247AACFE005E2B9F /* RoundedBackButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +106,9 @@
 		4DA12E5A246FE161004D044E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		4DA2FA642468C4A300EE23A4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
+		4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplyBy.entitlements; sourceTree = "<group>"; };
+		4DF436DF2486A060009CBDCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
 		4DF587232479180E005E2B9F /* GameTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrainingView.swift; sourceTree = "<group>"; };
 		4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DF436E02486A060009CBDCF /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +156,7 @@
 				4D22E54A24473110009A54ED /* MultiplyByTests */,
 				4D22E55524473110009A54ED /* MultiplyByUITests */,
 				4D22E52F2447310F009A54ED /* Products */,
+				4DF436DE2486A060009CBDCF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +173,7 @@
 		4D22E5302447310F009A54ED /* MultiplyBy */ = {
 			isa = PBXGroup;
 			children = (
+				4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */,
 				4D22E5312447310F009A54ED /* AppDelegate.swift */,
 				4DA2FA642468C4A300EE23A4 /* Settings.bundle */,
 				4D22E5332447310F009A54ED /* SceneDelegate.swift */,
@@ -236,10 +244,19 @@
 				4DA0D2E8245F573000019371 /* GameStartView.swift */,
 				4DF587232479180E005E2B9F /* GameTrainingView.swift */,
 				4D4A6FB7244F146D00830A71 /* GameView.swift */,
+				4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */,
 				4DF587252479200F005E2B9F /* Views Elements */,
 				4D08C6C22450F1350069295F /* UIPagesView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4DF436DE2486A060009CBDCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DF436DF2486A060009CBDCF /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4DF587252479200F005E2B9F /* Views Elements */ = {
@@ -415,6 +432,7 @@
 				4DF58729247AACFE005E2B9F /* RoundedBackButtonStyle.swift in Sources */,
 				4D7EF2A92458749B00DFF589 /* SettingsButton.swift in Sources */,
 				4DA12E5B246FE161004D044E /* BackButton.swift in Sources */,
+				4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */,
 				4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */,
 				4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */,
 				4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */,
@@ -599,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MultiplyBy/MultiplyBy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MultiplyBy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9N8W3RU962;
@@ -619,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MultiplyBy/MultiplyBy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MultiplyBy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9N8W3RU962;

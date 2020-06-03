@@ -77,6 +77,12 @@ class TimesTablesViewModel: ObservableObject {
         self.choosenTables = test
     }
     
+    /// reset score and multiplication values to default
+    func resetValue() {
+        score = 0
+        multiplicationAnswer = "0"
+    }
+    
     func addOrDeleteTable(of table: TableViewModel) {
         if choosenTables.contains(table) {
             choosenTables.removeAll { table == $0 }

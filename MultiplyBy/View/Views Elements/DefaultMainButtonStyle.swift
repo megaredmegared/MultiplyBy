@@ -10,7 +10,7 @@ import SwiftUI
 
 
 /// Button style for mains buttons
-struct DefaultMainButtonStyle: ButtonStyle {
+struct MainButtonStyle: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme
     var textSize: CGFloat = 20
     var cornerRadius: CGFloat = 5
@@ -33,7 +33,7 @@ struct DefaultMainButtonStyle: ButtonStyle {
     }
 }
 
-struct DefaultMainButtonStyle_Previews: PreviewProvider {
+struct MainButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         Button(action: {
             // void

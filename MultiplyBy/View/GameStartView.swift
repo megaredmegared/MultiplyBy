@@ -19,6 +19,7 @@ struct GameStartView: View {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
                 VStack(spacing: 30) {
+                    
                     AppTitle()
                         .frame(maxWidth: .infinity)
                     
@@ -27,14 +28,14 @@ struct GameStartView: View {
                         Text("StartTrainingButton")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(DefaultMainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
+                    .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
                     .padding(.horizontal)
                     
                     NavigationLink(destination: GameView(timesTables: self.timesTables)) {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(DefaultMainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
+                    .buttonStyle(MainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
                     .padding(.horizontal)
                     
                     Spacer()

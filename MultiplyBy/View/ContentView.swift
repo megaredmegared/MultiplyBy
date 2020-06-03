@@ -8,23 +8,6 @@
 
 import SwiftUI
 
-struct DeleteNavBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-    }
-}
-
-extension View {
-    func deleteNavBar() -> some View {
-        self.modifier(DeleteNavBar())
-    }
-}
-class RootView: ObservableObject {
-    @Published var isActive = false
-}
-
 struct ContentView: View {
     
     let timesTables = TimesTablesViewModel(numberOfTables: 12)
@@ -53,7 +36,7 @@ struct ContentView: View {
                     
                     SettingsButton()
                 }
-            .deleteNavBar()
+                .deleteNavBar()
                 
             }
             .navigationViewStyle(StackNavigationViewStyle())

@@ -49,7 +49,7 @@ struct SettingsView: View {
                                 
                             }
                             .frame(maxWidth: .infinity)
-                        }.buttonStyle(DefaultMainButtonStyle())
+                        }.buttonStyle(MainButtonStyle())
                         
                     }
                     VStack(spacing: 10) {
@@ -61,7 +61,7 @@ struct SettingsView: View {
                         }) {
                             Text("Yes").frame(maxWidth: .infinity)
                         }
-                        .buttonStyle(DefaultMainButtonStyle())
+                        .buttonStyle(MainButtonStyle())
                         .alert(isPresented: self.$showingAlert) { Alert(title: Text("SelectedTablesSaved"), message: Text("SaveSelectedTablesMessage"), dismissButton: .default(Text("OK")))
                         }
                         

@@ -27,7 +27,7 @@ struct NumPad: View {
                         }) {
                             Text("1")
                         }
-                        .buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        .buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
@@ -35,14 +35,14 @@ struct NumPad: View {
                         }) {
                             Text("2")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("3")
                         }) {
                             Text("3")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                     }
                     HStack(spacing: 0) {
@@ -50,21 +50,21 @@ struct NumPad: View {
                             self.addNumber("4")
                         }) {
                             Text("4")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("5")
                         }) {
                             Text("5")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("6")
                         }) {
                             Text("6")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                     }
                     HStack(spacing: 0) {
@@ -72,32 +72,32 @@ struct NumPad: View {
                             self.addNumber("7")
                         }) {
                             Text("7")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("8")
                         }) {
                             Text("8")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
                             self.addNumber("9")
                         }) {
                             Text("9")
-                        }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                        }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                     }
                     Button(action: {
                         self.addNumber("0")
                     }) {
                         Text("0")
-                    }.buttonStyle(DefaultMainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
+                    }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                     .padding(geo.size.width * 0.01)
                     
                 }
-                .buttonStyle(DefaultMainButtonStyle())
+                .buttonStyle(MainButtonStyle())
                 
                 VStack(spacing: 0) {
                     Button(action: {
@@ -105,7 +105,7 @@ struct NumPad: View {
                         self.isGoodAnswer = true
                     }) {
                         Text("X")
-                    }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, maxWidth: .infinity, maxHeight: .infinity))
+                    }.buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, maxWidth: .infinity, maxHeight: .infinity))
                     .padding(geo.size.width * 0.01)
                     
                     Button(action: {
@@ -131,7 +131,7 @@ struct NumPad: View {
                         
                     }) {
                         Text("OK")
-                    }.buttonStyle(DefaultMainButtonStyle(textSize: geo.size.width * self.textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table4, maxWidth: .infinity, maxHeight: .infinity))
+                    }.buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table4, maxWidth: .infinity, maxHeight: .infinity))
                         .frame(height: (geo.size.width * 0.75) - (geo.size.width * 0.01 * 2) )
                     .padding(geo.size.width * 0.01)
                     

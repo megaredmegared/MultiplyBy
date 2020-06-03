@@ -42,7 +42,7 @@ struct NavigationButtons: View {
                 Text("PlayButtonLabel")
             }
         }
-        .buttonStyle(DefaultMainButtonStyle(maxWidth: .infinity))
+        .buttonStyle(MainButtonStyle(maxWidth: .infinity))
         .padding()
     }
     

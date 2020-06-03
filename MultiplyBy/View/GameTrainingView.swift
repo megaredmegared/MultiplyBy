@@ -45,17 +45,7 @@ struct GameTrainingView: View {
                     }
                     
                     //MARK: - Multiplication Answer
-                    Text("\(self.timesTables.multiplicationAnswer)")
-                        .truncationMode(.head)
-                        .roundedText(size: geo.size.height * 0.1, weight: .bold)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(1)
-                        .foregroundColor(.lightBlack)
-                        .modifier(SoftShadow())
-                        .frame(maxWidth: .infinity)
-                        .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
-                        .cornerRadius(5)
-                        .padding(.horizontal)
+                    MultiplicationAnswerView(size: geo.size.height * 0.1, isGoodAnswer: self.$isGoodAnswer)
                     
                     
                     //MARK: - Result help
@@ -80,6 +70,7 @@ struct GameTrainingView: View {
                 VStack {
                     HStack {
                         Button(action: {
+                            self.timesTables.resetValue()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Image(systemName: "arrowtriangle.left.circle.fill")
@@ -98,7 +89,6 @@ struct GameTrainingView: View {
                     }
                     Spacer()
                 }
-                    
                 .edgesIgnoringSafeArea(.all)
                 
             }
@@ -110,5 +100,27 @@ struct GameTrainingView: View {
 struct GameTrainingView_Previews: PreviewProvider {
     static var previews: some View {
         GameTrainingView()
+    }
+}
+
+struct MultiplicationAnswerView: View {
+    @EnvironmentObject var timesTables: TimesTablesViewModel
+    var size: CGFloat
+    @Binding var isGoodAnswer: Bool
+    
+    var body: some View {
+        Text("\(self.timesTables.multiplicationAnswer)")
+            .truncationMode(.head)
+            .roundedText(size: self.size, weight: .bold)
+            .multilineTextAlignment(.center)
+            .lineLimit(1)
+            .foregroundColor(.lightBlack)
+            .if(self.isGoodAnswer) {
+                $0.modifier(SoftShadow())
+        }
+        .frame(maxWidth: .infinity)
+        .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
+        .cornerRadius(5)
+        .padding(.horizontal)
     }
 }
