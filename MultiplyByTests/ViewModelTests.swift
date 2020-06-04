@@ -128,6 +128,24 @@ class ViewModelTests: XCTestCase {
         XCTAssertNotEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
         
     }
+    
+    func testGivenScorOf24andMultiplicationAnswerTo12WhenResetThenBothAt0() {
+        let timesTable = TimesTablesViewModel()
+        timesTable.score = 24
+        timesTable.multiplicationAnswer = "12"
+        XCTAssertEqual(timesTable.score, 24)
+        XCTAssertNotEqual(timesTable.score, 20)
+        XCTAssertEqual(timesTable.multiplicationAnswer, "12")
+        XCTAssertNotEqual(timesTable.multiplicationAnswer, "10")
+        
+        timesTable.resetValue()
+        
+        XCTAssertEqual(timesTable.score, 0)
+        XCTAssertNotEqual(timesTable.score, 20)
+        XCTAssertEqual(timesTable.multiplicationAnswer, "0")
+        XCTAssertNotEqual(timesTable.multiplicationAnswer, "10")
+        
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -31,6 +31,7 @@ struct GameStartView: View {
                     .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
                     .padding(.horizontal)
                     
+                    
                     NavigationLink(destination: GameView(timesTables: self.timesTables)) {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
