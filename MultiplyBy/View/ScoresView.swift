@@ -50,6 +50,7 @@ struct ScoresView: View {
                     ScoreGraph(scores: self.scores,
                                mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)),
                                mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)))
+                        .padding(.vertical)
                     
                     Spacer()
                     

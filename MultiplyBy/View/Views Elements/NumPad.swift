@@ -23,25 +23,25 @@ struct NumPad: View {
                 VStack(spacing: 0) {
                     HStack(spacing: 0) {
                         Button(action: {
-                            self.addNumber("1")
+                            self.addNumber("7")
                         }) {
-                            Text("1")
+                            Text("7")
                         }
                         .buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
-                            self.addNumber("2")
+                            self.addNumber("8")
                         }) {
-                            Text("2")
+                            Text("8")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
-                            self.addNumber("3")
+                            self.addNumber("9")
                         }) {
-                            Text("3")
+                            Text("9")
                         }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                     }
@@ -69,23 +69,23 @@ struct NumPad: View {
                     }
                     HStack(spacing: 0) {
                         Button(action: {
-                            self.addNumber("7")
+                            self.addNumber("1")
                         }) {
-                            Text("7")
+                            Text("1")
                         }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
-                            self.addNumber("8")
+                            self.addNumber("2")
                         }) {
-                            Text("8")
+                            Text("2")
                         }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                         
                         Button(action: {
-                            self.addNumber("9")
+                            self.addNumber("3")
                         }) {
-                            Text("9")
+                            Text("3")
                         }.buttonStyle(MainButtonStyle( textSize: geo.size.width * self.textSize, maxWidth: .infinity, maxHeight: .infinity))
                         .padding(geo.size.width * 0.01)
                     }
