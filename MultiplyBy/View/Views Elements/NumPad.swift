@@ -111,6 +111,7 @@ struct NumPad: View {
                     Button(action: {
                         guard self.timesTables.multiplicationAnswer == self.timesTables.multiplicationQuestion.result else {
                             self.isGoodAnswer = false
+                            self.timesTables.badAnswer += 1
                             return
                         }
                         

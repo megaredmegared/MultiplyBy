@@ -11,12 +11,16 @@ import SwiftUI
 struct ScoresView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
-
-    @FetchRequest(entity: Leaderboard.entity(), sortDescriptors: [
-        NSSortDescriptor(keyPath: \Leaderboard.score, ascending: false),
-        NSSortDescriptor(keyPath: \Leaderboard.name, ascending: true)
-    ]) var scores : FetchedResults<Leaderboard>
-    var testScore: [Int64] =  [11, 12, 20, 45, 23, 50, 49]
+    
+    @FetchRequest(entity: Score.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath: \Score.date, ascending: true)
+    ]) var scores : FetchedResults<Score>
+    
+    @FetchRequest(entity: Score.entity(), sortDescriptors: [
+    NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: false)]) var mostGoodAnswer : FetchedResults<Score>
+    
+    @FetchRequest(entity: Score.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath: \Score.badAnswer, ascending: false)]) var mostBadAnswer : FetchedResults<Score>
     
     init(){
         UITableView.appearance().backgroundColor = .clear
@@ -27,29 +31,32 @@ struct ScoresView: View {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
                 VStack {
-                    Text("leaderboard")
+                    Text("Scores")
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
-                    
-                    ScrollView {
-                        VStack {
-                            ForEach(self.scores, id: \.self) { score in
-                                HStack(spacing: 5) {
-                                    Text("\(score.score)")
-                                        .frame(width: 30)
-                                    Text("\(score.name ?? "unknown")")
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding()
-                            }
-                        }
+                    VStack {
+                        Text("best score:")
+                        Text("Correct: \(self.mostGoodAnswer.first?.goodAnswer ?? 0)")
+                            + Text(" Wrong: \(self.mostGoodAnswer.first?.badAnswer ?? 0)")
+                        
+                        Text("Worst score:")
+                        Text("Correct: \(self.mostGoodAnswer.last?.goodAnswer ?? 0)")
+                            + Text(" Wrong: \(self.mostGoodAnswer.last?.badAnswer ?? 0)")
+                        
                     }
                     .background(Color.lightWhite)
                     .roundedText(weight: .bold)
                     .foregroundColor(.lightBlack)
                     
+                    ScoreGraph(scores: self.scores,
+                               mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)),
+                               mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)))
+                    
                     Spacer()
                     
                     Button(action: {
+                        guard !self.scores.isEmpty else {
+                            return
+                        }
                         self.moc.delete(self.scores[0])
                         try? self.moc.save()
                     }) {

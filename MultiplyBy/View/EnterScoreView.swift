@@ -14,62 +14,36 @@ struct EnterScoreView: View {
     
     var timesTables: TimesTablesViewModel
     
-    @State var name = ""
-    @State var showNameMessage = false
-    
     var body: some View {
         ZStack {
             Color.lightWhite
             
             VStack {
+                Spacer()
                 Group {
                     Text("MessageScore")
                     
                     Text(" \(self.timesTables.score) ")
                         + Text("oneMinute")
-                    TextField("EnterYourName", text: $name)
-                        .multilineTextAlignment(.center)
+                    Text("bad answers: \(self.timesTables.badAnswer)")
                 }
                 .foregroundColor(.lightBlack)
                 .roundedText(weight: .bold)
                 
-                if self.showNameMessage {
-                  Text("nameIsEmpty")
-                    .roundedText(weight: .bold)
-                    .foregroundColor(.table1)
-                }
-                
                 Spacer()
                 
-                Group {
-                    Button(action: {
-                        self.timesTables.score = 0
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("CancelButtonLabel")
-                    }
-                    .padding(.bottom)
+                Button(action: {
+                    let score = Score(context: self.moc)
+                    score.id = UUID()
+                    score.goodAnswer = Int64(self.timesTables.score)
+                    score.badAnswer = Int64(self.timesTables.badAnswer)
+                    score.date = Date()
+                    try? self.moc.save()
                     
-                    Button(action: {
-                        guard !self.name.isEmpty else {
-                            self.showNameMessage = true
-                            return
-                        }
-                        
-                        self.showNameMessage = false
-                        
-                        let score = Leaderboard(context: self.moc)
-                        score.id = UUID()
-                        score.name = self.name
-                        score.score = Int64(self.timesTables.score)
-                        
-                        try? self.moc.save()
-                        
-                        self.timesTables.resetValue()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("SaveButtonLabel")
-                    }
+                    self.timesTables.resetValue()
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("Ok")
                 }
                 .buttonStyle(MainButtonStyle(maxWidth: .infinity))
             }

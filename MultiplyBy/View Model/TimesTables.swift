@@ -60,6 +60,7 @@ class TimesTablesViewModel: ObservableObject {
     @Published var multiplicationAnswer: String = "0"
     
     @Published var score = 0
+    @Published var badAnswer = 0
     
     init(numberOfTables: Int = 12) {
         for number in 1...numberOfTables {
@@ -80,6 +81,7 @@ class TimesTablesViewModel: ObservableObject {
     /// reset score and multiplication values to default
     func resetValue() {
         score = 0
+        badAnswer = 0
         multiplicationAnswer = "0"
     }
     

@@ -22,7 +22,7 @@ struct GameView: View {
     var textSize: CGFloat = 40
     
     // Countdown Timer
-    @State var timeRemaining = 6 // seconds
+    @State var timeRemaining = 60 // seconds
     @State var isActive = true
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
