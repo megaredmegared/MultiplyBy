@@ -34,10 +34,7 @@ struct GameView: View {
                     Color.lightWhite.edgesIgnoringSafeArea(.all)
                     
                     VStack(spacing: 2) {
-                        Button("print") {
-                            self.timesTables.multiplicationAnswer.append("1")
-                        }
-                        
+                    
                         //MARK: - Timer
                         GameTimer(size: geo.size.height * 0.05, isOver: self.$showEnterScoreView)
                         

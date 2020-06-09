@@ -9,6 +9,8 @@
 import SwiftUI
 
 extension Color {
+    static let whiteShadow = Color(UIColor.init(named: "WhiteShadow")!)
+    static let blackShadow = Color(UIColor.init(named: "BlackShadow")!)
     static let fullWhite = Color(UIColor.init(named: "FullWhite")!)
     static let lightWhite = Color(UIColor.init(named: "LightWhite")!)
     static let lightBlack = Color(UIColor.init(named: "LightBlack")!)
