@@ -110,6 +110,8 @@ class TimesTablesViewModel: ObservableObject {
         let multiplication = table?.multiplications.randomElement()
         
         self.multiplicationQuestion = multiplication ?? MultiplicationViewModel(firstOperand: "Error", secondOperand: "Error", result: "Error")
+        
+        print("Pick a multiplication")
     }
 }
 

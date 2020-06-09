@@ -32,7 +32,7 @@ struct GameStartView: View {
                     .padding(.horizontal)
                     
                     
-                    NavigationLink(destination: GameView(timesTables: self.timesTables)) {
+                    NavigationLink(destination: GameView()) {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
                     }

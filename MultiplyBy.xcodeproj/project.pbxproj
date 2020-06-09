@@ -46,6 +46,7 @@
 		4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */; };
 		4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF587232479180E005E2B9F /* GameTrainingView.swift */; };
 		4DF58729247AACFE005E2B9F /* RoundedBackButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */; };
+		4DF6524C248FB87D00701DCC /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6524B248FB87D00701DCC /* GameTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
 		4DF587232479180E005E2B9F /* GameTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrainingView.swift; sourceTree = "<group>"; };
 		4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackButtonStyle.swift; sourceTree = "<group>"; };
+		4DF6524B248FB87D00701DCC /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 			children = (
 				4DA12E5A246FE161004D044E /* BackButton.swift */,
 				4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */,
+				4DF6524B248FB87D00701DCC /* GameTimer.swift */,
 				4DA12E49246B3E60004D044E /* NumPad.swift */,
 				4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */,
 				4D7EF2A124585CC600DFF589 /* AppTitle.swift */,
@@ -422,6 +425,7 @@
 				4D7EF2AD24587CC000DFF589 /* ScoresView.swift in Sources */,
 				4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */,
 				4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */,
+				4DF6524C248FB87D00701DCC /* GameTimer.swift in Sources */,
 				4D4A6FBA244F174B00830A71 /* DefaultMainButtonStyle.swift in Sources */,
 				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,

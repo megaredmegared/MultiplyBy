@@ -13,23 +13,17 @@ struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
     
-    //    @EnvironmentObject var timesTables: TimesTablesViewModel
-    var timesTables: TimesTablesViewModel
+    @EnvironmentObject var timesTables: TimesTablesViewModel
     
     let colorScheme = AppColorScheme()
     
     var spacing: CGFloat = 4
     var textSize: CGFloat = 40
     
-    // Countdown Timer
-    @State var timeRemaining = 60 // seconds
-    @State var isActive = true
-    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    //    @State var presentGameOverMessage = false
     @State var showEnterScoreView = false
     @State var isGoodAnswer = true
     let isGameView = true
+    @State var multiplicationAnswer2 = "0"
     
     var body: some View {
         
@@ -40,32 +34,13 @@ struct GameView: View {
                     Color.lightWhite.edgesIgnoringSafeArea(.all)
                     
                     VStack(spacing: 2) {
-                        
+                        Button("print") {
+                            self.timesTables.multiplicationAnswer.append("1")
+                        }
                         
                         //MARK: - Timer
-                        Text("\(self.timeRemaining)")
-                            .roundedText(size: geo.size.height * 0.05, weight: .bold)
-                            .foregroundColor(.lightBlack)
-                            .onReceive(self.timer) { _ in
-                                guard self.isActive else { return }
-                                if self.timeRemaining > 0 {
-                                    self.timeRemaining -= 1
-                                }
-                                else if self.timeRemaining == 0 {
-                                    self.timer.upstream.connect().cancel()
-                                    self.isActive = false
-                                    withAnimation {
-                                        self.showEnterScoreView.toggle()
-                                    }
-                                    
-                                }
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                            self.isActive = false
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                            self.isActive = true
-                        }
+                        GameTimer(size: geo.size.height * 0.05, isOver: self.$showEnterScoreView)
+                        
                         
                         //MARK: - Score
                         Text("score: \(self.timesTables.score)")
@@ -137,7 +112,10 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(timesTables: TimesTablesViewModel())
+        GameView()
     }
 }
+
+
+
 
