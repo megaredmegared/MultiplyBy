@@ -49,7 +49,7 @@ struct TableViewModel: Identifiable, Comparable, Hashable, Codable {
 }
 
 /// Object that give data for the game
-class TimesTablesViewModel: ObservableObject {
+class GameViewModel: ObservableObject {
     
     var allTables: [TableViewModel] = []
     

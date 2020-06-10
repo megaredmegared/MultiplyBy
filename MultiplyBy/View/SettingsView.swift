@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     
     @State private var showingAlert = false
     
@@ -57,7 +57,7 @@ struct SettingsView: View {
                             .foregroundColor(.gray)
                         
                         Button(action: {
-                            self.showingAlert = self.timesTables.saveChoosenTables()
+                            self.showingAlert = self.game.saveChoosenTables()
                         }) {
                             Text("Yes").frame(maxWidth: .infinity)
                         }

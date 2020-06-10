@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let timesTables = TimesTablesViewModel(numberOfTables: 12)
+    let game = GameViewModel(numberOfTables: 12)
     
     var body: some View {
         
@@ -41,7 +41,7 @@ struct ContentView: View {
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }
-        .environmentObject(timesTables)
+        .environmentObject(game)
         .statusBar(hidden: true)
     }    
 }

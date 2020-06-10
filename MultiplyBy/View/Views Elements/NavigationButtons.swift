@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Buttons for navigation
 struct NavigationButtons: View {
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     @State private var presentLearnView = false
     
     var body: some View {
@@ -22,14 +22,14 @@ struct NavigationButtons: View {
                     Text("LearnButtonLabel")
                 }
                 .sheet(isPresented: $presentLearnView) {
-                    if self.timesTables.choosenTables.count == 1 {
-                        LearnView(table: self.timesTables.choosenTables[0])
+                    if self.game.choosenTables.count == 1 {
+                        LearnView(table: self.game.choosenTables[0])
                     } else {
                         PageView(self.makeLearnViews())
                     }
                 }
-                .opacity(self.timesTables.choosenTables.isEmpty ? 0.2 : 1)
-                .disabled(self.timesTables.choosenTables.isEmpty)
+                .opacity(self.game.choosenTables.isEmpty ? 0.2 : 1)
+                .disabled(self.game.choosenTables.isEmpty)
                 
                 NavigationLink(destination:
                 ScoresView()) {
@@ -48,7 +48,7 @@ struct NavigationButtons: View {
     
     func makeLearnViews() -> [LearnView] {
         var learnViews: [LearnView] = []
-        for table in self.timesTables.choosenTables.sorted() {
+        for table in self.game.choosenTables.sorted() {
             learnViews.append(LearnView(table: table))
         }
         return learnViews as [LearnView]

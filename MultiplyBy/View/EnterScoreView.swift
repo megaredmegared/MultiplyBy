@@ -12,7 +12,7 @@ struct EnterScoreView: View {
     @Environment(\.presentationMode) var presentationMode
     var moc: NSManagedObjectContext
     
-    var timesTables: TimesTablesViewModel
+    var game: GameViewModel
     
     var body: some View {
         ZStack {
@@ -23,9 +23,9 @@ struct EnterScoreView: View {
                 Group {
                     Text("MessageScore")
                     
-                    Text(" \(self.timesTables.score) ")
+                    Text(" \(self.game.score) ")
                         + Text("oneMinute")
-                    Text("bad answers: \(self.timesTables.badAnswer)")
+                    Text("bad answers: \(self.game.badAnswer)")
                 }
                 .foregroundColor(.lightBlack)
                 .roundedText(weight: .bold)
@@ -35,12 +35,12 @@ struct EnterScoreView: View {
                 Button(action: {
                     let score = Score(context: self.moc)
                     score.id = UUID()
-                    score.goodAnswer = Int64(self.timesTables.score)
-                    score.badAnswer = Int64(self.timesTables.badAnswer)
+                    score.goodAnswer = Int64(self.game.score)
+                    score.badAnswer = Int64(self.game.badAnswer)
                     score.date = Date()
                     try? self.moc.save()
                     
-                    self.timesTables.resetValue()
+                    self.game.resetValue()
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Ok")

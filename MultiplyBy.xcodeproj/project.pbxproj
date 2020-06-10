@@ -28,7 +28,7 @@
 		4D675FAD248E4CC8007041D5 /* ScoreGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */; };
 		4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */; };
 		4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A124585CC600DFF589 /* AppTitle.swift */; };
-		4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A424585F1D00DFF589 /* TimesTables.swift */; };
+		4D7EF2A524585F1D00DFF589 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A424585F1D00DFF589 /* GameViewModel.swift */; };
 		4D7EF2A7245872C200DFF589 /* NavigationButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */; };
 		4D7EF2A92458749B00DFF589 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A82458749B00DFF589 /* SettingsButton.swift */; };
 		4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2AA2458794E00DFF589 /* Extensions.swift */; };
@@ -94,7 +94,7 @@
 		4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreGraph.swift; sourceTree = "<group>"; };
 		4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoiceView.swift; sourceTree = "<group>"; };
 		4D7EF2A124585CC600DFF589 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
-		4D7EF2A424585F1D00DFF589 /* TimesTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesTables.swift; sourceTree = "<group>"; };
+		4D7EF2A424585F1D00DFF589 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtons.swift; sourceTree = "<group>"; };
 		4D7EF2A82458749B00DFF589 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		4D7EF2AA2458794E00DFF589 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		4D7EF2A324585F0500DFF589 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				4D7EF2A424585F1D00DFF589 /* TimesTables.swift */,
+				4D7EF2A424585F1D00DFF589 /* GameViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				4D4A6FBA244F174B00830A71 /* DefaultMainButtonStyle.swift in Sources */,
 				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,
-				4D7EF2A524585F1D00DFF589 /* TimesTables.swift in Sources */,
+				4D7EF2A524585F1D00DFF589 /* GameViewModel.swift in Sources */,
 				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,
 				4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */,
 				4D85BB102449B07B002204D6 /* AppColorScheme.swift in Sources */,

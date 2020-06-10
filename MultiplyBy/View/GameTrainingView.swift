@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GameTrainingView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     
     let colorScheme = AppColorScheme()
     
@@ -34,14 +34,14 @@ struct GameTrainingView: View {
                     Spacer(minLength: 50)
                     //MARK: - Multiplication Question
                     HStack {
-                        Text(self.timesTables.multiplicationQuestion.firstOperand)
+                        Text(self.game.multiplicationQuestion.firstOperand)
                         Text(" x ")
-                        Text(self.timesTables.multiplicationQuestion.secondOperand)
+                        Text(self.game.multiplicationQuestion.secondOperand)
                     }
                     .roundedText(size: geo.size.height * 0.1, weight: .bold)
                     .foregroundColor(.table1)
                     .onAppear {
-                        self.timesTables.pickNextMultiplication(tables: self.timesTables.choosenTables)
+                        self.game.pickNextMultiplication(tables: self.game.choosenTables)
                     }
                     
                     //MARK: - Multiplication Answer
@@ -52,7 +52,7 @@ struct GameTrainingView: View {
                     //MARK: - Result help
                     if self.isGoodAnswer == false {
                         Group {
-                            Text("AnswerIs:") + Text(" \(self.timesTables.multiplicationQuestion.result)")
+                            Text("AnswerIs:") + Text(" \(self.game.multiplicationQuestion.result)")
                         }
                         
                     } else {
@@ -72,7 +72,7 @@ struct GameTrainingView: View {
                 VStack {
                     HStack {
                         Button(action: {
-                            self.timesTables.resetValue()
+                            self.game.resetValue()
                             self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Image(systemName: "arrowtriangle.left.circle.fill")
@@ -106,12 +106,12 @@ struct GameTrainingView_Previews: PreviewProvider {
 }
 
 struct MultiplicationAnswerView: View {
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     var size: CGFloat
     @Binding var isGoodAnswer: Bool
     
     var body: some View {
-        Text("\(self.timesTables.multiplicationAnswer)")
+        Text("\(self.game.multiplicationAnswer)")
             .truncationMode(.head)
             .roundedText(size: self.size, weight: .bold)
             .multilineTextAlignment(.center)

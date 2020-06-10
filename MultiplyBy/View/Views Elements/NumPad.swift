@@ -10,7 +10,7 @@ import SwiftUI
 
 /// NumPad to enter the results answers when in the game
 struct NumPad: View {
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     @Binding var isGoodAnswer: Bool
     
     var spacing: CGFloat = 0.015
@@ -101,7 +101,7 @@ struct NumPad: View {
                 
                 VStack(spacing: 0) {
                     Button(action: {
-                        self.timesTables.multiplicationAnswer = "0"
+                        self.game.multiplicationAnswer = "0"
                         self.isGoodAnswer = true
                     }) {
                         Text("X")
@@ -109,25 +109,25 @@ struct NumPad: View {
                     .padding(geo.size.width * 0.01)
                     
                     Button(action: {
-                        guard self.timesTables.multiplicationAnswer == self.timesTables.multiplicationQuestion.result else {
+                        guard self.game.multiplicationAnswer == self.game.multiplicationQuestion.result else {
                             self.isGoodAnswer = false
-                            self.timesTables.badAnswer += 1
+                            self.game.badAnswer += 1
                             return
                         }
                         
                         if self.isGameView {
-                        self.timesTables.score += 1
-                        self.timesTables.multiplicationAnswer = "0"
+                        self.game.score += 1
+                        self.game.multiplicationAnswer = "0"
                         self.isGoodAnswer = true
-                        self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
+                        self.game.pickNextMultiplication(tables: self.game.allTables)
                         } else {
-                            self.timesTables.multiplicationAnswer = "0"
+                            self.game.multiplicationAnswer = "0"
                             self.isGoodAnswer = true
-                            self.timesTables.pickNextMultiplication(tables: self.timesTables.choosenTables)
+                            self.game.pickNextMultiplication(tables: self.game.choosenTables)
                         }
                         
-                        print(self.timesTables.multiplicationQuestion)
-                        print(self.timesTables.multiplicationAnswer)
+                        print(self.game.multiplicationQuestion)
+                        print(self.game.multiplicationAnswer)
                         
                         
                     }) {
@@ -144,13 +144,13 @@ struct NumPad: View {
     }
     
     func addNumber(_ number: String) {
-        guard self.timesTables.multiplicationAnswer.count < 3 else {
+        guard self.game.multiplicationAnswer.count < 3 else {
             return
         }
-        if self.timesTables.multiplicationAnswer == "0" {
-            self.timesTables.multiplicationAnswer = ""
+        if self.game.multiplicationAnswer == "0" {
+            self.game.multiplicationAnswer = ""
         }
-        self.timesTables.multiplicationAnswer.append(number)
+        self.game.multiplicationAnswer.append(number)
     }
 }
 

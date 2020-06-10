@@ -13,7 +13,7 @@ struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
     
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     
     let colorScheme = AppColorScheme()
     
@@ -40,19 +40,19 @@ struct GameView: View {
                         
                         
                         //MARK: - Score
-                        Text("score: \(self.timesTables.score)")
+                        Text("score: \(self.game.score)")
                         Spacer()
                         
                         //MARK: - Multiplication Question
                         HStack {
-                            Text(self.timesTables.multiplicationQuestion.firstOperand)
+                            Text(self.game.multiplicationQuestion.firstOperand)
                             Text(" x ")
-                            Text(self.timesTables.multiplicationQuestion.secondOperand)
+                            Text(self.game.multiplicationQuestion.secondOperand)
                         }
                         .roundedText(size: geo.size.height * 0.1, weight: .bold)
                         .foregroundColor(.table1)
                         .onAppear {
-                            self.timesTables.pickNextMultiplication(tables: self.timesTables.allTables)
+                            self.game.pickNextMultiplication(tables: self.game.allTables)
                         }
                         Spacer()
                         
@@ -71,7 +71,7 @@ struct GameView: View {
                     VStack {
                         HStack {
                             Button(action: {
-                                self.timesTables.resetValue()
+                                self.game.resetValue()
                                 self.presentationMode.wrappedValue.dismiss()
                             }) {
                                 Image(systemName: "arrowtriangle.left.circle.fill")
@@ -98,7 +98,7 @@ struct GameView: View {
                 if self.showEnterScoreView {
                     Color.lightWhite.opacity(0.5).edgesIgnoringSafeArea(.all)
                         .transition(.opacity)
-                    EnterScoreView(moc: self.moc, timesTables: self.timesTables)
+                    EnterScoreView(moc: self.moc, game: self.game)
                     .transition(.scale)
                 }
             }

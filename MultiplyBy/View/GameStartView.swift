@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GameStartView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var timesTables: TimesTablesViewModel
+    @EnvironmentObject var game: GameViewModel
     
     var size: CGFloat  = 5
     
