@@ -8,6 +8,14 @@
 
 import SwiftUI
 
+extension View {
+    public func flip() -> some View {
+        return self
+            .rotationEffect(.radians(.pi))
+            .scaleEffect(x: 1, y: -1, anchor: .center)
+    }
+}
+
 struct ScoreGraph: View {
     var scores: FetchedResults<Score>
     var maxHeight: CGFloat
@@ -44,10 +52,12 @@ struct ScoreGraph: View {
                         }
                         .roundedText(size: 8, weight: .black)
                         .foregroundColor(.lightWhite)
-                        
+                        .background(Color.gray.opacity(0.1)) 
                     }
                 }
+                .flip()
             }
+            .flip()
         }
         .frame(maxWidth: .infinity)
     }

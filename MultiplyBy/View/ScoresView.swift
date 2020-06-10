@@ -17,7 +17,7 @@ struct ScoresView: View {
     ]) var scores : FetchedResults<Score>
     
     @FetchRequest(entity: Score.entity(), sortDescriptors: [
-    NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: false)]) var mostGoodAnswer : FetchedResults<Score>
+        NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: false)]) var mostGoodAnswer : FetchedResults<Score>
     
     @FetchRequest(entity: Score.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \Score.badAnswer, ascending: false)]) var mostBadAnswer : FetchedResults<Score>
@@ -25,6 +25,8 @@ struct ScoresView: View {
     init(){
         UITableView.appearance().backgroundColor = .clear
     }
+    
+    @State private var presentEraseMessage = false
     
     var body: some View {
         ZStack {
@@ -54,14 +56,16 @@ struct ScoresView: View {
                     
                     Spacer()
                     
-                    Button(action: {
-                        guard !self.scores.isEmpty else {
-                            return
+                    
+                    Button("add50") {
+                        for _ in 0...1 {
+                            let score = Score(context: self.moc)
+                            score.id = UUID()
+                            score.date = Date()
+                            score.goodAnswer = Int64([10, 40, 35, 23, 0, 60, 55, 34].randomElement() ?? 0)
+                            score.badAnswer = Int64([10, 12, 14, 20, 4, 0, 5, 7].randomElement() ?? 0)
                         }
-                        self.moc.delete(self.scores[0])
                         try? self.moc.save()
-                    }) {
-                        Text("deletdata")
                     }
                     
                     BackButton()
@@ -70,6 +74,31 @@ struct ScoresView: View {
                 .padding()
                 .frame(maxWidth: 600)
             }
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.presentEraseMessage.toggle()
+                    }) {
+                        Text("erase")
+                            .foregroundColor(.lightBlack)
+                    }
+                }
+                Spacer()
+            }.padding()
+            .edgesIgnoringSafeArea(.all)
+                .alert(isPresented: $presentEraseMessage) {
+                    Alert(title: Text("Erase all?"), primaryButton: Alert.Button.cancel(), secondaryButton: .default(Text("Ok"), action: {
+                        guard !self.scores.isEmpty else {
+                            return
+                        }
+                        for number in 0..<self.scores.count {
+                            self.moc.delete(self.scores[number])
+                        }
+                        try? self.moc.save()
+                    }))
+            }
+            
         }
         .deleteNavBar()
     }

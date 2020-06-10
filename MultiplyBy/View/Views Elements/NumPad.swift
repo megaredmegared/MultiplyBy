@@ -105,7 +105,7 @@ struct NumPad: View {
                         self.isGoodAnswer = true
                     }) {
                         Text("X")
-                    }.buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, maxWidth: .infinity, maxHeight: .infinity))
+                    }.buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow, maxWidth: .infinity, maxHeight: .infinity))
                     .padding(geo.size.width * 0.01)
                     
                     Button(action: {
@@ -132,7 +132,7 @@ struct NumPad: View {
                         
                     }) {
                         Text("OK")
-                    }.buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table4, maxWidth: .infinity, maxHeight: .infinity))
+                    }.buttonStyle(MainButtonStyle(textSize: geo.size.width * self.textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow, maxWidth: .infinity, maxHeight: .infinity))
                         .frame(height: (geo.size.width * 0.75) - (geo.size.width * 0.01 * 2) )
                     .padding(geo.size.width * 0.01)
                     
@@ -144,6 +144,9 @@ struct NumPad: View {
     }
     
     func addNumber(_ number: String) {
+        guard self.timesTables.multiplicationAnswer.count < 3 else {
+            return
+        }
         if self.timesTables.multiplicationAnswer == "0" {
             self.timesTables.multiplicationAnswer = ""
         }

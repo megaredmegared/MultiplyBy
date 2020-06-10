@@ -28,7 +28,7 @@ struct GameStartView: View {
                         Text("StartTrainingButton")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7))
+                    .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7, innerDarkShadow: .table7DarkShadow, innerLightShadow: .table7LightShadow))
                     .padding(.horizontal)
                     
                     
@@ -36,7 +36,7 @@ struct GameStartView: View {
                         Text("StartGameButton")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(MainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5))
+                    .buttonStyle(MainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))
                     .padding(.horizontal)
                     
                     Spacer()

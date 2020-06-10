@@ -46,6 +46,7 @@ struct GameTrainingView: View {
                     
                     //MARK: - Multiplication Answer
                     MultiplicationAnswerView(size: geo.size.height * 0.1, isGoodAnswer: self.$isGoodAnswer)
+                        .padding(.bottom)
                     
                     
                     //MARK: - Result help
@@ -53,6 +54,7 @@ struct GameTrainingView: View {
                         Group {
                             Text("AnswerIs:") + Text(" \(self.timesTables.multiplicationQuestion.result)")
                         }
+                        
                     } else {
                         Text(" ")
                     }

@@ -21,7 +21,7 @@ struct BackButton: View {
             Text("back")
                 .frame(maxWidth: .infinity)
         }
-        .buttonStyle(MainButtonStyle( foregroundColor: .lightWhite, backgroundColor: .table1))
+        .buttonStyle(MainButtonStyle( foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow))
         
     }
 }
