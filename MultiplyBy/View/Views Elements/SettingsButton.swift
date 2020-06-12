@@ -17,8 +17,8 @@ struct SettingsButton: View {
                 Spacer()
                 NavigationLink(destination: SettingsView()) {
                     Image(systemName: "gear")
-                    .foregroundColor(Color.lightBlack)
-                    .frame(width: 20, height: 20)
+                        .foregroundColor(Color.lightBlack)
+                        .frame(width: 20, height: 20)
                 }
             }
             .padding()
@@ -30,6 +30,9 @@ struct SettingsButton: View {
 
 struct SettingsButton_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsButton()
+        ForEach(["iPhone 11", "iPhone SE (1st generation)"], id: \.self) { deviceName in
+            SettingsButton()
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+        }
     }
 }

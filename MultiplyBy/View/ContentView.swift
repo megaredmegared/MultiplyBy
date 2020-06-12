@@ -10,8 +10,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let game = GameViewModel(numberOfTables: 12)
-    
     var body: some View {
         
         GeometryReader { geo in
@@ -22,11 +20,11 @@ struct ContentView: View {
                         
                         AppTitle()
                         
-                        Spacer(minLength: 4)
+                        Spacer(minLength: 20)
                         
                         ButtonsChoice()
                         
-                        Spacer(minLength: 4)
+                        Spacer(minLength: 20)
                         
                         NavigationButtons()
                         
@@ -35,14 +33,13 @@ struct ContentView: View {
                     }.frame(maxWidth: 600)
                     
                     SettingsButton()
+                    
                 }
                 .deleteNavBar()
                 
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }
-        .environmentObject(game)
-        .statusBar(hidden: true)
     }    
 }
 
@@ -54,6 +51,7 @@ struct ContentView_Previews: PreviewProvider {
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
                     .environment(\.colorScheme, .light)
+                    
                 ContentView()
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)

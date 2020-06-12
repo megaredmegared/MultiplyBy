@@ -32,7 +32,6 @@ extension Color {
     static let table10 = Color(UIColor.init(named: "Table10")!)
     static let table11 = Color(UIColor.init(named: "Table11")!)
     static let table12 = Color(UIColor.init(named: "Table12")!)
-    
 }
 
 /// Color scheme for the app MultiplyBy

@@ -33,3 +33,11 @@ struct ButtonsChoice: View {
         }
     }
 }
+
+struct ButtonsChoiceView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+       ButtonsChoice()
+        .environmentObject(GameViewModel())
+    }
+}

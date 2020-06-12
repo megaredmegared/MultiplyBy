@@ -62,6 +62,8 @@ class GameViewModel: ObservableObject {
     @Published var score = 0
     @Published var badAnswer = 0
     
+    @Published var isGoodAnswer: Bool = true
+    
     init(numberOfTables: Int = 12) {
         for number in 1...numberOfTables {
             allTables.append(TableViewModel(of: number, numberOfTables: numberOfTables))
@@ -83,6 +85,7 @@ class GameViewModel: ObservableObject {
         score = 0
         badAnswer = 0
         multiplicationAnswer = "0"
+        isGoodAnswer = true
     }
     
     func addOrDeleteTable(of table: TableViewModel) {

@@ -52,6 +52,7 @@ struct MainButtonStyle: ButtonStyle {
         )
             .modifier(SoftShadow(isPressed: configuration.isPressed))
     }
+    
     func startPoint(size: CGSize) -> CGFloat {
         let width = size.width
         let height = size.height

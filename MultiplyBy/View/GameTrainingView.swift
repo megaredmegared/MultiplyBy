@@ -18,7 +18,6 @@ struct GameTrainingView: View {
     var textSize: CGFloat = 40
     
     @State var presentGameOverMessage = false
-    @State var isGoodAnswer = true
     
     let isGameView = false
     
@@ -29,32 +28,21 @@ struct GameTrainingView: View {
                 
                 Color.lightWhite.edgesIgnoringSafeArea(.all)
                 
-                VStack(spacing: 2) {
+                VStack {
                     
                     Spacer(minLength: 50)
                     //MARK: - Multiplication Question
-                    HStack {
-                        Text(self.game.multiplicationQuestion.firstOperand)
-                        Text(" x ")
-                        Text(self.game.multiplicationQuestion.secondOperand)
-                    }
-                    .roundedText(size: geo.size.height * 0.1, weight: .bold)
-                    .foregroundColor(.table1)
-                    .onAppear {
-                        self.game.pickNextMultiplication(tables: self.game.choosenTables)
-                    }
+                    MultiplicationQuestionView(geoSize: geo.size, gameType: .training)
                     
                     //MARK: - Multiplication Answer
-                    MultiplicationAnswerView(size: geo.size.height * 0.1, isGoodAnswer: self.$isGoodAnswer)
+                    MultiplicationAnswerView(geoSize: geo.size)
                         .padding(.bottom)
-                    
-                    
+                                  
                     //MARK: - Result help
-                    if self.isGoodAnswer == false {
+                    if self.game.isGoodAnswer == false {
                         Group {
                             Text("AnswerIs:") + Text(" \(self.game.multiplicationQuestion.result)")
                         }
-                        
                     } else {
                         Text(" ")
                     }
@@ -62,37 +50,22 @@ struct GameTrainingView: View {
                     Spacer()
                     
                     //MARK: - Numpad
-                    NumPad(isGoodAnswer: self.$isGoodAnswer, isGameView: self.isGameView)
-                        .padding()
-                    
-                    Spacer()
+                    NumPad(geoSize: geo.size, isGameView: self.isGameView)
+                        .padding(.top)
+
                 }
+                .padding()
                 .frame(maxWidth: 600)
                 
-                VStack {
-                    HStack {
-                        Button(action: {
-                            self.game.resetValue()
-                            self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "arrowtriangle.left.circle.fill")
-                                .resizable()
-                                .frame(width:
-                                    UIDevice.current.userInterfaceIdiom == .pad ?
-                                        geo.size.width * 0.03
-                                        : geo.size.width * 0.08,
-                                       height:
-                                    UIDevice.current.userInterfaceIdiom == .pad ?
-                                        geo.size.width * 0.03
-                                        : geo.size.width * 0.08)
-                        }
-                        .buttonStyle(RoundedBackButtonStyle())
-                        Spacer()
-                    }
-                    Spacer()
+                //MARK: - Back button
+                Button(action: {
+                    self.game.resetValue()
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "arrowtriangle.left.circle.fill")
+                        .resizable()
                 }
-                .edgesIgnoringSafeArea(.all)
-                
+                .buttonStyle(RoundedBackButtonStyle())
             }
         }
         .deleteNavBar()
@@ -102,27 +75,6 @@ struct GameTrainingView: View {
 struct GameTrainingView_Previews: PreviewProvider {
     static var previews: some View {
         GameTrainingView()
-    }
-}
-
-struct MultiplicationAnswerView: View {
-    @EnvironmentObject var game: GameViewModel
-    var size: CGFloat
-    @Binding var isGoodAnswer: Bool
-    
-    var body: some View {
-        Text("\(self.game.multiplicationAnswer)")
-            .truncationMode(.head)
-            .roundedText(size: self.size, weight: .bold)
-            .multilineTextAlignment(.center)
-            .lineLimit(1)
-            .foregroundColor(.lightBlack)
-            .if(self.isGoodAnswer) {
-                $0.modifier(SoftShadow())
-        }
-        .frame(maxWidth: .infinity)
-        .background(self.isGoodAnswer ? Color.lightWhite : Color.table1)
-        .cornerRadius(5)
-        .padding(.horizontal)
+            .environmentObject(GameViewModel())
     }
 }

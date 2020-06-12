@@ -58,5 +58,6 @@ struct NavigationButtons: View {
 struct NavigationButtons_Previews: PreviewProvider {
     static var previews: some View {
         NavigationButtons()
+        .environmentObject(GameViewModel())
     }
 }

@@ -12,9 +12,11 @@ struct ScoresView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var moc
     
-    @FetchRequest(entity: Score.entity(), sortDescriptors: [
+    var sortDescriptors: [NSSortDescriptor] = [
         NSSortDescriptor(keyPath: \Score.date, ascending: true)
-    ]) var scores : FetchedResults<Score>
+    ]
+    var fetchRequest: FetchRequest<Score>
+    var scores: FetchedResults<Score> { fetchRequest.wrappedValue }
     
     @FetchRequest(entity: Score.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: false)]) var mostGoodAnswer : FetchedResults<Score>
@@ -23,10 +25,8 @@ struct ScoresView: View {
         NSSortDescriptor(keyPath: \Score.badAnswer, ascending: false)]) var mostBadAnswer : FetchedResults<Score>
     
     init(){
-        UITableView.appearance().backgroundColor = .clear
+        fetchRequest = FetchRequest<Score>(entity: Score.entity(), sortDescriptors: sortDescriptors, predicate: nil)
     }
-    
-    @State private var presentEraseMessage = false
     
     var body: some View {
         ZStack {
@@ -49,10 +49,7 @@ struct ScoresView: View {
                     .roundedText(weight: .bold)
                     .foregroundColor(.lightBlack)
                     
-                    ScoreGraph(scores: self.scores,
-                               mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)),
-                               mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)))
-                        .padding(.vertical)
+                    ScoreGraph(mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)), mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)), moc: self.moc, scores: self.scores)
                     
                     Spacer()
                     
@@ -74,31 +71,8 @@ struct ScoresView: View {
                 .padding()
                 .frame(maxWidth: 600)
             }
-            VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        self.presentEraseMessage.toggle()
-                    }) {
-                        Text("erase")
-                            .foregroundColor(.lightBlack)
-                    }
-                }
-                Spacer()
-            }.padding()
-            .edgesIgnoringSafeArea(.all)
-                .alert(isPresented: $presentEraseMessage) {
-                    Alert(title: Text("Erase all?"), primaryButton: Alert.Button.cancel(), secondaryButton: .default(Text("Ok"), action: {
-                        guard !self.scores.isEmpty else {
-                            return
-                        }
-                        for number in 0..<self.scores.count {
-                            self.moc.delete(self.scores[number])
-                        }
-                        try? self.moc.save()
-                    }))
-            }
-            
+
+            EraseButton(moc: self.moc, scores: self.scores)
         }
         .deleteNavBar()
     }
@@ -106,6 +80,9 @@ struct ScoresView: View {
 
 struct ScoresView_Previews: PreviewProvider {
     static var previews: some View {
-        ScoresView()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return ScoresView()
+            .environment(\.managedObjectContext, context)
+        
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 extension View {
     public func flip() -> some View {
@@ -17,9 +18,14 @@ extension View {
 }
 
 struct ScoreGraph: View {
+    var moc: NSManagedObjectContext
     var scores: FetchedResults<Score>
+    
     var maxHeight: CGFloat
-    init(scores: FetchedResults<Score>, mostGoodAnswer: CGFloat, mostBadAnswer: CGFloat) {
+    
+    init(mostGoodAnswer: CGFloat, mostBadAnswer: CGFloat, moc: NSManagedObjectContext, scores: FetchedResults<Score>) {
+        
+        self.moc = moc
         self.scores = scores
         
         if mostGoodAnswer >= mostBadAnswer {
@@ -52,7 +58,7 @@ struct ScoreGraph: View {
                         }
                         .roundedText(size: 8, weight: .black)
                         .foregroundColor(.lightWhite)
-                        .background(Color.gray.opacity(0.1)) 
+                        .background(Color.gray.opacity(0.1))
                     }
                 }
                 .flip()

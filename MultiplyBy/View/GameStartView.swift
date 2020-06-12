@@ -10,7 +10,6 @@ import SwiftUI
 
 struct GameStartView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var game: GameViewModel
     
     var size: CGFloat  = 5
     
@@ -23,27 +22,27 @@ struct GameStartView: View {
                     AppTitle()
                         .frame(maxWidth: .infinity)
                     
-                    Spacer()
-                    NavigationLink(destination: GameTrainingView()) {
-                        Text("StartTrainingButton")
-                            .frame(maxWidth: .infinity)
+                    VStack {
+                        Spacer()
+                        NavigationLink(destination: GameTrainingView()) {
+                            Text("StartTrainingButton")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7, innerDarkShadow: .table7DarkShadow, innerLightShadow: .table7LightShadow))
+                        .padding(.bottom)
+                        
+                        NavigationLink(destination: GameView()) {
+                            Text("StartGameButton")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(MainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))
+                        
+                        Spacer()
+                        Spacer()
+                        
+                        BackButton()
                     }
-                    .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7, innerDarkShadow: .table7DarkShadow, innerLightShadow: .table7LightShadow))
-                    .padding(.horizontal)
-                    
-                    
-                    NavigationLink(destination: GameView()) {
-                        Text("StartGameButton")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(MainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))
-                    .padding(.horizontal)
-                    
-                    Spacer()
-                    
-                    BackButton()
-                        .padding()
-                    
+                    .padding()   
                 }
                 .frame(maxWidth: 600)
             }

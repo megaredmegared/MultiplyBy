@@ -57,8 +57,9 @@ struct EnterScoreView: View {
     }
 }
 
-//struct EnterScoreView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EnterScoreView(timesTables: TimesTablesViewModel())
-//    }
-//}
+struct EnterScoreView_Previews: PreviewProvider {
+    static var previews: some View {
+        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        return  EnterScoreView(moc: moc, game: GameViewModel())
+    }
+}

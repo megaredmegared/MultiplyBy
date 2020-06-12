@@ -19,12 +19,20 @@ struct SettingsView: View {
     }
     
     private var language: String {
+        
         let language = Bundle.main.preferredLocalizations.first ?? "None"
-        if language == "en" {
+        switch language {
+        case "fr":
+            return "Français"
+        case "de":
+            return "Deutsch"
+        case "es":
+            return "Español"
+        case "it":
+            return "Italiano"
+        default:
             return "English"
         }
-        return "Français"
-        
     }
     
     var body: some View {
@@ -34,24 +42,19 @@ struct SettingsView: View {
                 VStack(spacing: 30) {
                     Text("TitleOfTheSettingsView", comment: "Titles for the settings View")
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
-                    
-                    
+
                     Spacer()
                     
                     if self.showLanguageButton {
                         Button(action: {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                         }) {
-                            Group {
-                                Text("SelectLanguageButton", comment: "Button for selecting another language")
-                                    + Text(" ")
-                                    + Text("\(self.language)")
-                                
-                            }
-                            .frame(maxWidth: .infinity)
-                        }.buttonStyle(MainButtonStyle())
-                        
+                            Text("\(self.language)")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(MainButtonStyle())
                     }
+                    
                     VStack(spacing: 10) {
                         Text("SaveSelectedTables").roundedText(size: 15, weight: .bold)
                             .foregroundColor(.gray)
@@ -64,12 +67,11 @@ struct SettingsView: View {
                         .buttonStyle(MainButtonStyle())
                         .alert(isPresented: self.$showingAlert) { Alert(title: Text("SelectedTablesSaved"), message: Text("SaveSelectedTablesMessage"), dismissButton: .default(Text("OK")))
                         }
-                        
-                        Spacer()
-                        
-                        BackButton()
                     }
                     
+                    Spacer()
+                    
+                    BackButton()
                 }
             .padding()
             .frame(maxWidth: 600)
@@ -79,5 +81,8 @@ struct SettingsView: View {
     }
 }
 
-
-
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
+}
