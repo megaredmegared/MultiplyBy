@@ -11,15 +11,35 @@ import SwiftUI
 /// Button style for mains buttons
 struct MainButtonStyle: ButtonStyle {
     @Environment(\.colorScheme) var colorScheme
-    var textSize: CGFloat = 20
-    var cornerRadius: CGFloat = 5
+    var textSize: CGFloat
+    var cornerRadius: CGFloat
     private let size: CGFloat = 2
-    var foregroundColor: Color = .lightBlack
-    var backgroundColor: Color = .lightWhite
-    var innerDarkShadow: Color = .blackShadow
-    var innerLightShadow: Color = .whiteShadow
-    var maxWidth: CGFloat? = nil
-    var maxHeight: CGFloat? = nil
+    var foregroundColor: Color
+    var backgroundColor: Color
+    var innerDarkShadow: Color
+    var innerLightShadow: Color
+    var maxWidth: CGFloat?
+    var maxHeight: CGFloat?
+    
+    init(
+        textSize: CGFloat = Device.isIpad ? 30 : 20,
+        cornerRadius: CGFloat = 5,
+        foregroundColor: Color = .lightBlack,
+        backgroundColor: Color = .lightWhite,
+        innerDarkShadow: Color = .blackShadow,
+        innerLightShadow: Color = .whiteShadow,
+        maxWidth: CGFloat? = nil,
+        maxHeight: CGFloat? = nil
+    ) {
+        self.textSize = textSize
+        self.cornerRadius = cornerRadius
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+        self.innerDarkShadow = innerDarkShadow
+        self.innerLightShadow = innerLightShadow
+        self.maxWidth = maxWidth
+        self.maxHeight = maxHeight
+    }
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
@@ -43,7 +63,6 @@ struct MainButtonStyle: ButtonStyle {
                                 .stroke(self.innerDarkShadow, lineWidth: configuration.isPressed ? 3 : 0
                             )
                     )
-                    
                 }.blur(radius: 2)
         )
             .clipShape(

@@ -36,13 +36,17 @@ struct ScoresView: View {
                     Text("Scores")
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
                     VStack {
-                        Text("best score:")
-                        Text("Correct: \(self.mostGoodAnswer.first?.goodAnswer ?? 0)")
-                            + Text(" Wrong: \(self.mostGoodAnswer.first?.badAnswer ?? 0)")
+                        HStack {
+                            Text("best score:")
+                        }
+                        
+                        Text("\(self.mostGoodAnswer.first?.goodAnswer ?? 0)")
+                            .foregroundColor(.table5)
+                            + Text(" \(self.mostGoodAnswer.first?.badAnswer ?? 0)").foregroundColor(.table1)
                         
                         Text("Worst score:")
-                        Text("Correct: \(self.mostGoodAnswer.last?.goodAnswer ?? 0)")
-                            + Text(" Wrong: \(self.mostGoodAnswer.last?.badAnswer ?? 0)")
+                        Text(" \(self.mostGoodAnswer.last?.goodAnswer ?? 0)").foregroundColor(.table5)
+                            + Text(" \(self.mostGoodAnswer.last?.badAnswer ?? 0)").foregroundColor(.table1)
                         
                     }
                     .background(Color.lightWhite)

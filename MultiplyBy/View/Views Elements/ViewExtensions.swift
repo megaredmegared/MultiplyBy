@@ -51,3 +51,8 @@ struct DeleteNavBar: ViewModifier {
             .navigationBarHidden(true)
     }
 }
+
+struct Device {
+    static let isIpad = UIDevice.current.userInterfaceIdiom == .pad
+    static let isIPhone = UIDevice.current.userInterfaceIdiom == .phone
+}

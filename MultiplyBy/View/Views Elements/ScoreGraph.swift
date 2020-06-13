@@ -43,17 +43,17 @@ struct ScoreGraph: View {
                         HStack(alignment: .bottom, spacing: 0) {
                             ZStack {
                                 Rectangle()
+                                    .fill(Color.table5)
+                                    .frame(width: 20, height: geo.size.height / self.maxHeight * CGFloat(score.goodAnswer))
+                                
+                                Text("\(score.goodAnswer)")
+                            }
+                            ZStack {
+                                Rectangle()
                                     .fill(Color.table1)
                                     .frame(width: 20, height: geo.size.height / self.maxHeight * CGFloat(score.badAnswer))
                                 
                                 Text("\(score.badAnswer)")
-                            }
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.table4)
-                                    .frame(width: 20, height: geo.size.height / self.maxHeight * CGFloat(score.goodAnswer))
-                                
-                                Text("\(score.goodAnswer)")
                             }
                         }
                         .roundedText(size: 8, weight: .black)
