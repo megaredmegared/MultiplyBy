@@ -73,6 +73,7 @@
 		4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		4D1F991124916B54005BCAB1 /* EraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseButton.swift; sourceTree = "<group>"; };
 		4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationAnswerView.swift; sourceTree = "<group>"; };
+		4D215992249570ED0050F2A6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D22E52E2447310F009A54ED /* MultiplyBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplyBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D22E5312447310F009A54ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D22E5332447310F009A54ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		4DA12E49246B3E60004D044E /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		4DA12E5A246FE161004D044E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		4DA2FA642468C4A300EE23A4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4DAB283124956B95008E3D71 /* MultiplyByTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MultiplyByTestPlan.xctestplan; sourceTree = "<group>"; };
 		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
 		4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplyBy.entitlements; sourceTree = "<group>"; };
 		4DF436DF2486A060009CBDCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				4D22E55624473110009A54ED /* MultiplyByUITests.swift */,
+				4DAB283124956B95008E3D71 /* MultiplyByTestPlan.xctestplan */,
 				4D22E55824473110009A54ED /* Info.plist */,
 			);
 			path = MultiplyByUITests;
@@ -380,6 +383,7 @@
 				en,
 				Base,
 				fr,
+				de,
 			);
 			mainGroup = 4D22E5252447310F009A54ED;
 			productRefGroup = 4D22E52F2447310F009A54ED /* Products */;
@@ -510,6 +514,7 @@
 			children = (
 				4D939E8224682FB700039866 /* en */,
 				4D939E8424682FC400039866 /* fr */,
+				4D215992249570ED0050F2A6 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

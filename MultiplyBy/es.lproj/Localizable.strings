@@ -20,7 +20,10 @@
 "Yes" = "Yes";
 
 /* No comment provided by engineer. */
-"back" = "Back";
+"back" = "back";
+
+/* Button for selecting another language */
+"SelectLanguageButton" = "Language:";
 
 /* No comment provided by engineer. */
 "SaveSelectedTables" = "Save the choice of selected Times Tables.";

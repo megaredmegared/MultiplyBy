@@ -108,42 +108,42 @@ class ViewModelTests: XCTestCase {
     
     // MARK: - TimesTablesViewModel
     func testGivenNoTableWhenAddTableTill20ToViewModelThen20Timestables() throws {
-      let timesTables = TimesTablesViewModel(numberOfTables: 20)
+      let game = GameViewModel(numberOfTables: 20)
         
-        XCTAssertEqual(timesTables.allTables.count, 20)
+        XCTAssertEqual(game.allTables.count, 20)
         
-        XCTAssertEqual(timesTables.allTables[2], TableViewModel(of: 3, numberOfTables: 20))
-        XCTAssertNotEqual(timesTables.allTables[2], TableViewModel(of: 3, numberOfTables: 12))
+        XCTAssertEqual(game.allTables[2], TableViewModel(of: 3, numberOfTables: 20))
+        XCTAssertNotEqual(game.allTables[2], TableViewModel(of: 3, numberOfTables: 12))
     }
     
     func testGivenMultiplicationQuestion0WhenNewQuestionThenNewQuestion() {
-        let timesTables = TimesTablesViewModel()
-        let multiplicationQuestionStart = timesTables.multiplicationQuestion
+        let game = GameViewModel()
+        let multiplicationQuestionStart = game.multiplicationQuestion
         XCTAssertEqual(multiplicationQuestionStart, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
         
-        timesTables.pickNextMultiplication(tables: timesTables.allTables)
+        game.pickNextMultiplication(tables: game.allTables)
         
-        let multiplicationQuestionRandom = timesTables.multiplicationQuestion
+        let multiplicationQuestionRandom = game.multiplicationQuestion
         
         XCTAssertNotEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
         
     }
     
     func testGivenScorOf24andMultiplicationAnswerTo12WhenResetThenBothAt0() {
-        let timesTable = TimesTablesViewModel()
-        timesTable.score = 24
-        timesTable.multiplicationAnswer = "12"
-        XCTAssertEqual(timesTable.score, 24)
-        XCTAssertNotEqual(timesTable.score, 20)
-        XCTAssertEqual(timesTable.multiplicationAnswer, "12")
-        XCTAssertNotEqual(timesTable.multiplicationAnswer, "10")
+        let game = GameViewModel()
+        game.score = 24
+        game.multiplicationAnswer = "12"
+        XCTAssertEqual(game.score, 24)
+        XCTAssertNotEqual(game.score, 20)
+        XCTAssertEqual(game.multiplicationAnswer, "12")
+        XCTAssertNotEqual(game.multiplicationAnswer, "10")
         
-        timesTable.resetValue()
+        game.resetValue()
         
-        XCTAssertEqual(timesTable.score, 0)
-        XCTAssertNotEqual(timesTable.score, 20)
-        XCTAssertEqual(timesTable.multiplicationAnswer, "0")
-        XCTAssertNotEqual(timesTable.multiplicationAnswer, "10")
+        XCTAssertEqual(game.score, 0)
+        XCTAssertNotEqual(game.score, 20)
+        XCTAssertEqual(game.multiplicationAnswer, "0")
+        XCTAssertNotEqual(game.multiplicationAnswer, "10")
         
     }
 

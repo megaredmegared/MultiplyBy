@@ -1,0 +1,72 @@
+/* (No Comment) */
+"AnswerIs:" = "Antwort ist:";
+
+/* No comment provided by engineer. */
+"back" = "Zurück";
+
+/* No comment provided by engineer. */
+"bad answers: %@" = "schlechte Antworten: % @";
+
+/* No comment provided by engineer. */
+"CancelButtonLabel" = "Abbrechen";
+
+/* (No Comment) */
+"EnterYourName" = "Gib deinen Namen ein";
+
+/* No comment provided by engineer. */
+"erase" = "löschen";
+
+/* (No Comment) */
+"leaderboard" = "Leaderboard";
+
+/* No comment provided by engineer. */
+"LearnButtonLabel" = "Lernen";
+
+/* (No Comment) */
+"MessageScore" = "Ihr Endergebnis:";
+
+/* (No Comment) */
+"nameIsEmpty" = "⚠︎ Name ist leer";
+
+/* (No Comment) */
+"oneMinute" = "gute Antworten in 1 Minute";
+
+/* No comment provided by engineer. */
+"PlayButtonLabel" = "Abspielen";
+
+/* (No Comment) */
+"SaveButtonLabel" = "Speichern";
+
+/* No comment provided by engineer. */
+"SaveSelectedTables" = "Speichern Sie die Auswahl der ausgewählten Multiplikationstabellen.";
+
+/* (No Comment) */
+"SaveSelectedTablesMessage" = "Ihre Auswahl wurde gespeichert.";
+
+/* No comment provided by engineer. */
+"score: %@" = "ergebnis: %@";
+
+/* No comment provided by engineer. */
+"Scores" = "Partituren";
+
+/* No comment provided by engineer. */
+"ScoresButtonLabel" = "Partituren";
+
+/* (No Comment) */
+"SelectedTablesSaved" = "Tabellen gespeichert";
+
+/* No comment provided by engineer. */
+"StartButtonLabel" = "Start";
+
+/* (No Comment) */
+"StartGameButton" = "Abspielen";
+
+/* (No Comment) */
+"StartTrainingButton" = "Ausbildung";
+
+/* Titles for the settings View */
+"TitleOfTheSettingsView" = "Einstellungen";
+
+/* No comment provided by engineer. */
+"Yes" = "Ja";
+
