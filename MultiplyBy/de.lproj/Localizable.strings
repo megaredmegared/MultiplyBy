@@ -70,3 +70,8 @@
 /* No comment provided by engineer. */
 "Yes" = "Ja";
 
+"BestScore:" = "Bestes Partitur:";
+
+"WorstScore:" = "Schlechteste Partitur:";
+
+"AverageScore:" = "Durchschnittliche Partitur:";

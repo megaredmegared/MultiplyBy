@@ -28,6 +28,8 @@
 /* No comment provided by engineer. */
 "SaveSelectedTables" = "Sauvegarder la selection des tables de mutliplication.";
 
+"erase" = "effacer";
+
 "StartTrainingButton" = "Entraînement";
 
 "StartGameButton" = "Jouer";
@@ -49,3 +51,9 @@
 "SaveButtonLabel" = "Sauvegarder";
 
 "leaderboard" = "Classement";
+
+"BestScore:" = "Meilleur score:";
+
+"WorstScore:" = "Pire score:";
+
+"AverageScore:" = "Score moyen:";

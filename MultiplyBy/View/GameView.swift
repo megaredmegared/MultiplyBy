@@ -37,7 +37,6 @@ struct GameView: View {
                         //MARK: - Timer
                         GameTimer(size: geo.size.height * 0.05, isOver: self.$showEnterScoreView)
                         
-                        
                         //MARK: - Score
                         Text("score: \(self.game.score)")
                         
@@ -45,9 +44,7 @@ struct GameView: View {
                         
                         //MARK: - Multiplication Question
                         MultiplicationQuestionView(geoSize: geo.size, gameType: .game)
-                        
-                        
-                        
+  
                         //MARK: - Multiplication Answer
                         MultiplicationAnswerView(geoSize: geo.size)
                         Spacer()
@@ -56,8 +53,7 @@ struct GameView: View {
                     }
                     .padding()
                     .frame(maxWidth: 600)
-                    
-                    
+                                    
                     //MARK: - Back Button
                     Button(action: {
                         self.game.resetValue()
