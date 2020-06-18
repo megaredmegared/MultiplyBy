@@ -20,7 +20,9 @@ struct ButtonsChoice: View {
                         ForEach(row, id: \.self) { table in
                             Button(action: {
                                 self.game.addOrDeleteTable(of: table)
+                                #if DEBUG
                                 print("tables are: \(self.game.choosenTables.sorted(by: < ))")
+                                #endif
                             }) {
                                 Text("\(table.id)")
                             }

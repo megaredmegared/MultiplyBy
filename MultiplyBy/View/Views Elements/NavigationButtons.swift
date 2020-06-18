@@ -30,17 +30,22 @@ struct NavigationButtons: View {
                 }
                 .opacity(self.game.choosenTables.isEmpty ? 0.2 : 1)
                 .disabled(self.game.choosenTables.isEmpty)
+                .accessibility(identifier: "LearnButtonUITest")
+                
                 
                 NavigationLink(destination:
                 ScoresView()) {
                     Text("ScoresButtonLabel")
                 }
+                .accessibility(identifier: "ScoresButtonUITest")
             }
             
             NavigationLink(destination:
             GameStartView()) {
                 Text("PlayButtonLabel")
             }
+            .accessibility(identifier: "PlayButtonUITest")
+        
         }
         .buttonStyle(MainButtonStyle(maxWidth: .infinity))
         .padding()

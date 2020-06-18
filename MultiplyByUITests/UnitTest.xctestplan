@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "3CDE6BD1-62D3-4B00-95B0-1AC8A3E0766D",
+      "name" : "Unit test",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MultiplyBy.xcodeproj",
+        "identifier" : "4D22E54624473110009A54ED",
+        "name" : "MultiplyByTests"
+      }
+    }
+  ],
+  "version" : 1
+}

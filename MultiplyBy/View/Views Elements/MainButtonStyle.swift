@@ -22,7 +22,7 @@ struct MainButtonStyle: ButtonStyle {
     var maxHeight: CGFloat?
     
     init(
-        textSize: CGFloat = Device.isIpad ? 30 : 20,
+        textSize: CGFloat = 20,
         cornerRadius: CGFloat = 5,
         foregroundColor: Color = .lightBlack,
         backgroundColor: Color = .lightWhite,

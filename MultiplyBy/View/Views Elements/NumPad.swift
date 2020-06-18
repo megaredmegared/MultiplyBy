@@ -13,10 +13,7 @@ struct NumPad: View {
     var geoSize: CGSize
     var spacing: CGFloat = 8
     var textSize: CGFloat {
-        if Device.isIpad {
-            return self.geoSize.width * 0.07
-        }
-        return self.geoSize.width * 0.1
+        self.geoSize.width * 0.1
     }
     var isGameView: Bool
     

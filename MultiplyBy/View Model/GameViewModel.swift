@@ -54,7 +54,7 @@ class GameViewModel: ObservableObject {
     var allTables: [TableViewModel] = []
     
     @Published var choosenTables: [TableViewModel]
-
+    
     @Published var multiplicationQuestion: MultiplicationViewModel = MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
     
     @Published var multiplicationAnswer: String = "0"
@@ -98,7 +98,6 @@ class GameViewModel: ObservableObject {
     
     //FIXME: better to throws errors??
     func saveChoosenTables() -> Bool {
-        print("hello")
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(choosenTables) {
             let defaults = UserDefaults.standard
@@ -113,8 +112,6 @@ class GameViewModel: ObservableObject {
         let multiplication = table?.multiplications.randomElement()
         
         self.multiplicationQuestion = multiplication ?? MultiplicationViewModel(firstOperand: "Error", secondOperand: "Error", result: "Error")
-        
-        print("Pick a multiplication")
     }
 }
 

@@ -15,7 +15,7 @@ struct SettingsView: View {
     @State private var showingAlert = false
     
     private var showLanguageButton: Bool {
-        Locale.preferredLanguages.count > 1 ? true : false
+        return Locale.preferredLanguages.count > 1 ? true : false
     }
     
     private var language: String {
@@ -26,10 +26,6 @@ struct SettingsView: View {
             return "Français"
         case "de":
             return "Deutsch"
-        case "es":
-            return "Español"
-        case "it":
-            return "Italiano"
         default:
             return "English"
         }

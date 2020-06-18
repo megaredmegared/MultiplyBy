@@ -106,7 +106,7 @@ class ViewModelTests: XCTestCase {
     }
     
     
-    // MARK: - TimesTablesViewModel
+    // MARK: - GameViewModel
     func testGivenNoTableWhenAddTableTill20ToViewModelThen20Timestables() throws {
       let game = GameViewModel(numberOfTables: 20)
         

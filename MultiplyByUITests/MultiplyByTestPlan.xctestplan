@@ -4,26 +4,36 @@
       "id" : "53150651-BB3B-41A9-A0E4-28BFD84D0A5C",
       "name" : "English",
       "options" : {
-        "areLocalizationScreenshotsEnabled" : true,
-        "uiTestingScreenshotsLifetime" : "keepNever"
+        "language" : "en",
+        "region" : "US"
       }
     },
     {
       "id" : "3ED78008-D827-408B-9E78-EFF8E7B7BDE2",
       "name" : "French",
       "options" : {
-        "areLocalizationScreenshotsEnabled" : true,
         "language" : "fr",
-        "region" : "FR",
-        "uiTestingScreenshotsLifetime" : "keepNever"
+        "region" : "FR"
+      }
+    },
+    {
+      "id" : "AF1CDB7A-9D72-4C4F-A14B-9A22C33BFD7C",
+      "name" : "German",
+      "options" : {
+        "language" : "de",
+        "region" : "DE"
       }
     }
   ],
   "defaultOptions" : {
-
+    "codeCoverage" : false,
+    "uiTestingScreenshotsLifetime" : "keepNever"
   },
   "testTargets" : [
     {
+      "skippedTests" : [
+        "MultiplyByUITests\/testLaunchPerformance()"
+      ],
       "target" : {
         "containerPath" : "container:MultiplyBy.xcodeproj",
         "identifier" : "4D22E55124473110009A54ED",

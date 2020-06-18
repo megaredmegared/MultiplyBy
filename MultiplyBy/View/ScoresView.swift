@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ScoresView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -16,10 +17,11 @@ struct ScoresView: View {
     /// sort by date for display it in the ScoreGraph view
     @FetchRequest<Score>(entity: Score.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Score.date, ascending: true)], predicate: nil) var scores: FetchedResults<Score>
     
-    /// sort by score for 
+    /// sort to make best score first
     @FetchRequest(entity: Score.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: false), NSSortDescriptor(keyPath: \Score.badAnswer, ascending: true)]) var mostGoodAnswer : FetchedResults<Score>
     
+    /// sort to make worst score first
     @FetchRequest(entity: Score.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \Score.badAnswer, ascending: false), NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: true)]) var mostBadAnswer : FetchedResults<Score>
     
@@ -34,8 +36,10 @@ struct ScoresView: View {
             goodAnswers += score.goodAnswer
             badAnswers += score.badAnswer
         }
+        let firstElement = (Int(goodAnswers) / scores.count)
+        let secondElement = (Int(badAnswers) / scores.count)
         
-        return (Int(goodAnswers) / scores.count, Int(badAnswers) / scores.count)
+        return (firstElement, secondElement)
     }
     
     var body: some View {

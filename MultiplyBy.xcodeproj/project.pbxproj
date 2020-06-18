@@ -111,6 +111,7 @@
 		4D939DFA2466FE8E00039866 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		4D939E8224682FB700039866 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D939E8424682FC400039866 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4D9819C7249B516500CC5822 /* UnitTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = UnitTest.xctestplan; path = MultiplyByUITests/UnitTest.xctestplan; sourceTree = SOURCE_ROOT; };
 		4DA0D2E8245F573000019371 /* GameStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartView.swift; sourceTree = "<group>"; };
 		4DA12E49246B3E60004D044E /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		4DA12E5A246FE161004D044E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
@@ -215,6 +216,7 @@
 			children = (
 				4D22E56724473521009A54ED /* ModelTests.swift */,
 				4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */,
+				4D9819C7249B516500CC5822 /* UnitTest.xctestplan */,
 				4D22E54D24473110009A54ED /* Info.plist */,
 			);
 			path = MultiplyByTests;
@@ -655,7 +657,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebastien.sarrazin.MultiplyBy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -676,7 +678,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebastien.sarrazin.MultiplyBy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
