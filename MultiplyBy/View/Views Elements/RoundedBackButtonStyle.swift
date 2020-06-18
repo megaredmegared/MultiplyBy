@@ -18,14 +18,7 @@ struct RoundedBackButtonStyle: ButtonStyle {
             VStack {
                 HStack {
                     configuration.label
-                        .frame(width:
-                            UIDevice.current.userInterfaceIdiom == .pad ?
-                                geo.size.width * 0.03
-                                : geo.size.width * 0.08,
-                               height:
-                            UIDevice.current.userInterfaceIdiom == .pad ?
-                                geo.size.width * 0.03
-                                : geo.size.width * 0.08)
+                        .frame(width: geo.size.width * 0.08, height: geo.size.width * 0.08)
                         .foregroundColor(.table1)
                         .padding()
                         .cornerRadius(self.cornerRadius)
