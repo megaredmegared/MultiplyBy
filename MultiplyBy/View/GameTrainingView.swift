@@ -22,51 +22,50 @@ struct GameTrainingView: View {
     let isGameView = false
     
     var body: some View {
-        
-        GeometryReader { geo in
-            ZStack {
-                
-                Color.lightWhite.edgesIgnoringSafeArea(.all)
+        ZStack {
+            
+            Color.lightWhite.edgesIgnoringSafeArea(.all)
+            
+            GeometryReader { geo in
                 
                 VStack {
                     
-                    Spacer(minLength: 50)
+                    Spacer(minLength: 20)
                     //MARK: - Multiplication Question
                     MultiplicationQuestionView(geoSize: geo.size, gameType: .training)
                     
                     //MARK: - Multiplication Answer
                     MultiplicationAnswerView(geoSize: geo.size)
                         .padding(.bottom)
-                                  
+                    
                     //MARK: - Result help
                     if self.game.isGoodAnswer == false {
                         Group {
                             Text("AnswerIs:") + Text(" \(self.game.multiplicationQuestion.result)")
+                                
                         }
+                        .roundedText()
                     } else {
                         Text(" ")
+                        .roundedText()
                     }
                     
-                    Spacer()
+                    Spacer(minLength: 20)
                     
                     //MARK: - Numpad
                     NumPad(geoSize: geo.size, isGameView: self.isGameView)
-                        .padding(.top)
-
                 }
-                .padding()
-                .frame(maxWidth: 600)
-                
-                //MARK: - Back button
-                Button(action: {
-                    self.game.resetValue()
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "arrowtriangle.left.circle.fill")
-                        .resizable()
-                }
-                .buttonStyle(RoundedBackButtonStyle())
             }
+            .padding()
+            //MARK: - Back button
+            Button(action: {
+                self.game.resetValue()
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "arrowtriangle.left.circle.fill")
+                    .resizable()
+            }
+            .buttonStyle(RoundedBackButtonStyle())
         }
         .deleteNavBar()
     }

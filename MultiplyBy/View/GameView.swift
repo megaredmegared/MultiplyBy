@@ -26,12 +26,12 @@ struct GameView: View {
     
     var body: some View {
         
-        GeometryReader { geo in
+        
+        ZStack {
             ZStack {
-                ZStack {
-                    
-                    Color.lightWhite.edgesIgnoringSafeArea(.all)
-                    
+                
+                Color.lightWhite.edgesIgnoringSafeArea(.all)
+                GeometryReader { geo in
                     VStack(spacing: 2) {
                         
                         //MARK: - Timer
@@ -44,47 +44,45 @@ struct GameView: View {
                         
                         //MARK: - Multiplication Question
                         MultiplicationQuestionView(geoSize: geo.size, gameType: .game)
-  
+                        
                         //MARK: - Multiplication Answer
                         MultiplicationAnswerView(geoSize: geo.size)
                         Spacer()
                         //MARK: - Numpad
                         NumPad(geoSize: geo.size, isGameView: self.isGameView)
                     }
-                    .padding()
-                    .frame(maxWidth: 600)
-                                    
-                    //MARK: - Back Button
-                    Button(action: {
-                        self.game.resetValue()
-                        self.presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Image(systemName: "arrowtriangle.left.circle.fill")
-                            .resizable()
-                    }
-                    .buttonStyle(RoundedBackButtonStyle())
                 }
-                .blur(radius: self.showEnterScoreView ? 10 : 0)
-                    
-                    //MARK: - Enter Score View
-                    if self.showEnterScoreView {
-                        Color.lightWhite.opacity(0.5).edgesIgnoringSafeArea(.all)
-                            .transition(.opacity)
-                        EnterScoreView(moc: self.moc, game: self.game)
-                            .transition(.scale)
-                    }
+                .padding()
+                
+                //MARK: - Back Button
+                Button(action: {
+                    self.game.resetValue()
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "arrowtriangle.left.circle.fill")
+                        .resizable()
                 }
+                .buttonStyle(RoundedBackButtonStyle())
             }
-            .deleteNavBar()
+            .blur(radius: self.showEnterScoreView ? 10 : 0)
             
+            //MARK: - Enter Score View
+            if self.showEnterScoreView {
+                Color.lightWhite.opacity(0.5).edgesIgnoringSafeArea(.all)
+                    .transition(.opacity)
+                EnterScoreView(moc: self.moc, game: self.game)
+                    .transition(.scale)
+            }
         }
+        .deleteNavBar()
     }
-    
-    struct GameView_Previews: PreviewProvider {
-        static var previews: some View {
-            GameView()
-                .environmentObject(GameViewModel())
-        }
+}
+
+struct GameView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameView()
+            .environmentObject(GameViewModel())
+    }
 }
 
 

@@ -51,8 +51,7 @@ struct ButtonStyleColored: ButtonStyle {
             )
                 .padding(geo.size.width * 0.05)
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
-                .animation(.interpolatingSpring(stiffness: 100, damping: 6))
-            
+//                .animation(.interpolatingSpring(stiffness: 100, damping: 6))
         }
     }
     

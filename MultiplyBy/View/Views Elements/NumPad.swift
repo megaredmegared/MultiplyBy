@@ -42,9 +42,12 @@ struct NumPad: View {
                 }
                 VStack(spacing: self.spacing) {
                     NumpadDeleteButton(textSize: self.textSize)
+                        .frame(height: self.geoSize.width / 4 - self.spacing * 0.75)
                     
                     NumpadValidationButton(textSize: self.textSize, isGameView: self.isGameView)
-                }.aspectRatio(0.25, contentMode: .fit)
+                        
+                }
+                .frame(width: self.geoSize.width / 4 - self.spacing * 0.75)
             }
         }
         .aspectRatio(1, contentMode: .fit)
@@ -57,7 +60,7 @@ struct NumPad_Previews: PreviewProvider {
             VStack {
                 NumPad(geoSize: geo.size, isGameView: true)
             }
-            .padding()
+//            .padding()
             .background(Color.blue)
         }
         .background(Color.red)

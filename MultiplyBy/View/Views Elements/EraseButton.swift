@@ -22,7 +22,7 @@ struct EraseButton: View {
                 Button(action: {
                     self.presentEraseMessage.toggle()
                 }) {
-                    Text("erase")
+                    Image(systemName: "trash")
                         .foregroundColor(.lightBlack)
                 }
             }
