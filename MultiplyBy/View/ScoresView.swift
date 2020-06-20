@@ -80,15 +80,15 @@ struct ScoresView: View {
                         
                     
                     Spacer(minLength: 20)
-                    Button("add") {
-                        let score = Score(context: self.moc)
-                            score.id = UUID()
-                            score.date = Date()
-                            score.goodAnswer = Int64([10, 40, 35, 23, 0, 60, 55, 34].randomElement() ?? 0)
-                            score.badAnswer = Int64([10, 12, 14, 20, 4, 0, 5, 7].randomElement() ?? 0)
-                        
-                        try? self.moc.save()
-                    }
+//                    Button("add") {
+//                        let score = Score(context: self.moc)
+//                            score.id = UUID()
+//                            score.date = Date()
+//                            score.goodAnswer = Int64([10, 40, 35, 23, 0, 60, 55, 34].randomElement() ?? 0)
+//                            score.badAnswer = Int64([10, 12, 14, 20, 4, 0, 5, 7].randomElement() ?? 0)
+//                        
+//                        try? self.moc.save()
+//                    }
                     
                     BackButton()
                     

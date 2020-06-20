@@ -7,8 +7,24 @@
 //
 
 import XCTest
+import Foundation
 @testable import MultiplyBy
 
+/// Clean userdefault for test purpose only
+extension UserDefaults {
+    static func makeClearedInstance(
+        for functionName: StaticString = #function,
+        inFile fileName: StaticString = #file
+    ) -> UserDefaults {
+        let className = "\(fileName)".split(separator: ".")[0]
+        let testName = "\(functionName)".split(separator: "(")[0]
+        let suiteName = "com.sebastien.sarrazin.MultiplyBy.test.\(className).\(testName)"
+
+        let defaults = self.init(suiteName: suiteName)!
+        defaults.removePersistentDomain(forName: suiteName)
+        return defaults
+    }
+}
 
 class ViewModelTests: XCTestCase {
 
@@ -126,7 +142,18 @@ class ViewModelTests: XCTestCase {
         let multiplicationQuestionRandom = game.multiplicationQuestion
         
         XCTAssertNotEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
+    }
+    
+    func testGivenMultiplicationQuestion0AndNoTableWhenNewQuestionThenMultiplicationQuestionStill0() {
+        let game = GameViewModel()
+        let multiplicationQuestionStart = game.multiplicationQuestion
+        XCTAssertEqual(multiplicationQuestionStart, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
         
+        game.pickNextMultiplication(tables: [])
+        
+        let multiplicationQuestionRandom = game.multiplicationQuestion
+        
+        XCTAssertEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
     }
     
     func testGivenScorOf24andMultiplicationAnswerTo12WhenResetThenBothAt0() {
@@ -145,6 +172,25 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(game.multiplicationAnswer, "0")
         XCTAssertNotEqual(game.multiplicationAnswer, "10")
         
+    }
+    
+    func testDefaultsUserSave() {
+        let game =  GameViewModel(numberOfTables: 3, userDefaults: .makeClearedInstance())
+        XCTAssertEqual(game.choosenTables, game.allTables)
+        
+        game.addOrDeleteTable(of: TableViewModel(of: 1, numberOfTables: 3))
+        game.addOrDeleteTable(of: TableViewModel(of: 2, numberOfTables: 3))
+        game.addOrDeleteTable(of: TableViewModel(of: 3, numberOfTables: 3))
+        
+        XCTAssertNotEqual(game.choosenTables, game.allTables)
+        XCTAssertEqual(game.choosenTables, [])
+        
+        game.addOrDeleteTable(of: TableViewModel(of: 3, numberOfTables: 3))
+        XCTAssertEqual(game.choosenTables, [TableViewModel(of: 3, numberOfTables: 3)])
+        
+        let bool = game.saveChoosenTables()
+        XCTAssertTrue(bool)
+
     }
 
     func testPerformanceExample() throws {

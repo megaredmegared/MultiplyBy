@@ -64,20 +64,23 @@ class GameViewModel: ObservableObject {
     
     @Published var isGoodAnswer: Bool = true
     
-    init(numberOfTables: Int = 12) {
+    /// saveLey for user default
+    static let defaultsSaveKey = "selectedTables"
+    
+    init(numberOfTables: Int = 12, userDefaults: UserDefaults = .standard) {
         for number in 1...numberOfTables {
             allTables.append(TableViewModel(of: number, numberOfTables: numberOfTables))
         }
         
-        var test = allTables
-        if let selectedTables = UserDefaults.standard.object(forKey: "selectedTables") as? Data {
-            let decoder = JSONDecoder()
-            if let tables = try? decoder.decode([TableViewModel].self, from: selectedTables) {
-                test = tables
-            }
+        guard let selectedTables = userDefaults.object(forKey: Self.defaultsSaveKey) as? Data,
+            let tables = try? JSONDecoder().decode([TableViewModel].self, from: selectedTables)
+            else {
+                self.choosenTables = allTables
+                return
         }
         
-        self.choosenTables = test
+        self.choosenTables = tables
+        
     }
     
     /// reset score and multiplication values to default
@@ -88,6 +91,7 @@ class GameViewModel: ObservableObject {
         isGoodAnswer = true
     }
     
+    /// add a table view or delete if already in the array
     func addOrDeleteTable(of table: TableViewModel) {
         if choosenTables.contains(table) {
             choosenTables.removeAll { table == $0 }
@@ -96,22 +100,21 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    //FIXME: better to throws errors??
-    func saveChoosenTables() -> Bool {
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(choosenTables) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "selectedTables")
-            return true
+    /// save choosen table and tell the view if ok with a bool
+    func saveChoosenTables(userDefaults: UserDefaults = .standard) -> Bool {
+        guard let encoded = try? JSONEncoder().encode(choosenTables) else {
+            return false
         }
-        return false
+        userDefaults.set(encoded, forKey: Self.defaultsSaveKey)
+        return true
     }
     
     func pickNextMultiplication(tables: [TableViewModel]) {
-        let table = tables.randomElement()
-        let multiplication = table?.multiplications.randomElement()
+        guard let table = tables.randomElement(),
+            let multiplication = table.multiplications.randomElement()
+            else { return }
         
-        self.multiplicationQuestion = multiplication ?? MultiplicationViewModel(firstOperand: "Error", secondOperand: "Error", result: "Error")
+        self.multiplicationQuestion = multiplication
     }
 }
 
