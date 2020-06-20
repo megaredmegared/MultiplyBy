@@ -175,6 +175,7 @@ class ViewModelTests: XCTestCase {
     }
     
     func testDefaultsUserSave() {
+        // make 3 tables
         let game =  GameViewModel(numberOfTables: 3, userDefaults: .makeClearedInstance())
         XCTAssertEqual(game.choosenTables, game.allTables)
         
@@ -188,10 +189,25 @@ class ViewModelTests: XCTestCase {
         game.addOrDeleteTable(of: TableViewModel(of: 3, numberOfTables: 3))
         XCTAssertEqual(game.choosenTables, [TableViewModel(of: 3, numberOfTables: 3)])
         
-        let bool = game.saveChoosenTables()
-        XCTAssertTrue(bool)
+        // save success
+        let success = game.saveChoosenTables()
+        XCTAssertTrue(success)
 
     }
+    
+    func testDefaultsUserSaveFailed() {
+        let game = GameViewModel()
+        
+        game.choosenTables = []
+        
+        let success = game.saveChoosenTables()
+        XCTAssertTrue(success)
+    }
+    
+    
+    
+    
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

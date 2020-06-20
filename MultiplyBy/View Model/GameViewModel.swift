@@ -101,11 +101,11 @@ class GameViewModel: ObservableObject {
     }
     
     /// save choosen table and tell the view if ok with a bool
-    func saveChoosenTables(userDefaults: UserDefaults = .standard) -> Bool {
+    func saveChoosenTables() -> Bool {
         guard let encoded = try? JSONEncoder().encode(choosenTables) else {
             return false
         }
-        userDefaults.set(encoded, forKey: Self.defaultsSaveKey)
+        UserDefaults.standard.set(encoded, forKey: Self.defaultsSaveKey)
         return true
     }
     
@@ -117,7 +117,5 @@ class GameViewModel: ObservableObject {
         self.multiplicationQuestion = multiplication
     }
 }
-
-
 
 

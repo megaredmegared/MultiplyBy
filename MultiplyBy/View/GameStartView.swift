@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GameStartView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var game: GameViewModel
     
     var size: CGFloat  = 5
     
@@ -29,6 +30,8 @@ struct GameStartView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7, innerDarkShadow: .table7DarkShadow, innerLightShadow: .table7LightShadow))
+                        .opacity(self.game.choosenTables.isEmpty ? 0.2 : 1)
+                        .disabled(self.game.choosenTables.isEmpty)
                         .padding(.bottom)
                         
                         NavigationLink(destination: GameView()) {
