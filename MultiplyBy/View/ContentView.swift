@@ -51,7 +51,7 @@ struct ContentView_Previews: PreviewProvider {
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
                     .environment(\.colorScheme, .light)
-                    
+
                 ContentView()
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)

@@ -8,6 +8,16 @@
 import CoreData
 import SwiftUI
 
+extension HorizontalAlignment {
+    struct BoxCenter: AlignmentID {
+        static func defaultValue(in d: ViewDimensions) -> CGFloat {
+            d[HorizontalAlignment.center]
+        }
+    }
+
+    static let boxCenter = HorizontalAlignment(BoxCenter.self)
+}
+
 struct EnterScoreView: View {
     @Environment(\.presentationMode) var presentationMode
     var moc: NSManagedObjectContext
@@ -20,15 +30,27 @@ struct EnterScoreView: View {
             
             VStack {
                 Spacer()
-                Group {
-                    Text("MessageScore")
                     
-                    Text(" \(self.game.score) ")
-                        + Text("oneMinute")
-                    Text("bad answers: \(self.game.badAnswer)")
+                VStack(alignment: .boxCenter) {
+                    Text("MessageScore")
+                    HStack {
+                        HStack {
+                            Image(systemName: "checkmark.circle")
+                            Text("\(self.game.score)")
+                        }
+                        .foregroundColor(.table5)
+                        .alignmentGuide(.boxCenter) { d in d[HorizontalAlignment.trailing] }
+                        
+                        HStack {
+                            Image(systemName: "multiply.circle")
+                            Text("\(self.game.badAnswer)")
+                        }
+                        .foregroundColor(.table1)
+                        .alignmentGuide(.boxCenter) { d in d[HorizontalAlignment.leading] }
+                    }
                 }
                 .foregroundColor(.lightBlack)
-                .roundedText(weight: .bold)
+                .roundedText(size: 30, weight: .bold)
                 
                 Spacer()
                 

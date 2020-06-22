@@ -8,6 +8,39 @@
 
 import SwiftUI
 
+var appState = AppState()
+
+class AppState: ObservableObject  {
+    @Published var isSettingsViewActive = false
+}
+
+extension AppState {
+
+    // 1
+    func restore(from activity: NSUserActivity) {
+        guard activity.activityType == Bundle.main.activityType,
+            let isSettingsViewActive = activity.userInfo?[Key.isSettingsViewActive] as? Bool
+            else { return }
+        
+        self.isSettingsViewActive = isSettingsViewActive
+    }
+    
+    // 2
+    func store(in activity: NSUserActivity) {
+        activity.addUserInfoEntries(from: [Key.isSettingsViewActive: isSettingsViewActive])
+    }
+    
+    private enum Key {
+        static let isSettingsViewActive = "isSettingsViewActive"
+    }
+}
+
+extension Bundle {
+    var activityType: String {
+        return Bundle.main.infoDictionary?["NSUserActivityTypes"].flatMap { ($0 as? [String])?.first } ?? ""
+    }
+}
+
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var game: GameViewModel

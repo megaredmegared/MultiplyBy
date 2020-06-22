@@ -18,6 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let game = GameViewModel()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        // state restore
+        if let activity = session.stateRestorationActivity { // 2
+               appState.restore(from: activity) // 3
+           }
+        
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
@@ -32,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let contentView = ContentView()
             .environment(\.managedObjectContext, context)
             .environmentObject(game)
+            .environmentObject(appState)
             .statusBar(hidden: true)
         
         // Use a UIHostingController as window root view controller.
@@ -72,6 +79,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    // restore state
+    func stateRestorationActivity(for scene: UIScene) -> NSUserActivity? {
+        let activity = NSUserActivity(activityType: Bundle.main.activityType) // 1
+        appState.store(in: activity) // 2
+        return activity // 3
     }
     
 }

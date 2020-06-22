@@ -10,12 +10,13 @@ import SwiftUI
 
 /// Button to go to SettingsView
 struct SettingsButton: View {
+    @EnvironmentObject var state: AppState
     
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                NavigationLink(destination: SettingsView()) {
+                NavigationLink(destination: SettingsView(), isActive: $state.isSettingsViewActive) {
                     Image(systemName: "gear")
                         .foregroundColor(Color.lightBlack)
                         .frame(width: 20, height: 20)
@@ -28,11 +29,11 @@ struct SettingsButton: View {
     }
 }
 
-struct SettingsButton_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(["iPhone 11", "iPhone SE (1st generation)"], id: \.self) { deviceName in
-            SettingsButton()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-        }
-    }
-}
+//struct SettingsButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(["iPhone 11", "iPhone SE (1st generation)"], id: \.self) { deviceName in
+//            SettingsButton()
+//                .previewDevice(PreviewDevice(rawValue: deviceName))
+//        }
+//    }
+//}

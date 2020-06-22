@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.sebastien.sarrazin.MultiplyBy.StateRestoration.activity</string>
+	</array>
 </dict>
 </plist>
