@@ -47,25 +47,25 @@ struct ScoresView: View {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
                 VStack {
-                    Text("Scores")
+                    Text(Translation.scoresViewTitle.rawValue)
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
                     
                     Spacer(minLength: 20)
                     
                     VStack {
                         HStack {
-                            Text("BestScore:")
+                            Text(Translation.scoresViewBestScoreLabel.rawValue)
                         }
                         
                         Text("\(self.mostGoodAnswer.first?.goodAnswer ?? 0)")
                             .foregroundColor(.table5)
                             + Text(" \(self.mostGoodAnswer.first?.badAnswer ?? 0)").foregroundColor(.table1)
                         
-                        Text("WorstScore:")
+                        Text(Translation.scoresViewWorstScoreLabel.rawValue)
                         Text(" \(self.mostGoodAnswer.last?.goodAnswer ?? 0)").foregroundColor(.table5)
                             + Text(" \(self.mostGoodAnswer.last?.badAnswer ?? 0)").foregroundColor(.table1)
                         
-                        Text("AverageScore:")
+                        Text(Translation.scoresViewAverageScoreLabel.rawValue)
                         Text(" \(self.averageScore.0 ?? 0)").foregroundColor(.table5)
                             + Text(" \(self.averageScore.1 ?? 0)").foregroundColor(.table1)
                         
@@ -80,15 +80,6 @@ struct ScoresView: View {
                         
                     
                     Spacer(minLength: 20)
-//                    Button("add") {
-//                        let score = Score(context: self.moc)
-//                            score.id = UUID()
-//                            score.date = Date()
-//                            score.goodAnswer = Int64([10, 40, 35, 23, 0, 60, 55, 34].randomElement() ?? 0)
-//                            score.badAnswer = Int64([10, 12, 14, 20, 4, 0, 5, 7].randomElement() ?? 0)
-//                        
-//                        try? self.moc.save()
-//                    }
                     
                     BackButton()
                     

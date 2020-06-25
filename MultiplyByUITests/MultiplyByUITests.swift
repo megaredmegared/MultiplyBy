@@ -17,6 +17,7 @@ class MultiplyByUITests: XCTestCase {
         continueAfterFailure = false
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        XCUIApplication().launch()
     }
 
     override func tearDownWithError() throws {
@@ -26,7 +27,6 @@ class MultiplyByUITests: XCTestCase {
     func testLocalized() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
-        app.launch()
         
         // MARK: - home screen screenshot
         let homeScreen = XCTAttachment(screenshot: app.screenshot())
@@ -36,14 +36,14 @@ class MultiplyByUITests: XCTestCase {
         
         
         // MARK: - play screen screenshot
-        app.buttons["PlayButtonUITest"].tap()
-        
-        sleep(1)
-
-        let playScreen = XCTAttachment(screenshot: app.screenshot())
-        playScreen.name = "playScreen"
-        playScreen.lifetime = .keepAlways
-        self.add(playScreen)
+//        app.buttons["PlayButtonUITest"].tap()
+//        
+//        sleep(1)
+//
+//        let playScreen = XCTAttachment(screenshot: app.screenshot())
+//        playScreen.name = "playScreen"
+//        playScreen.lifetime = .keepAlways
+//        self.add(playScreen)
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

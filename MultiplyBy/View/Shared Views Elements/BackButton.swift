@@ -18,7 +18,7 @@ struct BackButton: View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }) {
-            Text("back")
+            Text(Translation.backButtonLabel.rawValue)
                 .frame(maxWidth: .infinity)
         }
         .buttonStyle(MainButtonStyle( foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow))

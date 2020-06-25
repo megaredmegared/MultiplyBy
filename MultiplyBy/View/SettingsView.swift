@@ -69,7 +69,7 @@ struct SettingsView: View {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
                 VStack(spacing: 30) {
-                    Text("TitleOfTheSettingsView", comment: "Titles for the settings View")
+                    Text(Translation.titleOfTheSettingsView.rawValue, comment: "Titles for the settings View")
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
 
                     Spacer()
@@ -85,16 +85,16 @@ struct SettingsView: View {
                     }
                     
                     VStack(spacing: 10) {
-                        Text("SaveSelectedTables").roundedText(size: 15, weight: .bold)
+                        Text(Translation.saveSelectedTablesInfos.rawValue).roundedText(size: 15, weight: .bold)
                             .foregroundColor(.gray)
                         
                         Button(action: {
                             self.showingAlert = self.game.saveChoosenTables()
                         }) {
-                            Text("Yes").frame(maxWidth: .infinity)
+                            Text(Translation.yesButtonLabel.rawValue).frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle())
-                        .alert(isPresented: self.$showingAlert) { Alert(title: Text("SelectedTablesSaved"), message: Text("SaveSelectedTablesMessage"), dismissButton: .default(Text("OK")))
+                        .alert(isPresented: self.$showingAlert) { Alert(title: Text(Translation.selectedTablesSavedTitleMessage.rawValue), message: Text(Translation.selectedTablesSavedMessage.rawValue), dismissButton: .default(Text(Translation.okButtonLabel.rawValue)))
                         }
                     }
                     

@@ -19,7 +19,7 @@ struct NavigationButtons: View {
                 Button(action: {
                     self.presentLearnView.toggle()
                 }) {
-                    Text("LearnButtonLabel")
+                    Text(Translation.LearnButtonLabel.rawValue)
                 }
                 .sheet(isPresented: $presentLearnView) {
                     if self.game.choosenTables.count == 1 {
@@ -35,14 +35,14 @@ struct NavigationButtons: View {
                 
                 NavigationLink(destination:
                 ScoresView()) {
-                    Text("ScoresButtonLabel")
+                    Text(Translation.scoresButtonLabel.rawValue)
                 }
                 .accessibility(identifier: "ScoresButtonUITest")
             }
             
             NavigationLink(destination:
             GameStartView()) {
-                Text("PlayButtonLabel")
+                Text(Translation.playButtonLabel.rawValue)
             }
             .accessibility(identifier: "PlayButtonUITest")
         

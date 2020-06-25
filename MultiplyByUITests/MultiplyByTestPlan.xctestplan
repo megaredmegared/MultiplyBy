@@ -20,14 +20,19 @@
       "id" : "AF1CDB7A-9D72-4C4F-A14B-9A22C33BFD7C",
       "name" : "German",
       "options" : {
+        "environmentVariableEntries" : [
+
+        ],
         "language" : "de",
         "region" : "DE"
       }
     }
   ],
   "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
     "codeCoverage" : false,
-    "uiTestingScreenshotsLifetime" : "keepNever"
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepAlways"
   },
   "testTargets" : [
     {

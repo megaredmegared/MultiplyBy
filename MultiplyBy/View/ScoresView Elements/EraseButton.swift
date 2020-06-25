@@ -30,7 +30,7 @@ struct EraseButton: View {
         }.padding()
             .edgesIgnoringSafeArea(.all)
             .alert(isPresented: $presentEraseMessage) {
-                Alert(title: Text("Erase all?"), primaryButton: Alert.Button.cancel(), secondaryButton: .default(Text("Ok"), action: {
+                Alert(title: Text(Translation.eraseAllScoresButtonLabel.rawValue), primaryButton: Alert.Button.cancel(), secondaryButton: .default(Text(Translation.okButtonLabel.rawValue), action: {
                     guard !self.scores.isEmpty else {
                         return
                     }

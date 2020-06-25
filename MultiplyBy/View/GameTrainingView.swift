@@ -41,7 +41,7 @@ struct GameTrainingView: View {
                     //MARK: - Result help
                     if self.game.isGoodAnswer == false {
                         Group {
-                            Text("AnswerIs:") + Text(" \(self.game.multiplicationQuestion.result)")
+                            Text(Translation.trainingHelpAnswer.rawValue) + Text(" \(self.game.multiplicationQuestion.result)")
                                 
                         }
                         .roundedText()

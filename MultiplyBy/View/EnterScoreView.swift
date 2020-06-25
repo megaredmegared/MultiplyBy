@@ -32,11 +32,14 @@ struct EnterScoreView: View {
                 Spacer()
                     
                 VStack(alignment: .boxCenter) {
-                    Text("MessageScore")
+                    Text(Translation.gameOverScoreMessage.rawValue)
                     HStack {
                         HStack {
                             Image(systemName: "checkmark.circle")
                             Text("\(self.game.score)")
+                                .lineLimit(.none)
+                                .layoutPriority(1)
+                            
                         }
                         .foregroundColor(.table5)
                         .alignmentGuide(.boxCenter) { d in d[HorizontalAlignment.trailing] }
@@ -44,6 +47,8 @@ struct EnterScoreView: View {
                         HStack {
                             Image(systemName: "multiply.circle")
                             Text("\(self.game.badAnswer)")
+                                .lineLimit(.none)
+                                .layoutPriority(1)
                         }
                         .foregroundColor(.table1)
                         .alignmentGuide(.boxCenter) { d in d[HorizontalAlignment.leading] }

@@ -1,54 +1,45 @@
-/* No comment provided by engineer. */
-"CancelButtonLabel" = "Cancel";
+"Cancel_Button_Label" = "Cancel";
 
-/* No comment provided by engineer. */
-"LearnButtonLabel" = "Learn";
+"Learn_Button_Label" = "Learn";
 
-/* No comment provided by engineer. */
-"PlayButtonLabel" = "Play";
+"Play_Button_Label" = "Play";
 
-/* No comment provided by engineer. */
-"ScoresButtonLabel" = "Scores";
+"Scores_Button_Label" = "Scores";
 
-/* No comment provided by engineer. */
-"StartButtonLabel" = "Start";
+"Start_Button_Label" = "Start";
 
-/* Titles for the settings View */
-"TitleOfTheSettingsView" = "Settings";
+"Title_Of_The_Settings_View" = "Settings";
 
-/* No comment provided by engineer. */
-"Yes" = "Yes";
+"Yes_Button_Label" = "Yes";
 
-/* No comment provided by engineer. */
-"back" = "Back";
+"Back_Button_Label" = "Back";
 
-/* No comment provided by engineer. */
-"SaveSelectedTables" = "Save the choice of selected Times Tables.";
+"Save_Selected_Tables_Infos" = "Save the choice of selected Times Tables.";
 
-"StartTrainingButton" = "Training";
+"Start_Training_Button_Label" = "Training";
 
-"StartGameButton" = "Play";
+"Start_Game_Button_Label" = "Play";
 
-"SelectedTablesSaved" = "Tables Saved";
+"Selected_Tables_Saved_Title_Message" = "Tables Saved";
 
-"SaveSelectedTablesMessage" = "Your selection has been saved.";
+"Selected_Tables_Saved_Message" = "Your selection has been saved.";
 
-"AnswerIs:" = "Answer is:";
+"Training_Help_Answer" = "Answer is:";
 
-"MessageScore" = "Your final score:";
+"Game_Over_Score_Message" = "Your final score:";
 
-"oneMinute" = "good answers in 1 minute";
+"Save_Button_Label" = "Save";
 
-"nameIsEmpty" = "⚠︎ Name is empty";
+"Scores_View_Best_Score_Label" = "Best score:";
 
-"EnterYourName" = "Enter your name";
+"Scores_View_Worst_Score_Label" = "Worst score:";
 
-"SaveButtonLabel" = "Save";
+"Scores_View_Average_Score_Label" = "Average score:";
 
-"leaderboard" = "Leaderboard";
+"Erase_All_Scores_Button_Label" = "Erase all?";
 
-"BestScore:" = "Best score:";
+"Ok_Button_Label" = "OK";
 
-"WorstScore:" = "Best score:";
+"Score_InGame_Label" = "score:";
 
-"AverageScore:" = "Average score:";
+"Scores_View_Title" = "Scores";

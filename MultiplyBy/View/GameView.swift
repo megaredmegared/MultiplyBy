@@ -38,7 +38,7 @@ struct GameView: View {
                         GameTimer(size: geo.size.height * 0.05, isOver: self.$showEnterScoreView)
                         
                         //MARK: - Score
-                        Text("score: \(self.game.score)")
+                        Text(Translation.scoreInGameLabel.rawValue) + Text(" \(self.game.score)")
                         
                         Spacer()
                         

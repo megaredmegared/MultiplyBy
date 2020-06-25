@@ -1,57 +1,69 @@
-/* No comment provided by engineer. */
-"CancelButtonLabel" = "Annuler";
+/* (No Comment) */
+"Back_Button_Label" = "Retour";
 
-/* No comment provided by engineer. */
-"LearnButtonLabel" = "Apprendre";
+/* (No Comment) */
+"Cancel_Button_Label" = "Annuler";
 
-/* No comment provided by engineer. */
-"PlayButtonLabel" = "Jouer";
+/* (No Comment) */
+"Erase_All_Scores_Button_Label" = "Tout effacer?";
 
-/* No comment provided by engineer. */
-"ScoresButtonLabel" = "Scores";
+/* (No Comment) */
+"Game_Over_Score_Message" = "Votre score final:";
 
-/* No comment provided by engineer. */
-"StartButtonLabel" = "Démarrer";
+/* (No Comment) */
+"Learn_Button_Label" = "Apprendre";
 
-/* Titles for the settings View */
-"TitleOfTheSettingsView" = "Réglages";
+/* (No Comment) */
+"Ok_Button_Label" = "OK";
 
-/* No comment provided by engineer. */
-"Yes" = "Oui";
+/* (No Comment) */
+"Play_Button_Label" = "Jouer";
 
-/* No comment provided by engineer. */
-"back" = "retour";
+/* (No Comment) */
+"Save_Button_Label" = "Sauvegarder";
 
-/* Button for selecting another language */
-"SelectLanguageButton" = "Langue:";
+/* (No Comment) */
+"Save_Selected_Tables_Infos" = "Sauvegarder la selection des tables de mutliplication.";
 
-/* No comment provided by engineer. */
-"SaveSelectedTables" = "Sauvegarder la selection des tables de mutliplication.";
+/* (No Comment) */
+"Score_InGame_Label" = "score:";
 
-"StartTrainingButton" = "Entraînement";
+/* (No Comment) */
+"Scores_Button_Label" = "Scores";
 
-"StartGameButton" = "Jouer";
+/* (No Comment) */
+"Scores_View_Average_Score_Label" = "Score moyen:";
 
-"SelectedTablesSaved" = "Tables Sauvegardées";
+/* (No Comment) */
+"Scores_View_Best_Score_Label" = "Meilleur score:";
 
-"SaveSelectedTablesMessage" = "Votre séléction a été sauvegardée.";
+/* (No Comment) */
+"Scores_View_Title" = "Scores";
 
-"AnswerIs:" = "Réponse:";
+/* (No Comment) */
+"Scores_View_Worst_Score_Label" = "Pire score:";
 
-"MessageScore" = "Votre score final:";
+/* (No Comment) */
+"Selected_Tables_Saved_Message" = "Votre séléction a été sauvegardée.";
 
-"oneMinute" = "bonnes réponses en 1 minute";
+/* (No Comment) */
+"Selected_Tables_Saved_Title_Message" = "Tables Sauvegardées";
 
-"nameIsEmpty" = "⚠︎ Il manque le nom";
+/* (No Comment) */
+"Start_Button_Label" = "Démarrer";
 
-"EnterYourName" = "Entrez votre nom";
+/* (No Comment) */
+"Start_Game_Button_Label" = "Jouer";
 
-"SaveButtonLabel" = "Sauvegarder";
+/* (No Comment) */
+"Start_Training_Button_Label" = "Entraînement";
 
-"leaderboard" = "Classement";
+/* (No Comment) */
+"Title_Of_The_Settings_View" = "Réglages";
 
-"BestScore:" = "Meilleur score:";
+/* (No Comment) */
+"Training_Help_Answer" = "la réponse est:";
 
-"WorstScore:" = "Pire score:";
+/* (No Comment) */
+"Yes_Button_Label" = "Oui";
 
-"AverageScore:" = "Score moyen:";

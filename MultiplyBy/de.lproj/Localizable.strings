@@ -1,74 +1,68 @@
 /* (No Comment) */
-"AnswerIs:" = "Antwort ist:";
-
-/* No comment provided by engineer. */
-"back" = "Zurück";
-
-/* No comment provided by engineer. */
-"bad answers: %@" = "schlechte Antworten: % @";
-
-/* No comment provided by engineer. */
-"CancelButtonLabel" = "Abbrechen";
+"Back_Button_Label" = "Zurück";
 
 /* (No Comment) */
-"EnterYourName" = "Gib deinen Namen ein";
+"Cancel_Button_Label" = "Abbrechen";
 
 /* (No Comment) */
-"leaderboard" = "Leaderboard";
-
-/* No comment provided by engineer. */
-"LearnButtonLabel" = "Lernen";
+"Erase_All_Scores_Button_Label" = "Alles löschen?";
 
 /* (No Comment) */
-"MessageScore" = "Ihr Endergebnis:";
+"Game_Over_Score_Message" = "Ihr Partitur:";
 
 /* (No Comment) */
-"nameIsEmpty" = "⚠︎ Name ist leer";
+"Learn_Button_Label" = "Lernen";
 
 /* (No Comment) */
-"oneMinute" = "gute Antworten in 1 Minute";
-
-/* No comment provided by engineer. */
-"PlayButtonLabel" = "Abspielen";
+"Ok_Button_Label" = "OK";
 
 /* (No Comment) */
-"SaveButtonLabel" = "Speichern";
-
-/* No comment provided by engineer. */
-"SaveSelectedTables" = "Speichern Sie die Auswahl der ausgewählten Multiplikationstabellen.";
+"Play_Button_Label" = "Abspielen";
 
 /* (No Comment) */
-"SaveSelectedTablesMessage" = "Ihre Auswahl wurde gespeichert.";
-
-/* No comment provided by engineer. */
-"score: %@" = "ergebnis: %@";
-
-/* No comment provided by engineer. */
-"Scores" = "Partituren";
-
-/* No comment provided by engineer. */
-"ScoresButtonLabel" = "Partituren";
+"Save_Button_Label" = "Speichern";
 
 /* (No Comment) */
-"SelectedTablesSaved" = "Tabellen gespeichert";
-
-/* No comment provided by engineer. */
-"StartButtonLabel" = "Start";
+"Save_Selected_Tables_Infos" = "Speichern Sie die Auswahl der ausgewählten Multiplikationstabellen.";
 
 /* (No Comment) */
-"StartGameButton" = "Abspielen";
+"Score_InGame_Label" = "partitur:";
 
 /* (No Comment) */
-"StartTrainingButton" = "Ausbildung";
+"Scores_Button_Label" = "Partituren";
 
-/* Titles for the settings View */
-"TitleOfTheSettingsView" = "Einstellungen";
+/* (No Comment) */
+"Scores_View_Average_Score_Label" = "Durchschnittliche Partitur:";
 
-/* No comment provided by engineer. */
-"Yes" = "Ja";
+/* (No Comment) */
+"Scores_View_Best_Score_Label" = "Bestes Partitur:";
 
-"BestScore:" = "Bestes Partitur:";
+/* (No Comment) */
+"Scores_View_Title" = "Partituren";
 
-"WorstScore:" = "Schlechteste Partitur:";
+/* (No Comment) */
+"Scores_View_Worst_Score_Label" = "Schlechteste Partitur:";
 
-"AverageScore:" = "Durchschnittliche Partitur:";
+/* (No Comment) */
+"Selected_Tables_Saved_Message" = "Ihre Auswahl wurde gespeichert.";
+
+/* (No Comment) */
+"Selected_Tables_Saved_Title_Message" = "Tabellen gespeichert";
+
+/* (No Comment) */
+"Start_Button_Label" = "Anfang";
+
+/* (No Comment) */
+"Start_Game_Button_Label" = "Abspielen";
+
+/* (No Comment) */
+"Start_Training_Button_Label" = "Ausbildung";
+
+/* (No Comment) */
+"Title_Of_The_Settings_View" = "Einstellungen";
+
+/* (No Comment) */
+"Training_Help_Answer" = "Antwort ist:";
+
+/* (No Comment) */
+"Yes_Button_Label" = "Ja";

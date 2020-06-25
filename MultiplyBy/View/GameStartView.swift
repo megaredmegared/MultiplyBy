@@ -26,7 +26,7 @@ struct GameStartView: View {
                     VStack {
                         Spacer()
                         NavigationLink(destination: GameTrainingView()) {
-                            Text("StartTrainingButton")
+                            Text(Translation.startTrainingButtonLabel.rawValue)
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7, innerDarkShadow: .table7DarkShadow, innerLightShadow: .table7LightShadow))
@@ -35,7 +35,7 @@ struct GameStartView: View {
                         .padding(.bottom)
                         
                         NavigationLink(destination: GameView()) {
-                            Text("StartGameButton")
+                            Text(Translation.startGameButtonLabel.rawValue)
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle( foregroundColor: Color.lightWhite, backgroundColor: Color.table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))

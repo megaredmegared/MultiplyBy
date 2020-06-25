@@ -29,7 +29,7 @@
 		4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB7244F146D00830A71 /* GameView.swift */; };
 		4D4A6FBA244F174B00830A71 /* MainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A6FB9244F174B00830A71 /* MainButtonStyle.swift */; };
 		4D675FAD248E4CC8007041D5 /* ScoreGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */; };
-		4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */; };
+		4D7EF2A024584F8E00DFF589 /* ButtonsChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF29F24584F8E00DFF589 /* ButtonsChoice.swift */; };
 		4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A124585CC600DFF589 /* AppTitle.swift */; };
 		4D7EF2A524585F1D00DFF589 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A424585F1D00DFF589 /* GameViewModel.swift */; };
 		4D7EF2A7245872C200DFF589 /* NavigationButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */; };
@@ -44,6 +44,7 @@
 		4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12E49246B3E60004D044E /* NumPad.swift */; };
 		4DA12E5B246FE161004D044E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12E5A246FE161004D044E /* BackButton.swift */; };
 		4DA2FA652468C4A300EE23A4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4DA2FA642468C4A300EE23A4 /* Settings.bundle */; };
+		4DD9020B24A366800019F494 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9020A24A366800019F494 /* Translation.swift */; };
 		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
 		4DF436E02486A060009CBDCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF436DF2486A060009CBDCF /* CloudKit.framework */; };
 		4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		4D0C3EA624A385D7001BDA2A /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D1F991124916B54005BCAB1 /* EraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseButton.swift; sourceTree = "<group>"; };
 		4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationAnswerView.swift; sourceTree = "<group>"; };
 		4D215992249570ED0050F2A6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		4D4A6FB7244F146D00830A71 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4D4A6FB9244F174B00830A71 /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
 		4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreGraph.swift; sourceTree = "<group>"; };
-		4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoiceView.swift; sourceTree = "<group>"; };
+		4D7EF29F24584F8E00DFF589 /* ButtonsChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoice.swift; sourceTree = "<group>"; };
 		4D7EF2A124585CC600DFF589 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
 		4D7EF2A424585F1D00DFF589 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtons.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		4DA12E5A246FE161004D044E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		4DA2FA642468C4A300EE23A4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4DAB283124956B95008E3D71 /* MultiplyByTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MultiplyByTestPlan.xctestplan; sourceTree = "<group>"; };
+		4DD9020A24A366800019F494 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
 		4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplyBy.entitlements; sourceTree = "<group>"; };
 		4DF436DF2486A060009CBDCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -160,6 +163,35 @@
 				4D4A6F68244DC7D100830A71 /* PagesViewController.swift */,
 			);
 			path = UIPagesView;
+			sourceTree = "<group>";
+		};
+		4D0C3EA724A388A1001BDA2A /* ContentView Elements */ = {
+			isa = PBXGroup;
+			children = (
+				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
+				4D7EF29F24584F8E00DFF589 /* ButtonsChoice.swift */,
+				4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */,
+				4D7EF2A82458749B00DFF589 /* SettingsButton.swift */,
+				4D7EF2A124585CC600DFF589 /* AppTitle.swift */,
+			);
+			path = "ContentView Elements";
+			sourceTree = "<group>";
+		};
+		4D0C3EA824A389C9001BDA2A /* ScoresView Elements */ = {
+			isa = PBXGroup;
+			children = (
+				4D1F991124916B54005BCAB1 /* EraseButton.swift */,
+				4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */,
+			);
+			path = "ScoresView Elements";
+			sourceTree = "<group>";
+		};
+		4D0C3EA924A38A04001BDA2A /* GameView Elements */ = {
+			isa = PBXGroup;
+			children = (
+				4DF6524B248FB87D00701DCC /* GameTimer.swift */,
+			);
+			path = "GameView Elements";
 			sourceTree = "<group>";
 		};
 		4D22E5252447310F009A54ED = {
@@ -253,14 +285,17 @@
 			isa = PBXGroup;
 			children = (
 				4D22E5382447310F009A54ED /* ContentView.swift */,
+				4D0C3EA724A388A1001BDA2A /* ContentView Elements */,
 				4D7EF2AE2458821F00DFF589 /* SettingsView.swift */,
 				4D390E73244C4A9A00368D44 /* LearnView.swift */,
 				4D7EF2AC24587CC000DFF589 /* ScoresView.swift */,
+				4D0C3EA824A389C9001BDA2A /* ScoresView Elements */,
 				4DA0D2E8245F573000019371 /* GameStartView.swift */,
 				4DF587232479180E005E2B9F /* GameTrainingView.swift */,
 				4D4A6FB7244F146D00830A71 /* GameView.swift */,
+				4D0C3EA924A38A04001BDA2A /* GameView Elements */,
 				4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */,
-				4DF587252479200F005E2B9F /* Views Elements */,
+				4DF587252479200F005E2B9F /* Shared Views Elements */,
 				4D08C6C22450F1350069295F /* UIPagesView */,
 			);
 			path = View;
@@ -274,28 +309,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4DF587252479200F005E2B9F /* Views Elements */ = {
+		4DF587252479200F005E2B9F /* Shared Views Elements */ = {
 			isa = PBXGroup;
 			children = (
 				4D85BB0F2449B07B002204D6 /* AppColorScheme.swift */,
-				4D7EF2A124585CC600DFF589 /* AppTitle.swift */,
 				4DA12E5A246FE161004D044E /* BackButton.swift */,
-				4D7EF29F24584F8E00DFF589 /* ButtonsChoiceView.swift */,
-				4D22E569244740CD009A54ED /* ButtonStyleColored.swift */,
-				4D1F991124916B54005BCAB1 /* EraseButton.swift */,
-				4DF6524B248FB87D00701DCC /* GameTimer.swift */,
 				4D4A6FB9244F174B00830A71 /* MainButtonStyle.swift */,
 				4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */,
 				4D3E80FF2493E2020034CF25 /* MultiplicationQuestionView.swift */,
-				4D7EF2A6245872C200DFF589 /* NavigationButtons.swift */,
 				4DA12E49246B3E60004D044E /* NumPad.swift */,
 				4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */,
-				4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */,
-				4D7EF2A82458749B00DFF589 /* SettingsButton.swift */,
 				4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */,
+				4DD9020A24A366800019F494 /* Translation.swift */,
 				4D939DFA2466FE8E00039866 /* ViewExtensions.swift */,
 			);
-			path = "Views Elements";
+			path = "Shared Views Elements";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +465,7 @@
 				4D7EF2AF2458821F00DFF589 /* SettingsView.swift in Sources */,
 				4D7EF2A7245872C200DFF589 /* NavigationButtons.swift in Sources */,
 				4D22E5652447321A009A54ED /* Table.swift in Sources */,
+				4DD9020B24A366800019F494 /* Translation.swift in Sources */,
 				4D7EF2AD24587CC000DFF589 /* ScoresView.swift in Sources */,
 				4D1F991224916B54005BCAB1 /* EraseButton.swift in Sources */,
 				4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */,
@@ -459,7 +488,7 @@
 				4DA12E5B246FE161004D044E /* BackButton.swift in Sources */,
 				4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */,
 				4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */,
-				4D7EF2A024584F8E00DFF589 /* ButtonsChoiceView.swift in Sources */,
+				4D7EF2A024584F8E00DFF589 /* ButtonsChoice.swift in Sources */,
 				4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */,
 				4D3E81002493E2020034CF25 /* MultiplicationQuestionView.swift in Sources */,
 				4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */,
@@ -507,6 +536,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4D22E54024473110009A54ED /* Base */,
+				4D0C3EA624A385D7001BDA2A /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
