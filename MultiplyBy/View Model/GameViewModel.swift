@@ -100,13 +100,10 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    /// save choosen table and tell the view if ok with a bool
-    func saveChoosenTables() -> Bool {
-        guard let encoded = try? JSONEncoder().encode(choosenTables) else {
-            return false
-        }
+    /// save choosen table
+    func saveChoosenTables() throws {
+        let encoded = try JSONEncoder().encode(choosenTables)
         UserDefaults.standard.set(encoded, forKey: Self.defaultsSaveKey)
-        return true
     }
     
     func pickNextMultiplication(tables: [TableViewModel]) {

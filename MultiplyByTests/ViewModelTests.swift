@@ -190,24 +190,10 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(game.choosenTables, [TableViewModel(of: 3, numberOfTables: 3)])
         
         // save success
-        let success = game.saveChoosenTables()
+        let success = (try? game.saveChoosenTables()) != nil
         XCTAssertTrue(success)
 
     }
-    
-    func testDefaultsUserSaveFailed() {
-        let game = GameViewModel()
-        
-        game.choosenTables = []
-        
-        let success = game.saveChoosenTables()
-        XCTAssertTrue(success)
-    }
-    
-    
-    
-    
-    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

@@ -16,7 +16,6 @@ class AppState: ObservableObject  {
 
 extension AppState {
 
-    // 1
     func restore(from activity: NSUserActivity) {
         guard activity.activityType == Bundle.main.activityType,
             let isSettingsViewActive = activity.userInfo?[Key.isSettingsViewActive] as? Bool
@@ -25,7 +24,6 @@ extension AppState {
         self.isSettingsViewActive = isSettingsViewActive
     }
     
-    // 2
     func store(in activity: NSUserActivity) {
         activity.addUserInfoEntries(from: [Key.isSettingsViewActive: isSettingsViewActive])
     }
@@ -89,7 +87,7 @@ struct SettingsView: View {
                             .foregroundColor(.gray)
                         
                         Button(action: {
-                            self.showingAlert = self.game.saveChoosenTables()
+                            self.showingAlert = (try? self.game.saveChoosenTables()) != nil
                         }) {
                             Text(Translation.yesButtonLabel.rawValue).frame(maxWidth: .infinity)
                         }

@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "DE19C854-2DF5-4250-8DC7-D70DCCD803C3",
+      "name" : "all",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:MultiplyBy.xcodeproj",
+        "identifier" : "4D22E54624473110009A54ED",
+        "name" : "MultiplyByTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:MultiplyBy.xcodeproj",
+        "identifier" : "4D22E55124473110009A54ED",
+        "name" : "MultiplyByUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
