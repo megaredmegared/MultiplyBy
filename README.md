@@ -7,7 +7,7 @@ Multiply By is an app to learn multiplications tables.
 - CoreData and CloudKit
 - Localization
 - MVVM
-- Most Model and ViewModel code tested
+- Model and ViewModel code 100% tested
 
 <table>
   <tr>
