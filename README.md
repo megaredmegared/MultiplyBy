@@ -66,3 +66,13 @@ A graph display all your games scores from the oldest to the newest so you can s
   <img src="./screenshots/scoresDarkMode.png" width="400">
 </div>
 
+## Settings Screen
+
+This screen provides you the possibility to change the language of the app and also to save your selection of tables.
+
+<div>
+  <img src="./screenshots/settings.png" width="400">
+  <img src="./screenshots/settingsDarkMode.png" width="400">
+</div>
+
+
