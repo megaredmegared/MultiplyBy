@@ -29,11 +29,12 @@ struct SettingsButton: View {
     }
 }
 
-//struct SettingsButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ForEach(["iPhone 11", "iPhone SE (1st generation)"], id: \.self) { deviceName in
-//            SettingsButton()
-//                .previewDevice(PreviewDevice(rawValue: deviceName))
-//        }
-//    }
-//}
+struct SettingsButton_Previews: PreviewProvider {
+    static var previews: some View {
+        ForEach(["iPhone 11", "iPhone SE (1st generation)"], id: \.self) { deviceName in
+            SettingsButton()
+                .environmentObject(AppState())
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+        }
+    }
+}

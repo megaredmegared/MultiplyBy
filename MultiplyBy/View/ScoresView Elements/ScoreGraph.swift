@@ -69,8 +69,3 @@ struct ScoreGraph: View {
     }
 }
 
-//struct scoreGraph_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScoreGraph(scores: Score(.))
-//    }
-//}

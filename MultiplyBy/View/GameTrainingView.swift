@@ -65,7 +65,7 @@ struct GameTrainingView: View {
                 Image(systemName: "arrowtriangle.left.circle.fill")
                     .resizable()
             }
-            .buttonStyle(RoundedBackButtonStyle())
+            .buttonStyle(RoundedBackButtonStyle())   
         }
         .deleteNavBar()
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// basic mutliplication
+/// Basic mutliplication
 struct Multiplication {
     let firstOperand: Int
     let secondOperand: Int

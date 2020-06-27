@@ -30,7 +30,7 @@ struct ContentView: View {
                         
                         Spacer(minLength: 0)
                         
-                    }.frame(maxWidth: 600)
+                    }
                     
                     SettingsButton()
                     
@@ -51,11 +51,15 @@ struct ContentView_Previews: PreviewProvider {
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
                     .environment(\.colorScheme, .light)
+                    .environmentObject(GameViewModel())
+                    .environmentObject(AppState())
 
                 ContentView()
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
                     .environment(\.colorScheme, .dark)
+                    .environmentObject(GameViewModel())
+                    .environmentObject(AppState())
             }
         }
     }

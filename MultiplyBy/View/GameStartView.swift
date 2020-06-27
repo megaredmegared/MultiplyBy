@@ -34,6 +34,7 @@ struct GameStartView: View {
                         .disabled(self.game.choosenTables.isEmpty)
                         .padding(.bottom)
                         
+                        
                         NavigationLink(destination: GameView()) {
                             Text(Translation.startGameButtonLabel.rawValue)
                                 .frame(maxWidth: .infinity)

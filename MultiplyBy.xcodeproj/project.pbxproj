@@ -17,7 +17,6 @@
 		4D22E53B24473110009A54ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53A24473110009A54ED /* Assets.xcassets */; };
 		4D22E53E24473110009A54ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53D24473110009A54ED /* Preview Assets.xcassets */; };
 		4D22E54124473110009A54ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53F24473110009A54ED /* LaunchScreen.storyboard */; };
-		4D22E55724473110009A54ED /* MultiplyByUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E55624473110009A54ED /* MultiplyByUITests.swift */; };
 		4D22E5652447321A009A54ED /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5642447321A009A54ED /* Table.swift */; };
 		4D22E56824473521009A54ED /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E56724473521009A54ED /* ModelTests.swift */; };
 		4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E569244740CD009A54ED /* ButtonStyleColored.swift */; };
@@ -88,8 +87,6 @@
 		4D22E54724473110009A54ED /* MultiplyByTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplyByTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D22E54D24473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D22E55224473110009A54ED /* MultiplyByUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplyByUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D22E55624473110009A54ED /* MultiplyByUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyByUITests.swift; sourceTree = "<group>"; };
-		4D22E55824473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D22E5642447321A009A54ED /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		4D22E56724473521009A54ED /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		4D22E569244740CD009A54ED /* ButtonStyleColored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleColored.swift; sourceTree = "<group>"; };
@@ -118,8 +115,6 @@
 		4DA12E49246B3E60004D044E /* NumPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPad.swift; sourceTree = "<group>"; };
 		4DA12E5A246FE161004D044E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		4DA2FA642468C4A300EE23A4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		4DAB283124956B95008E3D71 /* MultiplyByTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MultiplyByTestPlan.xctestplan; sourceTree = "<group>"; };
-		4DCE5CE724A6103900755D6C /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
 		4DD9020A24A366800019F494 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftShadow.swift; sourceTree = "<group>"; };
 		4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplyBy.entitlements; sourceTree = "<group>"; };
@@ -200,7 +195,6 @@
 			children = (
 				4D22E5302447310F009A54ED /* MultiplyBy */,
 				4D22E54A24473110009A54ED /* MultiplyByTests */,
-				4D22E55524473110009A54ED /* MultiplyByUITests */,
 				4D22E52F2447310F009A54ED /* Products */,
 				4DF436DE2486A060009CBDCF /* Frameworks */,
 			);
@@ -250,20 +244,9 @@
 				4D22E56724473521009A54ED /* ModelTests.swift */,
 				4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */,
 				4D9819C7249B516500CC5822 /* UnitTest.xctestplan */,
-				4DCE5CE724A6103900755D6C /* AllTests.xctestplan */,
 				4D22E54D24473110009A54ED /* Info.plist */,
 			);
 			path = MultiplyByTests;
-			sourceTree = "<group>";
-		};
-		4D22E55524473110009A54ED /* MultiplyByUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4D22E55624473110009A54ED /* MultiplyByUITests.swift */,
-				4DAB283124956B95008E3D71 /* MultiplyByTestPlan.xctestplan */,
-				4D22E55824473110009A54ED /* Info.plist */,
-			);
-			path = MultiplyByUITests;
 			sourceTree = "<group>";
 		};
 		4D22E5662447323B009A54ED /* Model */ = {
@@ -514,7 +497,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D22E55724473110009A54ED /* MultiplyByUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

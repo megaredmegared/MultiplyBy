@@ -64,7 +64,7 @@ class GameViewModel: ObservableObject {
     
     @Published var isGoodAnswer: Bool = true
     
-    /// saveLey for user default
+    /// saveKey for user default
     static let defaultsSaveKey = "selectedTables"
     
     init(numberOfTables: Int = 12, userDefaults: UserDefaults = .standard) {

@@ -85,7 +85,7 @@ struct ScoresView: View {
                     
                 }
                 .padding()
-                .frame(maxWidth: 600)
+                
             }
 
             EraseButton(moc: self.moc, scores: self.scores)

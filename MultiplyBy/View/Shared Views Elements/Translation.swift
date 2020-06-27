@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/// Enum associed to all the localized strings
 enum Translation: LocalizedStringKey {
     
     case cancelButtonLabel = "Cancel_Button_Label"
