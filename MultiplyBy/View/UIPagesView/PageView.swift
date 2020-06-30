@@ -35,13 +35,14 @@ struct PageView<Page: View>: View {
     }
 }
 
-//struct PageView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        PageView([LearnView(table: TableViewModel(of: 1)),
-//                  LearnView(table: TableViewModel(of: 2)),
-//                  LearnView(table: TableViewModel(of: 3)),
-//                  LearnView(table: TableViewModel(of: 4))])
-//    }
-//}
+struct PageView_Previews: PreviewProvider {
+
+    static var previews: some View {
+
+        PageView([LearnView(table: TableViewModel(of: 1), showPageView: .constant(true)),
+                  LearnView(table: TableViewModel(of: 2), showPageView: .constant(true)),
+                  LearnView(table: TableViewModel(of: 3), showPageView: .constant(true)),
+                  LearnView(table: TableViewModel(of: 4), showPageView: .constant(true))],
+                 isPresented: .constant(true))
+    }
+}

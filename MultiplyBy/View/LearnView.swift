@@ -71,7 +71,7 @@ struct LearnView: View, Identifiable {
                     Spacer()
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
-                        self.showPageView.toggle()
+                        self.showPageView = false
                     }) {
                         Image(systemName: "xmark.circle")
                             .roundedText()
@@ -85,8 +85,8 @@ struct LearnView: View, Identifiable {
     }
 }
 
-//struct LearnView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LearnView(table: TableViewModel(of: 3))
-//    }
-//}
+struct LearnView_Previews: PreviewProvider {
+    static var previews: some View {
+        LearnView(table: TableViewModel(of: 3), showPageView: .constant(false))
+    }
+}
