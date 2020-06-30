@@ -59,8 +59,8 @@ class GameViewModel: ObservableObject {
     
     @Published var multiplicationAnswer: String = "0"
     
-    @Published var score = 20
-    @Published var badAnswer = 5
+    @Published var score = 0
+    @Published var badAnswer = 0
     
     @Published var isGoodAnswer: Bool = true
     
