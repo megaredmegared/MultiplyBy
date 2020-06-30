@@ -12,9 +12,11 @@ import SwiftUI
 struct PageView<Page: View>: View {
     var viewControllers: [UIHostingController<Page>]
     @State var currentPage = 0
+    @Binding var isPresented: Bool
 
-    init(_ views: [Page]) {
+    init(_ views: [Page], isPresented: Binding<Bool>) {
         self.viewControllers = views.map { UIHostingController(rootView: $0) }
+        self._isPresented = isPresented
     }
 
     var body: some View {
@@ -33,13 +35,13 @@ struct PageView<Page: View>: View {
     }
 }
 
-struct PageView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        
-        PageView([LearnView(table: TableViewModel(of: 1)),
-                  LearnView(table: TableViewModel(of: 2)),
-                  LearnView(table: TableViewModel(of: 3)),
-                  LearnView(table: TableViewModel(of: 4))])
-    }
-}
+//struct PageView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//
+//        PageView([LearnView(table: TableViewModel(of: 1)),
+//                  LearnView(table: TableViewModel(of: 2)),
+//                  LearnView(table: TableViewModel(of: 3)),
+//                  LearnView(table: TableViewModel(of: 4))])
+//    }
+//}

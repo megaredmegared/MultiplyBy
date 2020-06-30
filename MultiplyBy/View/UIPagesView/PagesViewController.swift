@@ -53,6 +53,7 @@ struct PageViewController: UIViewControllerRepresentable {
             guard let index = parent.controllers.firstIndex(of: viewController) else {
                 return nil
             }
+          
             if index + 1 == parent.controllers.count {
                 return parent.controllers.first
             }

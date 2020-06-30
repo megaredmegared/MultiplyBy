@@ -151,6 +151,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D01C36724AB784100B2CFB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D22E53A24473110009A54ED /* Assets.xcassets */,
+				4DD9020A24A366800019F494 /* Translation.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4D08C6C22450F1350069295F /* UIPagesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +229,7 @@
 				4D22E5662447323B009A54ED /* Model */,
 				4D7EF2A324585F0500DFF589 /* View Model */,
 				4D85BB112449B0AD002204D6 /* View */,
-				4D22E53A24473110009A54ED /* Assets.xcassets */,
+				4D01C36724AB784100B2CFB2 /* Supporting Files */,
 				4D22E53F24473110009A54ED /* LaunchScreen.storyboard */,
 				4D22E54224473110009A54ED /* Info.plist */,
 				4D939E8124682FB700039866 /* Localizable.strings */,
@@ -305,7 +314,6 @@
 				4DA12E49246B3E60004D044E /* NumPad.swift */,
 				4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */,
 				4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */,
-				4DD9020A24A366800019F494 /* Translation.swift */,
 				4D939DFA2466FE8E00039866 /* ViewExtensions.swift */,
 			);
 			path = "Shared Views Elements";

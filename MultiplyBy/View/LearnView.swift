@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct LearnView: View, Identifiable {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var showPageView: Bool
     
     var id: Int {
         table.id
@@ -22,8 +24,9 @@ struct LearnView: View, Identifiable {
         colorScheme.returnColor(tableNumber: table.id)
     }
     
-    init(table: TableViewModel) {
+    init(table: TableViewModel, showPageView: Binding<Bool>) {
         self.table = table
+        self._showPageView = showPageView
     }
     
     var body: some View {
@@ -61,12 +64,29 @@ struct LearnView: View, Identifiable {
                     Spacer(minLength: 40)
                 }
             }
+            
+            //MARK: - Back Button
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                        self.showPageView.toggle()
+                    }) {
+                        Image(systemName: "xmark.circle")
+                            .roundedText()
+                            .foregroundColor(Color.lightWhite)
+                            .padding()
+                    }
+                }
+                Spacer()
+            }
         }
     }
 }
 
-struct LearnView_Previews: PreviewProvider {
-    static var previews: some View {
-        LearnView(table: TableViewModel(of: 3))
-    }
-}
+//struct LearnView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LearnView(table: TableViewModel(of: 3))
+//    }
+//}

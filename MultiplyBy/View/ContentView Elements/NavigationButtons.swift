@@ -11,7 +11,8 @@ import SwiftUI
 /// Buttons for navigation
 struct NavigationButtons: View {
     @EnvironmentObject var game: GameViewModel
-    @State private var presentLearnView = false
+    @State private var presentLearnView: Bool = false
+    @State private var noPageView = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -22,10 +23,11 @@ struct NavigationButtons: View {
                     Text(Translation.LearnButtonLabel.rawValue)
                 }
                 .sheet(isPresented: $presentLearnView) {
+//                    PageView(self.makeLearnViews(), isPresented: self.$presentLearnView)
                     if self.game.choosenTables.count == 1 {
-                        LearnView(table: self.game.choosenTables[0])
+                        LearnView(table: self.game.choosenTables[0], showPageView: self.$noPageView)
                     } else {
-                        PageView(self.makeLearnViews())
+                        PageView(self.makeLearnViews(), isPresented: self.$presentLearnView)
                     }
                 }
                 .opacity(self.game.choosenTables.isEmpty ? 0.2 : 1)
@@ -51,7 +53,7 @@ struct NavigationButtons: View {
     func makeLearnViews() -> [LearnView] {
         var learnViews: [LearnView] = []
         for table in self.game.choosenTables.sorted() {
-            learnViews.append(LearnView(table: table))
+            learnViews.append(LearnView(table: table, showPageView: $presentLearnView))
         }
         return learnViews as [LearnView]
     }
