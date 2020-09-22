@@ -4,7 +4,7 @@ Multiply By is an app to learn multiplications tables.
 
 Tech Stack for this project:
 - SwiftUI
-- IOS 13, XCode 11
+- IOS 13.1, XCode 11
 - CoreData and CloudKit
 - Localization
 - MVVM
