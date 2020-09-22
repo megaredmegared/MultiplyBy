@@ -91,6 +91,7 @@ struct ScoresView: View {
             EraseButton(moc: self.moc, scores: self.scores)
         }
         .deleteNavBar()
+        .statusBar(hidden: true) //iOS 14.0 fix
     }
 }
 

@@ -75,6 +75,7 @@ struct GameView: View {
             }
         }
         .deleteNavBar()
+        .statusBar(hidden: true) //iOS 14.0 fix
     }
 }
 

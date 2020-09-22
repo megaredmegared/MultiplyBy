@@ -68,6 +68,7 @@ struct GameTrainingView: View {
             .buttonStyle(RoundedBackButtonStyle())   
         }
         .deleteNavBar()
+        .statusBar(hidden: true) //iOS 14.0 fix
     }
 }
 

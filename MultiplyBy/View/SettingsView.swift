@@ -104,7 +104,8 @@ struct SettingsView: View {
             .frame(maxWidth: 600)
             }
         }
-        .deleteNavBar()     
+        .deleteNavBar()
+        .statusBar(hidden: true) //iOS 14.0 fix
     }
 }
 
