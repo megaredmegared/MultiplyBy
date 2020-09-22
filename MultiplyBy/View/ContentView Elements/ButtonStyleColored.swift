@@ -19,6 +19,8 @@ struct ButtonStyleColored: ButtonStyle {
     private var color: Color {
         colorScheme.returnColor(tableNumber: table)
     }
+    @State private var scale = 1.0
+    
     
     private var selectedTable: Int
 
@@ -51,8 +53,13 @@ struct ButtonStyleColored: ButtonStyle {
             )
                 .padding(geo.size.width * 0.05)
                 .animation(.none)
+                
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6))
+                .animation(.none)
+
+                // FIXME: - Quick fix for geometry reader content no more centered on ios 14
+                .frame(width: geo.size.width, height: geo.size.height)
         }
     }
     

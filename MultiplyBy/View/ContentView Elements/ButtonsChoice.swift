@@ -11,6 +11,7 @@ import SwiftUI
 /// Buttons for choosing tables
 struct ButtonsChoice: View {
     @EnvironmentObject var game: GameViewModel
+    @State private var offset = CGSize.zero
  
     var body: some View {
         GeometryReader { geo in
@@ -26,12 +27,30 @@ struct ButtonsChoice: View {
                             }) {
                                 Text("\(table.id)")
                             }
-                            .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
+                            .highPriorityGesture(
+                                DragGesture()
+                                    .onChanged { gesture in
+                                        self.offset = gesture.translation
+                                }
+                                    
+                                .onEnded { _ in
+                                    if abs(self.offset.width) > 10 {
+                                        // remove the card
+                                    } else {
+                                        self.offset = .zero
+                                    }
+                                }
+                            )
+                                .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
+                            
                             .frame(maxWidth: geo.size.width / 4)
                         }
                     }.frame(maxHeight: geo.size.width / 4)
                 }
             }
+            // FIXME: - Quick fix for geometry reader content no more centered on ios 14
+            .frame(width: geo.size.width, height: geo.size.height)
+            
         }
     }
 }

@@ -33,37 +33,35 @@ struct LearnView: View, Identifiable {
         ZStack {
             self.color.edgesIgnoringSafeArea(.all)
             
-            GeometryReader { geo in
                 VStack {
                     Spacer()
                     
                     Text("\(self.table.id)")
                         .foregroundColor(.lightWhite)
-                        .roundedText(size: geo.size.width * 0.20, weight: .black)
-                        .frame(width: geo.size.width * 0.3, height: geo.size.width * 0.3)
-                        .overlay(Circle().stroke(Color.lightWhite, lineWidth: geo.size.width * 0.02))
+                        .roundedText(size: UIScreen.screenWidth * 0.20, weight: .black)
+                        .frame(width: UIScreen.screenWidth * 0.3, height: UIScreen.screenWidth * 0.3)
+                        .overlay(Circle().stroke(Color.lightWhite, lineWidth: UIScreen.screenWidth * 0.02))
                     
                     Spacer()
                     
                     ForEach(self.table.multiplications, id: \.self) { operation in
                         HStack() {
                             Text("\(operation.firstOperand)")
-                                .frame(width: geo.size.width / 8, alignment: .leading)
+                                .frame(width: UIScreen.screenWidth / 8, alignment: .leading)
                             Text("x")
-                                .frame(width: geo.size.width / 12, alignment: .center)
+                                .frame(width: UIScreen.screenWidth / 12, alignment: .center)
                             Text("\(operation.secondOperand)")
-                                .frame(width: geo.size.width / 8, alignment: .trailing)
+                                .frame(width: UIScreen.screenWidth / 8, alignment: .trailing)
                             Text("=")
-                                .frame(width: geo.size.width / 10, alignment: .trailing)
+                                .frame(width: UIScreen.screenWidth / 10, alignment: .trailing)
                             Text("\(operation.result)")
-                                .frame(width: geo.size.width / 5, alignment: .trailing)
+                                .frame(width: UIScreen.screenWidth / 5, alignment: .trailing)
                         }
-                        .font(Font.monospacedDigitFont(.system(size: geo.size.width * 0.08, weight: .black, design: .rounded))())
+                        .font(Font.monospacedDigitFont(.system(size: UIScreen.screenWidth * 0.08, weight: .black, design: .rounded))())
                         .foregroundColor(.lightWhite)
                     }
                     Spacer(minLength: 40)
                 }
-            }
             
             //MARK: - Back Button
             VStack {
