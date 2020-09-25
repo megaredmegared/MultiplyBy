@@ -27,20 +27,21 @@ struct ButtonsChoice: View {
                             }) {
                                 Text("\(table.id)")
                             }
-                            .highPriorityGesture(
-                                DragGesture()
-                                    .onChanged { gesture in
-                                        self.offset = gesture.translation
-                                }
-                                    
-                                .onEnded { _ in
-                                    if abs(self.offset.width) > 10 {
-                                        // remove the card
-                                    } else {
-                                        self.offset = .zero
-                                    }
-                                }
-                            )
+                            .transition(.scale)
+//                            .highPriorityGesture(
+//                                DragGesture()
+//                                    .onChanged { gesture in
+//                                        self.offset = gesture.translation
+//                                }
+//
+//                                .onEnded { _ in
+//                                    if abs(self.offset.width) > 10 {
+//                                        // remove the card
+//                                    } else {
+//                                        self.offset = .zero
+//                                    }
+//                                }
+//                            )
                                 .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
                             
                             .frame(maxWidth: geo.size.width / 4)
