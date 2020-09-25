@@ -43,3 +43,7 @@
 "Score_InGame_Label" = "score:";
 
 "Scores_View_Title" = "Scores";
+
+"TrainMessage" = "Practice on the multiplication tables chosen previously !";
+
+"PlayMessage" = "Give as many correct answers as possible in 1 minute on all the multiplication tables !";

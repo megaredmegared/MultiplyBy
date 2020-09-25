@@ -66,3 +66,7 @@
 
 /* (No Comment) */
 "Yes_Button_Label" = "Ja";
+
+"TrainMessage" = "Üben Sie an den zuvor ausgewählten Multiplikationstabellen !";
+
+"PlayMessage" = "Geben Sie in 1 Minute auf allen Multiplikationstabellen so viele richtige Antworten wie möglich !";

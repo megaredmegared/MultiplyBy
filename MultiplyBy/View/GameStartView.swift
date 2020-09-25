@@ -18,13 +18,19 @@ struct GameStartView: View {
         ZStack {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
             GeometryReader { geo in
-                VStack(spacing: 30) {
+                VStack {
                     
                     AppTitle()
                         .frame(maxWidth: .infinity)
                     
                     VStack {
-                        Spacer()
+                        
+                        Text("TrainMessage")
+                            .roundedText(size: 15, weight: .bold)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.table7)
+                            .padding(30)
+                        
                         NavigationLink(destination: GameTrainingView()) {
                             Text(Translation.startTrainingButtonLabel.rawValue)
                                 .frame(maxWidth: .infinity)
@@ -34,6 +40,11 @@ struct GameStartView: View {
                         .disabled(self.game.choosenTables.isEmpty)
                         .padding(.bottom)
                         
+                        Text("PlayMessage")
+                            .roundedText(size: 15, weight: .bold)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.table5)
+                            .padding(30)
                         
                         NavigationLink(destination: GameView()) {
                             Text(Translation.startGameButtonLabel.rawValue)

@@ -12,7 +12,7 @@ import SwiftUI
 struct ButtonsChoice: View {
     @EnvironmentObject var game: GameViewModel
     @State private var offset = CGSize.zero
- 
+    
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -28,21 +28,7 @@ struct ButtonsChoice: View {
                                 Text("\(table.id)")
                             }
                             .transition(.scale)
-//                            .highPriorityGesture(
-//                                DragGesture()
-//                                    .onChanged { gesture in
-//                                        self.offset = gesture.translation
-//                                }
-//
-//                                .onEnded { _ in
-//                                    if abs(self.offset.width) > 10 {
-//                                        // remove the card
-//                                    } else {
-//                                        self.offset = .zero
-//                                    }
-//                                }
-//                            )
-                                .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
+                            .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
                             
                             .frame(maxWidth: geo.size.width / 4)
                         }
@@ -59,7 +45,7 @@ struct ButtonsChoice: View {
 struct ButtonsChoiceView_Previews: PreviewProvider {
     
     static var previews: some View {
-       ButtonsChoice()
-        .environmentObject(GameViewModel())
+        ButtonsChoice()
+            .environmentObject(GameViewModel())
     }
 }

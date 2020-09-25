@@ -67,3 +67,6 @@
 /* (No Comment) */
 "Yes_Button_Label" = "Oui";
 
+"TrainMessage" = "Entraînez-vous sur les tables de multiplications choisies précédemment !";
+
+"PlayMessage" = "Donnez  le maximum de bonnes réponses en 1 minute sur toutes les tables de multiplications !";

@@ -55,6 +55,7 @@ struct ButtonStyleColored: ButtonStyle {
                 .animation(.none)
                 
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+                .rotationEffect(.degrees(configuration.isPressed ? -24.0 : 0))
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6))
                 
                 // FIXME: - Quick fix for geometry reader content no more centered on ios 14
