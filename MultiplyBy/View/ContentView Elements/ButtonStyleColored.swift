@@ -19,8 +19,6 @@ struct ButtonStyleColored: ButtonStyle {
     private var color: Color {
         colorScheme.returnColor(tableNumber: table)
     }
-    @State private var scale = 1.0
-    
     
     private var selectedTable: Int
 
@@ -33,7 +31,7 @@ struct ButtonStyleColored: ButtonStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
         GeometryReader { geo in
-            configuration.label
+             configuration.label
                 .foregroundColor(Color.lightWhite)
                 .font(.system(size: geo.size.width * 0.35, weight: .black, design: .rounded))
                 .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
@@ -53,13 +51,12 @@ struct ButtonStyleColored: ButtonStyle {
             )
                 .padding(geo.size.width * 0.05)
                 .animation(.none)
-                
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
                 .rotationEffect(.degrees(configuration.isPressed ? -24.0 : 0))
-                .animation(.interpolatingSpring(stiffness: 100, damping: 6))
+                .animation(.interpolatingSpring(stiffness: 100, damping: 6), value: configuration.isPressed)
                 
                 // FIXME: - Quick fix for geometry reader content no more centered on ios 14
-                .frame(width: geo.size.width, height: geo.size.height)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
     

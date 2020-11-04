@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+   
     var body: some View {
         
-        GeometryReader { geo in
             NavigationView {
                 ZStack {
                     Color.lightWhite.edgesIgnoringSafeArea(.all)
@@ -37,10 +37,8 @@ struct ContentView: View {
                 }
                 .deleteNavBar()
                 .statusBar(hidden: true) //iOS 14.0 fix
-                
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-        }
+            .navigationViewStyle(StackNavigationViewStyle()) 
     }    
 }
 
