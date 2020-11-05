@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Button style for colored buttons
 struct ButtonStyleColored: ButtonStyle {
-
+    
     private var isSelected: Bool
     
     private let colorScheme = AppColorScheme()
@@ -21,7 +21,7 @@ struct ButtonStyleColored: ButtonStyle {
     }
     
     private var selectedTable: Int
-
+    
     init(table: Int, isSelected: Bool) {
         self.isSelected = isSelected
         self.table = table
@@ -30,27 +30,46 @@ struct ButtonStyleColored: ButtonStyle {
     }
     
     func makeBody(configuration: Self.Configuration) -> some View {
-        GeometryReader { geo in
-             configuration.label
+        
+        var showOpacity: Bool {
+            if configuration.isPressed && self.isSelected {
+                return true
+            } else if configuration.isPressed && !self.isSelected {
+                return false
+            } else if !self.isSelected {
+                return false
+            }
+            
+            return true
+        }
+        
+        var showShadow: Bool {
+            if configuration.isPressed || !self.isSelected {
+                return true
+            }
+            return false
+        }
+        
+        return GeometryReader { geo in
+            configuration.label
                 .foregroundColor(Color.lightWhite)
                 .font(.system(size: geo.size.width * 0.35, weight: .black, design: .rounded))
                 .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
                 .background(self.color)
                 .overlay(
-                Circle()
-                    .strokeBorder(Color.lightWhite,lineWidth: geo.size.width * 0.05))
+                    Circle()
+                        .strokeBorder(Color.lightWhite,lineWidth: geo.size.width * 0.05))
                 .clipShape(Circle())
-                .modifier(SoftShadow(isPressed: self.showShadow(isPressed: configuration.isPressed, isSelected: self.isSelected)))
+                .modifier(SoftShadow(isPressed: showShadow))
                 .overlay(
                     Circle()
                         .stroke(Color.lightWhite,lineWidth: geo.size.width * 0.02))
                 .overlay(
                     Circle()
-                        .foregroundColor(Color.lightWhite.opacity(self.showOpacity(isPressed: configuration.isPressed, isSelected: self.isSelected) ? 0 : 0.8))
-                        .animation(.linear)
-            )
+                        .foregroundColor(Color.lightWhite.opacity(showOpacity ? 0 : 0.8))
+                        .animation(.linear, value: showOpacity)
+                )
                 .padding(geo.size.width * 0.05)
-                .animation(.none)
                 .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
                 .rotationEffect(.degrees(configuration.isPressed ? -24.0 : 0))
                 .animation(.interpolatingSpring(stiffness: 100, damping: 6), value: configuration.isPressed)
@@ -58,24 +77,6 @@ struct ButtonStyleColored: ButtonStyle {
                 // FIXME: - Quick fix for geometry reader content no more centered on ios 14
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-    }
-    
-    func showOpacity(isPressed: Bool, isSelected: Bool) -> Bool {
-        if isPressed && isSelected {
-            return true
-        } else if isPressed && !isSelected {
-            return false
-        } else if !isSelected {
-            return false
-        }
-        return true
-    }
-    
-    func showShadow(isPressed: Bool, isSelected: Bool) -> Bool {
-        if isPressed || !isSelected {
-            return true
-        }
-        return false
     }
 }
 
