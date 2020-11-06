@@ -10,36 +10,15 @@ import SwiftUI
 
 /// Button style for mains buttons
 struct MainButtonStyle: ButtonStyle {
-    @Environment(\.colorScheme) var colorScheme
-    var textSize: CGFloat
-    var cornerRadius: CGFloat
+    var textSize: CGFloat = 20
+    var cornerRadius: CGFloat = 5
     private let size: CGFloat = 2
-    var foregroundColor: Color
-    var backgroundColor: Color
-    var innerDarkShadow: Color
-    var innerLightShadow: Color
-    var maxWidth: CGFloat?
-    var maxHeight: CGFloat?
-    
-    init(
-        textSize: CGFloat = 20,
-        cornerRadius: CGFloat = 5,
-        foregroundColor: Color = .lightBlack,
-        backgroundColor: Color = .lightWhite,
-        innerDarkShadow: Color = .blackShadow,
-        innerLightShadow: Color = .whiteShadow,
-        maxWidth: CGFloat? = nil,
-        maxHeight: CGFloat? = nil
-    ) {
-        self.textSize = textSize
-        self.cornerRadius = cornerRadius
-        self.foregroundColor = foregroundColor
-        self.backgroundColor = backgroundColor
-        self.innerDarkShadow = innerDarkShadow
-        self.innerLightShadow = innerLightShadow
-        self.maxWidth = maxWidth
-        self.maxHeight = maxHeight
-    }
+    var foregroundColor: Color = .lightBlack
+    var backgroundColor: Color = .lightWhite
+    var innerDarkShadow: Color = .blackShadow
+    var innerLightShadow: Color = .whiteShadow
+    var maxWidth: CGFloat? = nil
+    var maxHeight: CGFloat? = nil
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label

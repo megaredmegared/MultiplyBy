@@ -72,7 +72,7 @@ struct EnterScoreView: View {
                 }) {
                     Text("Ok")
                 }
-                .buttonStyle(MainButtonStyle(maxWidth: .infinity))
+                .buttonStyle(MainButtonStyle())
             }
             .padding()
             
