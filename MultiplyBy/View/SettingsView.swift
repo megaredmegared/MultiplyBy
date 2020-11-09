@@ -55,8 +55,6 @@ struct SettingsView: View {
         switch language {
         case "fr":
             return "Français"
-        case "de":
-            return "Deutsch"
         default:
             return "English"
         }

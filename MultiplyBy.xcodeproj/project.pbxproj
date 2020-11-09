@@ -74,7 +74,6 @@
 		4D0C3EA624A385D7001BDA2A /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D1F991124916B54005BCAB1 /* EraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseButton.swift; sourceTree = "<group>"; };
 		4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationAnswerView.swift; sourceTree = "<group>"; };
-		4D215992249570ED0050F2A6 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4D22E52E2447310F009A54ED /* MultiplyBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplyBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D22E5312447310F009A54ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D22E5332447310F009A54ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -406,7 +405,6 @@
 				en,
 				Base,
 				fr,
-				de,
 			);
 			mainGroup = 4D22E5252447310F009A54ED;
 			productRefGroup = 4D22E52F2447310F009A54ED /* Products */;
@@ -538,7 +536,6 @@
 			children = (
 				4D939E8224682FB700039866 /* en */,
 				4D939E8424682FC400039866 /* fr */,
-				4D215992249570ED0050F2A6 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -668,7 +665,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MultiplyBy/MultiplyBy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"MultiplyBy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				ENABLE_PREVIEWS = YES;
@@ -691,7 +688,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MultiplyBy/MultiplyBy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"MultiplyBy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				ENABLE_PREVIEWS = YES;
