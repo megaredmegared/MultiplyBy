@@ -21,7 +21,6 @@ struct ButtonsChoice: View {
     
     var body: some View {
         GeometryReader { geo in
-            VStack {
                 LazyVGrid(columns: columns) {
                     ForEach(game.allTables, id: \.self) { table in
                         Button(action: {
@@ -36,10 +35,9 @@ struct ButtonsChoice: View {
                         .frame(width: geo.size.width / 4, height: geo.size.width / 4)
                     }
                 }
-                .frame(maxWidth: geo.size.width / 4 * 3)
-            }
-            // FIXME: - Quick fix for geometry reader content no more centered on ios 14
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(.horizontal, geo.size.width / 8)
+                // FIXME: - Quick fix for geometry reader content no more centered on ios 14
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
