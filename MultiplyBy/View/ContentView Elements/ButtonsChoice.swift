@@ -13,27 +13,30 @@ struct ButtonsChoice: View {
     @EnvironmentObject var game: GameViewModel
     @State private var offset = CGSize.zero
     
-    var body: some View {
+    let columns =  [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
+    var body: some View {
         GeometryReader { geo in
             VStack {
-                ForEach(self.game.allTables.chunked(into: 3), id: \.self) { row in
-                    HStack {
-                        ForEach(row, id: \.self) { table in
-                            Button(action: {
-                                self.game.addOrDeleteTable(of: table)
-                                #if DEBUG
-                                print("tables are: \(self.game.choosenTables.sorted(by: < ))")
-                                #endif
-                            }) {
-                                Text("\(table.id)")
-                            }
-                            .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
-                            .frame(maxWidth: geo.size.width / 4)
+                LazyVGrid(columns: columns) {
+                    ForEach(game.allTables, id: \.self) { table in
+                        Button(action: {
+                            self.game.addOrDeleteTable(of: table)
+#if DEBUG
+                            print("tables are: \(self.game.choosenTables.sorted(by: < ))")
+#endif
+                        }) {
+                            Text("\(table.id)")
                         }
+                        .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
+                        .frame(width: geo.size.width / 4, height: geo.size.width / 4)
                     }
-                    .frame(maxHeight: geo.size.width / 4)
                 }
+                .frame(maxWidth: geo.size.width / 4 * 3)
             }
             // FIXME: - Quick fix for geometry reader content no more centered on ios 14
             .frame(maxWidth: .infinity, maxHeight: .infinity)
