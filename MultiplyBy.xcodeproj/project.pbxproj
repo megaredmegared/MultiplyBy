@@ -3,15 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4D0C2AB7245D8D3E00D0B6E5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */; };
 		4D1F991224916B54005BCAB1 /* EraseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F991124916B54005BCAB1 /* EraseButton.swift */; };
 		4D1F99142491760C005BCAB1 /* MultiplicationAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */; };
-		4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5312447310F009A54ED /* AppDelegate.swift */; };
-		4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5332447310F009A54ED /* SceneDelegate.swift */; };
 		4D22E5372447310F009A54ED /* MultiplyBy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5352447310F009A54ED /* MultiplyBy.xcdatamodeld */; };
 		4D22E5392447310F009A54ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5382447310F009A54ED /* ContentView.swift */; };
 		4D22E53B24473110009A54ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53A24473110009A54ED /* Assets.xcassets */; };
@@ -47,6 +45,8 @@
 		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
 		4DF436E02486A060009CBDCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF436DF2486A060009CBDCF /* CloudKit.framework */; };
 		4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */; };
+		4DF46BE0284497980082CEEA /* MultiplyByApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF46BDF284497980082CEEA /* MultiplyByApp.swift */; };
+		4DF46C5F2844B8390082CEEA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF46C5E2844B8390082CEEA /* PersistenceController.swift */; };
 		4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF587232479180E005E2B9F /* GameTrainingView.swift */; };
 		4DF58729247AACFE005E2B9F /* RoundedBackButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */; };
 		4DF6524C248FB87D00701DCC /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6524B248FB87D00701DCC /* GameTimer.swift */; };
@@ -75,8 +75,6 @@
 		4D1F991124916B54005BCAB1 /* EraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseButton.swift; sourceTree = "<group>"; };
 		4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationAnswerView.swift; sourceTree = "<group>"; };
 		4D22E52E2447310F009A54ED /* MultiplyBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplyBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D22E5312447310F009A54ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D22E5332447310F009A54ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4D22E5362447310F009A54ED /* MultiplyBy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MultiplyBy.xcdatamodel; sourceTree = "<group>"; };
 		4D22E5382447310F009A54ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D22E53A24473110009A54ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +117,8 @@
 		4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplyBy.entitlements; sourceTree = "<group>"; };
 		4DF436DF2486A060009CBDCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
+		4DF46BDF284497980082CEEA /* MultiplyByApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyByApp.swift; sourceTree = "<group>"; };
+		4DF46C5E2844B8390082CEEA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		4DF587232479180E005E2B9F /* GameTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrainingView.swift; sourceTree = "<group>"; };
 		4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackButtonStyle.swift; sourceTree = "<group>"; };
 		4DF6524B248FB87D00701DCC /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
@@ -222,9 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */,
-				4D22E5312447310F009A54ED /* AppDelegate.swift */,
 				4DA2FA642468C4A300EE23A4 /* Settings.bundle */,
-				4D22E5332447310F009A54ED /* SceneDelegate.swift */,
+				4DF46BDF284497980082CEEA /* MultiplyByApp.swift */,
+				4DF46C5E2844B8390082CEEA /* PersistenceController.swift */,
 				4D22E5662447323B009A54ED /* Model */,
 				4D7EF2A324585F0500DFF589 /* View Model */,
 				4D85BB112449B0AD002204D6 /* View */,
@@ -398,7 +398,7 @@
 				};
 			};
 			buildConfigurationList = 4D22E5292447310F009A54ED /* Build configuration list for PBXProject "MultiplyBy" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -466,10 +466,10 @@
 				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,
 				4D7EF2A524585F1D00DFF589 /* GameViewModel.swift in Sources */,
-				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,
 				4D1F99142491760C005BCAB1 /* MultiplicationAnswerView.swift in Sources */,
 				4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */,
 				4D85BB102449B07B002204D6 /* AppColorScheme.swift in Sources */,
+				4DF46BE0284497980082CEEA /* MultiplyByApp.swift in Sources */,
 				4D939DFB2466FE8E00039866 /* ViewExtensions.swift in Sources */,
 				4D4A6F6B244DCB1500830A71 /* PageView.swift in Sources */,
 				4D22E5392447310F009A54ED /* ContentView.swift in Sources */,
@@ -480,8 +480,8 @@
 				4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */,
 				4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */,
 				4D7EF2A024584F8E00DFF589 /* ButtonsChoice.swift in Sources */,
-				4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */,
 				4D3E81002493E2020034CF25 /* MultiplicationQuestionView.swift in Sources */,
+				4DF46C5F2844B8390082CEEA /* PersistenceController.swift in Sources */,
 				4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */,
 				4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */,
 				4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */,
@@ -594,12 +594,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -649,11 +650,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -670,7 +672,7 @@
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MultiplyBy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,7 +695,7 @@
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = MultiplyBy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -713,7 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				INFOPLIST_FILE = MultiplyByTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -735,7 +737,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				INFOPLIST_FILE = MultiplyByTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

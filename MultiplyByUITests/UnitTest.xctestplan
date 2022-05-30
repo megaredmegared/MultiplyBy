@@ -4,12 +4,12 @@
       "id" : "3CDE6BD1-62D3-4B00-95B0-1AC8A3E0766D",
       "name" : "Unit test",
       "options" : {
-
+        "areLocalizationScreenshotsEnabled" : true
       }
     }
   ],
   "defaultOptions" : {
-
+    "areLocalizationScreenshotsEnabled" : true
   },
   "testTargets" : [
     {

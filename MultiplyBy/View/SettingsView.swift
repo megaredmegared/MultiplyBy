@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-var appState = AppState()
-
 class AppState: ObservableObject  {
     @Published var isSettingsViewActive = false
 }
