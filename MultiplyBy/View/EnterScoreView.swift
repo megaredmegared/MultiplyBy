@@ -64,7 +64,7 @@ struct EnterScoreView: View {
                     score.id = UUID()
                     score.goodAnswer = Int64(self.game.score)
                     score.badAnswer = Int64(self.game.badAnswer)
-                    score.date = Date()
+                    score.date = Date.now
                     try? self.moc.save()
                     
                     self.game.resetValue()
