@@ -26,13 +26,13 @@ struct ScoresView: View {
         NSSortDescriptor(keyPath: \Score.badAnswer, ascending: false), NSSortDescriptor(keyPath: \Score.goodAnswer, ascending: true)]) var mostBadAnswer : FetchedResults<Score>
     
     var averageScore: (Int?, Int?) {
-        guard self.scores.count > 0 else {
+        guard scores.count > 0 else {
             return (nil, nil)
         }
         
         var goodAnswers: Int64 = 0
         var badAnswers: Int64 = 0
-        for score in self.scores {
+        for score in scores {
             goodAnswers += score.goodAnswer
             badAnswers += score.badAnswer
         }
@@ -57,17 +57,17 @@ struct ScoresView: View {
                             Text(Translation.scoresViewBestScoreLabel.rawValue)
                         }
                         
-                        Text("\(self.mostGoodAnswer.first?.goodAnswer ?? 0)")
+                        Text("\(mostGoodAnswer.first?.goodAnswer ?? 0)")
                             .foregroundColor(.table5)
-                            + Text(" \(self.mostGoodAnswer.first?.badAnswer ?? 0)").foregroundColor(.table1)
+                            + Text(" \(mostGoodAnswer.first?.badAnswer ?? 0)").foregroundColor(.table1)
                         
                         Text(Translation.scoresViewWorstScoreLabel.rawValue)
-                        Text(" \(self.mostGoodAnswer.last?.goodAnswer ?? 0)").foregroundColor(.table5)
-                            + Text(" \(self.mostGoodAnswer.last?.badAnswer ?? 0)").foregroundColor(.table1)
+                        Text(" \(mostGoodAnswer.last?.goodAnswer ?? 0)").foregroundColor(.table5)
+                            + Text(" \(mostGoodAnswer.last?.badAnswer ?? 0)").foregroundColor(.table1)
                         
                         Text(Translation.scoresViewAverageScoreLabel.rawValue)
-                        Text(" \(self.averageScore.0 ?? 0)").foregroundColor(.table5)
-                            + Text(" \(self.averageScore.1 ?? 0)").foregroundColor(.table1)
+                        Text(" \(averageScore.0 ?? 0)").foregroundColor(.table5)
+                            + Text(" \(averageScore.1 ?? 0)").foregroundColor(.table1)
                         
                     }
                     .background(Color.lightWhite)
@@ -76,7 +76,7 @@ struct ScoresView: View {
                     
                     Spacer(minLength: 20)
                     
-                    ScoreGraph(mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)), mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)), scores: self.scores)
+                    ScoreGraph(mostGoodAnswer: CGFloat(Int(mostGoodAnswer.first?.goodAnswer ?? 0)), mostBadAnswer: CGFloat(Int(mostBadAnswer.first?.badAnswer ?? 0)), scores: scores)
                         
                     
                     Spacer(minLength: 20)

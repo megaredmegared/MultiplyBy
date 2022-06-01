@@ -31,12 +31,12 @@ struct LearnView: View, Identifiable {
     
     var body: some View {
         ZStack {
-            self.color.edgesIgnoringSafeArea(.all)
+            color.edgesIgnoringSafeArea(.all)
             
                 VStack {
                     Spacer()
                     
-                    Text("\(self.table.id)")
+                    Text("\(table.id)")
                         .foregroundColor(.lightWhite)
                         .roundedText(size: UIScreen.screenWidth * 0.20, weight: .black)
                         .frame(width: UIScreen.screenWidth * 0.3, height: UIScreen.screenWidth * 0.3)
@@ -44,7 +44,7 @@ struct LearnView: View, Identifiable {
                     
                     Spacer()
                     
-                    ForEach(self.table.multiplications, id: \.self) { operation in
+                    ForEach(table.multiplications, id: \.self) { operation in
                         HStack() {
                             Text("\(operation.firstOperand)")
                                 .frame(width: UIScreen.screenWidth / 8, alignment: .leading)
@@ -68,8 +68,8 @@ struct LearnView: View, Identifiable {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                        self.showPageView = false
+                        presentationMode.wrappedValue.dismiss()
+                        showPageView = false
                     }) {
                         Image(systemName: "xmark.circle")
                             .roundedText()

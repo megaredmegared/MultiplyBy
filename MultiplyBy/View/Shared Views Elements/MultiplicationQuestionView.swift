@@ -23,22 +23,22 @@ struct MultiplicationQuestionView: View {
     var tables: [TableViewModel] {
         switch gameType {
         case .game:
-            return self.game.allTables
+            return game.allTables
         case .training:
-            return self.game.choosenTables
+            return game.choosenTables
         }
     }
 
     var body: some View {
         HStack {
-            Text(self.game.multiplicationQuestion.firstOperand)
+            Text(game.multiplicationQuestion.firstOperand)
             Text(" x ")
-            Text(self.game.multiplicationQuestion.secondOperand)
+            Text(game.multiplicationQuestion.secondOperand)
         }
         .roundedText(size: geoSize.width * 0.15, weight: .bold)
         .foregroundColor(.table1)
         .onAppear {
-            self.game.pickNextMultiplication(tables: self.tables)
+            game.pickNextMultiplication(tables: tables)
         }
     }
 }

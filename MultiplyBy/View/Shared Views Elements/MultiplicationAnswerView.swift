@@ -14,17 +14,17 @@ struct MultiplicationAnswerView: View {
     
     var body: some View {
             HStack {
-            Text("\(self.game.multiplicationAnswer)")
+            Text("\(game.multiplicationAnswer)")
                 .truncationMode(.head)
                 .roundedText(size: geoSize.width * 0.25, weight: .bold)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
                 .foregroundColor(.lightBlack)
-                .if(self.game.isGoodAnswer) {
+                .if(game.isGoodAnswer) {
                     $0.modifier(SoftShadow())
             }
             .frame(maxWidth: .infinity)
-            .background(self.game.isGoodAnswer ? Color.clear : Color.table1)
+            .background(game.isGoodAnswer ? Color.clear : Color.table1)
             .cornerRadius(5)
             }
     }

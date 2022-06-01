@@ -39,9 +39,9 @@ struct GameTrainingView: View {
                         .padding(.bottom)
                     
                     //MARK: - Result help
-                    if self.game.isGoodAnswer == false {
+                    if game.isGoodAnswer == false {
                         Group {
-                            Text(Translation.trainingHelpAnswer.rawValue) + Text(" \(self.game.multiplicationQuestion.result)")
+                            Text(Translation.trainingHelpAnswer.rawValue) + Text(" \(game.multiplicationQuestion.result)")
                                 
                         }
                         .roundedText()
@@ -53,14 +53,14 @@ struct GameTrainingView: View {
                     Spacer(minLength: 20)
                     
                     //MARK: - Numpad
-                    NumPad(geoSize: geo.size, isGameView: self.isGameView)
+                    NumPad(geoSize: geo.size, isGameView: isGameView)
                 }
             }
             .padding()
             //MARK: - Back button
             Button(action: {
-                self.game.resetValue()
-                self.presentationMode.wrappedValue.dismiss()
+                game.resetValue()
+                presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "arrowtriangle.left.circle.fill")
                     .resizable()

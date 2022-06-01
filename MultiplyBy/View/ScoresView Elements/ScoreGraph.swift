@@ -38,19 +38,19 @@ struct ScoreGraph: View {
         GeometryReader { geo in
             ScrollView(.horizontal) {
                 HStack(alignment: .bottom) {
-                    ForEach(self.scores, id: \.self) { score in
+                    ForEach(scores, id: \.self) { score in
                         HStack(alignment: .bottom, spacing: 0) {
                             ZStack {
                                 Rectangle()
                                     .fill(Color.table5)
-                                    .frame(width: 20, height: geo.size.height / self.maxHeight * CGFloat(score.goodAnswer))
+                                    .frame(width: 20, height: geo.size.height / maxHeight * CGFloat(score.goodAnswer))
                                 
                                 Text("\(score.goodAnswer)")
                             }
                             ZStack {
                                 Rectangle()
                                     .fill(Color.table1)
-                                    .frame(width: 20, height: geo.size.height / self.maxHeight * CGFloat(score.badAnswer))
+                                    .frame(width: 20, height: geo.size.height / maxHeight * CGFloat(score.badAnswer))
                                 
                                 Text("\(score.badAnswer)")
                             }

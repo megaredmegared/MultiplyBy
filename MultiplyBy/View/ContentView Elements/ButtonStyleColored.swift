@@ -32,11 +32,11 @@ struct ButtonStyleColored: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         
         var showOpacity: Bool {
-            if configuration.isPressed && self.isSelected {
+            if configuration.isPressed && isSelected {
                 return true
-            } else if configuration.isPressed && !self.isSelected {
+            } else if configuration.isPressed && !isSelected {
                 return false
-            } else if !self.isSelected {
+            } else if !isSelected {
                 return false
             }
             
@@ -44,7 +44,7 @@ struct ButtonStyleColored: ButtonStyle {
         }
         
         var showShadow: Bool {
-            if configuration.isPressed || !self.isSelected {
+            if configuration.isPressed || !isSelected {
                 return true
             }
             return false
@@ -55,7 +55,7 @@ struct ButtonStyleColored: ButtonStyle {
                 .foregroundColor(Color.lightWhite)
                 .font(.system(size: geo.size.width * 0.35, weight: .black, design: .rounded))
                 .frame(maxWidth: geo.size.width, maxHeight: geo.size.width)
-                .background(self.color)
+                .background(color)
                 .overlay(
                     Circle()
                         .strokeBorder(Color.lightWhite,lineWidth: geo.size.width * 0.05))

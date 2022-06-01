@@ -32,10 +32,10 @@ struct GameView: View {
                     VStack(spacing: 2) {
                         
                         //MARK: - Timer
-                        GameTimer(size: geo.size.height * 0.05, isOver: self.$showEnterScoreView)
+                        GameTimer(size: geo.size.height * 0.05, isOver: $showEnterScoreView)
                         
                         //MARK: - Score
-                        Text(Translation.scoreInGameLabel.rawValue) + Text(" \(self.game.score)")
+                        Text(Translation.scoreInGameLabel.rawValue) + Text(" \(game.score)")
                         
                         Spacer()
                         
@@ -46,28 +46,28 @@ struct GameView: View {
                         MultiplicationAnswerView(geoSize: geo.size)
                         Spacer()
                         //MARK: - Numpad
-                        NumPad(geoSize: geo.size, isGameView: self.isGameView)
+                        NumPad(geoSize: geo.size, isGameView: isGameView)
                     }
                 }
                 .padding()
                 
                 //MARK: - Back Button
                 Button(action: {
-                    self.game.resetValue()
-                    self.presentationMode.wrappedValue.dismiss()
+                    game.resetValue()
+                    presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "arrowtriangle.left.circle.fill")
                         .resizable()
                 }
                 .buttonStyle(RoundedBackButtonStyle())
             }
-            .blur(radius: self.showEnterScoreView ? 10 : 0)
+            .blur(radius: showEnterScoreView ? 10 : 0)
             
             //MARK: - Enter Score View
-            if self.showEnterScoreView {
+            if showEnterScoreView {
                 Color.lightWhite.opacity(0.5).edgesIgnoringSafeArea(.all)
                     .transition(.opacity)
-                EnterScoreView(game: self.game)
+                EnterScoreView(game: game)
                     .transition(.scale)
             }
         }

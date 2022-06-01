@@ -17,19 +17,19 @@ struct NavigationButtons: View {
         VStack(spacing: 10) {
             HStack(spacing: 10) { 
                 Button(action: {
-                    self.presentLearnView.toggle()
+                    presentLearnView.toggle()
                 }) {
                     Text(Translation.LearnButtonLabel.rawValue)
                 }
                 .sheet(isPresented: $presentLearnView) {
-                    if self.game.choosenTables.count == 1 {
-                        LearnView(table: self.game.choosenTables[0], showPageView: self.$presentLearnView)
+                    if game.choosenTables.count == 1 {
+                        LearnView(table: game.choosenTables[0], showPageView: $presentLearnView)
                     } else {
-                        PageView(self.makeLearnViews(), isPresented: self.$presentLearnView)
+                        PageView(makeLearnViews(), isPresented: $presentLearnView)
                     }
                 }
-                .opacity(self.game.choosenTables.isEmpty ? 0.2 : 1)
-                .disabled(self.game.choosenTables.isEmpty)
+                .opacity(game.choosenTables.isEmpty ? 0.2 : 1)
+                .disabled(game.choosenTables.isEmpty)
                 
                 
                 NavigationLink(destination:
@@ -50,7 +50,7 @@ struct NavigationButtons: View {
     
     func makeLearnViews() -> [LearnView] {
         var learnViews: [LearnView] = []
-        for table in self.game.choosenTables.sorted() {
+        for table in game.choosenTables.sorted() {
             learnViews.append(LearnView(table: table, showPageView: $presentLearnView))
         }
         return learnViews as [LearnView]

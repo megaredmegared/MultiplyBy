@@ -24,14 +24,14 @@ struct ButtonsChoice: View {
                 LazyVGrid(columns: columns) {
                     ForEach(game.allTables, id: \.self) { table in
                         Button(action: {
-                            self.game.addOrDeleteTable(of: table)
+                            game.addOrDeleteTable(of: table)
 #if DEBUG
-                            print("tables are: \(self.game.choosenTables.sorted(by: < ))")
+                            print("tables are: \(game.choosenTables.sorted(by: < ))")
 #endif
                         }) {
                             Text("\(table.id)")
                         }
-                        .buttonStyle(ButtonStyleColored(table: table.id, isSelected: self.game.choosenTables.contains(table)))
+                        .buttonStyle(ButtonStyleColored(table: table.id, isSelected: game.choosenTables.contains(table)))
                         .frame(width: geo.size.width / 4, height: geo.size.width / 4)
                     }
                 }

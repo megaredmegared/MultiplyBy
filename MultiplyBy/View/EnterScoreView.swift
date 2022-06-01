@@ -36,7 +36,7 @@ struct EnterScoreView: View {
                     HStack {
                         HStack {
                             Image(systemName: "checkmark.circle")
-                            Text("\(self.game.score)")
+                            Text("\(game.score)")
                                 .lineLimit(.none)
                                 .layoutPriority(1)
                             
@@ -46,7 +46,7 @@ struct EnterScoreView: View {
                         
                         HStack {
                             Image(systemName: "multiply.circle")
-                            Text("\(self.game.badAnswer)")
+                            Text("\(game.badAnswer)")
                                 .lineLimit(.none)
                                 .layoutPriority(1)
                         }
@@ -60,16 +60,16 @@ struct EnterScoreView: View {
                 Spacer()
                 
                 Button(action: {
-                    let score = Score(context: self.managedObjectContext)
+                    let score = Score(context: managedObjectContext)
                     score.id = UUID()
-                    score.goodAnswer = Int64(self.game.score)
-                    score.badAnswer = Int64(self.game.badAnswer)
+                    score.goodAnswer = Int64(game.score)
+                    score.badAnswer = Int64(game.badAnswer)
                     score.date = Date.now
                     
                     PersistenceController.shared.save()
                     
-                    self.game.resetValue()
-                    self.presentationMode.wrappedValue.dismiss()
+                    game.resetValue()
+                    presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Ok")
                 }

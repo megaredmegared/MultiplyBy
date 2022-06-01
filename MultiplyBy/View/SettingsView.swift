@@ -68,11 +68,11 @@ struct SettingsView: View {
 
                     Spacer()
                     
-                    if self.showLanguageButton {
+                    if showLanguageButton {
                         Button(action: {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                         }) {
-                            Text("\(self.language)")
+                            Text("\(language)")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle())
@@ -83,12 +83,12 @@ struct SettingsView: View {
                             .foregroundColor(.gray)
                         
                         Button(action: {
-                            self.showingAlert = (try? self.game.saveChoosenTables()) != nil
+                            showingAlert = (try? game.saveChoosenTables()) != nil
                         }) {
                             Text(Translation.yesButtonLabel.rawValue).frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle())
-                        .alert(isPresented: self.$showingAlert) { Alert(title: Text(Translation.selectedTablesSavedTitleMessage.rawValue), message: Text(Translation.selectedTablesSavedMessage.rawValue), dismissButton: .default(Text(Translation.okButtonLabel.rawValue)))
+                        .alert(isPresented: $showingAlert) { Alert(title: Text(Translation.selectedTablesSavedTitleMessage.rawValue), message: Text(Translation.selectedTablesSavedMessage.rawValue), dismissButton: .default(Text(Translation.okButtonLabel.rawValue)))
                         }
                     }
                     

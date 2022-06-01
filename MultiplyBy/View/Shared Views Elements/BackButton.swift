@@ -16,7 +16,7 @@ struct BackButton: View {
     
     var body: some View {
         Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
+            presentationMode.wrappedValue.dismiss()
         }) {
             Text(Translation.backButtonLabel.rawValue)
                 .frame(maxWidth: .infinity)

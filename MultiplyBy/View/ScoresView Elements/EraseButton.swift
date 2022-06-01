@@ -20,7 +20,7 @@ struct EraseButton: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.presentEraseMessage.toggle()
+                    presentEraseMessage.toggle()
                 }) {
                     Image(systemName: "trash")
                         .foregroundColor(.lightBlack)
@@ -31,11 +31,11 @@ struct EraseButton: View {
             .edgesIgnoringSafeArea(.all)
             .alert(isPresented: $presentEraseMessage) {
                 Alert(title: Text(Translation.eraseAllScoresButtonLabel.rawValue), primaryButton: Alert.Button.cancel(), secondaryButton: .default(Text(Translation.okButtonLabel.rawValue), action: {
-                    guard !self.scores.isEmpty else {
+                    guard !scores.isEmpty else {
                         return
                     }
-                    for number in 0..<self.scores.count {
-                        self.managedObjectContext.delete(self.scores[number])
+                    for number in 0..<scores.count {
+                        managedObjectContext.delete(scores[number])
                     }
                     PersistenceController.shared.save()
                 }))

@@ -36,8 +36,8 @@ struct GameStartView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle(foregroundColor: Color.lightWhite, backgroundColor: Color.table7, innerDarkShadow: .table7DarkShadow, innerLightShadow: .table7LightShadow))
-                        .opacity(self.game.choosenTables.isEmpty ? 0.2 : 1)
-                        .disabled(self.game.choosenTables.isEmpty)
+                        .opacity(game.choosenTables.isEmpty ? 0.2 : 1)
+                        .disabled(game.choosenTables.isEmpty)
                         .padding(.bottom)
                         
                         Text("PlayMessage")

@@ -13,40 +13,40 @@ struct NumPad: View {
     var geoSize: CGSize
     var spacing: CGFloat = 8
     var textSize: CGFloat {
-        self.geoSize.width * 0.1
+        geoSize.width * 0.1
     }
     var isGameView: Bool
     
     var body: some View {
         
-        VStack(spacing: self.spacing) {
-            HStack(spacing: self.spacing) {
-                VStack(spacing: self.spacing) {
-                    HStack(spacing: self.spacing) {
-                        NumpadButton(7, textSize: self.textSize)
-                        NumpadButton(8, textSize: self.textSize)
-                        NumpadButton(9, textSize: self.textSize)
+        VStack(spacing: spacing) {
+            HStack(spacing: spacing) {
+                VStack(spacing: spacing) {
+                    HStack(spacing: spacing) {
+                        NumpadButton(7, textSize: textSize)
+                        NumpadButton(8, textSize: textSize)
+                        NumpadButton(9, textSize: textSize)
                     }
                     
-                    HStack(spacing: self.spacing) {
-                        NumpadButton(4, textSize: self.textSize)
-                        NumpadButton(5, textSize: self.textSize)
-                        NumpadButton(6, textSize: self.textSize)
+                    HStack(spacing: spacing) {
+                        NumpadButton(4, textSize: textSize)
+                        NumpadButton(5, textSize: textSize)
+                        NumpadButton(6, textSize: textSize)
                     }
-                    HStack(spacing: self.spacing) {
-                        NumpadButton(1, textSize: self.textSize)
-                        NumpadButton(2, textSize: self.textSize)
-                        NumpadButton(3, textSize: self.textSize)
+                    HStack(spacing: spacing) {
+                        NumpadButton(1, textSize: textSize)
+                        NumpadButton(2, textSize: textSize)
+                        NumpadButton(3, textSize: textSize)
                     }
-                    NumpadButton(0, textSize: self.textSize)
+                    NumpadButton(0, textSize: textSize)
                 }
-                VStack(spacing: self.spacing) {
-                    NumpadDeleteButton(textSize: self.textSize)
-                        .frame(height: self.geoSize.width / 4 - self.spacing * 0.75)
+                VStack(spacing: spacing) {
+                    NumpadDeleteButton(textSize: textSize)
+                        .frame(height: geoSize.width / 4 - spacing * 0.75)
                     
-                    NumpadValidationButton(textSize: self.textSize, isGameView: self.isGameView)
+                    NumpadValidationButton(textSize: textSize, isGameView: isGameView)
                 }
-                .frame(width: self.geoSize.width / 4 - self.spacing * 0.75)
+                .frame(width: geoSize.width / 4 - spacing * 0.75)
             }
         }
         .aspectRatio(1, contentMode: .fit)
@@ -93,33 +93,33 @@ struct TouchDownButtonStyle: PrimitiveButtonStyle {
             let longPress = LongPressGesture(minimumDuration: .infinity, maximumDistance: 50)
                 .updating($isPressed) { currentstate, gestureState, _ in
                     gestureState = currentstate }
-                .onChanged{_ in self.configuration.trigger()}
+                .onChanged{_ in configuration.trigger()}
             
             return configuration.label
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .roundedText(size: self.textSize, weight: .bold)
-                .foregroundColor(self.foregroundColor)
+                .roundedText(size: textSize, weight: .bold)
+                .foregroundColor(foregroundColor)
                 .padding(.horizontal, 15)
                 .padding(.vertical, 10)
-                .background(self.backgroundColor)
-                .cornerRadius(self.cornerRadius)
+                .background(backgroundColor)
+                .cornerRadius(cornerRadius)
                 .overlay(
                     GeometryReader { geo in
-                        RoundedRectangle(cornerRadius: self.cornerRadius + 2)
-                            .trim(from: self.startPoint(size: geo.size),
-                                  to: self.endPoint(size: geo.size))
-                            .stroke(self.innerLightShadow, lineWidth: isPressed ? 3 : 0
+                        RoundedRectangle(cornerRadius: cornerRadius + 2)
+                            .trim(from: startPoint(size: geo.size),
+                                  to: endPoint(size: geo.size))
+                            .stroke(innerLightShadow, lineWidth: isPressed ? 3 : 0
                             )
                             .rotationEffect(.init(degrees: 180))
                             .overlay(
-                                RoundedRectangle(cornerRadius: self.cornerRadius + 2)
-                                    .trim(from: self.startPoint(size: geo.size), to: self.endPoint(size: geo.size))
-                                    .stroke(self.innerDarkShadow, lineWidth: isPressed ? 3 : 0
+                                RoundedRectangle(cornerRadius: cornerRadius + 2)
+                                    .trim(from: startPoint(size: geo.size), to: endPoint(size: geo.size))
+                                    .stroke(innerDarkShadow, lineWidth: isPressed ? 3 : 0
                                     )
                             )
                     }
                     .blur(radius: 2))
-                .clipShape(RoundedRectangle(cornerRadius: self.cornerRadius + 2))
+                .clipShape(RoundedRectangle(cornerRadius: cornerRadius + 2))
                 .modifier(SoftShadow(isPressed: isPressed))
                 .gesture(longPress)
         }
@@ -157,21 +157,21 @@ struct NumpadButton: View {
     
     var body: some View {
         Button(action: {
-            self.addNumber(self.number)
+            addNumber(number)
         }) {
-            Text(self.number)
+            Text(number)
         }
-        .buttonStyle(TouchDownButtonStyle(textSize: self.textSize))
+        .buttonStyle(TouchDownButtonStyle(textSize: textSize))
     }
     
     func addNumber(_ number: String) {
-        guard self.game.multiplicationAnswer.count < 3 else {
+        guard game.multiplicationAnswer.count < 3 else {
             return
         }
-        if self.game.multiplicationAnswer == "0" {
-            self.game.multiplicationAnswer = ""
+        if game.multiplicationAnswer == "0" {
+            game.multiplicationAnswer = ""
         }
-        self.game.multiplicationAnswer.append(number)
+        game.multiplicationAnswer.append(number)
     }
 }
 
@@ -187,34 +187,34 @@ struct NumpadValidationButton: View {
     
     var body: some View {
         Button(action: {
-            self.validateButton()
+            validateButton()
         }) {
             Text("OK")
         }
-        .buttonStyle(TouchDownButtonStyle(textSize: self.textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))
+        .buttonStyle(TouchDownButtonStyle(textSize: textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))
     }
     
     func validateButton() {
-        guard self.game.multiplicationAnswer == self.game.multiplicationQuestion.result else {
-            self.game.isGoodAnswer = false
-            self.game.badAnswer += 1
+        guard game.multiplicationAnswer == game.multiplicationQuestion.result else {
+            game.isGoodAnswer = false
+            game.badAnswer += 1
             return
         }
         
-        if self.isGameView {
-            self.game.score += 1
-            self.game.multiplicationAnswer = "0"
-            self.game.isGoodAnswer = true
-            self.game.pickNextMultiplication(tables: self.game.allTables)
+        if isGameView {
+            game.score += 1
+            game.multiplicationAnswer = "0"
+            game.isGoodAnswer = true
+            game.pickNextMultiplication(tables: game.allTables)
         } else {
-            self.game.multiplicationAnswer = "0"
-            self.game.isGoodAnswer = true
-            self.game.pickNextMultiplication(tables: self.game.choosenTables)
+            game.multiplicationAnswer = "0"
+            game.isGoodAnswer = true
+            game.pickNextMultiplication(tables: game.choosenTables)
         }
         
         #if DEBUG
-        print(self.game.multiplicationQuestion)
-        print(self.game.multiplicationAnswer)
+        print(game.multiplicationQuestion)
+        print(game.multiplicationAnswer)
         #endif
     }
 }
@@ -225,11 +225,11 @@ struct NumpadDeleteButton: View {
     
     var body: some View {
         Button(action: {
-            self.game.multiplicationAnswer = "0"
-            self.game.isGoodAnswer = true
+            game.multiplicationAnswer = "0"
+            game.isGoodAnswer = true
         }) {
             Text("X")
         }
-        .buttonStyle(TouchDownButtonStyle(textSize: self.textSize, foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow))
+        .buttonStyle(TouchDownButtonStyle(textSize: textSize, foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow))
     }
 }
