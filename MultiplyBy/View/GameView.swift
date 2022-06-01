@@ -11,8 +11,6 @@ import Combine
 
 struct GameView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.managedObjectContext) var moc
-    
     @EnvironmentObject var game: GameViewModel
     
     let colorScheme = AppColorScheme()
@@ -24,8 +22,7 @@ struct GameView: View {
     let isGameView = true
     @State var multiplicationAnswer2 = "0"
     
-    var body: some View {
-        
+    var body: some View { 
         
         ZStack {
             ZStack {
@@ -70,7 +67,7 @@ struct GameView: View {
             if self.showEnterScoreView {
                 Color.lightWhite.opacity(0.5).edgesIgnoringSafeArea(.all)
                     .transition(.opacity)
-                EnterScoreView(moc: self.moc, game: self.game)
+                EnterScoreView(game: self.game)
                     .transition(.scale)
             }
         }

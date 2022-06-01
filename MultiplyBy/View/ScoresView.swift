@@ -11,7 +11,7 @@ import CoreData
 
 struct ScoresView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     
     /// sort by date for display it in the ScoreGraph view
@@ -76,7 +76,7 @@ struct ScoresView: View {
                     
                     Spacer(minLength: 20)
                     
-                    ScoreGraph(mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)), mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)), moc: self.moc, scores: self.scores)
+                    ScoreGraph(mostGoodAnswer: CGFloat(Int(self.mostGoodAnswer.first?.goodAnswer ?? 0)), mostBadAnswer: CGFloat(Int(self.mostBadAnswer.first?.badAnswer ?? 0)), scores: self.scores)
                         
                     
                     Spacer(minLength: 20)
@@ -88,7 +88,7 @@ struct ScoresView: View {
                 
             }
 
-            EraseButton(moc: self.moc, scores: self.scores)
+            EraseButton(scores: scores)
         }
         .deleteNavBar()
         .statusBar(hidden: true) //iOS 14.0 fix

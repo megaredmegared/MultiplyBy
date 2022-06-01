@@ -20,7 +20,7 @@ extension HorizontalAlignment {
 
 struct EnterScoreView: View {
     @Environment(\.presentationMode) var presentationMode
-    var moc: NSManagedObjectContext
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     var game: GameViewModel
     
@@ -60,12 +60,13 @@ struct EnterScoreView: View {
                 Spacer()
                 
                 Button(action: {
-                    let score = Score(context: self.moc)
+                    let score = Score(context: self.managedObjectContext)
                     score.id = UUID()
                     score.goodAnswer = Int64(self.game.score)
                     score.badAnswer = Int64(self.game.badAnswer)
                     score.date = Date.now
-                    try? self.moc.save()
+                    
+                    PersistenceController.shared.save()
                     
                     self.game.resetValue()
                     self.presentationMode.wrappedValue.dismiss()
@@ -86,7 +87,6 @@ struct EnterScoreView: View {
 
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        let moc = PersistenceController.preview.container.viewContext
-        return  EnterScoreView(moc: moc, game: GameViewModel())
+        return  EnterScoreView(game: GameViewModel())
     }
 }

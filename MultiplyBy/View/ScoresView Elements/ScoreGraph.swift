@@ -18,14 +18,13 @@ extension View {
 }
 
 struct ScoreGraph: View {
-    var moc: NSManagedObjectContext
+    // FIXME: remove the line ?
+//    @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
     var scores: FetchedResults<Score>
     
     var maxHeight: CGFloat
     
-    init(mostGoodAnswer: CGFloat, mostBadAnswer: CGFloat, moc: NSManagedObjectContext, scores: FetchedResults<Score>) {
-        
-        self.moc = moc
+    init(mostGoodAnswer: CGFloat, mostBadAnswer: CGFloat, scores: FetchedResults<Score>) {
         self.scores = scores
         
         if mostGoodAnswer >= mostBadAnswer {

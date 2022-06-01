@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 struct EraseButton: View {
-    var moc: NSManagedObjectContext
+    @Environment(\.managedObjectContext) var managedObjectContext
     var scores: FetchedResults<Score>
     
     @State private var presentEraseMessage = false
@@ -35,9 +35,9 @@ struct EraseButton: View {
                         return
                     }
                     for number in 0..<self.scores.count {
-                        self.moc.delete(self.scores[number])
+                        self.managedObjectContext.delete(self.scores[number])
                     }
-                    try? self.moc.save()
+                    PersistenceController.shared.save()
                 }))
         }
     }
