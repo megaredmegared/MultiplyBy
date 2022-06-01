@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct GameTimer: View {
-    
+    @Environment(\.scenePhase) private var scenePhase
     var size: CGFloat
     @Binding var isOver: Bool
     @State var timeRemaining = 60 // seconds
@@ -49,11 +49,8 @@ struct GameTimer: View {
                 }   
             }
         }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            isActive = false
-        }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-            isActive = true
+        .onChange(of: scenePhase) { phase in
+            isActive = (phase == .active)
         }
     }
 }
