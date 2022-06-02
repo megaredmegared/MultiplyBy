@@ -21,7 +21,7 @@ struct Multiplication {
 struct Table {
     let table: Int
     let numberOfTables: Int
-    
+
     var multiplications: [Multiplication] {
         var allMultiplications: [Multiplication] = []
         for number in 1...numberOfTables {
@@ -29,10 +29,9 @@ struct Table {
         }
         return allMultiplications
     }
-    
+
     init(of table: Int, numberOfTables: Int) {
         self.table = table
         self.numberOfTables = numberOfTables
     }
 }
-

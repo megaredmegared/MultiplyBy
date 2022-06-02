@@ -10,9 +10,9 @@ import SwiftUI
 
 /// Button style for roundedBackButton
 struct RoundedBackButtonStyle: ButtonStyle {
-    
+
     var cornerRadius: CGFloat = 50
-    
+
     func makeBody(configuration: Self.Configuration) -> some View {
         GeometryReader { geo in
             VStack {
@@ -23,25 +23,25 @@ struct RoundedBackButtonStyle: ButtonStyle {
                         .padding()
                         .cornerRadius(cornerRadius)
                         .modifier(SoftShadow(isPressed: configuration.isPressed))
-                    
+
                     Spacer()
                 }
                 Spacer()
             }
             .edgesIgnoringSafeArea(.all)
         }
-        
+
     }
 }
 
 struct RoundedBackButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {
-            //action
-        }) {
+        Button {
+            // action
+        } label: {
            Image(systemName: "arrowtriangle.left.circle.fill")
             .resizable()
-            .frame(width: 50, height:50)
+            .frame(width: 50, height: 50)
         }
         .buttonStyle(RoundedBackButtonStyle())
     }

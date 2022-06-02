@@ -11,7 +11,7 @@ import SwiftUI
 /// Button to go to SettingsView
 struct SettingsButton: View {
     @EnvironmentObject var state: AppState
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -23,7 +23,7 @@ struct SettingsButton: View {
                 }
             }
             .padding()
-            
+
             Spacer()
         }.edgesIgnoringSafeArea(.all)
     }

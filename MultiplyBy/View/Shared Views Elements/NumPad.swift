@@ -16,9 +16,9 @@ struct NumPad: View {
         geoSize.width * 0.1
     }
     var isGameView: Bool
-    
+
     var body: some View {
-        
+
         VStack(spacing: spacing) {
             HStack(spacing: spacing) {
                 VStack(spacing: spacing) {
@@ -27,7 +27,7 @@ struct NumPad: View {
                         NumpadButton(8, textSize: textSize)
                         NumpadButton(9, textSize: textSize)
                     }
-                    
+
                     HStack(spacing: spacing) {
                         NumpadButton(4, textSize: textSize)
                         NumpadButton(5, textSize: textSize)
@@ -43,7 +43,7 @@ struct NumPad: View {
                 VStack(spacing: spacing) {
                     NumpadDeleteButton(textSize: textSize)
                         .frame(height: geoSize.width / 4 - spacing * 0.75)
-                    
+
                     NumpadValidationButton(textSize: textSize, isGameView: isGameView)
                 }
                 .frame(width: geoSize.width / 4 - spacing * 0.75)
@@ -68,33 +68,33 @@ struct NumPad_Previews: PreviewProvider {
 }
 
 struct TouchDownButtonStyle: PrimitiveButtonStyle {
-    
+
     var textSize: CGFloat
     var cornerRadius: CGFloat = 5
     var foregroundColor: Color = .lightBlack
     var backgroundColor: Color = .lightWhite
     var innerDarkShadow: Color = .blackShadow
     var innerLightShadow: Color = .whiteShadow
-    
+
     struct MyButton: View {
-        
+
         var textSize: CGFloat
         var cornerRadius: CGFloat
         var foregroundColor: Color
         var backgroundColor: Color
         var innerDarkShadow: Color
         var innerLightShadow: Color
-        
+
         @GestureState private var isPressed = false
-        
+
         let configuration: PrimitiveButtonStyle.Configuration
-        
+
         var body: some View {
             let longPress = LongPressGesture(minimumDuration: .infinity, maximumDistance: 50)
                 .updating($isPressed) { currentstate, gestureState, _ in
                     gestureState = currentstate }
-                .onChanged{_ in configuration.trigger()}
-            
+                .onChanged {_ in configuration.trigger()}
+
             return configuration.label
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .roundedText(size: textSize, weight: .bold)
@@ -134,7 +134,7 @@ struct TouchDownButtonStyle: PrimitiveButtonStyle {
             return (width * 2 + height * 1.5) / ((width + height) * 2)
         }
     }
-    
+
     func makeBody(configuration: Self.Configuration) -> some View {
         MyButton(textSize: textSize,
                  cornerRadius: cornerRadius,
@@ -154,16 +154,16 @@ struct NumpadButton: View {
         self.number = String(number)
         self.textSize = textSize
     }
-    
+
     var body: some View {
-        Button(action: {
+        Button {
             addNumber(number)
-        }) {
+        } label: {
             Text(number)
         }
         .buttonStyle(TouchDownButtonStyle(textSize: textSize))
     }
-    
+
     func addNumber(_ number: String) {
         guard game.multiplicationAnswer.count < 3 else {
             return
@@ -179,28 +179,34 @@ struct NumpadValidationButton: View {
     @EnvironmentObject var game: GameViewModel
     var isGameView: Bool
     var textSize: CGFloat
-    
+
     init(textSize: CGFloat, isGameView: Bool) {
         self.textSize = textSize
         self.isGameView = isGameView
     }
-    
+
     var body: some View {
-        Button(action: {
+        Button {
             validateButton()
-        }) {
+        } label: {
             Text("OK")
         }
-        .buttonStyle(TouchDownButtonStyle(textSize: textSize * 0.8, foregroundColor: .lightWhite, backgroundColor: .table5, innerDarkShadow: .table5DarkShadow, innerLightShadow: .table5LightShadow))
+        .buttonStyle(TouchDownButtonStyle(
+            textSize: textSize * 0.8,
+            foregroundColor: .lightWhite,
+            backgroundColor: .table5,
+            innerDarkShadow: .table5DarkShadow,
+            innerLightShadow: .table5LightShadow)
+        )
     }
-    
+
     func validateButton() {
         guard game.multiplicationAnswer == game.multiplicationQuestion.result else {
             game.isGoodAnswer = false
             game.badAnswer += 1
             return
         }
-        
+
         if isGameView {
             game.score += 1
             game.multiplicationAnswer = "0"
@@ -211,7 +217,7 @@ struct NumpadValidationButton: View {
             game.isGoodAnswer = true
             game.pickNextMultiplication(tables: game.choosenTables)
         }
-        
+
         #if DEBUG
         print(game.multiplicationQuestion)
         print(game.multiplicationAnswer)
@@ -222,14 +228,20 @@ struct NumpadValidationButton: View {
 struct NumpadDeleteButton: View {
     @EnvironmentObject var game: GameViewModel
     var textSize: CGFloat
-    
+
     var body: some View {
-        Button(action: {
+        Button {
             game.multiplicationAnswer = "0"
             game.isGoodAnswer = true
-        }) {
+        } label: {
             Text("X")
         }
-        .buttonStyle(TouchDownButtonStyle(textSize: textSize, foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow))
+        .buttonStyle(TouchDownButtonStyle(
+            textSize: textSize,
+            foregroundColor: .lightWhite,
+            backgroundColor: .table1,
+            innerDarkShadow: .table1DarkShadow,
+            innerLightShadow: .table1LightShadow)
+        )
     }
 }

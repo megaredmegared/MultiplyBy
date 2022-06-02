@@ -17,9 +17,9 @@ enum GameType {
 struct MultiplicationQuestionView: View {
     @EnvironmentObject var game: GameViewModel
     var geoSize: CGSize
-    
+
     var gameType: GameType
-    
+
     var tables: [TableViewModel] {
         switch gameType {
         case .game:

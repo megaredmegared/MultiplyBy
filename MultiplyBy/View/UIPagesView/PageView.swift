@@ -20,12 +20,12 @@ struct PageView<Page: View>: View {
     }
 
     var body: some View {
-        
+
         ZStack {
-            
+
             PageViewController(controllers: viewControllers, currentPage: $currentPage).edgesIgnoringSafeArea(.all)
-            
-            //Pages dots indicators
+
+            // Pages dots indicators
             VStack {
                 Spacer()
                 PageControl(numberOfPages: viewControllers.count, currentPage: $currentPage)

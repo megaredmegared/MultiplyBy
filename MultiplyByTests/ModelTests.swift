@@ -10,26 +10,26 @@ import XCTest
 @testable import MultiplyBy
 
 class ModelTests: XCTestCase {
-    
+
     override func setUpWithError() throws {
 
     }
 
     override func tearDownWithError() throws {
-       
+
     }
 
     func testMutliplicationOf3By2Result6() throws {
-        
+
         let multiplicationOf3By2 = Multiplication(firstOperand: 3, secondOperand: 2)
-        
+
         XCTAssertEqual(multiplicationOf3By2.result, 6)
         XCTAssertNotEqual(multiplicationOf3By2.result, 4)
     }
-    
+
     func testCreateTableOf2() throws {
         let tableOf6 = Table(of: 2, numberOfTables: 12)
-        
+
         // test number of mutltiplications
         XCTAssertEqual(tableOf6.multiplications.count, 12)
         // test of the 12 results
@@ -45,9 +45,9 @@ class ModelTests: XCTestCase {
         XCTAssertEqual(tableOf6.multiplications[9].result, 20)
         XCTAssertEqual(tableOf6.multiplications[10].result, 22)
         XCTAssertEqual(tableOf6.multiplications[11].result, 24)
-        
+
     }
-    
+
 //    func testPerformanceExample() throws {
 //        // This is an example of a performance test case.
 //        self.measure {

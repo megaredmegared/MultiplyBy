@@ -17,9 +17,9 @@ struct MainButtonStyle: ButtonStyle {
     var backgroundColor: Color = .lightWhite
     var innerDarkShadow: Color = .blackShadow
     var innerLightShadow: Color = .whiteShadow
-    var maxWidth: CGFloat? = nil
-    var maxHeight: CGFloat? = nil
-    
+    var maxWidth: CGFloat?
+    var maxHeight: CGFloat?
+
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .frame(maxWidth: maxWidth, maxHeight: maxHeight)
@@ -46,11 +46,11 @@ struct MainButtonStyle: ButtonStyle {
         )
             .clipShape(
                 RoundedRectangle(cornerRadius: cornerRadius + 2)
-                
+
         )
             .modifier(SoftShadow(isPressed: configuration.isPressed))
     }
-    
+
     func startPoint(size: CGSize) -> CGFloat {
         let width = size.width
         let height = size.height
@@ -65,9 +65,9 @@ struct MainButtonStyle: ButtonStyle {
 
 struct MainButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {
+        Button {
             // void
-        }) {
+        } label: {
             Text("test")
         }
         .buttonStyle(MainButtonStyle())

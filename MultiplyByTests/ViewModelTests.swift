@@ -35,25 +35,32 @@ class ViewModelTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     // MARK: - MultiplicationViewModel
-    
+
     func testGivenMultiplicationWhenConvertToViewModelThenMultiplicationViewModel() {
         let multiplication = Multiplication(firstOperand: 2, secondOperand: 3)
-        
+
         let multiplicationViewModel = multiplication.convertMultiplicationToViewModel()
-        
-        XCTAssertEqual(multiplicationViewModel, MultiplicationViewModel(firstOperand: "2", secondOperand: "3", result: "6"))
-        XCTAssertNotEqual(multiplicationViewModel, MultiplicationViewModel(firstOperand: "2", secondOperand: "3", result: "7"))
-        
+
+        XCTAssertEqual(
+            multiplicationViewModel,
+            MultiplicationViewModel(firstOperand: "2", secondOperand: "3", result: "6")
+        )
+
+        XCTAssertNotEqual(
+            multiplicationViewModel,
+            MultiplicationViewModel(firstOperand: "2", secondOperand: "3", result: "7")
+        )
+
     }
-    
+
     // MARK: - TableViewModel
-    
-    func testGivenNoTableWhenCreatingDefaultTableOf3AndTable4With3CalculationsThenTableOf3and4Exist() {
+    // swiftlint:disable:next function_body_length
+    func testNoTableWhenCreatingDefaultTableOf3AndTable4With3CalculationsThenTableOf3and4Exist() {
         let tableOf3 = TableViewModel(of: 3)
         let tableOf4 = TableViewModel(of: 4, numberOfTables: 3)
-        
+
         XCTAssertEqual(tableOf3.multiplications.count, 12)
         XCTAssertEqual(tableOf3.multiplications[0].firstOperand, "3")
         XCTAssertEqual(tableOf3.multiplications[1].firstOperand, "3")
@@ -91,7 +98,7 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(tableOf3.multiplications[9].result, "30")
         XCTAssertEqual(tableOf3.multiplications[10].result, "33")
         XCTAssertEqual(tableOf3.multiplications[11].result, "36")
-        
+
         XCTAssertEqual(tableOf4.multiplications.count, 3)
         XCTAssertEqual(tableOf4.multiplications[0].firstOperand, "4")
         XCTAssertEqual(tableOf4.multiplications[1].firstOperand, "4")
@@ -103,59 +110,72 @@ class ViewModelTests: XCTestCase {
         XCTAssertEqual(tableOf4.multiplications[1].result, "8")
         XCTAssertEqual(tableOf4.multiplications[2].result, "12")
     }
-    
+
     func testGivenTableOf2and4WhenCompareTablesThenNotEqualsAndTable2IsSmaller() {
         let tableOf2 = TableViewModel(of: 2)
         let tableOf4 = TableViewModel(of: 4)
-        
+
         XCTAssertNotEqual(tableOf2, tableOf4)
         XCTAssertTrue(tableOf2 < tableOf4)
         XCTAssertFalse(tableOf2 > tableOf4)
     }
-    
+
     func testGiven2TablesOf5WhenTestEquatableThenTrue() {
         let tableOf5 = TableViewModel(of: 5)
         let anOtherTableOf5 = TableViewModel(of: 5)
-        
+
         XCTAssertTrue(tableOf5 == anOtherTableOf5)
         XCTAssertFalse(tableOf5 != anOtherTableOf5)
     }
-    
-    
+
     // MARK: - GameViewModel
     func testGivenNoTableWhenAddTableTill20ToViewModelThen20Timestables() throws {
       let game = GameViewModel(numberOfTables: 20)
-        
+
         XCTAssertEqual(game.allTables.count, 20)
-        
+
         XCTAssertEqual(game.allTables[2], TableViewModel(of: 3, numberOfTables: 20))
         XCTAssertNotEqual(game.allTables[2], TableViewModel(of: 3, numberOfTables: 12))
     }
-    
+
     func testGivenMultiplicationQuestion0WhenNewQuestionThenNewQuestion() {
         let game = GameViewModel()
         let multiplicationQuestionStart = game.multiplicationQuestion
-        XCTAssertEqual(multiplicationQuestionStart, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
-        
+
+        XCTAssertEqual(
+            multiplicationQuestionStart,
+            MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
+        )
+
         game.pickNextMultiplication(tables: game.allTables)
-        
+
         let multiplicationQuestionRandom = game.multiplicationQuestion
-        
-        XCTAssertNotEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
+
+        XCTAssertNotEqual(
+            multiplicationQuestionRandom,
+            MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
+        )
     }
-    
+
     func testGivenMultiplicationQuestion0AndNoTableWhenNewQuestionThenMultiplicationQuestionStill0() {
         let game = GameViewModel()
         let multiplicationQuestionStart = game.multiplicationQuestion
-        XCTAssertEqual(multiplicationQuestionStart, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
-        
+
+        XCTAssertEqual(
+            multiplicationQuestionStart,
+            MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
+        )
+
         game.pickNextMultiplication(tables: [])
-        
+
         let multiplicationQuestionRandom = game.multiplicationQuestion
-        
-        XCTAssertEqual(multiplicationQuestionRandom, MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0"))
+
+        XCTAssertEqual(
+            multiplicationQuestionRandom,
+            MultiplicationViewModel(firstOperand: "0", secondOperand: "0", result: "0")
+        )
     }
-    
+
     func testGivenScorOf24andMultiplicationAnswerTo12WhenResetThenBothAt0() {
         let game = GameViewModel()
         game.score = 24
@@ -164,16 +184,16 @@ class ViewModelTests: XCTestCase {
         XCTAssertNotEqual(game.score, 20)
         XCTAssertEqual(game.multiplicationAnswer, "12")
         XCTAssertNotEqual(game.multiplicationAnswer, "10")
-        
+
         game.resetValue()
-        
+
         XCTAssertEqual(game.score, 0)
         XCTAssertNotEqual(game.score, 20)
         XCTAssertEqual(game.multiplicationAnswer, "0")
         XCTAssertNotEqual(game.multiplicationAnswer, "10")
-        
+
     }
-    
+
     func testDefaultsUserSave() {
         // make 3 tables
         let game =  GameViewModel(numberOfTables: 3, userDefaults: .makeClearedInstance())
@@ -183,7 +203,6 @@ class ViewModelTests: XCTestCase {
         game.addOrDeleteTable(of: TableViewModel(of: 1, numberOfTables: 3))
         game.addOrDeleteTable(of: TableViewModel(of: 2, numberOfTables: 3))
         game.addOrDeleteTable(of: TableViewModel(of: 3, numberOfTables: 3))
-
 
         XCTAssertNotEqual(game.choosenTables, game.allTables)
         XCTAssertEqual(game.choosenTables, [])

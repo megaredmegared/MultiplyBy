@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 /// Modifier for adding soft shadows to views
 struct SoftShadow: ViewModifier {
     var size: CGFloat = 2
@@ -19,13 +18,12 @@ struct SoftShadow: ViewModifier {
             .shadow(color: Color.blackShadow
                 .opacity(isPressed ? 0 : 1),
                     radius: size, x: size, y: size)
-            
+
             .shadow(color: Color.whiteShadow
                 .opacity(isPressed ? 0 : 1),
             radius: size, x: -size, y: -size)
     }
-    
-    
+
 }
 
 struct SoftShadow_Previews: PreviewProvider {

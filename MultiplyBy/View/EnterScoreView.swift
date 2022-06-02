@@ -10,8 +10,8 @@ import SwiftUI
 
 extension HorizontalAlignment {
     struct BoxCenter: AlignmentID {
-        static func defaultValue(in d: ViewDimensions) -> CGFloat {
-            d[HorizontalAlignment.center]
+        static func defaultValue(in dimensions: ViewDimensions) -> CGFloat {
+            dimensions[HorizontalAlignment.center]
         }
     }
 
@@ -21,16 +21,16 @@ extension HorizontalAlignment {
 struct EnterScoreView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+
     var game: GameViewModel
-    
+
     var body: some View {
         ZStack {
             Color.lightWhite
-            
+
             VStack {
                 Spacer()
-                    
+
                 VStack(alignment: .boxCenter) {
                     Text(Translation.gameOverScoreMessage.rawValue)
                     HStack {
@@ -39,11 +39,11 @@ struct EnterScoreView: View {
                             Text("\(game.score)")
                                 .lineLimit(.none)
                                 .layoutPriority(1)
-                            
+
                         }
                         .foregroundColor(.table5)
-                        .alignmentGuide(.boxCenter) { d in d[HorizontalAlignment.trailing] }
-                        
+                        .alignmentGuide(.boxCenter) { dimensions in dimensions[HorizontalAlignment.trailing] }
+
                         HStack {
                             Image(systemName: "multiply.circle")
                             Text("\(game.badAnswer)")
@@ -51,32 +51,32 @@ struct EnterScoreView: View {
                                 .layoutPriority(1)
                         }
                         .foregroundColor(.table1)
-                        .alignmentGuide(.boxCenter) { d in d[HorizontalAlignment.leading] }
+                        .alignmentGuide(.boxCenter) { dimensions in dimensions[HorizontalAlignment.leading] }
                     }
                 }
                 .foregroundColor(.lightBlack)
                 .roundedText(size: 30, weight: .bold)
-                
+
                 Spacer()
-                
-                Button(action: {
+
+                Button {
                     let score = Score(context: managedObjectContext)
                     score.id = UUID()
                     score.goodAnswer = Int64(game.score)
                     score.badAnswer = Int64(game.badAnswer)
                     score.date = Date.now
-                    
+
                     PersistenceController.shared.save()
-                    
+
                     game.resetValue()
                     presentationMode.wrappedValue.dismiss()
-                }) {
+                } label: {
                     Text("Ok")
                 }
                 .buttonStyle(MainButtonStyle())
             }
             .padding()
-            
+
         }
         .frame(maxWidth: 300, maxHeight: 300)
         .cornerRadius(10, antialiased: true)

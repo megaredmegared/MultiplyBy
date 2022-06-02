@@ -11,7 +11,7 @@ import SwiftUI
 struct MultiplicationAnswerView: View {
     @EnvironmentObject var game: GameViewModel
     var geoSize: CGSize
-    
+
     var body: some View {
             HStack {
             Text("\(game.multiplicationAnswer)")

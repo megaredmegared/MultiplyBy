@@ -51,7 +51,7 @@ struct AppColorScheme {
         Color.table11,
         Color.table12
     ]
-    
+
     /// Return the color for a given number 
     func returnColor(tableNumber: Int) -> Color {
            return all[tableNumber - 1 % all.count]

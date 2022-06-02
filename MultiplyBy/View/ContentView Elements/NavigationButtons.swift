@@ -12,14 +12,14 @@ import SwiftUI
 struct NavigationButtons: View {
     @EnvironmentObject var game: GameViewModel
     @State private var presentLearnView: Bool = false
-    
+
     var body: some View {
         VStack(spacing: 10) {
-            HStack(spacing: 10) { 
-                Button(action: {
+            HStack(spacing: 10) {
+                Button {
                     presentLearnView.toggle()
-                }) {
-                    Text(Translation.LearnButtonLabel.rawValue)
+                } label: {
+                    Text(Translation.learnButtonLabel.rawValue)
                 }
                 .sheet(isPresented: $presentLearnView) {
                     if game.choosenTables.count == 1 {
@@ -30,15 +30,14 @@ struct NavigationButtons: View {
                 }
                 .opacity(game.choosenTables.isEmpty ? 0.2 : 1)
                 .disabled(game.choosenTables.isEmpty)
-                
-                
+
                 NavigationLink(destination:
                 ScoresView()) {
                     Text(Translation.scoresButtonLabel.rawValue)
                 }
-                
+
             }
-            
+
             NavigationLink(destination:
             GameStartView()) {
                 Text(Translation.playButtonLabel.rawValue)
@@ -47,7 +46,7 @@ struct NavigationButtons: View {
         .buttonStyle(MainButtonStyle(maxWidth: .infinity))
         .padding()
     }
-    
+
     func makeLearnViews() -> [LearnView] {
         var learnViews: [LearnView] = []
         for table in game.choosenTables.sorted() {

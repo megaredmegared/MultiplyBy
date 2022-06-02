@@ -12,16 +12,16 @@ import CoreData
 struct EraseButton: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     var scores: FetchedResults<Score>
-    
+
     @State private var presentEraseMessage = false
-    
+
     var body: some View {
         VStack {
             HStack {
                 Spacer()
-                Button(action: {
+                Button {
                     presentEraseMessage.toggle()
-                }) {
+                } label: {
                     Image(systemName: "trash")
                         .foregroundColor(.lightBlack)
                 }
@@ -30,16 +30,22 @@ struct EraseButton: View {
         }.padding()
             .edgesIgnoringSafeArea(.all)
             .alert(isPresented: $presentEraseMessage) {
-                Alert(title: Text(Translation.eraseAllScoresButtonLabel.rawValue), primaryButton: Alert.Button.cancel(), secondaryButton: .default(Text(Translation.okButtonLabel.rawValue), action: {
-                    guard !scores.isEmpty else {
-                        return
-                    }
-                    for number in 0..<scores.count {
-                        managedObjectContext.delete(scores[number])
-                    }
-                    PersistenceController.shared.save()
-                }))
-        }
+                Alert(
+                    title: Text(Translation.eraseAllScoresButtonLabel.rawValue),
+                    primaryButton: Alert.Button.cancel(),
+                    secondaryButton: .default(
+                        Text(Translation.okButtonLabel.rawValue),
+                        action: {
+                            guard !scores.isEmpty else {
+                                return
+                            }
+                            for number in 0..<scores.count {
+                                managedObjectContext.delete(scores[number])
+                            }
+                            PersistenceController.shared.save()
+                        }
+                    )
+                )
+            }
     }
 }
-

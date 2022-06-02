@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Styled title of the app
 struct AppTitle: View {
-    
+
     var body: some View {
         Image("title")
             .resizable()
