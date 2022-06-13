@@ -11,41 +11,41 @@ import SwiftUI
 struct LearnView: View, Identifiable {
     @Environment(\.presentationMode) var presentationMode
     @Binding var showPageView: Bool
-    
+
     var id: Int {
         table.id
     }
-    
+
     private let colorScheme = AppColorScheme()
-    
+
     private var table: TableViewModel
-    
+
     private var color: Color {
         colorScheme.returnColor(tableNumber: table.id)
     }
-    
+
     init(table: TableViewModel, showPageView: Binding<Bool>) {
         self.table = table
         self._showPageView = showPageView
     }
-    
+
     var body: some View {
         ZStack {
-            self.color.edgesIgnoringSafeArea(.all)
-            
+            color.edgesIgnoringSafeArea(.all)
+
                 VStack {
                     Spacer()
-                    
-                    Text("\(self.table.id)")
+
+                    Text("\(table.id)")
                         .foregroundColor(.lightWhite)
                         .roundedText(size: UIScreen.screenWidth * 0.20, weight: .black)
                         .frame(width: UIScreen.screenWidth * 0.3, height: UIScreen.screenWidth * 0.3)
                         .overlay(Circle().stroke(Color.lightWhite, lineWidth: UIScreen.screenWidth * 0.02))
-                    
+
                     Spacer()
-                    
-                    ForEach(self.table.multiplications, id: \.self) { operation in
-                        HStack() {
+
+                    ForEach(table.multiplications, id: \.self) { operation in
+                        HStack {
                             Text("\(operation.firstOperand)")
                                 .frame(width: UIScreen.screenWidth / 8, alignment: .leading)
                             Text("x")
@@ -57,20 +57,25 @@ struct LearnView: View, Identifiable {
                             Text("\(operation.result)")
                                 .frame(width: UIScreen.screenWidth / 5, alignment: .trailing)
                         }
-                        .font(Font.monospacedDigitFont(.system(size: UIScreen.screenWidth * 0.08, weight: .black, design: .rounded))())
+                        .font(
+                            Font.monospacedDigitFont(
+                                .system(size: UIScreen.screenWidth * 0.08,
+                                        weight: .black, design: .rounded)
+                            )()
+                        )
                         .foregroundColor(.lightWhite)
                     }
                     Spacer(minLength: 40)
                 }
-            
-            //MARK: - Back Button
+
+            // MARK: - Back Button
             VStack {
                 HStack {
                     Spacer()
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                        self.showPageView = false
-                    }) {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                        showPageView = false
+                    } label: {
                         Image(systemName: "xmark.circle")
                             .roundedText()
                             .foregroundColor(Color.lightWhite)

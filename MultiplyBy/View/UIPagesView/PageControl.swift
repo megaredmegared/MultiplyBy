@@ -16,7 +16,7 @@ struct PageControl: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
          Coordinator(self)
      }
-    
+
     func makeUIView(context: Context) -> UIPageControl {
         let control = UIPageControl()
         control.numberOfPages = numberOfPages
@@ -26,7 +26,6 @@ struct PageControl: UIViewRepresentable {
             for: .valueChanged)
         control.pageIndicatorTintColor = UIColor.init(named: "LightWhite")?.withAlphaComponent(0.2)
         control.currentPageIndicatorTintColor = UIColor.init(named: "LightWhite")
-        
 
         return control
     }
@@ -34,7 +33,7 @@ struct PageControl: UIViewRepresentable {
     func updateUIView(_ uiView: UIPageControl, context: Context) {
         uiView.currentPage = currentPage
     }
-    
+
     class Coordinator: NSObject {
            var control: PageControl
 

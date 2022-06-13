@@ -3,20 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4D0C2AB7245D8D3E00D0B6E5 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */; };
 		4D1F991224916B54005BCAB1 /* EraseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F991124916B54005BCAB1 /* EraseButton.swift */; };
 		4D1F99142491760C005BCAB1 /* MultiplicationAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */; };
-		4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5312447310F009A54ED /* AppDelegate.swift */; };
-		4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5332447310F009A54ED /* SceneDelegate.swift */; };
 		4D22E5372447310F009A54ED /* MultiplyBy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5352447310F009A54ED /* MultiplyBy.xcdatamodeld */; };
 		4D22E5392447310F009A54ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5382447310F009A54ED /* ContentView.swift */; };
 		4D22E53B24473110009A54ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53A24473110009A54ED /* Assets.xcassets */; };
 		4D22E53E24473110009A54ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53D24473110009A54ED /* Preview Assets.xcassets */; };
-		4D22E54124473110009A54ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D22E53F24473110009A54ED /* LaunchScreen.storyboard */; };
 		4D22E5652447321A009A54ED /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E5642447321A009A54ED /* Table.swift */; };
 		4D22E56824473521009A54ED /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E56724473521009A54ED /* ModelTests.swift */; };
 		4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D22E569244740CD009A54ED /* ButtonStyleColored.swift */; };
@@ -47,6 +44,8 @@
 		4DEC1CF22458FE8C0093D39C /* SoftShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEC1CF12458FE8C0093D39C /* SoftShadow.swift */; };
 		4DF436E02486A060009CBDCF /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF436DF2486A060009CBDCF /* CloudKit.framework */; };
 		4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */; };
+		4DF46BE0284497980082CEEA /* MultiplyByApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF46BDF284497980082CEEA /* MultiplyByApp.swift */; };
+		4DF46C5F2844B8390082CEEA /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF46C5E2844B8390082CEEA /* PersistenceController.swift */; };
 		4DF587242479180E005E2B9F /* GameTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF587232479180E005E2B9F /* GameTrainingView.swift */; };
 		4DF58729247AACFE005E2B9F /* RoundedBackButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */; };
 		4DF6524C248FB87D00701DCC /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF6524B248FB87D00701DCC /* GameTimer.swift */; };
@@ -71,20 +70,14 @@
 
 /* Begin PBXFileReference section */
 		4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
-		4D0C3EA624A385D7001BDA2A /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D1F991124916B54005BCAB1 /* EraseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseButton.swift; sourceTree = "<group>"; };
 		4D1F99132491760C005BCAB1 /* MultiplicationAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationAnswerView.swift; sourceTree = "<group>"; };
 		4D22E52E2447310F009A54ED /* MultiplyBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplyBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D22E5312447310F009A54ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D22E5332447310F009A54ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4D22E5362447310F009A54ED /* MultiplyBy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MultiplyBy.xcdatamodel; sourceTree = "<group>"; };
 		4D22E5382447310F009A54ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D22E53A24473110009A54ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D22E53D24473110009A54ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4D22E54024473110009A54ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4D22E54224473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D22E54724473110009A54ED /* MultiplyByTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplyByTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D22E54D24473110009A54ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D22E55224473110009A54ED /* MultiplyByUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiplyByUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D22E5642447321A009A54ED /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		4D22E56724473521009A54ED /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
@@ -96,6 +89,7 @@
 		4D4A6F6C244DCFBC00830A71 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		4D4A6FB7244F146D00830A71 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4D4A6FB9244F174B00830A71 /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
+		4D5F9DE2284513C900EEEA43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D675FAC248E4CC8007041D5 /* ScoreGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreGraph.swift; sourceTree = "<group>"; };
 		4D7EF29F24584F8E00DFF589 /* ButtonsChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsChoice.swift; sourceTree = "<group>"; };
 		4D7EF2A124585CC600DFF589 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
@@ -119,6 +113,8 @@
 		4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MultiplyBy.entitlements; sourceTree = "<group>"; };
 		4DF436DF2486A060009CBDCF /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4DF436E52486AEAC009CBDCF /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
+		4DF46BDF284497980082CEEA /* MultiplyByApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplyByApp.swift; sourceTree = "<group>"; };
+		4DF46C5E2844B8390082CEEA /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		4DF587232479180E005E2B9F /* GameTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTrainingView.swift; sourceTree = "<group>"; };
 		4DF58728247AACFE005E2B9F /* RoundedBackButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackButtonStyle.swift; sourceTree = "<group>"; };
 		4DF6524B248FB87D00701DCC /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
@@ -221,16 +217,15 @@
 		4D22E5302447310F009A54ED /* MultiplyBy */ = {
 			isa = PBXGroup;
 			children = (
+				4D5F9DE2284513C900EEEA43 /* Info.plist */,
 				4DF436DD2486A05A009CBDCF /* MultiplyBy.entitlements */,
-				4D22E5312447310F009A54ED /* AppDelegate.swift */,
 				4DA2FA642468C4A300EE23A4 /* Settings.bundle */,
-				4D22E5332447310F009A54ED /* SceneDelegate.swift */,
+				4DF46BDF284497980082CEEA /* MultiplyByApp.swift */,
+				4DF46C5E2844B8390082CEEA /* PersistenceController.swift */,
 				4D22E5662447323B009A54ED /* Model */,
 				4D7EF2A324585F0500DFF589 /* View Model */,
 				4D85BB112449B0AD002204D6 /* View */,
 				4D01C36724AB784100B2CFB2 /* Supporting Files */,
-				4D22E53F24473110009A54ED /* LaunchScreen.storyboard */,
-				4D22E54224473110009A54ED /* Info.plist */,
 				4D939E8124682FB700039866 /* Localizable.strings */,
 				4D22E5352447310F009A54ED /* MultiplyBy.xcdatamodeld */,
 				4D22E53C24473110009A54ED /* Preview Content */,
@@ -252,7 +247,6 @@
 				4D22E56724473521009A54ED /* ModelTests.swift */,
 				4D0C2AB6245D8D3E00D0B6E5 /* ViewModelTests.swift */,
 				4D9819C7249B516500CC5822 /* UnitTest.xctestplan */,
-				4D22E54D24473110009A54ED /* Info.plist */,
 			);
 			path = MultiplyByTests;
 			sourceTree = "<group>";
@@ -325,6 +319,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D22E55B24473110009A54ED /* Build configuration list for PBXNativeTarget "MultiplyBy" */;
 			buildPhases = (
+				4D5F9DE82848E5F900EEEA43 /* SwiftLint */,
 				4D22E52A2447310F009A54ED /* Sources */,
 				4D22E52B2447310F009A54ED /* Frameworks */,
 				4D22E52C2447310F009A54ED /* Resources */,
@@ -381,7 +376,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1340;
 				ORGANIZATIONNAME = OpenClassrooms;
 				TargetAttributes = {
 					4D22E52D2447310F009A54ED = {
@@ -398,7 +393,7 @@
 				};
 			};
 			buildConfigurationList = 4D22E5292447310F009A54ED /* Build configuration list for PBXProject "MultiplyBy" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -423,7 +418,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D22E54124473110009A54ED /* LaunchScreen.storyboard in Resources */,
 				4D939E8324682FB700039866 /* Localizable.strings in Resources */,
 				4DA2FA652468C4A300EE23A4 /* Settings.bundle in Resources */,
 				4D22E53E24473110009A54ED /* Preview Assets.xcassets in Resources */,
@@ -447,6 +441,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D5F9DE82848E5F900EEEA43 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4D22E52A2447310F009A54ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -466,10 +481,10 @@
 				4D7EF2A224585CC600DFF589 /* AppTitle.swift in Sources */,
 				4D4A6F69244DC7D100830A71 /* PagesViewController.swift in Sources */,
 				4D7EF2A524585F1D00DFF589 /* GameViewModel.swift in Sources */,
-				4D22E5322447310F009A54ED /* AppDelegate.swift in Sources */,
 				4D1F99142491760C005BCAB1 /* MultiplicationAnswerView.swift in Sources */,
 				4DA12E4A246B3E60004D044E /* NumPad.swift in Sources */,
 				4D85BB102449B07B002204D6 /* AppColorScheme.swift in Sources */,
+				4DF46BE0284497980082CEEA /* MultiplyByApp.swift in Sources */,
 				4D939DFB2466FE8E00039866 /* ViewExtensions.swift in Sources */,
 				4D4A6F6B244DCB1500830A71 /* PageView.swift in Sources */,
 				4D22E5392447310F009A54ED /* ContentView.swift in Sources */,
@@ -480,8 +495,8 @@
 				4DF436E62486AEAC009CBDCF /* EnterScoreView.swift in Sources */,
 				4D7EF2AB2458794E00DFF589 /* Extensions.swift in Sources */,
 				4D7EF2A024584F8E00DFF589 /* ButtonsChoice.swift in Sources */,
-				4D22E5342447310F009A54ED /* SceneDelegate.swift in Sources */,
 				4D3E81002493E2020034CF25 /* MultiplicationQuestionView.swift in Sources */,
+				4DF46C5F2844B8390082CEEA /* PersistenceController.swift in Sources */,
 				4D4A6F6D244DCFBC00830A71 /* PageControl.swift in Sources */,
 				4D22E56A244740CD009A54ED /* ButtonStyleColored.swift in Sources */,
 				4D4A6FB8244F146D00830A71 /* GameView.swift in Sources */,
@@ -522,15 +537,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4D22E53F24473110009A54ED /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D22E54024473110009A54ED /* Base */,
-				4D0C3EA624A385D7001BDA2A /* fr */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		4D939E8124682FB700039866 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -570,6 +576,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -594,12 +601,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -631,6 +640,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -649,11 +659,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -665,16 +677,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MultiplyBy/MultiplyBy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MultiplyBy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MultiplyBy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebastien.sarrazin.MultiplyBy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -688,16 +705,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MultiplyBy/MultiplyBy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MultiplyBy/Preview Content\"";
 				DEVELOPMENT_TEAM = 9N8W3RU962;
 				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MultiplyBy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sebastien.sarrazin.MultiplyBy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -712,8 +734,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N8W3RU962;
-				INFOPLIST_FILE = MultiplyByTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -734,8 +757,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N8W3RU962;
-				INFOPLIST_FILE = MultiplyByTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -755,7 +779,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N8W3RU962;
-				INFOPLIST_FILE = MultiplyByUITests/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -775,7 +800,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9N8W3RU962;
-				INFOPLIST_FILE = MultiplyByUITests/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

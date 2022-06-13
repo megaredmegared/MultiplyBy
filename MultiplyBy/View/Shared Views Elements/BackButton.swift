@@ -11,17 +11,22 @@ import SwiftUI
 /// Button to go backward in navigation between views
 struct BackButton: View {
     @Environment(\.presentationMode) var presentationMode
-    
+
     var maxWidth: CGFloat? = .infinity
-    
+
     var body: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-        }) {
+        Button {
+            presentationMode.wrappedValue.dismiss()
+        } label: {
             Text(Translation.backButtonLabel.rawValue)
                 .frame(maxWidth: .infinity)
         }
-        .buttonStyle(MainButtonStyle( foregroundColor: .lightWhite, backgroundColor: .table1, innerDarkShadow: .table1DarkShadow, innerLightShadow: .table1LightShadow))
+        .buttonStyle(MainButtonStyle(
+            foregroundColor: .lightWhite,
+            backgroundColor: .table1,
+            innerDarkShadow: .table1DarkShadow,
+            innerLightShadow: .table1LightShadow)
+        )
     }
 }
 

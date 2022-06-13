@@ -8,9 +8,7 @@
 
 import SwiftUI
 
-var appState = AppState()
-
-class AppState: ObservableObject  {
+class AppState: ObservableObject {
     @Published var isSettingsViewActive = false
 }
 
@@ -20,14 +18,14 @@ extension AppState {
         guard activity.activityType == Bundle.main.activityType,
             let isSettingsViewActive = activity.userInfo?[Key.isSettingsViewActive] as? Bool
             else { return }
-        
+
         self.isSettingsViewActive = isSettingsViewActive
     }
-    
+
     func store(in activity: NSUserActivity) {
         activity.addUserInfoEntries(from: [Key.isSettingsViewActive: isSettingsViewActive])
     }
-    
+
     private enum Key {
         static let isSettingsViewActive = "isSettingsViewActive"
     }
@@ -42,15 +40,15 @@ extension Bundle {
 struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var game: GameViewModel
-    
+
     @State private var showingAlert = false
-    
+
     private var showLanguageButton: Bool {
         return Locale.preferredLanguages.count > 1 ? true : false
     }
-    
+
     private var language: String {
-        
+
         let language = Bundle.main.preferredLocalizations.first ?? "None"
         switch language {
         case "fr":
@@ -59,7 +57,7 @@ struct SettingsView: View {
             return "English"
         }
     }
-    
+
     var body: some View {
         ZStack {
             Color.lightWhite.edgesIgnoringSafeArea(.all)
@@ -69,33 +67,38 @@ struct SettingsView: View {
                         .roundedText(size: geo.size.width * 0.08, weight: .black)
 
                     Spacer()
-                    
-                    if self.showLanguageButton {
-                        Button(action: {
+
+                    if showLanguageButton {
+                        Button {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                        }) {
-                            Text("\(self.language)")
+                        } label: {
+                            Text("\(language)")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle())
                     }
-                    
+
                     VStack(spacing: 10) {
                         Text(Translation.saveSelectedTablesInfos.rawValue).roundedText(size: 15, weight: .bold)
                             .foregroundColor(.gray)
-                        
-                        Button(action: {
-                            self.showingAlert = (try? self.game.saveChoosenTables()) != nil
-                        }) {
+
+                        Button {
+                            showingAlert = (try? game.saveChoosenTables()) != nil
+                        } label: {
                             Text(Translation.yesButtonLabel.rawValue).frame(maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle())
-                        .alert(isPresented: self.$showingAlert) { Alert(title: Text(Translation.selectedTablesSavedTitleMessage.rawValue), message: Text(Translation.selectedTablesSavedMessage.rawValue), dismissButton: .default(Text(Translation.okButtonLabel.rawValue)))
+                        .alert(isPresented: $showingAlert) {
+                            Alert(
+                                title: Text(Translation.selectedTablesSavedTitleMessage.rawValue),
+                                message: Text(Translation.selectedTablesSavedMessage.rawValue),
+                                dismissButton: .default(Text(Translation.okButtonLabel.rawValue))
+                            )
                         }
                     }
-                    
+
                     Spacer()
-                    
+
                     BackButton()
                 }
             .padding()
@@ -103,7 +106,7 @@ struct SettingsView: View {
             }
         }
         .deleteNavBar()
-        .statusBar(hidden: true) //iOS 14.0 fix
+        .statusBar(hidden: true) // iOS 14.0 fix
     }
 }
 

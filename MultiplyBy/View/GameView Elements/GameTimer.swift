@@ -9,55 +9,50 @@
 import SwiftUI
 
 struct GameTimer: View {
-    
+    @Environment(\.scenePhase) private var scenePhase
     var size: CGFloat
     @Binding var isOver: Bool
     @State var timeRemaining = 60 // seconds
     @State var isActive = true
-    @State var timer = Timer.publish (every: 1, on: .main, in: .common).autoconnect()
-    
+    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
     func instantiateTimer() {
-        self.timer = Timer.publish (every: 1, on: .main, in: .common).autoconnect()
+        timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         return
     }
-    
+
     func cancelTimer() {
-        self.timer.upstream.connect().cancel()
+        timer.upstream.connect().cancel()
         return
     }
-    
+
     var body: some View {
-        Text("\(self.timeRemaining)")
-            .roundedText(size: self.size, weight: .bold)
+        Text("\(timeRemaining)")
+            .roundedText(size: size, weight: .bold)
             .foregroundColor(.lightBlack)
             .onAppear {
-                self.instantiateTimer()
+                instantiateTimer()
         }
-        .onDisappear() {
-            self.cancelTimer()
+        .onDisappear {
+            cancelTimer()
         }
-        .onReceive(self.timer) { _ in
-            guard self.isActive else { return }
-            if self.timeRemaining > 0 {
-                self.timeRemaining -= 1
-            }
-            else if self.timeRemaining == 0 {
-                self.cancelTimer()
-                self.isActive = false
+        .onReceive(timer) { _ in
+            guard isActive else { return }
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+            } else if timeRemaining == 0 {
+                cancelTimer()
+                isActive = false
                 withAnimation {
-                    self.isOver.toggle()
-                }   
+                    isOver.toggle()
+                }
             }
         }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-            self.isActive = false
-        }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-            self.isActive = true
+        .onChange(of: scenePhase) { phase in
+            isActive = (phase == .active)
         }
     }
 }
-
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {

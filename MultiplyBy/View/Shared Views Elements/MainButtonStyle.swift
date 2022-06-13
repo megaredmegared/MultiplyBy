@@ -17,40 +17,40 @@ struct MainButtonStyle: ButtonStyle {
     var backgroundColor: Color = .lightWhite
     var innerDarkShadow: Color = .blackShadow
     var innerLightShadow: Color = .whiteShadow
-    var maxWidth: CGFloat? = nil
-    var maxHeight: CGFloat? = nil
-    
+    var maxWidth: CGFloat?
+    var maxHeight: CGFloat?
+
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .frame(maxWidth: self.maxWidth, maxHeight: self.maxHeight)
-            .roundedText(size: self.textSize, weight: .bold)
-            .foregroundColor(self.foregroundColor)
+            .frame(maxWidth: maxWidth, maxHeight: maxHeight)
+            .roundedText(size: textSize, weight: .bold)
+            .foregroundColor(foregroundColor)
             .padding(.horizontal, 15)
             .padding(.vertical, 10)
-            .background(self.backgroundColor)
-            .cornerRadius(self.cornerRadius)
+            .background(backgroundColor)
+            .cornerRadius(cornerRadius)
             .overlay(
                 GeometryReader { geo in
-                    RoundedRectangle(cornerRadius: self.cornerRadius + 2)
-                        .trim(from: self.startPoint(size: geo.size), to: self.endPoint(size: geo.size))
-                        .stroke(self.innerLightShadow, lineWidth: configuration.isPressed ? 3 : 0
+                    RoundedRectangle(cornerRadius: cornerRadius + 2)
+                        .trim(from: startPoint(size: geo.size), to: endPoint(size: geo.size))
+                        .stroke(innerLightShadow, lineWidth: configuration.isPressed ? 3 : 0
                     )
                         .rotationEffect(.init(degrees: 180))
                         .overlay(
-                            RoundedRectangle(cornerRadius: self.cornerRadius + 2)
-                                .trim(from: self.startPoint(size: geo.size), to: self.endPoint(size: geo.size))
-                                .stroke(self.innerDarkShadow, lineWidth: configuration.isPressed ? 3 : 0
+                            RoundedRectangle(cornerRadius: cornerRadius + 2)
+                                .trim(from: startPoint(size: geo.size), to: endPoint(size: geo.size))
+                                .stroke(innerDarkShadow, lineWidth: configuration.isPressed ? 3 : 0
                             )
                     )
                 }.blur(radius: 2)
         )
             .clipShape(
-                RoundedRectangle(cornerRadius: self.cornerRadius + 2)
-                
+                RoundedRectangle(cornerRadius: cornerRadius + 2)
+
         )
             .modifier(SoftShadow(isPressed: configuration.isPressed))
     }
-    
+
     func startPoint(size: CGSize) -> CGFloat {
         let width = size.width
         let height = size.height
@@ -65,9 +65,9 @@ struct MainButtonStyle: ButtonStyle {
 
 struct MainButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        Button(action: {
+        Button {
             // void
-        }) {
+        } label: {
             Text("test")
         }
         .buttonStyle(MainButtonStyle())

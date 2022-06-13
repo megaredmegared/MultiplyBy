@@ -11,35 +11,34 @@ import SwiftUI
 extension Font {
     /// Monospaced digit for proper align in learn view
     func monospacedDigitFont() -> Font {
-        self.monospacedDigit()
+        monospacedDigit()
     }
 }
 
 extension View {
     /// default rounded style for the text of the app
     func roundedText(style: Font.TextStyle) -> some View {
-        self.font(.system(style, design: .rounded))
+        font(.system(style, design: .rounded))
     }
-    
+
     /// default rounded style for the text of the app
     func roundedText(size: CGFloat = 20, weight: Font.Weight = .bold) -> some View {
-        self.font(.system(size: size, weight: weight, design: .rounded))
+        font(.system(size: size, weight: weight, design: .rounded))
     }
-    
+
     /// Conditional use of modifier
     @ViewBuilder
     func `if`<Content: View>(_ condition: Bool, content: (Self) -> Content) -> some View {
         if condition {
             content(self)
-        }
-        else {
+        } else {
             self
         }
     }
-    
+
     /// delete navBar
     func deleteNavBar() -> some View {
-        self.modifier(DeleteNavBar())
+        modifier(DeleteNavBar())
     }
 }
 
@@ -53,7 +52,7 @@ struct DeleteNavBar: ViewModifier {
 }
 
 /// Size of the screen
-extension UIScreen{
+extension UIScreen {
    static let screenWidth = UIScreen.main.bounds.size.width
    static let screenHeight = UIScreen.main.bounds.size.height
    static let screenSize = UIScreen.main.bounds.size
